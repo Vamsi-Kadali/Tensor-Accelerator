@@ -1,0 +1,8 @@
+Time resolution is 1 ps
+SIMD Results:
+Lane 0 result = 10
+Lane 1 result = 20
+Lane 2 result = 32
+Lane 3 result = 20
+✅ SIMD ARRAY TEST PASSED
+$finish called at time : 85 ns : File "C:/Users/kpcha/Desktop/College/DSD/Ver1/Ver1.srcs/sim_1/new/tb.v" Line 116
