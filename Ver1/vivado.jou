@@ -23,3 +23,41 @@
 #-----------------------------------------------------------
 start_gui
 open_project C:/Users/kpcha/Desktop/College/DSD/Ver1/Ver1.xpr
+update_compile_order -fileset sources_1
+open_project C:/Users/kpcha/Desktop/College/Backup/Ver1/Ver1.xpr
+update_compile_order -fileset sources_1
+close_project
+launch_simulation
+launch_simulation
+source tb.tcl
+close_sim
+launch_simulation
+launch_simulation
+launch_simulation
+launch_simulation
+launch_simulation
+source tb.tcl
+close_sim
+launch_simulation
+source tb.tcl
+relaunch_sim
+relaunch_sim
+close_sim
+launch_simulation
+source tb.tcl
+relaunch_sim
+relaunch_sim
+relaunch_sim
+relaunch_sim
+close_sim
+launch_simulation
+source tb.tcl
+relaunch_sim
+close_sim
+launch_simulation
+source tb.tcl
+relaunch_sim
+relaunch_sim
+relaunch_sim
+relaunch_sim
+close_sim
