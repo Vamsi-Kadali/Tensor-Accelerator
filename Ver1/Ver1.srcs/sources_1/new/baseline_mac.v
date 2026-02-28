@@ -20,17 +20,22 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module baseline_mac #( parameter WIDTH = 16, parameter ACC = 32, parameter N = 4)(
+module baseline_mac #( parameter WIDTH = 16, parameter ACC = 32, parameter N_MAX = 4)(
     input clk,
     input rst,
+    input clear,
     input en,
-    input signed [WIDTH-1:0] a [0:N-1],
-    input signed [WIDTH-1:0] b [0:N-1],
+    
+    input [$clog2(N_MAX+1)-1:0] vec_len,
+    
+    input signed [WIDTH-1:0] a [0:N_MAX-1],
+    input signed [WIDTH-1:0] b [0:N_MAX-1],
+    
     output reg signed [ACC-1:0] res,
     output reg done
     );
     
-    localparam ID_W = (N <= 1) ? 1 : $clog2(N);
+    localparam ID_W = (N_MAX <= 1) ? 1 : $clog2(N_MAX);
     
     reg [ID_W-1:0] id;
     reg signed [ACC-1:0] acc_reg;
@@ -39,16 +44,16 @@ module baseline_mac #( parameter WIDTH = 16, parameter ACC = 32, parameter N = 4
     mac #(WIDTH, ACC) m1 (a[id], b[id], acc_reg, acc_next);
     
     always @(posedge clk) begin
-        if (rst) begin
-            id <= 0;
-            acc_reg <= 0;
-            res <= 0;
-            done <= 0;
+        if (rst || clear) begin
+            id <= 1'b0;
+            acc_reg <= 1'b0;
+            res <= 1'b0;
+            done <= 1'b0;
         end
-        else if (en) begin
+        else if (en && !done) begin
             acc_reg <= acc_next;
 
-            if (id == N-1) begin
+            if (id == vec_len-1) begin
                 res <= acc_next;
                 done <= 1'b1;
                 id <= 0;
@@ -56,11 +61,12 @@ module baseline_mac #( parameter WIDTH = 16, parameter ACC = 32, parameter N = 4
             
             else begin
                 id <= id + 1;
-                done <= 1'b0;
             end
         end
     end
 
 endmodule
+
+
 
 

@@ -1,3 +1,5 @@
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/kpcha/Desktop/College/DSD/Ver1/Ver1.srcs/sources_1/new/accel_fsm.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module accel_fsm
 INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/kpcha/Desktop/College/DSD/Ver1/Ver1.srcs/sources_1/new/baseline_mac.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module baseline_mac
 INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/kpcha/Desktop/College/DSD/Ver1/Ver1.srcs/sources_1/new/mac.v" into library xil_defaultlib

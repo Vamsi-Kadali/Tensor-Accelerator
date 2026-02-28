@@ -3,9 +3,9 @@
 // Company: 
 // Engineer: 
 // 
-// Create Date: 23.02.2026 20:09:16
+// Create Date: 28.02.2026 00:26:26
 // Design Name: 
-// Module Name: mac
+// Module Name: accel_ctrl
 // Project Name: 
 // Target Devices: 
 // Tool Versions: 
@@ -20,14 +20,19 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module mac #( parameter WIDTH = 16, parameter ACC = 32 )(
-    input signed [WIDTH-1:0] a,
-    input signed [WIDTH-1:0] b,
-    input signed [ACC-1:0] acc_in,
-    
-    output signed [ACC-1:0] acc_out
+module accel_ctrl #( parameter N_W = 8 )(
+    input clk,
+    input rst,
+    input cmd_valid,
+    input [1:0]cmd_op,
+    input [N_W-1:0] cmd_N,
+    input fsm_done,
+    output reg fsm_start,
+    output reg [1:0]  fsm_op,
+    output reg [N_W-1:0] fsm_N,
+    output reg busy,
+    output reg done
     );
-
-    assign acc_out = acc_in + (a * b);
+    
     
 endmodule

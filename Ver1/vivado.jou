@@ -1,0 +1,25 @@
+#-----------------------------------------------------------
+# Vivado v2025.1 (64-bit)
+# SW Build 6140274 on Thu May 22 00:12:29 MDT 2025
+# IP Build 6138677 on Thu May 22 03:10:11 MDT 2025
+# SharedData Build 6139179 on Tue May 20 17:58:58 MDT 2025
+# Start of session at: Sat Feb 28 10:51:15 2026
+# Process ID         : 27764
+# Current directory  : C:/Users/kpcha/Desktop/College/DSD/Ver1
+# Command line       : vivado.exe -gui_launcher_event rodinguilauncherevent20152 C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.xpr
+# Log file           : C:/Users/kpcha/Desktop/College/DSD/Ver1/vivado.log
+# Journal file       : C:/Users/kpcha/Desktop/College/DSD/Ver1\vivado.jou
+# Running On         : CherryVamsi
+# Platform           : Windows Server 2016 or Windows 10
+# Operating System   : 26200
+# Processor Detail   : 13th Gen Intel(R) Core(TM) i5-1334U
+# CPU Frequency      : 2496 MHz
+# CPU Physical cores : 10
+# CPU Logical cores  : 12
+# Host memory        : 16849 MB
+# Swap memory        : 5368 MB
+# Total Virtual      : 22217 MB
+# Available Virtual  : 9645 MB
+#-----------------------------------------------------------
+start_gui
+open_project C:/Users/kpcha/Desktop/College/DSD/Ver1/Ver1.xpr

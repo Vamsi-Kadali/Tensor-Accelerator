@@ -9,9 +9,10 @@ Completed static elaboration
 Starting simulation data flow analysis
 Completed simulation data flow analysis
 Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.accel_fsm(N_W=3)
 Compiling module xil_defaultlib.mac
 Compiling module xil_defaultlib.baseline_mac_default
-Compiling module xil_defaultlib.simd_array_default
+Compiling module xil_defaultlib.simd_array(LANES=2)
 Compiling module xil_defaultlib.tb
 Compiling module xil_defaultlib.glbl
 Built simulation snapshot tb_behav
