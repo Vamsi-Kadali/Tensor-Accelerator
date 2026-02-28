@@ -25,7 +25,7 @@ module tb;
     // Parameters
     localparam WIDTH = 16;
     localparam ACC   = 32;
-    localparam N_MAX = 4;     // max vector length for baseline_mac
+    localparam N_MAX = 4;     
     localparam LANES = 2;
 
     // Clock & reset
@@ -79,7 +79,7 @@ module tb;
     ) simd (
         .clk(clk),
         .rst(rst),
-        .clear(clear),
+        .clear(clear),       
         .en(en),
         .vec_len(vec_len),
         .a(a),
@@ -95,7 +95,7 @@ module tb;
         // Initialize
         rst = 1;
         start = 0;
-        op = 2'b10;       // placeholder opcode
+        op = 2'b10;       
         vec_len = N_MAX;
 
         // Fill initial input vectors
@@ -109,23 +109,32 @@ module tb;
         #20;
         rst = 0;
 
-        // Start accelerator and hold start high
+        // Start accelerator
         start = 1;
         run_count = 0;
 
-        // Wait for done, then update inputs automatically
         forever begin
-            @(posedge done);  // wait for 1-cycle done pulse
-            run_count = run_count + 1;
-
-            // Update input vectors for next run
+            // Wait for clear pulse
+            @(negedge clear);
+            
+            // Immediately update inputs AFTER clear pulse
             for (i = 0; i < LANES; i = i + 1)
                 for (j = 0; j < N_MAX; j = j + 1) begin
-                    a[i][j] = a[i][j] + 1; // increment each element
-                    b[i][j] = b[i][j] + 2; // increment differently
+                    a[i][j] = a[i][j] + 1; // arbitrary new values
+                    b[i][j] = b[i][j] + 2;  
                 end
 
-            // Stop after 3 runs for simulation
+            // Wait for done pulse
+            @(posedge done);
+
+            // Display results of this run
+            $display("Run %0d results:", run_count+1);
+            for (i = 0; i < LANES; i = i + 1)
+                $display("Lane %0d: %0d", i, res[i]);
+
+            run_count = run_count + 1;
+
+            // Stop after 3 runs
             if (run_count == 3) begin
                 start = 0;
                 #200;

@@ -41,10 +41,16 @@ module baseline_mac #( parameter WIDTH = 16, parameter ACC = 32, parameter N_MAX
     reg signed [ACC-1:0] acc_reg;
     reg signed [ACC-1:0] acc_next;
     
-    mac #(WIDTH, ACC) m1 (a[id], b[id], acc_reg, acc_next);
+    reg signed [WIDTH-1:0] a_reg [0:N_MAX-1];
+    reg signed [WIDTH-1:0] b_reg [0:N_MAX-1];
+    
+    mac #(WIDTH, ACC) m1 (a_reg[id], b_reg[id], acc_reg, acc_next);
     
     always @(posedge clk) begin
         if (rst || clear) begin
+            
+            a_reg <= a;
+            b_reg <= b;
             id <= 1'b0;
             acc_reg <= 1'b0;
             res <= 1'b0;
