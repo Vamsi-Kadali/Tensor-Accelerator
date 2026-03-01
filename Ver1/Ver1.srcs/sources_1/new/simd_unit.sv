@@ -25,18 +25,17 @@ module simd_unit #( parameter WIDTH = 16, parameter ACC = 32, parameter N_MAX = 
     input rst,
 
     input start,
-    input [1:0] op,
     input [$clog2(N_MAX+1)-1:0] vec_len,
 
     input signed [WIDTH-1:0] a [0:LANES-1][0:N_MAX-1],
     input signed [WIDTH-1:0] b [0:LANES-1][0:N_MAX-1],
 
     output signed [ACC-1:0] res [0:LANES-1],
+    output busy,
     output done
 );
 
     wire en;
-    wire clear;
     wire load;
     wire simd_done;
 
@@ -44,11 +43,10 @@ module simd_unit #( parameter WIDTH = 16, parameter ACC = 32, parameter N_MAX = 
         .clk(clk),
         .rst(rst),
         .start(start),
-        .op(op),
         .datapath_done(simd_done),
         .en(en),
-        .clear(clear),
         .load(load),
+        .busy(busy),
         .done(done)
     );
 
@@ -60,7 +58,6 @@ module simd_unit #( parameter WIDTH = 16, parameter ACC = 32, parameter N_MAX = 
     ) simd (
         .clk(clk),
         .rst(rst),
-        .clear(clear),
         .load(load),
         .en(en),
         .vec_len(vec_len),

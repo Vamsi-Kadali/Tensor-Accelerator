@@ -39,6 +39,7 @@ module tb;
     reg signed [WIDTH-1:0] b [0:LANES-1][0:N_MAX-1];
 
     wire signed [ACC-1:0] res [0:LANES-1];
+    wire busy;
     wire done;
 
     integer i, j;
@@ -58,11 +59,11 @@ module tb;
         .clk(clk),
         .rst(rst),
         .start(start),
-        .op(op),
         .vec_len(vec_len),
         .a(a),
         .b(b),
         .res(res),
+        .busy(busy),
         .done(done)
     );
 

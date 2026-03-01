@@ -24,21 +24,20 @@ module accel_fsm (
     input clk,
     input rst,
     input start,
-    input [1:0] op,
     input datapath_done,
 
     output reg en,
     output reg clear,
     output reg load,
+    output reg busy,
     output reg done
 );
 
-    typedef enum logic [2:0] {
-        IDLE  = 3'b000,
-        INIT = 3'b001,
-        LOAD  = 3'b010,
-        RUN   = 3'b011,
-        DONE  = 3'b100
+    typedef enum logic [1:0] {
+        IDLE = 2'b00,
+        INIT = 2'b01,
+        RUN = 2'b10,
+        DONE = 2'b11
     } state_t;
 
     state_t state, next_state;
@@ -51,37 +50,37 @@ module accel_fsm (
     end
 
     always @(*) begin
-        en    = 0;
-        clear = 0;
-        load = 0;
-        done  = 0;
+        en = 1'b0;
+        clear = 1'b0;
+        load = 1'b0;
+        busy = 1'b0;
+        done = 1'b0;
         next_state = state;
 
         case (state)
-            IDLE: begin
+            IDLE: begin //MAYBE ADD CLEAR HERE IN FUTURE
+                busy = 1'b0;
                 if (start)
                     next_state = INIT;
             end
 
             INIT: begin
-                clear = 1;
-                next_state = LOAD;
-            end
-            
-            LOAD: begin
-                load = 1;
+                busy = 1'b1;
+                load = 1'b1;
                 next_state = RUN;
             end
             
             RUN: begin
-                en = 1;
+                en = 1'b1;
                 done = datapath_done;
+                busy = 1'b1;
                 if (datapath_done)
                     next_state = DONE;
             end
 
             DONE: begin
-                done = 0;
+                busy = 1'b1;
+                done = 1'b0;
                 if (start)
                     next_state = INIT;
                 if (!start)

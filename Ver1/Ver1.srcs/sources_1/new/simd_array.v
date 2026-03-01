@@ -23,7 +23,6 @@
 module simd_array #( parameter WIDTH = 16, parameter ACC = 32, parameter N_MAX = 4, parameter LANES = 4)(
     input clk,
     input rst,
-    input clear,
     input load,
     input en,
     
@@ -41,7 +40,7 @@ module simd_array #( parameter WIDTH = 16, parameter ACC = 32, parameter N_MAX =
     genvar i;
     generate
         for (i = 0; i < LANES; i = i + 1) begin : SIMD_LANES
-            baseline_mac #( WIDTH, ACC, N_MAX ) lane ( clk, rst, clear, load, en, vec_len, a[i], b[i], res[i], lane_done[i] );
+            baseline_mac #( WIDTH, ACC, N_MAX ) lane ( clk, rst, load, en, vec_len, a[i], b[i], res[i], lane_done[i] );
         end
     endgenerate
 
