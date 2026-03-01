@@ -20,24 +20,25 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module accel_fsm #( parameter N_W = 8 )(
-    input  wire clk,
-    input  wire rst,
-    input  wire start,
-    input  wire [1:0] op,
-    input  wire [N_W-1:0] N,
-    input  wire datapath_done,
+module accel_fsm (
+    input clk,
+    input rst,
+    input start,
+    input [1:0] op,
+    input datapath_done,
 
-    output reg  en,
-    output reg  clear,
-    output reg  done
+    output reg en,
+    output reg clear,
+    output reg load,
+    output reg done
 );
 
-    typedef enum logic [1:0] {
-        IDLE = 2'b00,
-        INIT = 2'b01,
-        RUN  = 2'b10,
-        DONE = 2'b11
+    typedef enum logic [2:0] {
+        IDLE  = 3'b000,
+        INIT = 3'b001,
+        LOAD  = 3'b010,
+        RUN   = 3'b011,
+        DONE  = 3'b100
     } state_t;
 
     state_t state, next_state;
@@ -52,6 +53,7 @@ module accel_fsm #( parameter N_W = 8 )(
     always @(*) begin
         en    = 0;
         clear = 0;
+        load = 0;
         done  = 0;
         next_state = state;
 
@@ -63,9 +65,14 @@ module accel_fsm #( parameter N_W = 8 )(
 
             INIT: begin
                 clear = 1;
+                next_state = LOAD;
+            end
+            
+            LOAD: begin
+                load = 1;
                 next_state = RUN;
             end
-
+            
             RUN: begin
                 en = 1;
                 done = datapath_done;

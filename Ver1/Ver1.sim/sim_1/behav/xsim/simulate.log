@@ -1,11 +1,2 @@
 Time resolution is 1 ps
-Run 1 results:
-Lane 0: 10
-Lane 1: 10
-Run 2 results:
-Lane 0: 42
-Lane 1: 42
-Run 3 results:
-Lane 0: 90
-Lane 1: 90
-$finish called at time : 415 ns : File "C:/Users/kpcha/Desktop/College/DSD/Ver1/Ver1.srcs/sim_1/new/tb.v" Line 141
+$finish called at time : 915 ns : File "C:/Users/kpcha/Desktop/College/DSD/Ver1/Ver1.srcs/sim_1/new/tb.v" Line 107

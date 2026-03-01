@@ -1605,3 +1605,705 @@ $finish called at time : 415 ns : File "C:/Users/kpcha/Desktop/College/DSD/Ver1/
 relaunch_sim: Time (s): cpu = 00:00:00 ; elapsed = 00:00:07 . Memory (MB): peak = 3355.520 ; gain = 0.000
 close_sim
 INFO: [Simtcl 6-16] Simulation closed
+launch_simulation
+Command: launch_simulation 
+INFO: [Vivado 12-12493] Simulation top is 'tb'
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'C:/Users/kpcha/Desktop/College/DSD/Ver1/Ver1.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-72] Using boost library from 'C:/Xilinx/2025.1/Vivado/tps/boost_1_72_0'
+INFO: [SIM-utils-54] Inspecting design source files for 'tb' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'C:/Users/kpcha/Desktop/College/DSD/Ver1/Ver1.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -L uvm -prj tb_vlog.prj"
+INFO: [USF-XSim-69] 'compile' step finished in '3' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'C:/Users/kpcha/Desktop/College/DSD/Ver1/Ver1.sim/sim_1/behav/xsim'
+"xelab --incr --debug typical --relax --mt 2 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip --snapshot tb_behav xil_defaultlib.tb xil_defaultlib.glbl -log elaborate.log"
+Vivado Simulator v2025.1.0
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: C:/Xilinx/2025.1/Vivado/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip --snapshot tb_behav xil_defaultlib.tb xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+INFO: [XSIM 43-4323] No Change in HDL. Linking previously generated obj files to create kernel
+INFO: [USF-XSim-69] 'elaborate' step finished in '1' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'C:/Users/kpcha/Desktop/College/DSD/Ver1/Ver1.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "tb_behav -key {Behavioral:sim_1:Functional:tb} -tclbatch {tb.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Time resolution is 1 ps
+source tb.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+$finish called at time : 415 ns : File "C:/Users/kpcha/Desktop/College/DSD/Ver1/Ver1.srcs/sim_1/new/tb.v" Line 132
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'tb_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+launch_simulation: Time (s): cpu = 00:00:03 ; elapsed = 00:00:08 . Memory (MB): peak = 3355.887 ; gain = 0.168
+relaunch_sim
+Command: launch_simulation -step compile -simset sim_1 -mode behavioral
+INFO: [Vivado 12-12493] Simulation top is 'tb'
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'C:/Users/kpcha/Desktop/College/DSD/Ver1/Ver1.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'C:/Users/kpcha/Desktop/College/DSD/Ver1/Ver1.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -L uvm -prj tb_vlog.prj"
+INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
+Command: launch_simulation -step elaborate -simset sim_1 -mode behavioral
+INFO: [Vivado 12-12493] Simulation top is 'tb'
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'C:/Users/kpcha/Desktop/College/DSD/Ver1/Ver1.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'C:/Users/kpcha/Desktop/College/DSD/Ver1/Ver1.sim/sim_1/behav/xsim'
+"xelab --incr --debug typical --relax --mt 2 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip --snapshot tb_behav xil_defaultlib.tb xil_defaultlib.glbl -log elaborate.log"
+Vivado Simulator v2025.1.0
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: C:/Xilinx/2025.1/Vivado/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip --snapshot tb_behav xil_defaultlib.tb xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+INFO: [XSIM 43-4323] No Change in HDL. Linking previously generated obj files to create kernel
+INFO: [USF-XSim-69] 'elaborate' step finished in '2' seconds
+Time resolution is 1 ps
+$finish called at time : 415 ns : File "C:/Users/kpcha/Desktop/College/DSD/Ver1/Ver1.srcs/sim_1/new/tb.v" Line 132
+relaunch_sim: Time (s): cpu = 00:00:00 ; elapsed = 00:00:07 . Memory (MB): peak = 3355.887 ; gain = 0.000
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sources_1\new\baseline_mac.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sim_1\new\tb.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sources_1\new\baseline_mac.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sources_1\new\baseline_mac.v:]
+ERROR: [Common 17-180] Spawn failed: The operation completed successfully.
+
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sources_1\new\baseline_mac.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sim_1\new\tb.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sources_1\new\baseline_mac.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sources_1\new\baseline_mac.v:]
+ERROR: [Common 17-180] Spawn failed: The operation completed successfully.
+
+launch_simulation
+Command: launch_simulation 
+INFO: [Vivado 12-12493] Simulation top is 'tb'
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'C:/Users/kpcha/Desktop/College/DSD/Ver1/Ver1.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-72] Using boost library from 'C:/Xilinx/2025.1/Vivado/tps/boost_1_72_0'
+INFO: [SIM-utils-54] Inspecting design source files for 'tb' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'C:/Users/kpcha/Desktop/College/DSD/Ver1/Ver1.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -L uvm -prj tb_vlog.prj"
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/kpcha/Desktop/College/DSD/Ver1/Ver1.srcs/sources_1/new/accel_fsm.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module accel_fsm
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/kpcha/Desktop/College/DSD/Ver1/Ver1.srcs/sources_1/new/baseline_mac.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module baseline_mac
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/kpcha/Desktop/College/DSD/Ver1/Ver1.srcs/sources_1/new/mac.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module mac
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/kpcha/Desktop/College/DSD/Ver1/Ver1.srcs/sources_1/new/simd_array.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module simd_array
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/kpcha/Desktop/College/DSD/Ver1/Ver1.srcs/sim_1/new/tb.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module tb
+INFO: [USF-XSim-69] 'compile' step finished in '3' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'C:/Users/kpcha/Desktop/College/DSD/Ver1/Ver1.sim/sim_1/behav/xsim'
+"xelab --incr --debug typical --relax --mt 2 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip --snapshot tb_behav xil_defaultlib.tb xil_defaultlib.glbl -log elaborate.log"
+Vivado Simulator v2025.1.0
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: C:/Xilinx/2025.1/Vivado/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip --snapshot tb_behav xil_defaultlib.tb xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.accel_fsm(N_W=3)
+Compiling module xil_defaultlib.mac
+Compiling module xil_defaultlib.baseline_mac_default
+Compiling module xil_defaultlib.simd_array(LANES=2)
+Compiling module xil_defaultlib.tb
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot tb_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '2' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'C:/Users/kpcha/Desktop/College/DSD/Ver1/Ver1.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "tb_behav -key {Behavioral:sim_1:Functional:tb} -tclbatch {tb.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Time resolution is 1 ps
+source tb.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+$finish called at time : 415 ns : File "C:/Users/kpcha/Desktop/College/DSD/Ver1/Ver1.srcs/sim_1/new/tb.v" Line 132
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'tb_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+launch_simulation: Time (s): cpu = 00:00:02 ; elapsed = 00:00:08 . Memory (MB): peak = 3355.887 ; gain = 0.000
+relaunch_sim
+Command: launch_simulation -step compile -simset sim_1 -mode behavioral
+INFO: [Vivado 12-12493] Simulation top is 'tb'
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'C:/Users/kpcha/Desktop/College/DSD/Ver1/Ver1.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'C:/Users/kpcha/Desktop/College/DSD/Ver1/Ver1.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -L uvm -prj tb_vlog.prj"
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/kpcha/Desktop/College/DSD/Ver1/Ver1.srcs/sources_1/new/accel_fsm.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module accel_fsm
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/kpcha/Desktop/College/DSD/Ver1/Ver1.srcs/sources_1/new/baseline_mac.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module baseline_mac
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/kpcha/Desktop/College/DSD/Ver1/Ver1.srcs/sources_1/new/mac.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module mac
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/kpcha/Desktop/College/DSD/Ver1/Ver1.srcs/sources_1/new/simd_array.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module simd_array
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/kpcha/Desktop/College/DSD/Ver1/Ver1.srcs/sim_1/new/tb.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module tb
+INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
+Command: launch_simulation -step elaborate -simset sim_1 -mode behavioral
+INFO: [Vivado 12-12493] Simulation top is 'tb'
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'C:/Users/kpcha/Desktop/College/DSD/Ver1/Ver1.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'C:/Users/kpcha/Desktop/College/DSD/Ver1/Ver1.sim/sim_1/behav/xsim'
+"xelab --incr --debug typical --relax --mt 2 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip --snapshot tb_behav xil_defaultlib.tb xil_defaultlib.glbl -log elaborate.log"
+Vivado Simulator v2025.1.0
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: C:/Xilinx/2025.1/Vivado/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip --snapshot tb_behav xil_defaultlib.tb xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.accel_fsm(N_W=3)
+Compiling module xil_defaultlib.mac
+Compiling module xil_defaultlib.baseline_mac_default
+Compiling module xil_defaultlib.simd_array(LANES=2)
+Compiling module xil_defaultlib.tb
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot tb_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '1' seconds
+Time resolution is 1 ps
+Run 1 results:
+Lane 0: 10
+Lane 1: 10
+Run 2 results:
+Lane 0: 42
+Lane 1: 42
+Run 3 results:
+Lane 0: 90
+Lane 1: 90
+$finish called at time : 415 ns : File "C:/Users/kpcha/Desktop/College/DSD/Ver1/Ver1.srcs/sim_1/new/tb.v" Line 138
+relaunch_sim: Time (s): cpu = 00:00:01 ; elapsed = 00:00:06 . Memory (MB): peak = 3355.887 ; gain = 0.000
+relaunch_sim
+Command: launch_simulation -step compile -simset sim_1 -mode behavioral
+INFO: [Vivado 12-12493] Simulation top is 'tb'
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'C:/Users/kpcha/Desktop/College/DSD/Ver1/Ver1.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'C:/Users/kpcha/Desktop/College/DSD/Ver1/Ver1.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -L uvm -prj tb_vlog.prj"
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/kpcha/Desktop/College/DSD/Ver1/Ver1.srcs/sources_1/new/accel_fsm.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module accel_fsm
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/kpcha/Desktop/College/DSD/Ver1/Ver1.srcs/sources_1/new/baseline_mac.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module baseline_mac
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/kpcha/Desktop/College/DSD/Ver1/Ver1.srcs/sources_1/new/mac.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module mac
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/kpcha/Desktop/College/DSD/Ver1/Ver1.srcs/sources_1/new/simd_array.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module simd_array
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/kpcha/Desktop/College/DSD/Ver1/Ver1.srcs/sim_1/new/tb.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module tb
+INFO: [USF-XSim-69] 'compile' step finished in '1' seconds
+Command: launch_simulation -step elaborate -simset sim_1 -mode behavioral
+INFO: [Vivado 12-12493] Simulation top is 'tb'
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'C:/Users/kpcha/Desktop/College/DSD/Ver1/Ver1.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'C:/Users/kpcha/Desktop/College/DSD/Ver1/Ver1.sim/sim_1/behav/xsim'
+"xelab --incr --debug typical --relax --mt 2 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip --snapshot tb_behav xil_defaultlib.tb xil_defaultlib.glbl -log elaborate.log"
+Vivado Simulator v2025.1.0
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: C:/Xilinx/2025.1/Vivado/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip --snapshot tb_behav xil_defaultlib.tb xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.accel_fsm(N_W=3)
+Compiling module xil_defaultlib.mac
+Compiling module xil_defaultlib.baseline_mac_default
+Compiling module xil_defaultlib.simd_array(LANES=2)
+Compiling module xil_defaultlib.tb
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot tb_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '2' seconds
+Time resolution is 1 ps
+Run 1 results:
+Lane 0: 300
+Lane 1: 300
+Run 2 results:
+Lane 0: 990
+Lane 1: 990
+Run 3 results:
+Lane 0: 2080
+Lane 1: 2080
+$finish called at time : 415 ns : File "C:/Users/kpcha/Desktop/College/DSD/Ver1/Ver1.srcs/sim_1/new/tb.v" Line 141
+relaunch_sim: Time (s): cpu = 00:00:01 ; elapsed = 00:00:06 . Memory (MB): peak = 3356.316 ; gain = 0.000
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sources_1\new\baseline_mac.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sim_1\new\tb.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sources_1\new\simd_array.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sources_1\new\baseline_mac.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sources_1\new\baseline_mac.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sources_1\new\baseline_mac.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sim_1\new\tb.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sources_1\new\simd_array.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sim_1\new\tb.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sim_1\new\tb.v:]
+relaunch_sim
+Command: launch_simulation -step compile -simset sim_1 -mode behavioral
+INFO: [Vivado 12-12493] Simulation top is 'tb'
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'C:/Users/kpcha/Desktop/College/DSD/Ver1/Ver1.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'C:/Users/kpcha/Desktop/College/DSD/Ver1/Ver1.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -L uvm -prj tb_vlog.prj"
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/kpcha/Desktop/College/DSD/Ver1/Ver1.srcs/sources_1/new/accel_fsm.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module accel_fsm
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/kpcha/Desktop/College/DSD/Ver1/Ver1.srcs/sources_1/new/baseline_mac.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module baseline_mac
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/kpcha/Desktop/College/DSD/Ver1/Ver1.srcs/sources_1/new/mac.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module mac
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/kpcha/Desktop/College/DSD/Ver1/Ver1.srcs/sources_1/new/simd_array.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module simd_array
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/kpcha/Desktop/College/DSD/Ver1/Ver1.srcs/sim_1/new/tb.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module tb
+INFO: [USF-XSim-69] 'compile' step finished in '1' seconds
+Command: launch_simulation -step elaborate -simset sim_1 -mode behavioral
+INFO: [Vivado 12-12493] Simulation top is 'tb'
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'C:/Users/kpcha/Desktop/College/DSD/Ver1/Ver1.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'C:/Users/kpcha/Desktop/College/DSD/Ver1/Ver1.sim/sim_1/behav/xsim'
+"xelab --incr --debug typical --relax --mt 2 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip --snapshot tb_behav xil_defaultlib.tb xil_defaultlib.glbl -log elaborate.log"
+Vivado Simulator v2025.1.0
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: C:/Xilinx/2025.1/Vivado/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip --snapshot tb_behav xil_defaultlib.tb xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.accel_fsm(N_W=3)
+Compiling module xil_defaultlib.mac
+Compiling module xil_defaultlib.baseline_mac_default
+Compiling module xil_defaultlib.simd_array(LANES=2)
+Compiling module xil_defaultlib.tb
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot tb_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '2' seconds
+Time resolution is 1 ps
+Run 1 results:
+Lane 0: 42
+Lane 1: 42
+Run 2 results:
+Lane 0: 90
+Lane 1: 90
+Run 3 results:
+Lane 0: 154
+Lane 1: 154
+$finish called at time : 415 ns : File "C:/Users/kpcha/Desktop/College/DSD/Ver1/Ver1.srcs/sim_1/new/tb.v" Line 141
+relaunch_sim: Time (s): cpu = 00:00:01 ; elapsed = 00:00:06 . Memory (MB): peak = 3356.316 ; gain = 0.000
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sources_1\new\baseline_mac.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sim_1\new\tb.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sources_1\new\simd_array.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sources_1\new\baseline_mac.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sources_1\new\baseline_mac.v:]
+relaunch_sim
+Command: launch_simulation -step compile -simset sim_1 -mode behavioral
+INFO: [Vivado 12-12493] Simulation top is 'tb'
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'C:/Users/kpcha/Desktop/College/DSD/Ver1/Ver1.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'C:/Users/kpcha/Desktop/College/DSD/Ver1/Ver1.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -L uvm -prj tb_vlog.prj"
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/kpcha/Desktop/College/DSD/Ver1/Ver1.srcs/sources_1/new/accel_fsm.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module accel_fsm
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/kpcha/Desktop/College/DSD/Ver1/Ver1.srcs/sources_1/new/baseline_mac.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module baseline_mac
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/kpcha/Desktop/College/DSD/Ver1/Ver1.srcs/sources_1/new/mac.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module mac
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/kpcha/Desktop/College/DSD/Ver1/Ver1.srcs/sources_1/new/simd_array.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module simd_array
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/kpcha/Desktop/College/DSD/Ver1/Ver1.srcs/sim_1/new/tb.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module tb
+run_program: Time (s): cpu = 00:00:01 ; elapsed = 00:00:05 . Memory (MB): peak = 3356.316 ; gain = 0.000
+INFO: [USF-XSim-69] 'compile' step finished in '6' seconds
+launch_simulation: Time (s): cpu = 00:00:01 ; elapsed = 00:00:05 . Memory (MB): peak = 3356.316 ; gain = 0.000
+Command: launch_simulation -step elaborate -simset sim_1 -mode behavioral
+INFO: [Vivado 12-12493] Simulation top is 'tb'
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'C:/Users/kpcha/Desktop/College/DSD/Ver1/Ver1.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'C:/Users/kpcha/Desktop/College/DSD/Ver1/Ver1.sim/sim_1/behav/xsim'
+"xelab --incr --debug typical --relax --mt 2 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip --snapshot tb_behav xil_defaultlib.tb xil_defaultlib.glbl -log elaborate.log"
+Vivado Simulator v2025.1.0
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: C:/Xilinx/2025.1/Vivado/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip --snapshot tb_behav xil_defaultlib.tb xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.accel_fsm(N_W=3)
+Compiling module xil_defaultlib.mac
+Compiling module xil_defaultlib.baseline_mac_default
+Compiling module xil_defaultlib.simd_array(LANES=2)
+Compiling module xil_defaultlib.tb
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot tb_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '2' seconds
+Time resolution is 1 ps
+Run 1 results:
+Lane 0: 10
+Lane 1: 10
+Run 2 results:
+Lane 0: 42
+Lane 1: 42
+Run 3 results:
+Lane 0: 90
+Lane 1: 90
+$finish called at time : 415 ns : File "C:/Users/kpcha/Desktop/College/DSD/Ver1/Ver1.srcs/sim_1/new/tb.v" Line 141
+relaunch_sim: Time (s): cpu = 00:00:04 ; elapsed = 00:00:13 . Memory (MB): peak = 3356.316 ; gain = 0.000
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+launch_runs impl_1 -jobs 12
+[Sat Feb 28 13:37:45 2026] Launched synth_1...
+Run output will be captured here: C:/Users/kpcha/Desktop/College/DSD/Ver1/Ver1.runs/synth_1/runme.log
+[Sat Feb 28 13:37:45 2026] Launched impl_1...
+Run output will be captured here: C:/Users/kpcha/Desktop/College/DSD/Ver1/Ver1.runs/impl_1/runme.log
+reset_run impl_1
+launch_runs impl_1 -jobs 12
+[Sat Feb 28 13:41:15 2026] Launched impl_1...
+Run output will be captured here: C:/Users/kpcha/Desktop/College/DSD/Ver1/Ver1.runs/impl_1/runme.log
+close [ open C:/Users/kpcha/Desktop/College/DSD/Ver1/Ver1.srcs/sources_1/new/test.sv w ]
+add_files C:/Users/kpcha/Desktop/College/DSD/Ver1/Ver1.srcs/sources_1/new/test.sv
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sources_1\new\accel_ctrl.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sources_1\new\mac.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sources_1\new\baseline_mac.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sim_1\new\tb.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sources_1\new\simd_array.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sources_1\new\accel_fsm.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sources_1\new\accel_ctrl.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sources_1\new\accel_ctrl.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sources_1\new\accel_ctrl.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sources_1\new\mac.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sources_1\new\baseline_mac.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sim_1\new\tb.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sources_1\new\simd_array.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sources_1\new\accel_fsm.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sources_1\new\accel_fsm.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sources_1\new\accel_fsm.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sources_1\new\accel_ctrl.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sources_1\new\mac.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sources_1\new\baseline_mac.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sim_1\new\tb.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sources_1\new\simd_array.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sources_1\new\accel_fsm.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sources_1\new\baseline_mac.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sources_1\new\baseline_mac.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sources_1\new\accel_ctrl.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sources_1\new\mac.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sources_1\new\baseline_mac.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sim_1\new\tb.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sources_1\new\simd_array.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sources_1\new\accel_fsm.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sources_1\new\simd_array.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sources_1\new\simd_array.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sources_1\new\accel_ctrl.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sources_1\new\mac.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sources_1\new\baseline_mac.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sim_1\new\tb.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sources_1\new\simd_array.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sources_1\new\accel_fsm.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sources_1\new\mac.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sources_1\new\mac.v:]
+update_compile_order -fileset sources_1
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sources_1\new\accel_ctrl.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sources_1\new\mac.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sources_1\new\baseline_mac.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sim_1\new\tb.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sources_1\new\simd_array.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sources_1\new\accel_fsm.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sources_1\new\accel_fsm.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sources_1\new\accel_fsm.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sources_1\new\accel_ctrl.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sources_1\new\mac.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sources_1\new\baseline_mac.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sim_1\new\tb.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sources_1\new\simd_array.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sources_1\new\accel_fsm.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sources_1\new\mac.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sources_1\new\mac.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sources_1\new\accel_ctrl.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sources_1\new\mac.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sources_1\new\baseline_mac.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sim_1\new\tb.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sources_1\new\simd_array.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sources_1\new\accel_fsm.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sources_1\new\simd_array.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sources_1\new\simd_array.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sources_1\new\accel_ctrl.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sources_1\new\mac.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sources_1\new\baseline_mac.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sim_1\new\tb.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sources_1\new\simd_array.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sources_1\new\accel_fsm.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sim_1\new\tb.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sim_1\new\tb.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sources_1\new\accel_ctrl.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sources_1\new\mac.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sources_1\new\baseline_mac.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sim_1\new\tb.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sources_1\new\simd_array.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sources_1\new\accel_fsm.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sources_1\new\baseline_mac.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sources_1\new\baseline_mac.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sources_1\new\accel_ctrl.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sources_1\new\mac.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sources_1\new\baseline_mac.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sim_1\new\tb.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sources_1\new\simd_array.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sources_1\new\accel_fsm.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sources_1\new\test.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sources_1\new\accel_ctrl.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sources_1\new\accel_ctrl.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sources_1\new\accel_ctrl.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sources_1\new\mac.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sources_1\new\baseline_mac.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sim_1\new\tb.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sources_1\new\simd_array.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sources_1\new\accel_fsm.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sources_1\new\test.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sources_1\new\simd_array.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sources_1\new\simd_array.v:]
+ERROR: [Common 17-180] Spawn failed: The operation completed successfully.
+
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sources_1\new\accel_ctrl.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sources_1\new\mac.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sources_1\new\baseline_mac.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sim_1\new\tb.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sources_1\new\simd_array.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sources_1\new\accel_fsm.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sources_1\new\test.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sources_1\new\baseline_mac.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sources_1\new\baseline_mac.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sources_1\new\accel_ctrl.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sources_1\new\mac.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sources_1\new\baseline_mac.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sim_1\new\tb.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sources_1\new\simd_array.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sources_1\new\accel_fsm.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sources_1\new\test.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sources_1\new\baseline_mac.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sources_1\new\baseline_mac.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sources_1\new\accel_ctrl.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sources_1\new\mac.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sources_1\new\baseline_mac.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sim_1\new\tb.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sources_1\new\simd_array.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sources_1\new\accel_fsm.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sources_1\new\test.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sim_1\new\tb.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sim_1\new\tb.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sources_1\new\accel_ctrl.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sources_1\new\mac.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sources_1\new\baseline_mac.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sim_1\new\tb.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sources_1\new\simd_array.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sources_1\new\accel_fsm.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sources_1\new\test.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sources_1\new\simd_array.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sources_1\new\simd_array.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sources_1\new\accel_ctrl.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sources_1\new\mac.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sources_1\new\baseline_mac.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sim_1\new\tb.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sources_1\new\simd_array.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sources_1\new\accel_fsm.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sources_1\new\test.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sources_1\new\accel_fsm.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sources_1\new\accel_fsm.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sources_1\new\accel_ctrl.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sources_1\new\mac.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sources_1\new\baseline_mac.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sim_1\new\tb.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sources_1\new\simd_array.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sources_1\new\accel_fsm.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sources_1\new\test.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sources_1\new\mac.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sources_1\new\mac.v:]
+update_compile_order -fileset sources_1
+reset_run synth_1
+INFO: [Project 1-1160] Copying file C:/Users/kpcha/Desktop/College/DSD/Ver1/Ver1.runs/synth_1/simd_array.dcp to C:/Users/kpcha/Desktop/College/DSD/Ver1/Ver1.srcs/utils_1/imports/synth_1 and adding it to utils fileset
+launch_runs impl_1 -jobs 12
+[Sat Feb 28 13:47:14 2026] Launched synth_1...
+Run output will be captured here: C:/Users/kpcha/Desktop/College/DSD/Ver1/Ver1.runs/synth_1/runme.log
+[Sat Feb 28 13:47:14 2026] Launched impl_1...
+Run output will be captured here: C:/Users/kpcha/Desktop/College/DSD/Ver1/Ver1.runs/impl_1/runme.log
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sources_1\new\accel_ctrl.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sources_1\new\mac.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sources_1\new\baseline_mac.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sim_1\new\tb.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sources_1\new\simd_array.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sources_1\new\accel_fsm.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sources_1\new\test.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sources_1\new\baseline_mac.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sources_1\new\baseline_mac.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sources_1\new\accel_ctrl.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sources_1\new\mac.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sources_1\new\baseline_mac.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sim_1\new\tb.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sources_1\new\simd_array.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sources_1\new\accel_fsm.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sources_1\new\test.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sim_1\new\tb.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sim_1\new\tb.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sources_1\new\accel_ctrl.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sources_1\new\mac.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sources_1\new\baseline_mac.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sim_1\new\tb.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sources_1\new\simd_array.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sources_1\new\accel_fsm.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sources_1\new\test.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sources_1\new\accel_fsm.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sources_1\new\accel_fsm.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sources_1\new\accel_ctrl.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sources_1\new\mac.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sources_1\new\baseline_mac.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sim_1\new\tb.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sources_1\new\simd_array.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sources_1\new\accel_fsm.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sources_1\new\test.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sources_1\new\mac.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sources_1\new\mac.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sources_1\new\accel_ctrl.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sources_1\new\mac.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sources_1\new\baseline_mac.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sim_1\new\tb.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sources_1\new\simd_array.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sources_1\new\accel_fsm.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sources_1\new\test.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sources_1\new\test.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sources_1\new\test.sv:]
+ERROR: [Common 17-180] Spawn failed: The operation completed successfully.
+
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sources_1\new\accel_ctrl.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sources_1\new\mac.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sources_1\new\baseline_mac.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sim_1\new\tb.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sources_1\new\simd_array.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sources_1\new\accel_fsm.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sources_1\new\test.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sources_1\new\simd_array.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver1\Ver1.srcs\sources_1\new\simd_array.v:]
+reset_run synth_1
+launch_runs impl_1 -jobs 12
+[Sat Feb 28 13:50:07 2026] Launched synth_1...
+Run output will be captured here: C:/Users/kpcha/Desktop/College/DSD/Ver1/Ver1.runs/synth_1/runme.log
+[Sat Feb 28 13:50:07 2026] Launched impl_1...
+Run output will be captured here: C:/Users/kpcha/Desktop/College/DSD/Ver1/Ver1.runs/impl_1/runme.log
+synth_design -top simd_array -incremental_synth
+ERROR: [Common 17-170] Unknown option '-incremental_synth', please type 'synth_design -help' for usage info.
+synth_design -top top_accel_unpack
+Command: synth_design -top top_accel_unpack
+Starting synth_design
+Using part: xc7a100tcsg324-1
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7a100t'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a100t'
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
+INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
+INFO: [Synth 8-7075] Helper process launched with PID 26808
+---------------------------------------------------------------------------------
+Starting Synthesize : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 3366.359 ; gain = 0.000
+---------------------------------------------------------------------------------
+ERROR: [Synth 8-439] module 'top_accel_unpack' not found
+---------------------------------------------------------------------------------
+Finished Synthesize : Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 3366.359 ; gain = 0.000
+---------------------------------------------------------------------------------
+synthesize failed
+INFO: [Common 17-83] Releasing license: Synthesis
+5 Infos, 0 Warnings, 0 Critical Warnings and 2 Errors encountered.
+synth_design failed
+ERROR: [Common 17-69] Command failed: Vivado Synthesis failed
+update_compile_order -fileset sources_1
+set_property top test [current_fileset]
+update_compile_order -fileset sources_1
+synth_design -top top_accel_unpack
+Command: synth_design -top top_accel_unpack
+Starting synth_design
+Using part: xc7a100tcsg324-1
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7a100t'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a100t'
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
+---------------------------------------------------------------------------------
+Starting Synthesize : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 3366.359 ; gain = 0.000
+---------------------------------------------------------------------------------
+ERROR: [Synth 8-439] module 'top_accel_unpack' not found
+---------------------------------------------------------------------------------
+Finished Synthesize : Time (s): cpu = 00:00:05 ; elapsed = 00:00:04 . Memory (MB): peak = 3366.359 ; gain = 0.000
+---------------------------------------------------------------------------------
+synthesize failed
+INFO: [Common 17-83] Releasing license: Synthesis
+3 Infos, 0 Warnings, 0 Critical Warnings and 2 Errors encountered.
+synth_design failed
+ERROR: [Common 17-69] Command failed: Vivado Synthesis failed
+update_compile_order -fileset sources_1
+set_property top test [current_fileset]
+update_compile_order -fileset sources_1
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file C:/Users/kpcha/Desktop/College/DSD/Ver1/Ver1.srcs/utils_1/imports/synth_1/simd_array.dcp with file C:/Users/kpcha/Desktop/College/DSD/Ver1/Ver1.runs/synth_1/test.dcp
+launch_runs impl_1 -jobs 12
+[Sat Feb 28 13:56:59 2026] Launched synth_1...
+Run output will be captured here: C:/Users/kpcha/Desktop/College/DSD/Ver1/Ver1.runs/synth_1/runme.log
+[Sat Feb 28 13:56:59 2026] Launched impl_1...
+Run output will be captured here: C:/Users/kpcha/Desktop/College/DSD/Ver1/Ver1.runs/impl_1/runme.log
+set_property is_enabled false [get_files  C:/Users/kpcha/Desktop/College/DSD/Ver1/Ver1.srcs/sources_1/new/test.sv]
+update_compile_order -fileset sources_1
+set_property top accel_fsm [current_fileset]
+update_compile_order -fileset sources_1
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file C:/Users/kpcha/Desktop/College/DSD/Ver1/Ver1.srcs/utils_1/imports/synth_1/simd_array.dcp with file C:/Users/kpcha/Desktop/College/DSD/Ver1/Ver1.runs/synth_1/test.dcp
+exit
+INFO: [Common 17-206] Exiting Vivado at Sat Feb 28 14:18:19 2026...

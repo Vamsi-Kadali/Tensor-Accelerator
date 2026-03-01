@@ -24,6 +24,7 @@ module baseline_mac #( parameter WIDTH = 16, parameter ACC = 32, parameter N_MAX
     input clk,
     input rst,
     input clear,
+    input load,
     input en,
     
     input [$clog2(N_MAX+1)-1:0] vec_len,
@@ -43,19 +44,32 @@ module baseline_mac #( parameter WIDTH = 16, parameter ACC = 32, parameter N_MAX
     
     reg signed [WIDTH-1:0] a_reg [0:N_MAX-1];
     reg signed [WIDTH-1:0] b_reg [0:N_MAX-1];
+    integer i;
     
     mac #(WIDTH, ACC) m1 (a_reg[id], b_reg[id], acc_reg, acc_next);
     
     always @(posedge clk) begin
-        if (rst || clear) begin
-            
-            a_reg <= a;
-            b_reg <= b;
+        if (rst) begin
             id <= 1'b0;
             acc_reg <= 1'b0;
             res <= 1'b0;
             done <= 1'b0;
+            for (i = 0; i < N_MAX; i = i + 1) begin a_reg[i] <= 0; b_reg[i] <= 0; end
         end
+        
+        else if (clear) begin
+            id <= 1'b0;
+            acc_reg <= 1'b0;
+            res <= 1'b0;
+            done <= 1'b0;
+            for (i = 0; i < N_MAX; i = i + 1) begin a_reg[i] <= 0; b_reg[i] <= 0; end
+        end
+        
+        else if (load) begin
+            a_reg <= a;
+            b_reg <= b;
+        end
+            
         else if (en && !done) begin
             acc_reg <= acc_next;
 
