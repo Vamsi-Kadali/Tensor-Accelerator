@@ -23,7 +23,7 @@
 module simd_unit #( parameter WIDTH = 16, parameter ACC = 32, parameter N_MAX = 4, parameter LANES = 2 )(
     input clk,
     input rst,
-
+    
     input start,
     input [$clog2(N_MAX+1)-1:0] vec_len,
 
@@ -31,10 +31,17 @@ module simd_unit #( parameter WIDTH = 16, parameter ACC = 32, parameter N_MAX = 
     input signed [WIDTH-1:0] b [0:LANES-1][0:N_MAX-1],
 
     output signed [ACC-1:0] res [0:LANES-1],
+    
+    
     output busy,
-    output done
+    output done,
+    
+    input [1:0] op //NEW
 );
-
+    
+    reg signed [WIDTH-1:0] a_sel [0:LANES-1][0:N_MAX-1]; //NEW
+    reg signed [WIDTH-1:0] b_sel [0:LANES-1][0:N_MAX-1]; //NEW
+    
     wire en;
     wire load;
     wire simd_done;
@@ -61,10 +68,43 @@ module simd_unit #( parameter WIDTH = 16, parameter ACC = 32, parameter N_MAX = 
         .load(load),
         .en(en),
         .vec_len(vec_len),
-        .a(a),
-        .b(b),
+        .a(a_sel),
+        .b(b_sel),
         .res(res),
         .done(simd_done)
     );
-
+    
+    //NEW
+    localparam DOT = 2'b00, VEC_ADD = 2'b01, SCALAR_MUL = 2'b10;
+    
+    integer i, j;
+    
+    always @(*) begin
+      for (i = 0; i < LANES; i = i + 1) begin
+        for (j = 0; j < N_MAX; j = j + 1) begin
+          case (op)
+            DOT: begin
+              a_sel[i][j] = a[i][j];
+              b_sel[i][j] = b[i][j];
+            end
+    
+            VEC_ADD: begin
+              a_sel[i][j] = a[i][j];
+              b_sel[i][j] = {{(WIDTH-1){1'b0}},1'b1};
+            end
+    
+            SCALAR_MUL: begin
+              a_sel[i][j] = a[i][j];
+              b_sel[i][j] = b[i][0];
+            end
+    
+            default: begin
+              a_sel[i][j] = '0;
+              b_sel[i][j] = '0;
+            end
+          endcase
+        end
+      end
+    end
+    
 endmodule

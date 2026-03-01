@@ -49,17 +49,17 @@ module baseline_mac #( parameter WIDTH = 16, parameter ACC = 32, parameter N_MAX
     
     always @(posedge clk) begin
         if (rst) begin
-            id <= 1'b0;
-            acc_reg <= 1'b0;
-            res <= 1'b0;
+            id <= '0;
+            acc_reg <= '0;
+            res <= '0;
             done <= 1'b0;
-            for (i = 0; i < N_MAX; i = i + 1) begin a_reg[i] <= 1'b0; b_reg[i] <= 1'b0; end
+            for (i = 0; i < N_MAX; i = i + 1) begin a_reg[i] <= '0; b_reg[i] <= '0; end
         end
         
         else if (load) begin
-            id <= 1'b0;
-            acc_reg <= 1'b0;
-            res <= 1'b0;
+            id <= '0;
+            acc_reg <= '0;
+            res <= '0;
             done <= 1'b0;            
             a_reg <= a;
             b_reg <= b;
@@ -71,7 +71,7 @@ module baseline_mac #( parameter WIDTH = 16, parameter ACC = 32, parameter N_MAX
             if (id == vec_len-1) begin
                 res <= acc_next;
                 done <= 1'b1;
-                id <= 1'b0;
+                id <= '0;
             end
             
             else begin

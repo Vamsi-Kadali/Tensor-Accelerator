@@ -32,7 +32,6 @@ module tb;
     reg rst;
     reg start;
 
-    reg [1:0] op;
     reg [$clog2(N_MAX+1)-1:0] vec_len;
 
     reg signed [WIDTH-1:0] a [0:LANES-1][0:N_MAX-1];
@@ -45,7 +44,7 @@ module tb;
     integer i, j;
     integer run_count;
 
-    // Clock
+    // Clock generation
     initial clk = 0;
     always #5 clk = ~clk;
 
@@ -68,9 +67,9 @@ module tb;
     );
 
     initial begin
+        // Init
         rst = 1;
         start = 0;
-        op = 2'b10;
         vec_len = N_MAX;
         run_count = 0;
 
@@ -82,17 +81,18 @@ module tb;
             end
 
         // Reset
-        #20 rst = 0;
+        #20;
+        rst = 0;
 
-        // Hold start high (stress FSM)
+        // Hold start high (stress test FSM)
         start = 1;
 
         repeat (RUNS) begin
-            // Wait for completion
+            // Wait for computation to complete
             @(posedge done);
 
-            // Update inputs immediately AFTER job finishes
-            // (safe because next load happens in FSM INIT)
+            // Inputs can be updated immediately after done
+            // (next load happens in FSM INIT)
             @(posedge clk);
             for (i = 0; i < LANES; i = i + 1)
                 for (j = 0; j < N_MAX; j = j + 1) begin
