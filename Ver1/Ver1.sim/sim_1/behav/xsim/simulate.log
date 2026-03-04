@@ -1,2 +1,14 @@
 Time resolution is 1 ps
-$finish called at time : 815 ns : File "C:/Users/kpcha/Desktop/College/DSD/Ver1/Ver1.srcs/sim_1/new/tb.v" Line 108
+
+=== DOT Product ===
+Lane 0 DOT result: 10 (expected 10)
+Lane 1 DOT result: 10 (expected 10)
+
+=== Vector Add ===
+Lane 0 VEC_ADD result: 10 (expected 15)
+Lane 1 VEC_ADD result: 10 (expected 15)
+
+=== Scalar Multiplication ===
+Lane 0 SCALAR_MUL result: 20 (expected 20)
+Lane 1 SCALAR_MUL result: 20 (expected 20)
+$finish called at time : 235 ns : File "C:/Users/kpcha/Desktop/College/DSD/Ver1/Ver1.srcs/sim_1/new/tb.v" Line 119
