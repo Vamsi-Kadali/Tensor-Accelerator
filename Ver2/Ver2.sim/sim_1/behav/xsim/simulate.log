@@ -1,10 +1,12 @@
 Time resolution is 1 ps
-DOT Lane0 = 70 (Expected 70)
-DOT Lane1 = 8 (Expected 8)
-ADD Lane0 = 12 (Expected 4+8=12)
-ADD Lane1 = 3 (Expected 2+1=3)
-SUM Lane0 = 10 (Expected 10)
-SUM Lane1 = 8 (Expected 8)
-SCALAR MUL Lane0 = 12 (Expected 4*3=12)
-SCALAR MUL Lane1 = 8 (Expected 2*4=8)
-$finish called at time : 275 ns : File "C:/Users/kpcha/Desktop/College/DSD/Ver2/Ver2.srcs/sim_1/new/tb.v" Line 159
+=== SIMD RESULTS ===
+Lane 0 result = 36
+Lane 1 result = 72
+Lane 2 result = 108
+Lane 3 result = 144
+Lane 4 result = 180
+Lane 5 result = 216
+Lane 6 result = 252
+Lane 7 result = 288
+✅ ALL LANES PASSED
+$finish called at time : 165 ns : File "C:/Users/kpcha/Desktop/College/DSD/Ver2/Ver2.srcs/sim_1/new/tb.v" Line 130

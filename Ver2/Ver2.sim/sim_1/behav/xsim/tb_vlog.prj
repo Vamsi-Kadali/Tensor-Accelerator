@@ -1,5 +1,7 @@
 # compile verilog/system verilog design source files
 sv xil_defaultlib  --include "../../../../../../../../../../Xilinx/2025.1/Vivado/data/rsb/busdef" \
+"../../../../Ver2.srcs/sources_1/new/accel_fsm.v" \
+"../../../../Ver2.srcs/sources_1/new/accel_top.v" \
 "../../../../Ver2.srcs/sources_1/new/mac.v" \
 "../../../../Ver2.srcs/sources_1/new/simd_array.v" \
 "../../../../Ver2.srcs/sources_1/new/vector_lane.v" \

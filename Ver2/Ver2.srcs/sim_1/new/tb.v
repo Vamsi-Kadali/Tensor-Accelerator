@@ -19,46 +19,40 @@
 // 
 //////////////////////////////////////////////////////////////////////////////////
 
-
 module tb;
 
-    // ------------------------------------------------------------
+    // -------------------------
     // Parameters
-    // ------------------------------------------------------------
+    // -------------------------
     localparam WIDTH = 16;
     localparam ACC   = 32;
-    localparam N_MAX = 4;
-    localparam LANES = 2;
+    localparam N_MAX = 8;
+    localparam LANES = 8;
 
-    // ------------------------------------------------------------
-    // Clock
-    // ------------------------------------------------------------
-    reg clk = 0;
-    always #5 clk = ~clk;
-
-    // ------------------------------------------------------------
+    // -------------------------
     // Signals
-    // ------------------------------------------------------------
-    reg rst;
-    reg load;
-    reg en;
+    // -------------------------
+    logic clk;
+    logic rst;
+    logic start;
 
-    reg [2:0] op;
-    reg scalar_en;
-    reg [$clog2(N_MAX+1)-1:0] vec_len;
+    logic [2:0] op;
+    logic scalar_en;
+    logic [$clog2(N_MAX+1)-1:0] vec_len;
 
-    reg signed [WIDTH-1:0] a [0:LANES-1][0:N_MAX-1];
-    reg signed [WIDTH-1:0] b [0:LANES-1][0:N_MAX-1];
+    logic signed [WIDTH-1:0] a [0:LANES-1][0:N_MAX-1];
+    logic signed [WIDTH-1:0] b [0:LANES-1][0:N_MAX-1];
 
-    wire signed [ACC-1:0] res [0:LANES-1];
-    wire done;
+    logic signed [ACC-1:0] res [0:LANES-1];
+    logic busy;
+    logic done;
 
     integer i, j;
 
-    // ------------------------------------------------------------
+    // -------------------------
     // DUT
-    // ------------------------------------------------------------
-    simd_array #(
+    // -------------------------
+    accel_top #(
         .WIDTH(WIDTH),
         .ACC(ACC),
         .N_MAX(N_MAX),
@@ -66,97 +60,74 @@ module tb;
     ) dut (
         .clk(clk),
         .rst(rst),
-        .load(load),
-        .en(en),
+        .start(start),
         .op(op),
         .scalar_en(scalar_en),
         .vec_len(vec_len),
         .a(a),
         .b(b),
         .res(res),
+        .busy(busy),
         .done(done)
     );
 
-    // ------------------------------------------------------------
-    // Task: start operation
-    // ------------------------------------------------------------
-    task start_op;
-        begin
-            load = 1;
-            en   = 0;
-            #10;
-            load = 0;
-            en   = 1;
-            wait(done);
-            en = 0;
-            #10;
-        end
-    endtask
+    // -------------------------
+    // Clock
+    // -------------------------
+    always #5 clk = ~clk;
 
-    // ------------------------------------------------------------
-    // Test sequence
-    // ------------------------------------------------------------
+    // -------------------------
+    // Test
+    // -------------------------
     initial begin
-        // Init
+        clk = 0;
         rst = 1;
-        load = 0;
-        en = 0;
+        start = 0;
+
+        // Reset
+        #20;
+        rst = 0;
+
+        // -------------------------
+        // Load data
+        // -------------------------
+        for (i = 0; i < LANES; i++) begin
+            for (j = 0; j < N_MAX; j++) begin
+                a[i][j] = j + 1;     // 1..8
+                b[i][j] = i + 1;     // constant per lane
+            end
+        end
+
+        vec_len   = 8;
         scalar_en = 0;
-        vec_len = N_MAX;
+        op        = 3'b000; // OP_MAC
 
-        #20 rst = 0;
+        // Start
+        @(posedge clk);
+        start = 1;
+        @(posedge clk);
+        start = 0;
 
-        // ========================================================
-        // TEST 1: DOT PRODUCT
-        // ========================================================
-        op = 3'b000; // OP_MAC
+        // Wait for completion
+        wait(done);
+        @(posedge clk);
 
-        a[0] = '{1,2,3,4};
-        b[0] = '{5,6,7,8};   // 70
+        // -------------------------
+        // Check results
+        // -------------------------
+        $display("=== SIMD RESULTS ===");
+        for (i = 0; i < LANES; i++) begin
+            $display("Lane %0d result = %0d", i, res[i]);
 
-        a[1] = '{2,2,2,2};
-        b[1] = '{1,1,1,1};   // 8
+            if (res[i] !== 36 * (i + 1)) begin
+                $display("❌ ERROR lane %0d: expected %0d", i, 36*(i+1));
+                $fatal;
+            end
+        end
 
-        start_op();
-
-        $display("DOT Lane0 = %0d (Expected 70)", res[0]);
-        $display("DOT Lane1 = %0d (Expected 8)",  res[1]);
-
-        // ========================================================
-        // TEST 2: VECTOR ADD (element-wise, last element)
-        // ========================================================
-        op = 3'b001; // OP_ADD
-
-        start_op();
-
-        $display("ADD Lane0 = %0d (Expected 4+8=12)", res[0]);
-        $display("ADD Lane1 = %0d (Expected 2+1=3)",  res[1]);
-
-        // ========================================================
-        // TEST 3: VECTOR SUM (reduction)
-        // ========================================================
-        op = 3'b100; // OP_SUM
-
-        start_op();
-
-        $display("SUM Lane0 = %0d (Expected 10)", res[0]);
-        $display("SUM Lane1 = %0d (Expected 8)",  res[1]);
-
-        // ========================================================
-        // TEST 4: SCALAR MULTIPLY
-        // ========================================================
-        scalar_en = 1;
-        op = 3'b011; // OP_MUL
-
-        b[0][0] = 3; // scalar for lane 0
-        b[1][0] = 4; // scalar for lane 1
-
-        start_op();
-
-        $display("SCALAR MUL Lane0 = %0d (Expected 4*3=12)", res[0]);
-        $display("SCALAR MUL Lane1 = %0d (Expected 2*4=8)",  res[1]);
-
-        #50 $finish;
+        $display("✅ ALL LANES PASSED");
+        #20;
+        $finish;
     end
 
 endmodule

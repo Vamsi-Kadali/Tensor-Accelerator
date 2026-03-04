@@ -129,7 +129,7 @@ module vector_lane #( parameter WIDTH = 16, ACC = 32, N_MAX = 4 )(
             end
         end
 
-        else if (en && !done) begin
+        else if (en && !done && vec_len!=0) begin
             acc_reg <= acc_next;
 
             if (id == vec_len - 1) begin
