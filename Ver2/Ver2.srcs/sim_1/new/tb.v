@@ -21,113 +21,75 @@
 
 module tb;
 
-    // -------------------------
-    // Parameters
-    // -------------------------
-    localparam WIDTH = 16;
-    localparam ACC   = 32;
-    localparam N_MAX = 8;
-    localparam LANES = 8;
+parameter WIDTH = 16;
+parameter ACC   = 32;
+parameter M = 4;
+parameter K = 8;
+parameter N = 4;
 
-    // -------------------------
-    // Signals
-    // -------------------------
-    logic clk;
-    logic rst;
-    logic start;
+reg clk;
+reg rst;
+reg start;
 
-    logic [2:0] op;
-    logic scalar_en;
-    logic [$clog2(N_MAX+1)-1:0] vec_len;
+reg signed [WIDTH-1:0] A [0:M-1][0:K-1];
+reg signed [WIDTH-1:0] B [0:K-1][0:N-1];
 
-    logic signed [WIDTH-1:0] a [0:LANES-1][0:N_MAX-1];
-    logic signed [WIDTH-1:0] b [0:LANES-1][0:N_MAX-1];
+wire signed [ACC-1:0] C [0:M-1][0:N-1];
+wire done;
 
-    logic signed [ACC-1:0] res [0:LANES-1];
-    logic busy;
-    logic done;
 
-    integer i, j;
+matrix_cont uut(
+    .clk(clk),
+    .rst(rst),
+    .start(start),
+    .A(A),
+    .B(B),
+    .C(C),
+    .done(done)
+);
 
-    // -------------------------
-    // DUT
-    // -------------------------
-    accel_top #(
-        .WIDTH(WIDTH),
-        .ACC(ACC),
-        .N_MAX(N_MAX),
-        .LANES(LANES)
-    ) dut (
-        .clk(clk),
-        .rst(rst),
-        .start(start),
-        .op(op),
-        .scalar_en(scalar_en),
-        .vec_len(vec_len),
-        .a(a),
-        .b(b),
-        .res(res),
-        .busy(busy),
-        .done(done)
-    );
 
-    // -------------------------
-    // Clock
-    // -------------------------
-    always #5 clk = ~clk;
+always #5 clk = ~clk;
 
-    // -------------------------
-    // Test
-    // -------------------------
-    initial begin
-        clk = 0;
-        rst = 1;
-        start = 0;
 
-        // Reset
-        #20;
-        rst = 0;
+initial begin
+    clk = 0;
+    rst = 1;
+    start = 0;
 
-        // -------------------------
-        // Load data
-        // -------------------------
-        for (i = 0; i < LANES; i++) begin
-            for (j = 0; j < N_MAX; j++) begin
-                a[i][j] = j + 1;     // 1..8
-                b[i][j] = i + 1;     // constant per lane
-            end
+    #20 rst = 0;
+
+    // Matrix A
+    A[0] = '{1,2,3,4,5,6,7,8};
+    A[1] = '{2,1,0,1,2,3,4,5};
+    A[2] = '{3,1,2,0,1,2,3,4};
+    A[3] = '{1,0,1,0,1,0,1,0};
+
+    // Matrix B
+    B[0] = '{1,2,3,4};
+    B[1] = '{0,1,0,1};
+    B[2] = '{1,0,1,0};
+    B[3] = '{2,1,2,1};
+    B[4] = '{0,1,0,1};
+    B[5] = '{1,2,3,4};
+    B[6] = '{2,0,1,0};
+    B[7] = '{1,1,1,1};
+
+    #10 start = 1;
+    #10 start = 0;
+
+    wait(done);
+
+    $display("Result Matrix C:");
+
+    for(int i=0;i<M;i++) begin
+        for(int j=0;j<N;j++) begin
+            $write("%0d ",C[i][j]);
         end
-
-        vec_len   = 8;
-        scalar_en = 0;
-        op        = 3'b000; // OP_MAC
-
-        // Start
-        @(posedge clk);
-        start = 1;
-        @(posedge clk);
-        start = 0;
-
-        // Wait for completion
-        wait(done);
-        @(posedge clk);
-
-        // -------------------------
-        // Check results
-        // -------------------------
-        $display("=== SIMD RESULTS ===");
-        for (i = 0; i < LANES; i++) begin
-            $display("Lane %0d result = %0d", i, res[i]);
-
-            if (res[i] !== 36 * (i + 1)) begin
-                $display("❌ ERROR lane %0d: expected %0d", i, 36*(i+1));
-                $fatal;
-            end
-        end
-
-        $display("✅ ALL LANES PASSED");
-        #20;
-        $finish;
+        $display("");
     end
+
+    #50 $finish;
+end
 
 endmodule
