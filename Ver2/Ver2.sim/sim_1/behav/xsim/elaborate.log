@@ -12,9 +12,9 @@ Time Resolution for simulation is 1ps
 Compiling module xil_defaultlib.accel_fsm
 Compiling module xil_defaultlib.mac
 Compiling module xil_defaultlib.vector_lane(N_MAX=8)
-Compiling module xil_defaultlib.simd_array(N_MAX=8)
-Compiling module xil_defaultlib.accel_top(N_MAX=8)
-Compiling module xil_defaultlib.matrix_cont
+Compiling module xil_defaultlib.simd_array(N_MAX=8,LANES=2)
+Compiling module xil_defaultlib.accel_top(N_MAX=8,LANES=2)
+Compiling module xil_defaultlib.matrix_cont(LANES=2,K=4)
 Compiling module xil_defaultlib.tb
 Compiling module xil_defaultlib.glbl
 Built simulation snapshot tb_behav
