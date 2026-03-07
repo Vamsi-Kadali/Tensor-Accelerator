@@ -27,7 +27,6 @@ module accel_fsm (
     input datapath_done,
 
     output reg en,
-    output reg clear,
     output reg load,
     output reg busy,
     output reg done
@@ -51,7 +50,6 @@ module accel_fsm (
 
     always @(*) begin
         en    = 1'b0;
-        clear = 1'b0;
         load  = 1'b0;
         busy  = 1'b0;
         done  = 1'b0;
