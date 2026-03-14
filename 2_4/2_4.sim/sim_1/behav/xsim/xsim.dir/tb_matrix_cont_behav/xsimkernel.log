@@ -1,0 +1,7 @@
+Running: xsim.dir/tb_matrix_cont_behav/xsimk.exe -simmode gui -wdb tb_matrix_cont_behav.wdb -simrunnum 0 -socket 53696
+Design successfully loaded
+Design Loading Memory Usage: 14904 KB (Peak: 14904 KB)
+Design Loading CPU Usage: 46 ms
+Simulation completed
+Simulation Memory Usage: 35484 KB (Peak: 35484 KB)
+Simulation CPU Usage: 2546 ms

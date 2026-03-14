@@ -48,6 +48,10 @@ module matrix_cont #(
 
     reg accel_start;
     wire accel_done;
+    
+    // Temporary registers for ADD/SUB
+    reg signed [WIDTH-1:0] A_addsub [0:M-1][0:N-1];
+    reg signed [WIDTH-1:0] B_addsub [0:M-1][0:N-1];
 
     reg signed [WIDTH-1:0] a_lane [0:LANES-1][0:N_MAX-1];
     reg signed [WIDTH-1:0] b_lane [0:LANES-1][0:N_MAX-1];
@@ -114,9 +118,20 @@ module matrix_cont #(
                 accel_start <= 0;
                 if(start) begin
                     i <= 0; j <= 0; k_base <= 0;
-                    for (int r=0;r<M;r++)
+                    for (int r=0;r<M;r++) 
                         for (int c=0;c<N;c++)
                             C[r][c] <= 0;
+                
+                    // Copy for ADD/SUB
+                    if (op == 3'b001 || op == 3'b010) begin
+                        integer r, c;
+                        for(r=0; r<M_len; r++)
+                            for(c=0; c<N_len; c++) begin
+                                A_addsub[r][c] = A[r][c];
+                                B_addsub[r][c] = B[r][c];
+                            end
+                    end
+                
                     state <= LOAD;
                 end
             end
@@ -138,13 +153,20 @@ module matrix_cont #(
                     end
             
                     3'b001,3'b010: begin // ADD / SUB
-                        vec_len   <= 1;
                         scalar_en <= 0;
-                        for(lane=0; lane<LANES; lane++)
-                            if(j+lane < N_len) begin
-                                a_lane[lane][0] <= A[i][j+lane];
-                                b_lane[lane][0] <= B[i][j+lane];
+                    
+                        // Process up to LANES or remaining N columns
+                        vec_len <= (N_len - j > LANES) ? LANES : (N_len - j);
+                    
+                        // Load each lane
+                        for(lane=0; lane<LANES; lane++) begin
+                            a_lane[lane][0] <= 0;
+                            b_lane[lane][0] <= 0;
+                            if(lane < vec_len) begin
+                                a_lane[lane][0] <= A_addsub[i][j+lane];
+                                b_lane[lane][0] <= B_addsub[i][j+lane];
                             end
+                        end
                     end
             
                     3'b011: begin // S_MULT
