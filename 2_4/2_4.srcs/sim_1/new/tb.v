@@ -99,8 +99,7 @@ module tb_matrix_cont;
         run();
         
         $display("MM MIN C[0][0]=%0d",C[0][0]);
-        
-/*        
+             
         ////////////////////////////////
         // MID (16x16)  
         // pattern = all ones
@@ -138,7 +137,6 @@ module tb_matrix_cont;
         $display("MM MAX C[0][0]=%0d",C[0][0]);
         $display("MM MAX C[255][255]=%0d",C[255][255]);
         
-        */
         
         //////////////////////////////////////////////////////
         // MATRIX ADD
