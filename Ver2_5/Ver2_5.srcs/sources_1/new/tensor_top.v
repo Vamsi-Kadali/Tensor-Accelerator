@@ -23,7 +23,7 @@
 module tensor_top #(
     parameter WIDTH   = 16,
     parameter N_MAX   = 64,
-    parameter LANES   = 64,
+    parameter LANES   = 2,
     parameter TILE_R  = 8,
     parameter TILE_C  = 8,
     parameter MAX_DIM = 64,
@@ -36,7 +36,6 @@ module tensor_top #(
     input start,
     
     input [2:0] op,
-    input signed [WIDTH-1:0] scalar,
     
     input [$clog2(T_MAX+1)-1:0]   T_len,
     input [$clog2(MAX_DIM+1)-1:0] M_len,
@@ -78,7 +77,6 @@ module tensor_top #(
         .rst(rst),
         .start(matrix_start),
         .op(op),
-        .scalar(scalar),
         .M_len(M_len),
         .K_len(K_len),
         .N_len(N_len),

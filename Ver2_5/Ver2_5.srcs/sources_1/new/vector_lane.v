@@ -27,7 +27,6 @@ module vector_lane #( parameter WIDTH = 16, ACC = 32, N_MAX = 64 )(
     input en,
 
     input [2:0] op,
-    input scalar_en,
 
     input [$clog2(N_MAX+1)-1:0] vec_len,
 
@@ -42,11 +41,12 @@ module vector_lane #( parameter WIDTH = 16, ACC = 32, N_MAX = 64 )(
     localparam ID_W = (N_MAX <= 1) ? 1 : $clog2(N_MAX);
 
     localparam
-        OP_MAC = 3'b000,
+        OP_MATMULT = 3'b000,
         OP_ADD = 3'b001,
         OP_SUB = 3'b010,
-        OP_MUL = 3'b011,
-        OP_SUM = 3'b100;
+        OP_HADAMARD = 3'b011,
+        OP_ROW_ACCUM = 3'b100,
+        OP_COL_ACCUM = 3'b101;
 
 
     reg [ID_W-1:0] id;
@@ -61,7 +61,7 @@ module vector_lane #( parameter WIDTH = 16, ACC = 32, N_MAX = 64 )(
 
 
     wire signed [WIDTH-1:0] a_sel = a_reg[id];
-    wire signed [WIDTH-1:0] b_sel = scalar_en ? b_reg[0] : b_reg[id];
+    wire signed [WIDTH-1:0] b_sel = b_reg[id];
 
 
     reg signed [WIDTH-1:0] a_eff;
@@ -74,10 +74,10 @@ module vector_lane #( parameter WIDTH = 16, ACC = 32, N_MAX = 64 )(
         acc_eff = acc_reg;
 
         case (op)
-            OP_MAC: begin
+            OP_MATMULT: begin
             end
 
-            OP_MUL: begin
+            OP_HADAMARD: begin
                 acc_eff = 0;
             end
 
@@ -91,7 +91,7 @@ module vector_lane #( parameter WIDTH = 16, ACC = 32, N_MAX = 64 )(
                 acc_eff = -b_sel;
             end
 
-            OP_SUM: begin
+            OP_ROW_ACCUM, OP_COL_ACCUM: begin
                 b_eff = 1;
             end
 

@@ -26,7 +26,6 @@ module accel_top #( parameter WIDTH = 16, ACC = 32, N_MAX = 64, LANES = 64 )(
     input start,
 
     input [2:0] op,
-    input scalar_en,
     input [$clog2(N_MAX+1)-1:0] vec_len,
 
     input signed [WIDTH-1:0] a [0:LANES-1][0:N_MAX-1],
@@ -58,7 +57,6 @@ module accel_top #( parameter WIDTH = 16, ACC = 32, N_MAX = 64, LANES = 64 )(
         .load(load),
         .en(en),
         .op(op),
-        .scalar_en(scalar_en),
         .vec_len(vec_len),
         .a(a),
         .b(b),

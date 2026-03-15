@@ -33,7 +33,6 @@ module matrix_cont #(
     input start,
 
     input [2:0] op,
-    input signed [WIDTH-1:0] scalar,
 
     input [$clog2(MAX_DIM+1)-1:0] M_len,
     input [$clog2(MAX_DIM+1)-1:0] K_len,
@@ -55,7 +54,6 @@ module matrix_cont #(
 
     wire signed [ACC-1:0] res [0:LANES-1];
 
-    reg scalar_en;
     reg [$clog2(N_MAX+1)-1:0] vec_len;
 
     integer i, j, k, lane;
@@ -72,7 +70,6 @@ module matrix_cont #(
         .rst(rst),
         .start(accel_start),
         .op(op),
-        .scalar_en(scalar_en),
         .vec_len(vec_len),
         .a(a_lane),
         .b(b_lane),
@@ -154,7 +151,6 @@ module matrix_cont #(
                     // tile_len = min(N_MAX, remaining K)
                     tile_len = (K_len - k_base > N_MAX) ? N_MAX : (K_len - k_base);
                     vec_len   <= tile_len;
-                    scalar_en <= 0;
 
                     // for every lane determine which output element it corresponds to
                     for (lane = 0; lane < LANES; lane = lane + 1) begin
@@ -170,10 +166,36 @@ module matrix_cont #(
                                 // A[row_idx][k_base + k]
                                 a_lane[lane][k] <= A[row_idx][k_base + k];
 
-                                if (op == 3'b100) // SUM: B=1
+                                if (op == 3'b100) // ROW SUM: B=1
                                     b_lane[lane][k] <= 1;
                                 else
                                     b_lane[lane][k] <= B[k_base + k][col_idx];
+                            end
+                        end
+                    end
+                end
+                
+                // COLUMN ACCUMULATION (COL_ACCUM)
+                else if (op == 3'b101) begin
+                    // tile_len (number of rows to reduce in this sub-tile)
+                    tile_len = (M_len - k_base > N_MAX) ? N_MAX : (M_len - k_base);
+                    vec_len <= tile_len;
+                    // scalar_en removed
+
+                    for (lane = 0; lane < LANES; lane = lane + 1) begin
+                        int r_off, c_off;
+                        lane_to_rc(lane, r_off, c_off);
+                        row_idx = i + r_off;   // output row index
+                        col_idx = j + c_off;   // output col index
+
+                        for (k = 0; k < N_MAX; k = k + 1) begin
+                            a_lane[lane][k] <= 0;
+                            b_lane[lane][k] <= 0;
+                            if ((k < tile_len) && (col_idx < N_len) && (row_idx < M_len)) begin
+                                // load down the column: A[k_base + k][col_idx]
+                                if (k_base + k < M_len)
+                                    a_lane[lane][k] <= A[k_base + k][col_idx];
+                                b_lane[lane][k] <= 1; // accumulate
                             end
                         end
                     end
@@ -182,7 +204,6 @@ module matrix_cont #(
                 // ADD or SUB (elementwise) - tile of TILE_R x TILE_C
                 else if (op == 3'b001 || op == 3'b010) begin
                     vec_len   <= 1;
-                    scalar_en <= 0;
 
                     for (lane = 0; lane < LANES; lane = lane + 1) begin
                         int r_off, c_off;
@@ -201,27 +222,27 @@ module matrix_cont #(
                     end
                 end
 
-                // SCALAR MULTIPLY
+                // HADAMARD
                 else if (op == 3'b011) begin
                     vec_len   <= 1;
-                    scalar_en <= 1;
-
-                    for (lane = 0; lane < LANES; lane = lane + 1) begin
-                        int r_off, c_off;
-                        lane_to_rc(lane, r_off, c_off);
+                
+                    for (lane=0; lane<LANES; lane=lane+1) begin
+                        int r_off,c_off;
+                        lane_to_rc(lane,r_off,c_off);
+                
                         row_idx = i + r_off;
                         col_idx = j + c_off;
-
+                
                         a_lane[lane][0] <= 0;
                         b_lane[lane][0] <= 0;
-
-                        if (row_idx < M_len && col_idx < N_len) begin
+                
+                        if(row_idx<M_len && col_idx<N_len) begin
                             a_lane[lane][0] <= A[row_idx][col_idx];
-                            b_lane[lane][0] <= scalar;
+                            b_lane[lane][0] <= B[row_idx][col_idx];
                         end
                     end
                 end
-
+                
                 state <= START;
             end
 
@@ -254,7 +275,7 @@ module matrix_cont #(
                     col_idx = j + c_off;
 
                     if (row_idx < M_len && col_idx < N_len) begin
-                        if (op == 3'b000 || op == 3'b100) begin
+                        if (op == 3'b000 || op == 3'b100 || op == 3'b101) begin
                             C[row_idx][col_idx] <= C[row_idx][col_idx] + res[lane];
                         end
                         else begin
@@ -275,6 +296,13 @@ module matrix_cont #(
                     k_base <= k_base + vec_len;
                     state  <= LOAD;
                 end
+                
+                // If op is COL_ACCUM, step k_base along M (rows) dimension
+                else if ((op == 3'b101) && (k_base + vec_len < M_len)) begin
+                    k_base <= k_base + vec_len;
+                    state  <= LOAD;
+                end
+                
                 else begin
                     k_base <= 0;
                     state  <= NEXT_COL;
