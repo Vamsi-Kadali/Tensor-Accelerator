@@ -147,6 +147,11 @@ module tb_tensor_top_random;
     
                     else if(op==3'b011)
                         GOLD[tt][m][n] = A[tt][m][n] * scalar;
+                        
+                    else if(op==3'b100) begin
+                        for(kk=0;kk<K_len;kk=kk+1)
+                            GOLD[tt][m][n] = GOLD[tt][m][n] + A[tt][m][kk];
+                    end
     
                 end
     end
@@ -194,7 +199,7 @@ module tb_tensor_top_random;
             for(j=0;j<K_len;j=j+1)
                 A[t][i][j] = $random;
     
-        if(op==3'b000) begin
+        if(op==3'b000 || op==3'b100) begin
             // MATMUL
     
             for(i=0;i<K_len;i=i+1)
@@ -244,12 +249,13 @@ module tb_tensor_top_random;
         // RANDOM OPERATION
         //------------------------------------------------
     
-        case($urandom_range(0,3))
+        case($urandom_range(0,4))
     
             0: op = 3'b000; // MATMUL
             1: op = 3'b001; // ADD
             2: op = 3'b010; // SUB
             3: op = 3'b011; // SCALAR
+            4: op = 3'b100;
     
         endcase
     
@@ -263,7 +269,7 @@ module tb_tensor_top_random;
     
         compare_result();
     
-        $display("Test %0d complete",test);
+        $display("Test %0d complete (op=%b)",test,op);
     
     end
     

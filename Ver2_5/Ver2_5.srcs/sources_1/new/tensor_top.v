@@ -134,15 +134,8 @@ module tensor_top #(
     
     LOAD:
     begin
-        // clear matrices
-        for(i=0;i<MAX_DIM;i=i+1)
-            for(j=0;j<MAX_DIM;j=j+1)
-            begin
-                A_mat[i][j] <= 0;
-                B_mat[i][j] <= 0;
-            end
     
-        if(op==3'b000)
+        if(op==3'b000 || op==3'b100)
         begin
             // MATMUL
     

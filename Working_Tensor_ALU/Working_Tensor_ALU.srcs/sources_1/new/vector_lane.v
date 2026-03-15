@@ -123,7 +123,7 @@ module vector_lane #( parameter WIDTH = 16, ACC = 32, N_MAX = 64 )(
             res <= '0;
             done <= 1'b0;
 
-            for (i = 0; i < N_MAX; i = i + 1) begin
+            for (i = 0; i < vec_len; i = i + 1) begin
                 a_reg[i] <= a[i];
                 b_reg[i] <= b[i];
             end
