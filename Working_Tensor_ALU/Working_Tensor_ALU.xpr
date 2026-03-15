@@ -4,10 +4,10 @@
 <!-- Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.                   -->
 <!-- Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.   -->
 
-<Project Product="Vivado" Version="7" Minor="70" Path="C:/Users/kpcha/Desktop/College/DSD/Ver2_5/Ver2_5.xpr">
+<Project Product="Vivado" Version="7" Minor="70" Path="C:/Users/kpcha/Desktop/College/DSD/Working_Tensor_ALU/Working_Tensor_ALU.xpr">
   <DefaultLaunch Dir="$PRUNDIR"/>
   <Configuration>
-    <Option Name="Id" Val="07f7aaf0ab804401801a0a2426de00ad"/>
+    <Option Name="Id" Val="028ff9ecafc44fa5bf48048b30459371"/>
     <Option Name="Part" Val="xc7a100tcsg324-1"/>
     <Option Name="CompiledLibDir" Val="$PCACHEDIR/compile_simlib"/>
     <Option Name="CompiledLibDirXSim" Val=""/>
