@@ -276,7 +276,7 @@ module tb_tensor_top_random;
     
     #20 rst = 0;
     
-    for(test=0;test<100;test=test+1)
+    for(test=0;test<1000;test=test+1)
     begin
     
     T_len = $urandom_range(1,T_MAX);

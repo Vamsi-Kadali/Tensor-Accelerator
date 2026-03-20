@@ -1,0 +1,97 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2025.1 (win64) Build 6140274 Thu May 22 00:12:29 MDT 2025
+| Date         : Fri Mar 20 11:37:10 2026
+| Host         : CherryVamsi running 64-bit major release  (build 9200)
+| Command      : report_control_sets -verbose -file tensor_top_control_sets_placed.rpt
+| Design       : tensor_top
+| Device       : xc7a100t
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Control Set Information
+
+Table of Contents
+-----------------
+1. Summary
+2. Histogram
+3. Flip-Flop Distribution
+4. Detailed Control Set Information
+
+1. Summary
+----------
+
++----------------------------------------------------------+-------+
+|                          Status                          | Count |
++----------------------------------------------------------+-------+
+| Total control sets                                       |    19 |
+|    Minimum number of control sets                        |    19 |
+|    Addition due to synthesis replication                 |     0 |
+|    Addition due to physical synthesis replication        |     0 |
+| Unused register locations in slices containing registers |    66 |
++----------------------------------------------------------+-------+
+* Control sets can be merged at opt_design using control_set_merge or merge_equivalent_drivers
+** Run report_qor_suggestions for automated merging and remapping suggestions
+
+
+2. Histogram
+------------
+
++--------------------+-------+
+|       Fanout       | Count |
++--------------------+-------+
+| Total control sets |    19 |
+| >= 0 to < 4        |     1 |
+| >= 4 to < 6        |    10 |
+| >= 6 to < 8        |     0 |
+| >= 8 to < 10       |     1 |
+| >= 10 to < 12      |     2 |
+| >= 12 to < 14      |     0 |
+| >= 14 to < 16      |     0 |
+| >= 16              |     5 |
++--------------------+-------+
+* Control sets can be remapped at either synth_design or opt_design
+
+
+3. Flip-Flop Distribution
+-------------------------
+
++--------------+-----------------------+------------------------+-----------------+--------------+
+| Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
++--------------+-----------------------+------------------------+-----------------+--------------+
+| No           | No                    | No                     |              11 |            9 |
+| No           | No                    | Yes                    |               0 |            0 |
+| No           | Yes                   | No                     |               0 |            0 |
+| Yes          | No                    | No                     |               5 |            2 |
+| Yes          | No                    | Yes                    |               0 |            0 |
+| Yes          | Yes                   | No                     |             214 |           63 |
++--------------+-----------------------+------------------------+-----------------+--------------+
+
+
+4. Detailed Control Set Information
+-----------------------------------
+
++----------------+------------------------------------------------------+------------------------------------------------------+------------------+----------------+--------------+
+|  Clock Signal  |                     Enable Signal                    |                   Set/Reset Signal                   | Slice Load Count | Bel Load Count | Bels / Slice |
++----------------+------------------------------------------------------+------------------------------------------------------+------------------+----------------+--------------+
+|  clk_IBUF_BUFG | done_i_1__8_n_0                                      | rst_IBUF                                             |                1 |              1 |         1.00 |
+|  clk_IBUF_BUFG | matrix_engine/accel/fsm/FSM_onehot_state_reg[2]_0[0] | matrix_engine/accel/fsm/SR[0]                        |                1 |              4 |         4.00 |
+|  clk_IBUF_BUFG | matrix_engine/accel/fsm/FSM_onehot_state_reg[2]_2[0] | matrix_engine/accel/fsm/FSM_onehot_state_reg[1]_1[0] |                1 |              4 |         4.00 |
+|  clk_IBUF_BUFG | matrix_engine/accel/fsm/FSM_onehot_state[3]_i_1_n_0  | rst_IBUF                                             |                1 |              4 |         4.00 |
+|  clk_IBUF_BUFG | matrix_engine/accel/fsm/FSM_onehot_state_reg[2]_3[0] | matrix_engine/accel/fsm/FSM_onehot_state_reg[1]_2[0] |                1 |              4 |         4.00 |
+|  clk_IBUF_BUFG | matrix_engine/accel/fsm/FSM_onehot_state_reg[2]_4[0] | matrix_engine/accel/fsm/FSM_onehot_state_reg[1]_3[0] |                1 |              4 |         4.00 |
+|  clk_IBUF_BUFG | matrix_engine/accel/fsm/FSM_onehot_state_reg[2]_7[0] | matrix_engine/accel/fsm/FSM_onehot_state_reg[1]_6[0] |                1 |              4 |         4.00 |
+|  clk_IBUF_BUFG | matrix_engine/accel/fsm/FSM_onehot_state_reg[2]_1[0] | matrix_engine/accel/fsm/FSM_onehot_state_reg[1]_0[0] |                1 |              4 |         4.00 |
+|  clk_IBUF_BUFG | matrix_engine/accel/fsm/FSM_onehot_state_reg[2]_6[0] | matrix_engine/accel/fsm/FSM_onehot_state_reg[1]_5[0] |                1 |              4 |         4.00 |
+|  clk_IBUF_BUFG | matrix_engine/accel/fsm/FSM_onehot_state_reg[2]_5[0] | matrix_engine/accel/fsm/FSM_onehot_state_reg[1]_4[0] |                1 |              4 |         4.00 |
+|  clk_IBUF_BUFG | matrix_engine/vec_len[4]_i_1_n_0                     |                                                      |                2 |              5 |         2.50 |
+|  clk_IBUF_BUFG | matrix_engine/accel/fsm/E[0]                         | rst_IBUF                                             |                3 |              9 |         3.00 |
+|  clk_IBUF_BUFG |                                                      |                                                      |                9 |             11 |         1.22 |
+|  clk_IBUF_BUFG | matrix_engine/E[0]                                   | rst_IBUF                                             |                5 |             11 |         2.20 |
+|  clk_IBUF_BUFG | matrix_engine/j[31]_i_1__0_n_0                       | rst_IBUF                                             |                5 |             30 |         6.00 |
+|  clk_IBUF_BUFG | matrix_engine/i[31]_i_1__0_n_0                       | rst_IBUF                                             |                6 |             31 |         5.17 |
+|  clk_IBUF_BUFG | matrix_engine/i__0                                   | rst_IBUF                                             |               12 |             32 |         2.67 |
+|  clk_IBUF_BUFG | matrix_engine/k_base[31]_i_1_n_0                     | rst_IBUF                                             |               13 |             32 |         2.46 |
+|  clk_IBUF_BUFG | matrix_engine/FSM_onehot_state_reg[6]_0[0]           | rst_IBUF                                             |                9 |             32 |         3.56 |
++----------------+------------------------------------------------------+------------------------------------------------------+------------------+----------------+--------------+
+
+

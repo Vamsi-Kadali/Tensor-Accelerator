@@ -1,0 +1,23 @@
+Vivado Simulator v2025.1.0
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: C:/Xilinx/2025.1/Vivado/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip --snapshot tb_tensor_top_bram_random_behav xil_defaultlib.tb_tensor_top_bram_random xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.tensor_bram(DEPTH=4096)
+Compiling module xil_defaultlib.tensor_bram(WIDTH=40,DEPTH=4096)
+Compiling module xil_defaultlib.accel_fsm
+Compiling module xil_defaultlib.mac
+Compiling module xil_defaultlib.vector_lane(N_MAX=16)
+Compiling module xil_defaultlib.simd_array(N_MAX=16,LANES=8)
+Compiling module xil_defaultlib.accel_top(N_MAX=16,LANES=8)
+Compiling module xil_defaultlib.matrix_cont(N_MAX=16,LANES=8,TIL...
+Compiling module xil_defaultlib.tensor_top(MAX_DIM=64,ACC=40,DEP...
+Compiling module xil_defaultlib.tb_tensor_top_bram_random
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot tb_tensor_top_bram_random_behav
