@@ -19,14 +19,15 @@
 // 
 //////////////////////////////////////////////////////////////////////////////////
 
+
 module tensor_top #(
     parameter WIDTH   = 16,
-    parameter MAX_DIM = 16, //64
+    parameter MAX_DIM = 64, //64
     
-    parameter N_MAX   = 16, //No of vectors per lane was 64
-    parameter LANES   = 8, // was 64
-    parameter TILE_R  = 2, // was 8
-    parameter TILE_C  = 4, // was 8
+    parameter N_MAX   = 64, //No of vectors per lane was 64
+    parameter LANES   = 64, // was 64
+    parameter TILE_R  = 8, // was 8
+    parameter TILE_C  = 8, // was 8
     
     parameter ACC = 2*WIDTH + $clog2(MAX_DIM),
     parameter DEPTH   = MAX_DIM*MAX_DIM

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="impl_1" LaunchPart="xc7a100tcsg324-1" LaunchTime="1773986592">
+<GenRun Id="impl_1" LaunchPart="xc7a100tcsg324-1" LaunchTime="1774028102">
   <File Type="REPORTS-TCL" Name="tensor_top_reports.tcl"/>
   <File Type="ROUTE-PWR-SUM" Name="tensor_top_power_summary_routed.pb"/>
   <File Type="BITSTR-MMI" Name="tensor_top.mmi"/>
@@ -195,6 +195,5 @@
     <Step Id="route_design"/>
     <Step Id="post_route_phys_opt_design"/>
     <Step Id="write_bitstream"/>
-    <Step Id="write_device_image"/>
   </Strategy>
 </GenRun>

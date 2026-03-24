@@ -19,31 +19,6 @@
 // 
 //////////////////////////////////////////////////////////////////////////////////
 
-
-`timescale 1ns / 1ps
-//////////////////////////////////////////////////////////////////////////////////
-// Module Name: tb_BRAM  (fixed testbench)
-//
-// KEY CHANGES from broken version:
-//
-// 1. write_A/write_B use BACKDOOR mem writes (DUT.bram_A.mem[i] = data)
-//    - zero-time, no clock cycles, no race conditions with compute_mode.
-//    This is the same approach the working design used and is perfectly valid
-//    for simulation. The external port is for hardware; the backdoor is for sim.
-//
-// 2. read_C uses BACKDOOR mem reads (val = DUT.bram_C.mem[addr])
-//    - zero-time, no extra pipeline register latency to worry about.
-//
-// 3. Removed wait_idle(), removed read_C task latency complexity.
-//
-// 4. clear_bram() reinstated - clears all 3 BRAMs before each test.
-//
-// 5. Single initial block for clean sequencing.
-//
-// 6. External port signals (we_a, din_a, addr_a etc.) driven to safe
-//    constants since backdoor is used for simulation.
-//////////////////////////////////////////////////////////////////////////////////
-
 module tb_tensor_top_bram_random;
 
     parameter WIDTH   = 16;

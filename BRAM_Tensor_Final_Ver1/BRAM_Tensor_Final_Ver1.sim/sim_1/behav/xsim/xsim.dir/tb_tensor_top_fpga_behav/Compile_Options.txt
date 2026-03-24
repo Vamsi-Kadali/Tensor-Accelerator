@@ -1,0 +1,1 @@
+--incr --debug "typical" --relax --mt "2" -L "xil_defaultlib" -L "uvm" -L "unisims_ver" -L "unimacro_ver" -L "secureip" --snapshot "tb_tensor_top_fpga_behav" "xil_defaultlib.tb_tensor_top_fpga" "xil_defaultlib.glbl" -log "elaborate.log" 
