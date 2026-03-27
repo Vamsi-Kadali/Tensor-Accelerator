@@ -1,0 +1,440 @@
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer: 
+// 
+// Create Date: 25.03.2026 13:11:10
+// Design Name: 
+// Module Name: uart_tensor_bridge
+// Project Name: 
+// Target Devices: 
+// Tool Versions: 
+// Description: 
+// 
+// Dependencies: 
+// 
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+// 
+//////////////////////////////////////////////////////////////////////////////////
+
+`timescale 1ns / 1ps
+// =============================================================================
+//  uart_tensor_bridge.sv
+//
+//  Bridges UART serial interface to tensor_top's external BRAM ports.
+//
+//  ──────────────────────────────────────────────────────────────────────────
+//  PACKET PROTOCOL (host → FPGA)
+//  ──────────────────────────────────────────────────────────────────────────
+//
+//  WRITE_A  [0x01][addr_lo(1B)][data_hi(1B)][data_lo(1B)]  → ACK 0xAA (1B)
+//  WRITE_B  [0x02][addr_lo(1B)][data_hi(1B)][data_lo(1B)]  → ACK 0xAA (1B)
+//  RUN      [0x03][op(1B)][M(1B)][K(1B)][N(1B)]            → ACK 0xAA (1B)
+//  READ_C   [0x04][addr_lo(1B)]  → [b4][b3][b2][b1][b0]   (5 bytes, MSB-first)
+//
+//  addr_lo  : 8-bit flat BRAM address  (row * MAX_DIM + col)
+//  data_hi/lo : 16-bit signed element,  big-endian
+//  op        : lower 3 bits used       {000=MATMUL,001=ADD,010=SUB,
+//                                       011=HADAMARD,100=ROW_ACCUM,101=COL_ACCUM}
+//  M/K/N    : dimension values, 1-byte each (≤ MAX_DIM)
+//  b4..b0   : ACC-bit result, big-endian (b4 = bits [39:32])
+//
+//  ──────────────────────────────────────────────────────────────────────────
+//  TIMING NOTES (synchronous BRAM, all registered)
+//  ──────────────────────────────────────────────────────────────────────────
+//
+//  Write to bram_A / bram_B (port A):
+//    State WR_ISSUE  : registered outputs →  we=1, addr, din become live on
+//                      the NEXT posedge (entry into WR_DEASSERT).
+//    State WR_DEASSERT: BRAM sees we=1 at this posedge → latches datum.
+//                       Bridge clears we=0 (takes effect next cycle).
+//    → we_a/b=1 for exactly ONE posedge with stable addr/din. ✓
+//
+//  Read from bram_C (port B):
+//    State RD_ADDR   : addr_c_ext registered → goes live at entry to RD_WAIT.
+//    State RD_WAIT   : BRAM samples addr → registered output updates ONE cycle
+//                      later (standard synchronous BRAM 1-cycle read latency).
+//    State RD_SAMPLE : dout_c_ext is now valid → capture into r_c_data.
+//    → 2-state pipeline identical to tensor_top's own LOAD_A_ADDR/WAIT/STORE. ✓
+//
+//  tensor_top.done : pulses HIGH for exactly ONE clock (DONE state → IDLE).
+//    Bridge samples done every cycle in RUN_WAIT state. ✓
+//
+//  uart_rx.o_RX_DV  : pulses HIGH for ONE clock when byte received. ✓
+//  uart_tx.i_TX_DV  : must be HIGH for ONE clock to latch i_TX_Byte. ✓
+//  uart_tx.o_TX_Done: pulses HIGH for ONE clock at end of byte. ✓
+//
+// =============================================================================
+
+module uart_tensor_bridge #(
+    parameter CLKS_PER_BIT = 868,  // 100 MHz / 115200 baud ≈ 868
+    parameter WIDTH         = 16,
+    parameter MAX_DIM       = 16,
+    parameter ACC           = 2*WIDTH + $clog2(MAX_DIM),  // 36 for defaults; use 40 if needed
+    parameter DEPTH         = MAX_DIM * MAX_DIM,
+    parameter ADDR_W        = $clog2(DEPTH),              // 8 for 256-entry BRAM
+    parameter DIM_W         = $clog2(MAX_DIM + 1)         // 5 for MAX_DIM=16
+)(
+    input  wire                   clk,
+    input  wire                   rst,         // synchronous, active-high
+
+    // ── UART physical pins ──────────────────────────────────────────────────
+    input  wire                   uart_rxd,    // serial RX (from host)
+    output wire                   uart_txd,    // serial TX (to host)
+
+    // ── tensor_top control ──────────────────────────────────────────────────
+    output reg                    tt_start,
+    output reg  [2:0]             tt_op,
+    output reg  [DIM_W-1:0]       tt_M,
+    output reg  [DIM_W-1:0]       tt_K,
+    output reg  [DIM_W-1:0]       tt_N,
+    input  wire                   tt_done,
+
+    // ── bram_A external write port (port A of tensor_top's bram_A) ──────────
+    output reg                    we_a_ext,
+    output reg  [ADDR_W-1:0]      addr_a_ext,
+    output reg  signed [WIDTH-1:0] din_a_ext,
+
+    // ── bram_B external write port (port A of tensor_top's bram_B) ──────────
+    output reg                    we_b_ext,
+    output reg  [ADDR_W-1:0]      addr_b_ext,
+    output reg  signed [WIDTH-1:0] din_b_ext,
+
+    // ── bram_C external read port (port B of tensor_top's bram_C) ───────────
+    output reg  [ADDR_W-1:0]      addr_c_ext,
+    input  wire signed [ACC-1:0]  dout_c_ext
+);
+
+    // =========================================================================
+    // UART sub-modules
+    // =========================================================================
+    wire       rx_dv;
+    wire [7:0] rx_byte;
+
+    uart_rx #(.CLKS_PER_BIT(CLKS_PER_BIT)) u_rx (
+        .i_Rst_L    (~rst),          // active-low reset
+        .i_Clock    (clk),
+        .i_RX_Serial(uart_rxd),
+        .o_RX_DV    (rx_dv),
+        .o_RX_Byte  (rx_byte)
+    );
+
+    reg        tx_dv;
+    reg  [7:0] tx_byte;
+    wire       tx_done;
+    wire       tx_active;
+
+    uart_tx #(.CLKS_PER_BIT(CLKS_PER_BIT)) u_tx (
+        .i_Rst_L    (~rst),
+        .i_Clock    (clk),
+        .i_TX_DV    (tx_dv),
+        .i_TX_Byte  (tx_byte),
+        .o_TX_Active(tx_active),
+        .o_TX_Serial(uart_txd),
+        .o_TX_Done  (tx_done)
+    );
+
+    // =========================================================================
+    // Internal packet registers
+    // =========================================================================
+    reg [7:0]        r_cmd;          // command byte
+    reg [ADDR_W-1:0] r_addr;         // BRAM address
+    reg [WIDTH-1:0]  r_data;         // 16-bit data (A or B element)
+    reg [ACC-1:0]    r_c_data;       // captured C element for TX
+
+    // TX byte-counter for READ_C response (5 bytes)
+    localparam TX_BYTES = (ACC + 7) / 8;   // = 5 for ACC=40
+    reg [$clog2(TX_BYTES):0] r_tx_idx;     // counts down: TX_BYTES-1 .. 0
+
+    // =========================================================================
+    // FSM states
+    // =========================================================================
+    typedef enum logic [4:0] {
+        //── Receive path ───────────────────────────────
+        IDLE,           // wait for first byte (command)
+        RECV_ADDR,      // receive 1-byte BRAM address
+        RECV_DATA_HI,   // receive data[15:8]
+        RECV_DATA_LO,   // receive data[7:0]  then write
+        RECV_OP,        // receive op byte (RUN command)
+        RECV_M,         // receive M_len
+        RECV_K,         // receive K_len
+        RECV_N,         // receive N_len  then run
+        //── Write path (A and B share these) ───────────
+        WR_ISSUE,       // drive addr/din/we registers (we goes live next cycle)
+        WR_DEASSERT,    // BRAM writes on THIS posedge; clear we
+        //── Run / wait ─────────────────────────────────
+        RUN_PULSE,      // assert tt_start for ONE cycle
+        RUN_WAIT,       // wait for tt_done
+        //── Read path ──────────────────────────────────
+        RD_ADDR,        // register addr_c_ext
+        RD_WAIT,        // BRAM address pipeline: addr live, output not yet
+        RD_SAMPLE,      // capture dout_c_ext into r_c_data
+        //── Transmit path ──────────────────────────────
+        TX_LOAD,        // assert tx_dv with current byte
+        TX_WAIT         // wait for tx_done, then next byte or back to IDLE
+    } state_t;
+
+    state_t state;
+
+    // =========================================================================
+    // Helper: select which byte of r_c_data to send
+    //   TX_BYTES-1 first (MSB byte), 0 last (LSB byte)
+    // =========================================================================
+    // For ACC=40: byte 4=[39:32], byte 3=[31:24], byte 2=[23:16],
+    //             byte 1=[15:8],  byte 0=[7:0]
+    function automatic [7:0] c_byte_sel(
+        input [ACC-1:0]            c_val,
+        input [$clog2(TX_BYTES):0] idx   // idx=TX_BYTES-1 is MSB
+    );
+        integer shift;
+        begin
+            shift     = idx * 8;
+            c_byte_sel = c_val[shift +: 8];
+        end
+    endfunction
+
+    // =========================================================================
+    // Main FSM
+    // =========================================================================
+    always @(posedge clk) begin
+        if (rst) begin
+            state       <= IDLE;
+            // BRAM bus defaults - keep de-asserted
+            we_a_ext    <= 1'b0;
+            we_b_ext    <= 1'b0;
+            addr_a_ext  <= '0;
+            addr_b_ext  <= '0;
+            din_a_ext   <= '0;
+            din_b_ext   <= '0;
+            addr_c_ext  <= '0;
+            // tensor_top control
+            tt_start    <= 1'b0;
+            tt_op       <= 3'b000;
+            tt_M        <= '0;
+            tt_K        <= '0;
+            tt_N        <= '0;
+            // UART TX
+            tx_dv       <= 1'b0;
+            tx_byte     <= 8'h00;
+            // internals
+            r_cmd       <= 8'h00;
+            r_addr      <= '0;
+            r_data      <= '0;
+            r_c_data    <= '0;
+            r_tx_idx    <= '0;
+        end else begin
+            // ── Default: de-assert single-cycle signals ─────────────────────
+            tt_start <= 1'b0;
+            tx_dv    <= 1'b0;
+            we_a_ext <= 1'b0;    // safe default; only WR_ISSUE overrides
+            we_b_ext <= 1'b0;
+
+            case (state)
+
+            // =================================================================
+            // IDLE - wait for command byte
+            // =================================================================
+            IDLE: begin
+                if (rx_dv) begin
+                    r_cmd <= rx_byte;
+                    case (rx_byte)
+                        8'h01: state <= RECV_ADDR;   // WRITE_A
+                        8'h02: state <= RECV_ADDR;   // WRITE_B
+                        8'h03: state <= RECV_OP;     // RUN
+                        8'h04: state <= RECV_ADDR;   // READ_C
+                        default: state <= IDLE;      // unknown, ignore
+                    endcase
+                end
+            end
+
+            // =================================================================
+            // RECEIVE ADDRESS (shared by WRITE_A, WRITE_B, READ_C)
+            // =================================================================
+            RECV_ADDR: begin
+                if (rx_dv) begin
+                    r_addr <= rx_byte[ADDR_W-1:0];
+                    case (r_cmd)
+                        8'h01, 8'h02: state <= RECV_DATA_HI;
+                        8'h04:        state <= RD_ADDR;
+                        default:      state <= IDLE;
+                    endcase
+                end
+            end
+
+            // =================================================================
+            // RECEIVE DATA[15:8]  (WRITE_A / WRITE_B)
+            // =================================================================
+            RECV_DATA_HI: begin
+                if (rx_dv) begin
+                    r_data[15:8] <= rx_byte;
+                    state <= RECV_DATA_LO;
+                end
+            end
+
+            // =================================================================
+            // RECEIVE DATA[7:0] then proceed to write
+            // =================================================================
+            RECV_DATA_LO: begin
+                if (rx_dv) begin
+                    r_data[7:0] <= rx_byte;
+                    state <= WR_ISSUE;
+                end
+            end
+
+            // =================================================================
+            // WR_ISSUE - register we=1, addr, din
+            //   All assignments are NON-BLOCKING → outputs become live at
+            //   the START of WR_DEASSERT (next posedge). That is the posedge
+            //   at which the BRAM latches the write. ✓
+            // =================================================================
+            WR_ISSUE: begin
+                if (r_cmd == 8'h01) begin
+                    we_a_ext   <= 1'b1;
+                    addr_a_ext <= r_addr;
+                    din_a_ext  <= r_data;
+                end else begin                 // 0x02 = WRITE_B
+                    we_b_ext   <= 1'b1;
+                    addr_b_ext <= r_addr;
+                    din_b_ext  <= r_data;
+                end
+                state <= WR_DEASSERT;
+            end
+
+            // =================================================================
+            // WR_DEASSERT - BRAM write happens on THIS posedge (we still=1
+            //   from previous state's registered output).  Clear we for next
+            //   cycle via the default assignments at the top of the always block.
+            //   Then send ACK 0xAA.
+            // =================================================================
+            WR_DEASSERT: begin
+                // we_a/b already cleared by default at block top
+                // Load ACK into TX
+                tx_byte  <= 8'hAA;
+                tx_dv    <= 1'b1;
+                state    <= TX_WAIT;
+                r_tx_idx <= '0;      // single byte → idx=0, after TX_WAIT → IDLE
+            end
+
+            // =================================================================
+            // RECEIVE OP (RUN command)
+            // =================================================================
+            RECV_OP: begin
+                if (rx_dv) begin
+                    tt_op <= rx_byte[2:0];
+                    state <= RECV_M;
+                end
+            end
+
+            RECV_M: begin
+                if (rx_dv) begin
+                    tt_M  <= rx_byte[DIM_W-1:0];
+                    state <= RECV_K;
+                end
+            end
+
+            RECV_K: begin
+                if (rx_dv) begin
+                    tt_K  <= rx_byte[DIM_W-1:0];
+                    state <= RECV_N;
+                end
+            end
+
+            // =================================================================
+            // RECV_N - complete dimension set; pulse start next cycle
+            // =================================================================
+            RECV_N: begin
+                if (rx_dv) begin
+                    tt_N  <= rx_byte[DIM_W-1:0];
+                    state <= RUN_PULSE;
+                end
+            end
+
+            // =================================================================
+            // RUN_PULSE - assert tt_start for ONE cycle
+            //   tt_M/K/N/op are already stable (from previous states).
+            //   tensor_top samples start on the posedge of RUN_WAIT entry. ✓
+            // =================================================================
+            RUN_PULSE: begin
+                tt_start <= 1'b1;
+                state    <= RUN_WAIT;
+            end
+
+            // =================================================================
+            // RUN_WAIT - poll tt_done every cycle
+            //   tensor_top DONE state: done=1 for ONE posedge, then IDLE.
+            //   We catch it here. ✓
+            // =================================================================
+            RUN_WAIT: begin
+                // tt_start already cleared by block default
+                if (tt_done) begin
+                    tx_byte  <= 8'hAA;
+                    tx_dv    <= 1'b1;
+                    r_tx_idx <= '0;
+                    state    <= TX_WAIT;
+                end
+            end
+
+            // =================================================================
+            // READ_C PATH
+            // RD_ADDR - register addr_c_ext; output goes live NEXT posedge
+            // =================================================================
+            RD_ADDR: begin
+                addr_c_ext <= r_addr;
+                state      <= RD_WAIT;
+            end
+
+            // =================================================================
+            // RD_WAIT - addr_c_ext is now live on the wire.
+            //   bram_C port B samples addr on THIS posedge and updates
+            //   dout_c_ext (registered output) ONE cycle later. ✓
+            // =================================================================
+            RD_WAIT: begin
+                state <= RD_SAMPLE;
+            end
+
+            // =================================================================
+            // RD_SAMPLE - dout_c_ext is valid now (registered by BRAM).
+            //   Capture and begin TX of TX_BYTES bytes, MSB first.
+            // =================================================================
+            RD_SAMPLE: begin
+                r_c_data <= dout_c_ext;
+                r_tx_idx <= TX_BYTES - 1;   // start from MSB byte
+                state    <= TX_LOAD;
+            end
+
+            // =================================================================
+            // TX_LOAD - assert tx_dv for ONE cycle with current byte
+            //   Byte index r_tx_idx: TX_BYTES-1 = MSB, 0 = LSB
+            // =================================================================
+            TX_LOAD: begin
+                tx_byte <= c_byte_sel(r_c_data, r_tx_idx);
+                tx_dv   <= 1'b1;
+                state   <= TX_WAIT;
+            end
+
+            // =================================================================
+            // TX_WAIT - wait for uart_tx to finish the byte
+            //   For single-byte ACK (from WRITE or RUN): r_tx_idx=0 → IDLE.
+            //   For multi-byte READ_C response: count down r_tx_idx.
+            // =================================================================
+            TX_WAIT: begin
+                // tx_dv cleared by block default
+                if (tx_done) begin
+                    if (r_tx_idx == 0) begin
+                        state <= IDLE;
+                    end else begin
+                        r_tx_idx <= r_tx_idx - 1;
+                        state    <= TX_LOAD;
+                    end
+                end
+            end
+
+            default: state <= IDLE;
+
+            endcase
+        end
+    end
+
+endmodule

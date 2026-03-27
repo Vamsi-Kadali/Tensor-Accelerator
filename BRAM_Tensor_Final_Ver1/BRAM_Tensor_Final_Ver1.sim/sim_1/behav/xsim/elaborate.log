@@ -13,18 +13,4 @@ WARNING: [VRFC 10-3091] actual bit length 12 differs from formal bit length 8 fo
 WARNING: [VRFC 10-3091] actual bit length 12 differs from formal bit length 8 for port 'addr_c_ext' [C:/Users/kpcha/Desktop/College/DSD/BRAM_Tensor_Final_Ver1/BRAM_Tensor_Final_Ver1.srcs/sim_1/new/tb_BRAM.v:73]
 WARNING: [VRFC 10-3091] actual bit length 40 differs from formal bit length 36 for port 'dout_c_ext' [C:/Users/kpcha/Desktop/College/DSD/BRAM_Tensor_Final_Ver1/BRAM_Tensor_Final_Ver1.srcs/sim_1/new/tb_BRAM.v:74]
 Completed static elaboration
-Starting simulation data flow analysis
-Completed simulation data flow analysis
-Time Resolution for simulation is 1ps
-Compiling module xil_defaultlib.tensor_bram_default
-Compiling module xil_defaultlib.tensor_bram(WIDTH=36)
-Compiling module xil_defaultlib.accel_fsm
-Compiling module xil_defaultlib.mac(ACC=36)
-Compiling module xil_defaultlib.vector_lane(ACC=36,N_MAX=16)
-Compiling module xil_defaultlib.simd_array(ACC=36,N_MAX=16,LANES...
-Compiling module xil_defaultlib.accel_top(ACC=36,N_MAX=16,LANES=...
-Compiling module xil_defaultlib.matrix_cont(N_MAX=16,LANES=8,TIL...
-Compiling module xil_defaultlib.tensor_top_default
-Compiling module xil_defaultlib.tb_tensor_top_fpga
-Compiling module xil_defaultlib.glbl
-Built simulation snapshot tb_tensor_top_fpga_behav
+INFO: [XSIM 43-4323] No Change in HDL. Linking previously generated obj files to create kernel
