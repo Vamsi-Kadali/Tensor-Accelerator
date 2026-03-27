@@ -546,8 +546,8 @@ module tensor_top #(
     ila_0 ila_inst (
     .clk(clk),
 
-    .probe0(start),              // 1-bit ✅
-    .probe1(done),               // 1-bit ✅
+    .probe0(start),              // 1-bit 
+    .probe1(done),               // 1-bit 
 
     .probe2(debug_state[3:0]),         // MUST be 4-bit
 
@@ -560,9 +560,9 @@ module tensor_top #(
     .probe7(K_len[4:0]),         // MUST be 5-bit
     .probe8(N_len[4:0]),         // MUST be 5-bit
 
-    .probe9(addr_a[7:0]),        // SLICE to 8-bit ⚠️
-    .probe10(addr_b[7:0]),       // SLICE to 8-bit ⚠️
-    .probe11(addr_c[7:0]),       // SLICE to 8-bit ⚠️
+    .probe9(addr_a[7:0]),        // SLICE to 8-bit 
+    .probe10(addr_b[7:0]),       // SLICE to 8-bit 
+    .probe11(addr_c[7:0]),       // SLICE to 8-bit 
 
     .probe12(we_c),              // 1-bit
 
@@ -570,7 +570,7 @@ module tensor_top #(
     {4'b0, addr_a},
     {4'b0, addr_b},
     {4'b0, addr_c}
-}) // 36-bit ✅
+}) // 36-bit 
 );
     //-----------------------------------------
     // BRAM READ (COMBINATIONAL)
