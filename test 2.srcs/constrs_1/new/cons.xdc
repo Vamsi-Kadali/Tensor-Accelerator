@@ -16,7 +16,7 @@ set_property IOSTANDARD LVCMOS33 [get_ports rst]
 ## =====================================
 set_property PACKAGE_PIN D12 [get_ports start]
 set_property IOSTANDARD LVCMOS33 [get_ports start]
-
+set_property PULLDOWN true [get_ports start]
 ## =====================================
 ## DONE (LED0)
 ## =====================================
