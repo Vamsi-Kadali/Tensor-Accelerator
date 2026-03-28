@@ -1,7 +1,7 @@
-Running: xsim.dir/tb_uart_tensor_bridge_behav/xsimk.exe -simmode gui -wdb tb_uart_tensor_bridge_behav.wdb -simrunnum 0 -socket 54872
+Running: xsim.dir/tb_uart_tensor_bridge_behav/xsimk.exe -simmode gui -wdb tb_uart_tensor_bridge_behav.wdb -simrunnum 0 -socket 64713
 Design successfully loaded
-Design Loading Memory Usage: 10956 KB (Peak: 10956 KB)
+Design Loading Memory Usage: 11012 KB (Peak: 11012 KB)
 Design Loading CPU Usage: 15 ms
 Simulation completed
-Simulation Memory Usage: 19880 KB (Peak: 19880 KB)
-Simulation CPU Usage: 5249 ms
+Simulation Memory Usage: 20104 KB (Peak: 20104 KB)
+Simulation CPU Usage: 9937 ms
