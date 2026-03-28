@@ -36,6 +36,14 @@ module uart_rx
   localparam RX_STOP_BIT  = 3'b011;
   localparam CLEANUP      = 3'b100;
  
+ 
+    reg rxd_meta, rxd_sync;
+    
+    always @(posedge i_Clock) begin
+        rxd_meta <= i_RX_Serial;
+        rxd_sync <= rxd_meta;
+    end
+    
   reg [$clog2(CLKS_PER_BIT)-1:0] r_Clock_Count;
   reg [2:0] r_Bit_Index;
   reg [2:0] r_SM_Main;
@@ -57,7 +65,7 @@ module uart_rx
           r_Clock_Count <= 0;
           r_Bit_Index   <= 0;
 
-          if (i_RX_Serial == 1'b0)
+          if (rxd_sync == 1'b0)
             r_SM_Main <= RX_START_BIT;
         end
      
@@ -65,7 +73,7 @@ module uart_rx
         begin
           if (r_Clock_Count == (CLKS_PER_BIT-1)/2)
           begin
-            if (i_RX_Serial == 1'b0)
+            if (rxd_sync == 1'b0)
             begin
               r_Clock_Count <= 0;
               r_SM_Main     <= RX_DATA_BITS;
@@ -84,7 +92,7 @@ module uart_rx
           else
           begin
             r_Clock_Count          <= 0;
-            o_RX_Byte[r_Bit_Index] <= i_RX_Serial;
+            o_RX_Byte[r_Bit_Index] <= rxd_sync;
 
             if (r_Bit_Index < 7)
               r_Bit_Index <= r_Bit_Index + 1;

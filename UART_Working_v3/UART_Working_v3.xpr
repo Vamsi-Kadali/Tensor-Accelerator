@@ -7,7 +7,7 @@
 <Project Product="Vivado" Version="7" Minor="70" Path="C:/Users/kpcha/Desktop/College/DSD/UART_Working_v3/UART_Working_v3.xpr">
   <DefaultLaunch Dir="$PRUNDIR"/>
   <Configuration>
-    <Option Name="Id" Val="2d56b7aea8ef42be87236057511429d6"/>
+    <Option Name="Id" Val="3fcb90c354404a1ab47a9c3f07efcd0d"/>
     <Option Name="Part" Val="xc7a100tcsg324-1"/>
     <Option Name="CompiledLibDir" Val="$PCACHEDIR/compile_simlib"/>
     <Option Name="CompiledLibDirXSim" Val=""/>
@@ -59,7 +59,7 @@
     <Option Name="IPUserFilesDir" Val="$PIPUSERFILESDIR"/>
     <Option Name="IPStaticSourceDir" Val="$PIPUSERFILESDIR/ipstatic"/>
     <Option Name="EnableBDX" Val="FALSE"/>
-    <Option Name="WTXSimLaunchSim" Val="430"/>
+    <Option Name="WTXSimLaunchSim" Val="465"/>
     <Option Name="WTModelSimLaunchSim" Val="0"/>
     <Option Name="WTQuestaLaunchSim" Val="0"/>
     <Option Name="WTIesLaunchSim" Val="0"/>

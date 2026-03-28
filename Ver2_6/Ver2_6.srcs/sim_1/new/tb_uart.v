@@ -107,14 +107,20 @@ module tb_uart_tensor_bridge;
     task automatic send_byte (input [7:0] data);
         integer b;
         begin
+            // Start bit (drive away from sampling edge)
+            @(negedge clk);
             uart_rxd = 1'b0;
-            repeat (CLKS_PER_BIT) @(posedge clk);
+            repeat (CLKS_PER_BIT) @(negedge clk);
+    
+            // Data bits
             for (b = 0; b < 8; b = b + 1) begin
                 uart_rxd = data[b];
-                repeat (CLKS_PER_BIT) @(posedge clk);
+                repeat (CLKS_PER_BIT) @(negedge clk);
             end
+    
+            // Stop bit
             uart_rxd = 1'b1;
-            repeat (CLKS_PER_BIT) @(posedge clk);
+            repeat (CLKS_PER_BIT) @(negedge clk);
         end
     endtask
 
@@ -122,12 +128,17 @@ module tb_uart_tensor_bridge;
         integer b;
         begin
             @(negedge uart_txd);
-            repeat (CLKS_PER_BIT / 2 + CLKS_PER_BIT) @(posedge clk);
+    
+            // Move to middle of first data bit
+            repeat (CLKS_PER_BIT + CLKS_PER_BIT/2) @(posedge clk);
+    
             for (b = 0; b < 8; b = b + 1) begin
                 data[b] = uart_txd;
-                if (b < 7) repeat (CLKS_PER_BIT) @(posedge clk);
+                if (b < 7)
+                    repeat (CLKS_PER_BIT) @(posedge clk);
             end
-            repeat (CLKS_PER_BIT) @(posedge clk);
+    
+            repeat (CLKS_PER_BIT) @(posedge clk); // stop bit
         end
     endtask
 

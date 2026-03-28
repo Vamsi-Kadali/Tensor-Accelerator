@@ -69,7 +69,10 @@ module uart_tensor_bridge #(
 );
 
     localparam TX_BYTES = (ACC + 7) / 8;
-
+    
+    localparam TX_W = TX_BYTES * 8;
+    reg [TX_W-1:0] c_packed;
+    
     wire rst = ~rst_l;
 
     // =========================================================================
@@ -192,7 +195,7 @@ module uart_tensor_bridge #(
     state_t state;
 
     function automatic [7:0] c_byte_sel (
-        input [ACC-1:0]            c,
+        input [TX_W-1:0]            c,
         input [$clog2(TX_BYTES):0] idx
     );
         c_byte_sel = c[idx * 8 +: 8];
@@ -364,12 +367,13 @@ module uart_tensor_bridge #(
 
             RD_SAMPLE: begin
                 r_c_data <= dout_c_ext;
+                c_packed <= {{(TX_W-ACC){dout_c_ext[ACC-1]}}, dout_c_ext};
                 r_tx_idx <= TX_BYTES - 1;
                 state    <= TX_LOAD;
             end
 
             TX_LOAD: begin
-                tx_byte_r <= c_byte_sel(r_c_data, r_tx_idx);
+                tx_byte_r <= c_byte_sel(c_packed, r_tx_idx);
                 tx_dv     <= 1'b1;
                 state     <= TX_WAIT;
             end
