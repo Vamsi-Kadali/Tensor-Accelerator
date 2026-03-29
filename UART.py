@@ -8,6 +8,15 @@ MAX_DEPTH = 4
 ACC_BITS  = 36
 TX_BYTES  = (ACC_BITS + 7) // 8   # 5 bytes per READ_C response
 
+# Hardware bit-width limits (must match uart_tensor_bridge parameters)
+# DIM_W  = $clog2(MAX_DIM+1)  = 5 bits  → M, K, N max = 2^5 - 1 = 31, but
+#           hardware parameter MAX_DIM=16 is the real ceiling.
+# DEP_W  = $clog2(MAX_DEPTH+1)= 3 bits  → D max = 2^3 - 1 = 7, but
+#           hardware parameter MAX_DEPTH=4 is the real ceiling.
+# We guard against both: value must fit in one byte AND be <= the parameter.
+_HW_DIM_MAX = MAX_DIM    # 16
+_HW_DEP_MAX = MAX_DEPTH  # 4
+
 OPS = {
     'matmul'    : 0b000,
     'add'       : 0b001,
@@ -32,20 +41,49 @@ _a_ready = False
 _b_ready = False
 
 def _mark_a_dirty(): global _a_ready; _a_ready = False
-def _mark_b_dirty(): global _b_ready; _b_ready = False
-def _mark_a_ready(): global _a_ready; _a_ready = True
 def _mark_b_ready(): global _b_ready; _b_ready = True
+def _mark_a_ready(): global _a_ready; _a_ready = True
+def _mark_b_dirty(): global _b_ready; _b_ready = False
+
+# ── Hardware parameter guards ─────────────────────────────────────────────────
+
+def _check_dim(name, val):
+    """Verify a matrix dimension fits in the hardware DIM_W field."""
+    if not (1 <= val <= _HW_DIM_MAX):
+        raise ValueError(
+            f"{name}={val} out of hardware range [1..{_HW_DIM_MAX}]. "
+            f"Resynthesize with larger MAX_DIM to increase this limit."
+        )
+
+def _check_dep(val):
+    """Verify depth fits in the hardware DEP_W field."""
+    if not (1 <= val <= _HW_DEP_MAX):
+        raise ValueError(
+            f"D={val} out of hardware range [1..{_HW_DEP_MAX}]. "
+            f"Resynthesize with larger MAX_DEPTH to increase this limit."
+        )
+
+def _check_byte(name, val):
+    """Final safety net: value must fit in one unsigned byte for UART packing."""
+    if not (0 <= val <= 255):
+        raise ValueError(f"{name}={val} does not fit in a single protocol byte.")
+
+def _validate_run_params(M, K, N, D):
+    """Full guard on all RUN parameters before touching the serial port."""
+    _check_dim('M', M)
+    _check_dim('K', K)
+    _check_dim('N', N)
+    _check_dep(D)
+    # Belt-and-suspenders: also verify each fits in the byte we'll send
+    for name, val in [('M', M), ('K', K), ('N', N), ('D', D)]:
+        _check_byte(name, val)
 
 # ── Flat address ──────────────────────────────────────────────────────────────
+
 def flat_addr(depth_idx, row, col):
-    """
-    Compute the flat BRAM address for element [depth_idx][row][col].
-    For 2D use (D=1), pass depth_idx=0 — equivalent to the original row*MAX_DIM+col.
-    """
     return depth_idx * MAX_DIM * MAX_DIM + row * MAX_DIM + col
 
 # ── Low-level UART protocol ───────────────────────────────────────────────────
-# Address is now always 2 bytes (addr_hi, addr_lo) to support ADDR_W > 8 bits.
 
 def write_A(depth_idx, row, col, value):
     """WRITE_A: [0x01][addr_hi][addr_lo][data_hi][data_lo] → ACK(0xAA)"""
@@ -83,6 +121,9 @@ def uart_run(op_name, op_bits, M, K, N, D):
     """RUN: [0x03][op][M][K][N][D] → ACK(0xAA) after tensor_top done."""
     global _a_ready, _b_ready
 
+    # Hardware parameter guard — raises ValueError before touching serial
+    _validate_run_params(M, K, N, D)
+
     if not _a_ready:
         raise RuntimeError(
             "RUN blocked: bram_A was not successfully loaded. Load A first."
@@ -118,12 +159,6 @@ def read_C(depth_idx, row, col):
 # ── Tensor / matrix load helpers ──────────────────────────────────────────────
 
 def load_tensor_A(tensor, D, A_rows, A_cols):
-    """
-    Load a 3D tensor into bram_A.
-    tensor[d][row][col], shape [D][A_rows][A_cols].
-    For a 2D matrix pass D=1 and tensor as a 3D list with one depth slice,
-    or use the convenience wrapper load_matrix_A below.
-    """
     _mark_a_dirty()
     for d in range(D):
         for i in range(A_rows):
@@ -132,7 +167,6 @@ def load_tensor_A(tensor, D, A_rows, A_cols):
     _mark_a_ready()
 
 def load_tensor_B(tensor, D, B_rows, B_cols):
-    """Load a 3D tensor into bram_B."""
     _mark_b_dirty()
     for d in range(D):
         for i in range(B_rows):
@@ -141,15 +175,13 @@ def load_tensor_B(tensor, D, B_rows, B_cols):
     _mark_b_ready()
 
 def load_matrix_A(matrix, A_rows, A_cols):
-    """Convenience wrapper: load a single 2D matrix as depth slice 0."""
     load_tensor_A([[matrix[i] for i in range(A_rows)]], 1, A_rows, A_cols)
 
 def load_matrix_B(matrix, B_rows, B_cols):
-    """Convenience wrapper: load a single 2D matrix as depth slice 0."""
     load_tensor_B([[matrix[i] for i in range(B_rows)]], 1, B_rows, B_cols)
 
 def read_tensor_C(D, M, N):
-    """Read the full result tensor back from bram_C.  Returns list[D][M][N]."""
+    """Read full result tensor [D][M][N] from bram_C."""
     result = []
     for d in range(D):
         slice_ = []
@@ -160,8 +192,37 @@ def read_tensor_C(D, M, N):
     return result
 
 def read_matrix_C(M, N):
-    """Convenience wrapper: read depth slice 0 only."""
     return read_tensor_C(1, M, N)[0]
+
+# ── Accumulation result readers ───────────────────────────────────────────────
+# ROW_ACCUM: hardware writes the same sum to all N cols of each row.
+#   Logical result is M×1.  We read column 0 only for each row.
+# COL_ACCUM: hardware writes the same sum to all M rows of each col.
+#   Logical result is 1×N.  We read row 0 only for each col.
+
+def read_tensor_C_row_accum(D, M):
+    """
+    Read ROW_ACCUM result: shape [D][M][1].
+    Returns a 3-D list where result[d][i][0] is the sum of row i in slice d.
+    """
+    result = []
+    for d in range(D):
+        slice_ = []
+        for i in range(M):
+            slice_.append([read_C(d, i, 0)])   # col 0 holds the canonical sum
+        result.append(slice_)
+    return result
+
+def read_tensor_C_col_accum(D, N):
+    """
+    Read COL_ACCUM result: shape [D][1][N].
+    Returns a 3-D list where result[d][0][j] is the sum of column j in slice d.
+    """
+    result = []
+    for d in range(D):
+        row = [read_C(d, 0, j) for j in range(N)]  # row 0 holds the canonical sums
+        result.append([row])
+    return result
 
 # ── Display ───────────────────────────────────────────────────────────────────
 
@@ -214,7 +275,6 @@ def get_matrix_from_user(name, rows, cols):
     return matrix
 
 def get_tensor_from_user(name, D, rows, cols):
-    """Get a D-slice tensor from the user, one matrix per depth slice."""
     tensor = []
     for d in range(D):
         print(f"\n  Depth slice {d} of {D-1}:")
@@ -222,34 +282,58 @@ def get_tensor_from_user(name, D, rows, cols):
     return tensor
 
 def get_dimensions(op_name, D):
+    """
+    Return (M, K, N, A_rows, A_cols, B_rows, B_cols, C_read_rows, C_read_cols).
+
+    C_read_rows / C_read_cols are the LOGICAL result dimensions — what Python
+    will actually read back:
+      matmul    : M × N
+      add/sub/
+      hadamard  : M × N  (same shape as A)
+      row_accum : M × 1  (one sum per row — hardware replicates across cols,
+                           we only read col 0)
+      col_accum : 1 × N  (one sum per col — hardware replicates across rows,
+                           we only read row 0)
+    """
     print()
-    A_rows = get_int("  Rows of A: ", lo=1, hi=MAX_DIM)
-    A_cols = get_int("  Cols of A: ", lo=1, hi=MAX_DIM)
+    A_rows = get_int("  Rows of A (M): ", lo=1, hi=MAX_DIM)
+    A_cols = get_int("  Cols of A: ",     lo=1, hi=MAX_DIM)
 
     if op_name == 'matmul':
         B_rows = A_cols
         print(f"  Rows of B fixed to {B_rows} (must equal cols of A)")
-        B_cols = get_int("  Cols of B: ", lo=1, hi=MAX_DIM)
-        M, K, N = A_rows, A_cols, B_cols
+        B_cols      = get_int("  Cols of B (N): ", lo=1, hi=MAX_DIM)
+        M, K, N     = A_rows, A_cols, B_cols
+        B_r, B_c    = B_rows, B_cols
+        C_r, C_c    = M, N
 
     elif op_name in ('add', 'sub', 'hadamard'):
         B_rows, B_cols = A_rows, A_cols
         print(f"  B shape fixed to {B_rows}x{B_cols} (must match A)")
-        M, K, N = A_rows, A_cols, A_cols
+        M, K, N     = A_rows, A_cols, A_cols
+        B_r, B_c    = B_rows, B_cols
+        C_r, C_c    = M, N
 
     elif op_name == 'row_accum':
-        B_rows, B_cols = None, None
-        M, K, N = A_rows, A_cols, A_cols
+        # A is M×K; result is M×1 (sum across K columns per row)
+        # Hardware needs K as K_len, N=K (tile iteration uses N_len for col bound)
+        M, K, N     = A_rows, A_cols, A_cols
+        B_r, B_c    = None, None
+        C_r, C_c    = M, 1            # logical: one sum per row
 
     elif op_name == 'col_accum':
-        B_rows, B_cols = None, None
-        M, K, N = A_rows, A_cols, A_cols
+        # A is K×N; result is 1×N (sum down K rows per column)
+        # Hardware iterates rows 0..M_len-1 as the K dimension
+        M, K, N     = A_rows, A_cols, A_cols
+        B_r, B_c    = None, None
+        C_r, C_c    = 1, N            # logical: one sum per col
 
     else:
-        B_rows, B_cols = None, None
-        M, K, N = A_rows, A_cols, A_cols
+        M, K, N     = A_rows, A_cols, A_cols
+        B_r, B_c    = None, None
+        C_r, C_c    = M, N
 
-    return M, K, N, A_rows, A_cols, B_rows, B_cols
+    return M, K, N, A_rows, A_cols, B_r, B_c, C_r, C_c
 
 # ── Main interactive loop ─────────────────────────────────────────────────────
 
@@ -287,18 +371,26 @@ def main():
             print("\n  Cancelled"); continue
 
         try:
-            M, K, N, A_rows, A_cols, B_rows, B_cols = get_dimensions(op_name, D)
+            M, K, N, A_rows, A_cols, B_rows, B_cols, C_rows, C_cols = \
+                get_dimensions(op_name, D)
         except KeyboardInterrupt:
             print("\n  Cancelled"); continue
+
+        # Validate hardware parameters now, before any UART traffic
+        try:
+            _validate_run_params(M, K, N, D)
+        except ValueError as e:
+            print(f"\n  Parameter error: {e}")
+            continue
 
         # Input data
         try:
             if D == 1:
-                A_mat = get_matrix_from_user("A", A_rows, A_cols)
+                A_mat    = get_matrix_from_user("A", A_rows, A_cols)
                 A_tensor = [A_mat]
                 B_tensor = None
                 if B_rows is not None:
-                    B_mat = get_matrix_from_user("B", B_rows, B_cols)
+                    B_mat    = get_matrix_from_user("B", B_rows, B_cols)
                     B_tensor = [B_mat]
             else:
                 A_tensor = get_tensor_from_user("A", D, A_rows, A_cols)
@@ -326,10 +418,19 @@ def main():
             print("done")
 
             print("  Reading C...", end=' ', flush=True)
-            C_tensor = read_tensor_C(D, M, N)
+
+            # Use the correct reader for accumulation ops to avoid
+            # reading redundant replicated values from hardware
+            if op_name == 'row_accum':
+                C_tensor = read_tensor_C_row_accum(D, M)
+            elif op_name == 'col_accum':
+                C_tensor = read_tensor_C_col_accum(D, N)
+            else:
+                C_tensor = read_tensor_C(D, C_rows, C_cols)
+
             print("done")
 
-        except RuntimeError as e:
+        except (RuntimeError, ValueError) as e:
             print(f"\n  ERROR: {e}")
             print("  Buffers marked dirty — reload before next run.")
             continue
@@ -338,7 +439,14 @@ def main():
         display_tensor(A_tensor, "A")
         if B_tensor is not None:
             display_tensor(B_tensor, "B")
-        display_tensor(C_tensor, "C  (result)")
+
+        # Label result with correct logical shape annotation
+        if op_name == 'row_accum':
+            display_tensor(C_tensor, f"C  row_accum result ({D}x{M}x1)")
+        elif op_name == 'col_accum':
+            display_tensor(C_tensor, f"C  col_accum result ({D}x1x{N})")
+        else:
+            display_tensor(C_tensor, "C  (result)")
         print()
 
     ser.close()
