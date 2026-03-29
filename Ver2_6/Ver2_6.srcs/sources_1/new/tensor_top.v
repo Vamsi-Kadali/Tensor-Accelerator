@@ -22,21 +22,43 @@
 
 `timescale 1ns / 1ps
 //////////////////////////////////////////////////////////////////////////////////
-// Module Name: tensor_top
+// Module Name: tensor_top  (BRAM-IP revision)
 //
-// Depth extension: added MAX_DEPTH parameter and D_len port.
+// Changes vs previous version:
 //
-//   DEPTH now equals MAX_DEPTH * MAX_DIM * MAX_DIM so each BRAM holds the
-//   full tensor.  ADDR_W grows accordingly (e.g. 10 bits for 4x16x16=1024).
+//   1. tensor_bram module instances replaced with Xilinx True Dual Port BRAM
+//      IP instances (bram_A, bram_B, bram_C).  The IP is expected to be
+//      configured as:
+//        - True Dual Port
+//        - Width / Depth matching WIDTH (or ACC for bram_C) and DEPTH
+//        - Registered output (BRAM primitive output register disabled so
+//          read latency = 1 cycle - matches the original tensor_bram behaviour)
+//        - Write mode: Write First or No Change (either works; Read First
+//          avoids needing separate logic but any mode is correct here)
+//      Port-A pin names (Xilinx default): clka, wea, addra, dina, douta
+//      Port-B pin names:                  clkb, web, addrb, dinb, doutb
 //
-//   matrix_cont's C output is now indexed as C[d][row][col]; the STORE loop
-//   gains an outer d-loop iterating over D_len slices.
+//   2. The C_mat wire array [MAX_DEPTH][MAX_DIM][MAX_DIM] is removed.
+//      matrix_cont now writes accumulation results directly into bram_C
+//      via its bram_c_* port.  tensor_top no longer needs a STORE FSM.
 //
-//   For 2D-only use pass D_len = 1; behaviour is identical to the original.
+//   3. The FSM is simplified to 4 states:
+//        IDLE → START → PAUSE → DONE
+//      The STORE_ARM / STORE_COMMIT states and their d_store / i / j
+//      loop counters are gone.
 //
-//   tensor_top FSM is unchanged in structure (6 states); only the STORE_ARM /
-//   STORE_COMMIT counters gain the depth dimension and the address formula
-//   gains the d * MAX_DIM * MAX_DIM base offset.
+//   4. bram_C port-A is now owned exclusively by matrix_cont (write/accum).
+//      bram_C port-B remains the external read port (unchanged interface).
+//
+//   5. All external interfaces (we_a_ext, addr_a_ext, din_a_ext,
+//      we_b_ext, addr_b_ext, din_b_ext, addr_c_ext, dout_c_ext) are
+//      unchanged so uart_tensor_bridge needs no modification.
+//
+// IMPORTANT - Xilinx IP configuration notes:
+//   bram_A / bram_B: WIDTH=16, DEPTH=DEPTH, both ports same clock
+//   bram_C:          WIDTH=ACC, DEPTH=DEPTH, both ports same clock
+//   All three should have output pipeline register = 0 (1-cycle read latency).
+//
 //////////////////////////////////////////////////////////////////////////////////
 
 module tensor_top #(
@@ -61,86 +83,106 @@ module tensor_top #(
     input  [$clog2(MAX_DIM+1)-1:0]   M_len,
     input  [$clog2(MAX_DIM+1)-1:0]   K_len,
     input  [$clog2(MAX_DIM+1)-1:0]   N_len,
-    input  [$clog2(MAX_DEPTH+1)-1:0] D_len,   // number of depth slices (1 = 2D)
+    input  [$clog2(MAX_DEPTH+1)-1:0] D_len,
 
-    // External write port for A (port A of bram_A)
+    // External write port for A (port-A of bram_A)
     input  we_a_ext,
     input  [ADDR_W-1:0]       addr_a_ext,
     input  signed [WIDTH-1:0] din_a_ext,
 
-    // External write port for B (port A of bram_B)
+    // External write port for B (port-A of bram_B)
     input  we_b_ext,
     input  [ADDR_W-1:0]       addr_b_ext,
     input  signed [WIDTH-1:0] din_b_ext,
 
-    // External read port for C (port B of bram_C)
+    // External read port for C (port-B of bram_C)
     input  [ADDR_W-1:0]       addr_c_ext,
     output signed [ACC-1:0]   dout_c_ext,
 
     output reg done
 );
 
-    // ──────────────────────────────────────────────
-    // BRAM wires
-    // ──────────────────────────────────────────────
-    wire [ADDR_W-1:0]       addr_a_int;
-    wire signed [WIDTH-1:0] dout_a_int;
+    // ─────────────────────────────────────────────────────────────────────
+    // bram_A wires
+    //   Port-A: external host writes  (wea = we_a_ext)
+    //   Port-B: matrix_cont reads     (web = 0, read-only)
+    // ─────────────────────────────────────────────────────────────────────
+    wire [ADDR_W-1:0]       addr_a_int;    // from matrix_cont
+    wire signed [WIDTH-1:0] dout_a_int;    // to   matrix_cont
 
+    bram_A u_bram_A (
+        // Port A - host write
+        .clka  (clk),
+        .ena   (1'b1),
+        .wea   (we_a_ext),
+        .addra (addr_a_ext),
+        .dina  (din_a_ext),
+        .douta (),               // unused
+
+        // Port B - matrix_cont read
+        .clkb  (clk),
+        .enb   (1'b1),
+        .web   (1'b0),
+        .addrb (addr_a_int),
+        .dinb  ({WIDTH{1'b0}}),
+        .doutb (dout_a_int)
+    );
+
+    // ─────────────────────────────────────────────────────────────────────
+    // bram_B wires
+    //   Port-A: external host writes
+    //   Port-B: matrix_cont reads
+    // ─────────────────────────────────────────────────────────────────────
     wire [ADDR_W-1:0]       addr_b_int;
     wire signed [WIDTH-1:0] dout_b_int;
 
-    reg  [ADDR_W-1:0]       addr_c_int;
-    reg  signed [ACC-1:0]   din_c_int;
-    reg  we_c_int;
+    bram_B u_bram_B (
+        .clka  (clk),
+        .ena   (1'b1),
+        .wea   (we_b_ext),
+        .addra (addr_b_ext),
+        .dina  (din_b_ext),
+        .douta (),
 
-    wire signed [ACC-1:0]   dout_c_ext_w;
-
-    // bram_A: port-A = ext write, port-B = matrix_cont read
-    tensor_bram #(.WIDTH(WIDTH), .DEPTH(DEPTH)) bram_A (
-        .clk    (clk),
-        .we_a   (we_a_ext),
-        .addr_a (addr_a_ext),
-        .din_a  (din_a_ext),
-        .dout_a (),
-        .we_b   (1'b0),
-        .addr_b (addr_a_int),
-        .din_b  ({WIDTH{1'b0}}),
-        .dout_b (dout_a_int)
+        .clkb  (clk),
+        .enb   (1'b1),
+        .web   (1'b0),
+        .addrb (addr_b_int),
+        .dinb  ({WIDTH{1'b0}}),
+        .doutb (dout_b_int)
     );
 
-    // bram_B: port-A = ext write, port-B = matrix_cont read
-    tensor_bram #(.WIDTH(WIDTH), .DEPTH(DEPTH)) bram_B (
-        .clk    (clk),
-        .we_a   (we_b_ext),
-        .addr_a (addr_b_ext),
-        .din_a  (din_b_ext),
-        .dout_a (),
-        .we_b   (1'b0),
-        .addr_b (addr_b_int),
-        .din_b  ({WIDTH{1'b0}}),
-        .dout_b (dout_b_int)
+    // ─────────────────────────────────────────────────────────────────────
+    // bram_C wires
+    //   Port-A: matrix_cont read/write (accumulation + clear)
+    //   Port-B: external host reads
+    // ─────────────────────────────────────────────────────────────────────
+    wire [ADDR_W-1:0]     bram_c_addr;
+    wire signed [ACC-1:0] bram_c_din;
+    wire                  bram_c_we;
+    wire signed [ACC-1:0] bram_c_dout_a;   // port-A read-back for accumulation
+
+    bram_C u_bram_C (
+        // Port A - matrix_cont read/write
+        .clka  (clk),
+        .ena   (1'b1),
+        .wea   (bram_c_we),
+        .addra (bram_c_addr),
+        .dina  (bram_c_din),
+        .douta (bram_c_dout_a),
+
+        // Port B - host read
+        .clkb  (clk),
+        .enb   (1'b1),
+        .web   (1'b0),
+        .addrb (addr_c_ext),
+        .dinb  ({ACC{1'b0}}),
+        .doutb (dout_c_ext)
     );
 
-    // bram_C: port-A = tensor_top FSM writes, port-B = external reads
-    tensor_bram #(.WIDTH(ACC), .DEPTH(DEPTH)) bram_C (
-        .clk    (clk),
-        .we_a   (we_c_int),
-        .addr_a (addr_c_int),
-        .din_a  (din_c_int),
-        .dout_a (),
-        .we_b   (1'b0),
-        .addr_b (addr_c_ext),
-        .din_b  ({ACC{1'b0}}),
-        .dout_b (dout_c_ext_w)
-    );
-
-    assign dout_c_ext = dout_c_ext_w;
-
-    // ──────────────────────────────────────────────
-    // matrix_cont
-    // ──────────────────────────────────────────────
-    // C is now [MAX_DEPTH][MAX_DIM][MAX_DIM]
-    wire signed [ACC-1:0] C_mat [0:MAX_DEPTH-1][0:MAX_DIM-1][0:MAX_DIM-1];
+    // ─────────────────────────────────────────────────────────────────────
+    // matrix_cont instance
+    // ─────────────────────────────────────────────────────────────────────
     reg  matrix_start;
     wire matrix_done;
 
@@ -154,113 +196,75 @@ module tensor_top #(
         .MAX_DEPTH(MAX_DEPTH),
         .ACC      (ACC)
     ) matrix_engine (
-        .clk        (clk),
-        .rst        (rst),
-        .start      (matrix_start),
-        .op         (op),
-        .M_len      (M_len),
-        .K_len      (K_len),
-        .N_len      (N_len),
-        .D_len      (D_len),
+        .clk         (clk),
+        .rst         (rst),
+        .start       (matrix_start),
+        .op          (op),
+        .M_len       (M_len),
+        .K_len       (K_len),
+        .N_len       (N_len),
+        .D_len       (D_len),
         // bram_A port-B
-        .addr_a_out (addr_a_int),
-        .dout_a_in  (dout_a_int),
+        .addr_a_out  (addr_a_int),
+        .dout_a_in   (dout_a_int),
         // bram_B port-B
-        .addr_b_out (addr_b_int),
-        .dout_b_in  (dout_b_int),
-        .C          (C_mat),
-        .done       (matrix_done)
+        .addr_b_out  (addr_b_int),
+        .dout_b_in   (dout_b_int),
+        // bram_C port-A (owned by matrix_cont)
+        .bram_c_addr (bram_c_addr),
+        .bram_c_din  (bram_c_din),
+        .bram_c_we   (bram_c_we),
+        .bram_c_dout (bram_c_dout_a),
+        .done        (matrix_done)
     );
 
-    // ──────────────────────────────────────────────
-    // FSM - 6 states (unchanged structure)
-    // STORE loop now iterates over d, i, j
-    // ──────────────────────────────────────────────
-    typedef enum logic [2:0] {
+    // ─────────────────────────────────────────────────────────────────────
+    // Simplified FSM - 4 states
+    // STORE_ARM / STORE_COMMIT removed; matrix_cont writes bram_C directly.
+    // done is asserted one cycle after matrix_done (DONE state).
+    // ─────────────────────────────────────────────────────────────────────
+    typedef enum logic [1:0] {
         IDLE,
-        START,
-        PAUSE,
-        STORE_ARM,
-        STORE_COMMIT,
-        DONE
+        START_ST,
+        PAUSE_ST,
+        DONE_ST
     } state_t;
 
     state_t state;
-    integer i, j, d_store;   // d_store: depth index during STORE phase
 
     always @(posedge clk) begin
         if (rst) begin
             state        <= IDLE;
-            done         <= 0;
-            matrix_start <= 0;
-            we_c_int     <= 0;
-            i            <= 0;
-            j            <= 0;
-            d_store      <= 0;
+            done         <= 1'b0;
+            matrix_start <= 1'b0;
         end else begin
-            we_c_int <= 0;
+            matrix_start <= 1'b0;   // default: deassert
 
             case (state)
 
             IDLE: begin
-                done         <= 0;
-                matrix_start <= 0;
+                done <= 1'b0;
                 if (start) begin
-                    i       <= 0;
-                    j       <= 0;
-                    d_store <= 0;
-                    state   <= START;
+                    state <= START_ST;
                 end
             end
 
-            START: begin
-                matrix_start <= 1;
-                state        <= PAUSE;
+            START_ST: begin
+                matrix_start <= 1'b1;
+                state        <= PAUSE_ST;
             end
 
-            PAUSE: begin
-                matrix_start <= 0;
-                if (matrix_done) begin
-                    i       <= 0;
-                    j       <= 0;
-                    d_store <= 0;
-                    state   <= STORE_ARM;
-                end
+            PAUSE_ST: begin
+                if (matrix_done)
+                    state <= DONE_ST;
             end
 
-            // Address: d_store * MAX_DIM * MAX_DIM + i * MAX_DIM + j
-            STORE_ARM: begin
-                addr_c_int <= d_store * MAX_DIM * MAX_DIM + i * MAX_DIM + j;
-                din_c_int  <= C_mat[d_store][i][j];
-                we_c_int   <= 1;
-                state      <= STORE_COMMIT;
-            end
-
-            STORE_COMMIT: begin
-                if (j + 1 < N_len) begin
-                    j     <= j + 1;
-                    state <= STORE_ARM;
-                end else begin
-                    j <= 0;
-                    if (i + 1 < M_len) begin
-                        i     <= i + 1;
-                        state <= STORE_ARM;
-                    end else begin
-                        i <= 0;
-                        // current depth slice stored, advance to next
-                        if (d_store + 1 < D_len) begin
-                            d_store <= d_store + 1;
-                            state   <= STORE_ARM;
-                        end else
-                            state <= DONE;
-                    end
-                end
-            end
-
-            DONE: begin
-                done  <= 1;
+            DONE_ST: begin
+                done  <= 1'b1;
                 state <= IDLE;
             end
+
+            default: state <= IDLE;
 
             endcase
         end

@@ -24,29 +24,18 @@
 // =============================================================================
 //  uart_tensor_bridge.sv  (depth-extended)
 //
-//  Protocol changes vs original:
-//
-//  1. Address is now 2 bytes (addr_hi, addr_lo) in all WRITE_A, WRITE_B,
-//     READ_C packets.  ADDR_W can exceed 8 bits for deep tensors.
-//
-//  2. RUN packet gains a D byte:
-//       RUN  [0x03][op][M][K][N][D]  → ACK 0xAA  (after done)
-//
-//  Full updated protocol (host → FPGA):
+//  Protocol:
 //    WRITE_A  [0x01][addr_hi][addr_lo][data_hi][data_lo]  → ACK 0xAA
 //    WRITE_B  [0x02][addr_hi][addr_lo][data_hi][data_lo]  → ACK 0xAA
 //    RUN      [0x03][op][M][K][N][D]                      → ACK 0xAA (after done)
-//    READ_C   [0x04][addr_hi][addr_lo]                    → TX_BYTES bytes MSB-first
+//    READ_C   [0x04][addr_hi][addr_lo]                    → TX_BYTES MSB-first
 //
-//  addr is the flat BRAM index:
-//    2D (D=1): row * MAX_DIM + col
-//    3D (D>1): depth * MAX_DIM * MAX_DIM + row * MAX_DIM + col
-//
-//  All other behaviour (ACK, TX byte loop, RUN_WAIT, BRAM timing) unchanged.
+//  Change: r_c_data register removed - c_packed is loaded directly from
+//  dout_c_ext in RD_SAMPLE, eliminating the dead register Vivado warned about.
 // =============================================================================
 
 module uart_tensor_bridge #(
-    parameter CLKS_PER_BIT = 868, // Try 200, 100, 50
+    parameter CLKS_PER_BIT = 868,
 
     parameter WIDTH     = 16,
     parameter MAX_DIM   = 16,
@@ -63,16 +52,13 @@ module uart_tensor_bridge #(
 )(
     input  wire clk,
     input  wire rst_l,
-
     input  wire uart_rxd,
     output wire uart_txd
 );
 
     localparam TX_BYTES = (ACC + 7) / 8;
-    
-    localparam TX_W = TX_BYTES * 8;
-    reg [TX_W-1:0] c_packed;
-    
+    localparam TX_W     = TX_BYTES * 8;
+
     wire rst = ~rst_l;
 
     // =========================================================================
@@ -104,7 +90,7 @@ module uart_tensor_bridge #(
     );
 
     // =========================================================================
-    // tensor_top control / data signals
+    // tensor_top signals
     // =========================================================================
     reg  [2:0]              tt_op;
     reg  [DIM_W-1:0]        tt_M, tt_K, tt_N;
@@ -123,9 +109,6 @@ module uart_tensor_bridge #(
     reg  [ADDR_W-1:0]       addr_c_ext;
     wire signed [ACC-1:0]   dout_c_ext;
 
-    // =========================================================================
-    // tensor_top instance
-    // =========================================================================
     tensor_top #(
         .WIDTH    (WIDTH),
         .MAX_DIM  (MAX_DIM),
@@ -158,29 +141,28 @@ module uart_tensor_bridge #(
 
     // =========================================================================
     // Bridge FSM registers
+    // r_c_data removed - c_packed is filled directly from dout_c_ext
     // =========================================================================
-    reg  [7:0]                  r_cmd;
-    reg  [ADDR_W-1:0]           r_addr;
-    reg  [WIDTH-1:0]            r_data;
-    reg  [ACC-1:0]              r_c_data;
-    reg  [$clog2(TX_BYTES):0]   r_tx_idx;
+    reg  [7:0]                r_cmd;
+    reg  [ADDR_W-1:0]         r_addr;
+    reg  [WIDTH-1:0]          r_data;
+    reg  [TX_W-1:0]           c_packed;
+    reg  [$clog2(TX_BYTES):0] r_tx_idx;
 
     // =========================================================================
     // FSM states
-    // addr is now received as 2 bytes: RECV_ADDR_HI then RECV_ADDR_LO
-    // RUN gains RECV_D after RECV_N
     // =========================================================================
     typedef enum logic [4:0] {
         IDLE,
-        RECV_ADDR_HI,   // high byte of 2-byte BRAM address
-        RECV_ADDR_LO,   // low  byte of 2-byte BRAM address
+        RECV_ADDR_HI,
+        RECV_ADDR_LO,
         RECV_DATA_HI,
         RECV_DATA_LO,
         RECV_OP,
         RECV_M,
         RECV_K,
         RECV_N,
-        RECV_D,         // new: depth dimension for RUN
+        RECV_D,
         WR_ISSUE,
         WR_DEASSERT,
         RUN_PULSE,
@@ -195,7 +177,7 @@ module uart_tensor_bridge #(
     state_t state;
 
     function automatic [7:0] c_byte_sel (
-        input [TX_W-1:0]            c,
+        input [TX_W-1:0]           c,
         input [$clog2(TX_BYTES):0] idx
     );
         c_byte_sel = c[idx * 8 +: 8];
@@ -225,7 +207,7 @@ module uart_tensor_bridge #(
             r_cmd      <= 8'h00;
             r_addr     <= '0;
             r_data     <= '0;
-            r_c_data   <= '0;
+            c_packed   <= '0;
             r_tx_idx   <= '0;
         end else begin
 
@@ -249,11 +231,8 @@ module uart_tensor_bridge #(
                 end
             end
 
-            // ── 2-byte address reception ─────────────────────────────────────
             RECV_ADDR_HI: begin
                 if (rx_dv) begin
-                    // Store upper bits; ADDR_W may be up to 11 bits so hi byte
-                    // carries bits [ADDR_W-1:8] (the rest, possibly 0 for small designs)
                     r_addr[ADDR_W-1:8] <= rx_byte[ADDR_W-9:0];
                     state <= RECV_ADDR_LO;
                 end
@@ -270,7 +249,6 @@ module uart_tensor_bridge #(
                 end
             end
 
-            // ── Data bytes ───────────────────────────────────────────────────
             RECV_DATA_HI: begin
                 if (rx_dv) begin
                     r_data[15:8] <= rx_byte;
@@ -305,7 +283,6 @@ module uart_tensor_bridge #(
                 state     <= TX_WAIT;
             end
 
-            // ── RUN: op / M / K / N / D ──────────────────────────────────────
             RECV_OP: begin
                 if (rx_dv) begin
                     tt_op <= rx_byte[2:0];
@@ -355,7 +332,6 @@ module uart_tensor_bridge #(
                 end
             end
 
-            // ── READ_C: 2-byte address already in r_addr from RECV_ADDR_LO ──
             RD_ADDR: begin
                 addr_c_ext <= r_addr;
                 state      <= RD_WAIT;
@@ -366,7 +342,7 @@ module uart_tensor_bridge #(
             end
 
             RD_SAMPLE: begin
-                r_c_data <= dout_c_ext;
+                // Load c_packed directly - no intermediate r_c_data needed
                 c_packed <= {{(TX_W-ACC){dout_c_ext[ACC-1]}}, dout_c_ext};
                 r_tx_idx <= TX_BYTES - 1;
                 state    <= TX_LOAD;

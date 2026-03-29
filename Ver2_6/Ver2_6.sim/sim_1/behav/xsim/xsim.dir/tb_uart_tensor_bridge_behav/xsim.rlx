@@ -1,11 +1,11 @@
 
 { 
-    crc :  2257571781409446574  , 
+    crc :  2451299372391542846  , 
     ccp_crc :  0  , 
-    cmdline : " --incr --debug typical --relax --mt 2 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip --snapshot tb_uart_tensor_bridge_behav xil_defaultlib.tb_uart_tensor_bridge xil_defaultlib.glbl" , 
+    cmdline : " --incr --debug typical --relax --mt 2 -L xil_defaultlib -L blk_mem_gen_v8_4_11 -L uvm -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot tb_uart_tensor_bridge_behav xil_defaultlib.tb_uart_tensor_bridge xil_defaultlib.glbl" , 
     buildDate : "May 22 2025" , 
     buildTime : "00:13:55" , 
-    linkCmd : "C:\\Xilinx\\2025.1\\Vivado\\data\\..\\tps\\mingw\\6.2.0\\win64.o\\nt\\bin\\gcc.exe -Wa,-W  -O -Wl,--stack,104857600 -o \"xsim.dir/tb_uart_tensor_bridge_behav/xsimk.exe\"   \"xsim.dir/tb_uart_tensor_bridge_behav/obj/xsim_0.win64.obj\" \"xsim.dir/tb_uart_tensor_bridge_behav/obj/xsim_1.win64.obj\" -L\"C:\\Xilinx\\2025.1\\Vivado\\lib\\win64.o\" -lxv_simulator_kernel   -lxv_simbridge_kernel" , 
+    linkCmd : "C:\\Xilinx\\2025.1\\Vivado\\data\\..\\tps\\mingw\\6.2.0\\win64.o\\nt\\bin\\gcc.exe -Wa,-W  -O -Wl,--stack,104857600 -o \"xsim.dir/tb_uart_tensor_bridge_behav/xsimk.exe\"   \"xsim.dir/tb_uart_tensor_bridge_behav/obj/xsim_0.win64.obj\" \"xsim.dir/tb_uart_tensor_bridge_behav/obj/xsim_1.win64.obj\" \"xsim.dir/tb_uart_tensor_bridge_behav/obj/xsim_2.win64.obj\" -L\"C:\\Xilinx\\2025.1\\Vivado\\lib\\win64.o\" -lxv_simulator_kernel   -lxv_simbridge_kernel" , 
     aggregate_nets : 
     [ 
     ] 

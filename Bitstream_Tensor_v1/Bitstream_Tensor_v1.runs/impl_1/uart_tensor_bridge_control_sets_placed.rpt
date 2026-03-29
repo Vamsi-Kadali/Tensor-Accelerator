@@ -1,0 +1,393 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2025.1 (win64) Build 6140274 Thu May 22 00:12:29 MDT 2025
+| Date         : Sun Mar 29 11:26:35 2026
+| Host         : CherryVamsi running 64-bit major release  (build 9200)
+| Command      : report_control_sets -verbose -file uart_tensor_bridge_control_sets_placed.rpt
+| Design       : uart_tensor_bridge
+| Device       : xc7a100t
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Control Set Information
+
+Table of Contents
+-----------------
+1. Summary
+2. Histogram
+3. Flip-Flop Distribution
+4. Detailed Control Set Information
+
+1. Summary
+----------
+
++----------------------------------------------------------+-------+
+|                          Status                          | Count |
++----------------------------------------------------------+-------+
+| Total control sets                                       |   315 |
+|    Minimum number of control sets                        |   315 |
+|    Addition due to synthesis replication                 |     0 |
+|    Addition due to physical synthesis replication        |     0 |
+| Unused register locations in slices containing registers |  1159 |
++----------------------------------------------------------+-------+
+* Control sets can be merged at opt_design using control_set_merge or merge_equivalent_drivers
+** Run report_qor_suggestions for automated merging and remapping suggestions
+
+
+2. Histogram
+------------
+
++--------------------+-------+
+|       Fanout       | Count |
++--------------------+-------+
+| Total control sets |   315 |
+| >= 0 to < 4        |     0 |
+| >= 4 to < 6        |    16 |
+| >= 6 to < 8        |     0 |
+| >= 8 to < 10       |     6 |
+| >= 10 to < 12      |     5 |
+| >= 12 to < 14      |     0 |
+| >= 14 to < 16      |   128 |
+| >= 16              |   160 |
++--------------------+-------+
+* Control sets can be remapped at either synth_design or opt_design
+
+
+3. Flip-Flop Distribution
+-------------------------
+
++--------------+-----------------------+------------------------+-----------------+--------------+
+| Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
++--------------+-----------------------+------------------------+-----------------+--------------+
+| No           | No                    | No                     |              25 |           16 |
+| No           | No                    | Yes                    |               0 |            0 |
+| No           | Yes                   | No                     |              51 |           33 |
+| Yes          | No                    | No                     |               0 |            0 |
+| Yes          | No                    | Yes                    |               0 |            0 |
+| Yes          | Yes                   | No                     |            5293 |         2084 |
++--------------+-----------------------+------------------------+-----------------+--------------+
+
+
+4. Detailed Control Set Information
+-----------------------------------
+
++----------------+---------------------------------------------------------------+---------------------------------------------------------------+------------------+----------------+--------------+
+|  Clock Signal  |                         Enable Signal                         |                        Set/Reset Signal                       | Slice Load Count | Bel Load Count | Bels / Slice |
++----------------+---------------------------------------------------------------+---------------------------------------------------------------+------------------+----------------+--------------+
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/accel/fsm/id01_out_2                   | u_tensor/matrix_engine/accel/fsm/FSM_onehot_state_reg[0]_3[0] |                2 |              4 |         2.00 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/accel/fsm/id01_out_1                   | u_tensor/matrix_engine/accel/fsm/FSM_onehot_state_reg[0]_2[0] |                1 |              4 |         4.00 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/accel/fsm/id01_out_5                   | u_tensor/matrix_engine/accel/fsm/FSM_onehot_state_reg[0]_6[0] |                2 |              4 |         2.00 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/accel/fsm/E[0]                         | u_tensor/matrix_engine/accel/fsm/rst_l                        |                2 |              4 |         2.00 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/accel/fsm/id01_out_3                   | u_tensor/matrix_engine/accel/fsm/FSM_onehot_state_reg[0]_4[0] |                1 |              4 |         4.00 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/accel/fsm/id01_out_6                   | u_tensor/matrix_engine/accel/fsm/FSM_onehot_state_reg[0]_7[0] |                3 |              4 |         1.33 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/accel/fsm/id01_out_4                   | u_tensor/matrix_engine/accel/fsm/FSM_onehot_state_reg[0]_5[0] |                2 |              4 |         2.00 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/accel/fsm/id01_out_0                   | u_tensor/matrix_engine/accel/fsm/FSM_onehot_state_reg[0]_1[0] |                2 |              4 |         2.00 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/accel/fsm/id01_out                     | u_tensor/matrix_engine/accel/fsm/FSM_onehot_state_reg[0]_0[0] |                1 |              4 |         4.00 |
+|  clk_IBUF_BUFG | u_tensor/state_n_0                                            | u_tensor/matrix_engine/accel/fsm/rst_l                        |                1 |              4 |         4.00 |
+|  clk_IBUF_BUFG | u_tx/E[0]                                                     | u_tensor/matrix_engine/accel/fsm/rst_l                        |                2 |              4 |         2.00 |
+|  clk_IBUF_BUFG | u_rx/o_RX_DV_reg_0[0]                                         | u_tensor/matrix_engine/accel/fsm/rst_l                        |                2 |              5 |         2.50 |
+|  clk_IBUF_BUFG | u_rx/FSM_onehot_r_SM_Main[4]_i_2_n_0                          | u_tensor/matrix_engine/accel/fsm/rst_l                        |                1 |              5 |         5.00 |
+|  clk_IBUF_BUFG | u_rx/E[0]                                                     | u_tensor/matrix_engine/accel/fsm/rst_l                        |                3 |              5 |         1.67 |
+|  clk_IBUF_BUFG | u_rx/FSM_sequential_state_reg[1][0]                           | u_tensor/matrix_engine/accel/fsm/rst_l                        |                3 |              5 |         1.67 |
+|  clk_IBUF_BUFG | u_rx/FSM_sequential_state_reg[2][0]                           | u_tensor/matrix_engine/accel/fsm/rst_l                        |                3 |              5 |         1.67 |
+|  clk_IBUF_BUFG | u_rx/o_RX_DV_reg_1[0]                                         | u_tensor/matrix_engine/accel/fsm/rst_l                        |                2 |              8 |         4.00 |
+|  clk_IBUF_BUFG | u_rx/o_RX_DV_reg_1[1]                                         | u_tensor/matrix_engine/accel/fsm/rst_l                        |                1 |              8 |         8.00 |
+|  clk_IBUF_BUFG | u_tensor/E[0]                                                 | u_tensor/matrix_engine/accel/fsm/rst_l                        |                3 |              8 |         2.67 |
+|  clk_IBUF_BUFG | u_tx/r_TX_Data[7]_i_1_n_0                                     | u_tensor/matrix_engine/accel/fsm/rst_l                        |                2 |              8 |         4.00 |
+|  clk_IBUF_BUFG | u_rx/FSM_sequential_state_reg[1]_0                            | u_tensor/matrix_engine/accel/fsm/rst_l                        |                1 |              8 |         8.00 |
+|  clk_IBUF_BUFG | u_rx/FSM_sequential_state_reg[4]_0[0]                         | u_tensor/matrix_engine/accel/fsm/rst_l                        |                2 |              8 |         4.00 |
+|  clk_IBUF_BUFG | addr_c_ext[9]_i_1_n_0                                         | u_tensor/matrix_engine/accel/fsm/rst_l                        |                3 |             10 |         3.33 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/bram_c_addr[9]_i_1_n_0                 | u_tensor/matrix_engine/accel/fsm/rst_l                        |                3 |             10 |         3.33 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/vec_len[4]_i_1_n_0                     | u_tensor/matrix_engine/accel/fsm/rst_l                        |                5 |             10 |         2.00 |
+|  clk_IBUF_BUFG | u_rx/r_Clock_Count                                            | u_tensor/matrix_engine/accel/fsm/rst_l                        |                5 |             10 |         2.00 |
+|  clk_IBUF_BUFG | u_tx/r_SM_Main__0[2]                                          | u_tensor/matrix_engine/accel/fsm/rst_l                        |                4 |             11 |         2.75 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[3][3][15]_i_2_n_0               | u_tensor/matrix_engine/b_lane[3][3][15]_i_1_n_0               |                4 |             15 |         3.75 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[4][15][15]_i_2_n_0              | u_tensor/matrix_engine/b_lane[4][15][15]_i_1_n_0              |                7 |             15 |         2.14 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[3][8][15]_i_2_n_0               | u_tensor/matrix_engine/b_lane[3][8][15]_i_1_n_0               |                7 |             15 |         2.14 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[4][10][15]_i_2_n_0              | u_tensor/matrix_engine/b_lane[4][10][15]_i_1_n_0              |                8 |             15 |         1.88 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[4][8][15]_i_2_n_0               | u_tensor/matrix_engine/b_lane[4][8][15]_i_1_n_0               |                8 |             15 |         1.88 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[4][2][15]_i_2_n_0               | u_tensor/matrix_engine/b_lane[4][2][15]_i_1_n_0               |                6 |             15 |         2.50 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[4][3][15]_i_2_n_0               | u_tensor/matrix_engine/b_lane[4][3][15]_i_1_n_0               |                5 |             15 |         3.00 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[0][5][15]_i_2_n_0               | u_tensor/matrix_engine/b_lane[0][5][15]_i_1_n_0               |               10 |             15 |         1.50 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[1][0][15]_i_2_n_0               | u_tensor/matrix_engine/b_lane[1][0][15]_i_1_n_0               |               11 |             15 |         1.36 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[2][11][15]_i_2_n_0              | u_tensor/matrix_engine/b_lane[2][11][15]_i_1_n_0              |                3 |             15 |         5.00 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[1][7][15]_i_2_n_0               | u_tensor/matrix_engine/b_lane[1][7][15]_i_1_n_0               |                5 |             15 |         3.00 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[2][1][15]_i_2_n_0               | u_tensor/matrix_engine/b_lane[2][1][15]_i_1_n_0               |                6 |             15 |         2.50 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[0][7][15]_i_2_n_0               | u_tensor/matrix_engine/b_lane[0][7][15]_i_1_n_0               |                8 |             15 |         1.88 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[3][1][15]_i_2_n_0               | u_tensor/matrix_engine/b_lane[3][1][15]_i_1_n_0               |                8 |             15 |         1.88 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[0][6][15]_i_2_n_0               | u_tensor/matrix_engine/b_lane[0][6][15]_i_1_n_0               |                7 |             15 |         2.14 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[3][2][15]_i_2_n_0               | u_tensor/matrix_engine/b_lane[3][2][15]_i_1_n_0               |                6 |             15 |         2.50 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[6][11][15]_i_2_n_0              | u_tensor/matrix_engine/b_lane[6][11][15]_i_1_n_0              |                3 |             15 |         5.00 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[2][10][15]_i_2_n_0              | u_tensor/matrix_engine/b_lane[2][10][15]_i_1_n_0              |                3 |             15 |         5.00 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[1][14][15]_i_2_n_0              | u_tensor/matrix_engine/b_lane[1][14][15]_i_1_n_0              |                5 |             15 |         3.00 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[1][9][15]_i_2_n_0               | u_tensor/matrix_engine/b_lane[1][9][15]_i_1_n_0               |                8 |             15 |         1.88 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[3][0][15]_i_2_n_0               | u_tensor/matrix_engine/b_lane[3][0][15]_i_1_n_0               |                9 |             15 |         1.67 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[1][4][15]_i_2_n_0               | u_tensor/matrix_engine/b_lane[1][4][15]_i_1_n_0               |                8 |             15 |         1.88 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[1][3][15]_i_2_n_0               | u_tensor/matrix_engine/b_lane[1][3][15]_i_1_n_0               |               11 |             15 |         1.36 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[2][0][15]_i_2_n_0               | u_tensor/matrix_engine/b_lane[2][0][15]_i_1_n_0               |                6 |             15 |         2.50 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[1][5][15]_i_2_n_0               | u_tensor/matrix_engine/b_lane[1][5][15]_i_1_n_0               |                9 |             15 |         1.67 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[2][2][15]_i_2_n_0               | u_tensor/matrix_engine/b_lane[2][2][15]_i_1_n_0               |                6 |             15 |         2.50 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[0][4][15]_i_2_n_0               | u_tensor/matrix_engine/b_lane[0][4][15]_i_1_n_0               |                3 |             15 |         5.00 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[2][13][15]_i_2_n_0              | u_tensor/matrix_engine/b_lane[2][13][15]_i_1_n_0              |                3 |             15 |         5.00 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[0][9][15]_i_2_n_0               | u_tensor/matrix_engine/b_lane[0][9][15]_i_1_n_0               |                6 |             15 |         2.50 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[4][1][15]_i_2_n_0               | u_tensor/matrix_engine/b_lane[4][1][15]_i_1_n_0               |                8 |             15 |         1.88 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[1][12][15]_i_2_n_0              | u_tensor/matrix_engine/b_lane[1][12][15]_i_1_n_0              |                8 |             15 |         1.88 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[3][10][15]_i_2_n_0              | u_tensor/matrix_engine/b_lane[3][10][15]_i_1_n_0              |                8 |             15 |         1.88 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[1][13][15]_i_2_n_0              | u_tensor/matrix_engine/b_lane[1][13][15]_i_1_n_0              |                4 |             15 |         3.75 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[2][4][15]_i_2_n_0               | u_tensor/matrix_engine/b_lane[2][4][15]_i_1_n_0               |                3 |             15 |         5.00 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[1][15][15]_i_2_n_0              | u_tensor/matrix_engine/b_lane[1][15][15]_i_1_n_0              |                7 |             15 |         2.14 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[2][12][15]_i_2_n_0              | u_tensor/matrix_engine/b_lane[2][12][15]_i_1_n_0              |                6 |             15 |         2.50 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[1][1][15]_i_2_n_0               | u_tensor/matrix_engine/b_lane[1][1][15]_i_1_n_0               |                8 |             15 |         1.88 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[3][4][15]_i_2_n_0               | u_tensor/matrix_engine/b_lane[3][4][15]_i_1_n_0               |                5 |             15 |         3.00 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[1][2][15]_i_2_n_0               | u_tensor/matrix_engine/b_lane[1][2][15]_i_1_n_0               |                8 |             15 |         1.88 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[2][7][15]_i_2_n_0               | u_tensor/matrix_engine/b_lane[2][7][15]_i_1_n_0               |                8 |             15 |         1.88 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[1][6][15]_i_2_n_0               | u_tensor/matrix_engine/b_lane[1][6][15]_i_1_n_0               |                8 |             15 |         1.88 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[2][3][15]_i_2_n_0               | u_tensor/matrix_engine/b_lane[2][3][15]_i_1_n_0               |                7 |             15 |         2.14 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[1][11][15]_i_2_n_0              | u_tensor/matrix_engine/b_lane[1][11][15]_i_1_n_0              |                5 |             15 |         3.00 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[2][8][15]_i_2_n_0               | u_tensor/matrix_engine/b_lane[2][8][15]_i_1_n_0               |                7 |             15 |         2.14 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[1][10][15]_i_2_n_0              | u_tensor/matrix_engine/b_lane[1][10][15]_i_1_n_0              |                4 |             15 |         3.75 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[0][8][15]_i_2_n_0               | u_tensor/matrix_engine/b_lane[0][8][15]_i_1_n_0               |                6 |             15 |         2.50 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[4][7][15]_i_2_n_0               | u_tensor/matrix_engine/b_lane[4][7][15]_i_1_n_0               |                5 |             15 |         3.00 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[4][12][15]_i_2_n_0              | u_tensor/matrix_engine/b_lane[4][12][15]_i_1_n_0              |                7 |             15 |         2.14 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[0][0][15]_i_2_n_0               | u_tensor/matrix_engine/b_lane[0][0][15]_i_1_n_0               |                6 |             15 |         2.50 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[2][5][15]_i_2_n_0               | u_tensor/matrix_engine/b_lane[2][5][15]_i_1_n_0               |               10 |             15 |         1.50 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[0][10][15]_i_2_n_0              | u_tensor/matrix_engine/b_lane[0][10][15]_i_1_n_0              |                4 |             15 |         3.75 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[4][4][15]_i_2_n_0               | u_tensor/matrix_engine/b_lane[4][4][15]_i_1_n_0               |                5 |             15 |         3.00 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[0][12][15]_i_2_n_0              | u_tensor/matrix_engine/b_lane[0][12][15]_i_1_n_0              |                8 |             15 |         1.88 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[2][9][15]_i_2_n_0               | u_tensor/matrix_engine/b_lane[2][9][15]_i_1_n_0               |                4 |             15 |         3.75 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[0][15][15]_i_2_n_0              | u_tensor/matrix_engine/b_lane[0][15][15]_i_1_n_0              |                4 |             15 |         3.75 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[2][14][15]_i_2_n_0              | u_tensor/matrix_engine/b_lane[2][14][15]_i_1_n_0              |                8 |             15 |         1.88 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[0][14][15]_i_2_n_0              | u_tensor/matrix_engine/b_lane[0][14][15]_i_1_n_0              |                4 |             15 |         3.75 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[0][1][15]_i_2_n_0               | u_tensor/matrix_engine/b_lane[0][1][15]_i_1_n_0               |                7 |             15 |         2.14 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[2][6][15]_i_2_n_0               | u_tensor/matrix_engine/b_lane[2][6][15]_i_1_n_0               |                8 |             15 |         1.88 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[0][11][15]_i_2_n_0              | u_tensor/matrix_engine/b_lane[0][11][15]_i_1_n_0              |                6 |             15 |         2.50 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[5][0][15]_i_2_n_0               | u_tensor/matrix_engine/b_lane[5][0][15]_i_1_n_0               |                6 |             15 |         2.50 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[0][13][15]_i_2_n_0              | u_tensor/matrix_engine/b_lane[0][13][15]_i_1_n_0              |                7 |             15 |         2.14 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[3][11][15]_i_2_n_0              | u_tensor/matrix_engine/b_lane[3][11][15]_i_1_n_0              |                6 |             15 |         2.50 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[0][2][15]_i_2_n_0               | u_tensor/matrix_engine/b_lane[0][2][15]_i_1_n_0               |                9 |             15 |         1.67 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[4][0][15]_i_2_n_0               | u_tensor/matrix_engine/b_lane[4][0][15]_i_1_n_0               |               11 |             15 |         1.36 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[0][3][15]_i_2_n_0               | u_tensor/matrix_engine/b_lane[0][3][15]_i_1_n_0               |                4 |             15 |         3.75 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[3][13][15]_i_2_n_0              | u_tensor/matrix_engine/b_lane[3][13][15]_i_1_n_0              |                4 |             15 |         3.75 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[3][12][15]_i_2_n_0              | u_tensor/matrix_engine/b_lane[3][12][15]_i_1_n_0              |               10 |             15 |         1.50 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[3][9][15]_i_2_n_0               | u_tensor/matrix_engine/b_lane[3][9][15]_i_1_n_0               |               10 |             15 |         1.50 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[3][14][15]_i_2_n_0              | u_tensor/matrix_engine/b_lane[3][14][15]_i_1_n_0              |                3 |             15 |         5.00 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[2][15][15]_i_2_n_0              | u_tensor/matrix_engine/b_lane[2][15][15]_i_1_n_0              |                6 |             15 |         2.50 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[3][15][15]_i_2_n_0              | u_tensor/matrix_engine/b_lane[3][15][15]_i_1_n_0              |                7 |             15 |         2.14 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[6][1][15]_i_2_n_0               | u_tensor/matrix_engine/b_lane[6][1][15]_i_1_n_0               |                4 |             15 |         3.75 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[6][12][15]_i_2_n_0              | u_tensor/matrix_engine/b_lane[6][12][15]_i_1_n_0              |                5 |             15 |         3.00 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[5][15][15]_i_2_n_0              | u_tensor/matrix_engine/b_lane[5][15][15]_i_1_n_0              |                4 |             15 |         3.75 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[5][7][15]_i_2_n_0               | u_tensor/matrix_engine/b_lane[5][7][15]_i_1_n_0               |                7 |             15 |         2.14 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[6][3][15]_i_2_n_0               | u_tensor/matrix_engine/b_lane[6][3][15]_i_1_n_0               |                4 |             15 |         3.75 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[6][5][15]_i_2_n_0               | u_tensor/matrix_engine/b_lane[6][5][15]_i_1_n_0               |                5 |             15 |         3.00 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[5][1][15]_i_2_n_0               | u_tensor/matrix_engine/b_lane[5][1][15]_i_1_n_0               |                5 |             15 |         3.00 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[5][14][15]_i_2_n_0              | u_tensor/matrix_engine/b_lane[5][14][15]_i_1_n_0              |                7 |             15 |         2.14 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[5][13][15]_i_2_n_0              | u_tensor/matrix_engine/b_lane[5][13][15]_i_1_n_0              |                8 |             15 |         1.88 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[5][9][15]_i_2_n_0               | u_tensor/matrix_engine/b_lane[5][9][15]_i_1_n_0               |                8 |             15 |         1.88 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[5][10][15]_i_2_n_0              | u_tensor/matrix_engine/b_lane[5][10][15]_i_1_n_0              |                3 |             15 |         5.00 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[6][13][15]_i_2_n_0              | u_tensor/matrix_engine/b_lane[6][13][15]_i_1_n_0              |                2 |             15 |         7.50 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[5][12][15]_i_2_n_0              | u_tensor/matrix_engine/b_lane[5][12][15]_i_1_n_0              |                4 |             15 |         3.75 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[5][5][15]_i_2_n_0               | u_tensor/matrix_engine/b_lane[5][5][15]_i_1_n_0               |                6 |             15 |         2.50 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[6][14][15]_i_2_n_0              | u_tensor/matrix_engine/b_lane[6][14][15]_i_1_n_0              |                6 |             15 |         2.50 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[6][15][15]_i_2_n_0              | u_tensor/matrix_engine/b_lane[6][15][15]_i_1_n_0              |                5 |             15 |         3.00 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[5][6][15]_i_2_n_0               | u_tensor/matrix_engine/b_lane[5][6][15]_i_1_n_0               |                4 |             15 |         3.75 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[6][2][15]_i_2_n_0               | u_tensor/matrix_engine/b_lane[6][2][15]_i_1_n_0               |                3 |             15 |         5.00 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[5][8][15]_i_2_n_0               | u_tensor/matrix_engine/b_lane[5][8][15]_i_1_n_0               |                3 |             15 |         5.00 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[6][0][15]_i_2_n_0               | u_tensor/matrix_engine/b_lane[6][0][15]_i_1_n_0               |                9 |             15 |         1.67 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[5][3][15]_i_2_n_0               | u_tensor/matrix_engine/b_lane[5][3][15]_i_1_n_0               |                8 |             15 |         1.88 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[6][10][15]_i_2_n_0              | u_tensor/matrix_engine/b_lane[6][10][15]_i_1_n_0              |                7 |             15 |         2.14 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[6][7][15]_i_2_n_0               | u_tensor/matrix_engine/b_lane[6][7][15]_i_1_n_0               |                5 |             15 |         3.00 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[7][13][15]_i_2_n_0              | u_tensor/matrix_engine/b_lane[7][13][15]_i_1_n_0              |                7 |             15 |         2.14 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[6][8][15]_i_2_n_0               | u_tensor/matrix_engine/b_lane[6][8][15]_i_1_n_0               |                8 |             15 |         1.88 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[7][6][15]_i_2_n_0               | u_tensor/matrix_engine/b_lane[7][6][15]_i_1_n_0               |                6 |             15 |         2.50 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[7][4][15]_i_2_n_0               | u_tensor/matrix_engine/b_lane[7][4][15]_i_1_n_0               |                9 |             15 |         1.67 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[6][6][15]_i_2_n_0               | u_tensor/matrix_engine/b_lane[6][6][15]_i_1_n_0               |                3 |             15 |         5.00 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[7][2][15]_i_2_n_0               | u_tensor/matrix_engine/b_lane[7][2][15]_i_1_n_0               |                8 |             15 |         1.88 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[6][9][15]_i_2_n_0               | u_tensor/matrix_engine/b_lane[6][9][15]_i_1_n_0               |                9 |             15 |         1.67 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[7][14][15]_i_2_n_0              | u_tensor/matrix_engine/b_lane[7][14][15]_i_1_n_0              |                5 |             15 |         3.00 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[7][7][15]_i_2_n_0               | u_tensor/matrix_engine/b_lane[7][7][15]_i_1_n_0               |                6 |             15 |         2.50 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[7][10][15]_i_2_n_0              | u_tensor/matrix_engine/b_lane[7][10][15]_i_1_n_0              |                4 |             15 |         3.75 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[7][11][15]_i_2_n_0              | u_tensor/matrix_engine/b_lane[7][11][15]_i_1_n_0              |                4 |             15 |         3.75 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[7][1][15]_i_2_n_0               | u_tensor/matrix_engine/b_lane[7][1][15]_i_1_n_0               |                6 |             15 |         2.50 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[7][8][15]_i_2_n_0               | u_tensor/matrix_engine/b_lane[7][8][15]_i_1_n_0               |                8 |             15 |         1.88 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[7][9][15]_i_2_n_0               | u_tensor/matrix_engine/b_lane[7][9][15]_i_1_n_0               |                9 |             15 |         1.67 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[7][0][15]_i_2_n_0               | u_tensor/matrix_engine/b_lane[7][0][15]_i_1_n_0               |                3 |             15 |         5.00 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[5][4][15]_i_2_n_0               | u_tensor/matrix_engine/b_lane[5][4][15]_i_1_n_0               |                4 |             15 |         3.75 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[7][15][15]_i_2_n_0              | u_tensor/matrix_engine/b_lane[7][15][15]_i_1_n_0              |                5 |             15 |         3.00 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[7][5][15]_i_2_n_0               | u_tensor/matrix_engine/b_lane[7][5][15]_i_1_n_0               |                5 |             15 |         3.00 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[7][12][15]_i_2_n_0              | u_tensor/matrix_engine/b_lane[7][12][15]_i_1_n_0              |                5 |             15 |         3.00 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[1][8][15]_i_2_n_0               | u_tensor/matrix_engine/b_lane[1][8][15]_i_1_n_0               |                9 |             15 |         1.67 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[6][4][15]_i_2_n_0               | u_tensor/matrix_engine/b_lane[6][4][15]_i_1_n_0               |                2 |             15 |         7.50 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[5][2][15]_i_2_n_0               | u_tensor/matrix_engine/b_lane[5][2][15]_i_1_n_0               |                5 |             15 |         3.00 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[5][11][15]_i_2_n_0              | u_tensor/matrix_engine/b_lane[5][11][15]_i_1_n_0              |                5 |             15 |         3.00 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[4][9][15]_i_2_n_0               | u_tensor/matrix_engine/b_lane[4][9][15]_i_1_n_0               |               11 |             15 |         1.36 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[3][5][15]_i_2_n_0               | u_tensor/matrix_engine/b_lane[3][5][15]_i_1_n_0               |                5 |             15 |         3.00 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[4][6][15]_i_2_n_0               | u_tensor/matrix_engine/b_lane[4][6][15]_i_1_n_0               |                8 |             15 |         1.88 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[4][14][15]_i_2_n_0              | u_tensor/matrix_engine/b_lane[4][14][15]_i_1_n_0              |                8 |             15 |         1.88 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[4][11][15]_i_2_n_0              | u_tensor/matrix_engine/b_lane[4][11][15]_i_1_n_0              |                7 |             15 |         2.14 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[4][13][15]_i_2_n_0              | u_tensor/matrix_engine/b_lane[4][13][15]_i_1_n_0              |                7 |             15 |         2.14 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[4][5][15]_i_2_n_0               | u_tensor/matrix_engine/b_lane[4][5][15]_i_1_n_0               |                4 |             15 |         3.75 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[3][6][15]_i_2_n_0               | u_tensor/matrix_engine/b_lane[3][6][15]_i_1_n_0               |                6 |             15 |         2.50 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[3][7][15]_i_2_n_0               | u_tensor/matrix_engine/b_lane[3][7][15]_i_1_n_0               |                6 |             15 |         2.50 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[7][3][15]_i_2_n_0               | u_tensor/matrix_engine/b_lane[7][3][15]_i_1_n_0               |                6 |             15 |         2.50 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[3][0][15]_i_2_n_0               | u_tensor/matrix_engine/a_lane[3][0][15]_i_1_n_0               |                4 |             16 |         4.00 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[1][0][15]_i_2_n_0               | u_tensor/matrix_engine/a_lane[1][0][15]_i_1_n_0               |                5 |             16 |         3.20 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[6][0][15]_i_2_n_0               | u_tensor/matrix_engine/a_lane[6][0][15]_i_1_n_0               |               10 |             16 |         1.60 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[0][0][15]_i_2_n_0               | u_tensor/matrix_engine/a_lane[0][0][15]_i_1_n_0               |                7 |             16 |         2.29 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[4][0][15]_i_2_n_0               | u_tensor/matrix_engine/a_lane[4][0][15]_i_1_n_0               |                5 |             16 |         3.20 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[5][0][15]_i_2_n_0               | u_tensor/matrix_engine/a_lane[5][0][15]_i_1_n_0               |                8 |             16 |         2.00 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[7][0][15]_i_2_n_0               | u_tensor/matrix_engine/a_lane[7][0][15]_i_1_n_0               |                6 |             16 |         2.67 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[2][0][15]_i_2_n_0               | u_tensor/matrix_engine/a_lane[2][0][15]_i_1_n_0               |                8 |             16 |         2.00 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[3][8][15]_i_2_n_0               | u_tensor/matrix_engine/a_lane[3][8][15]_i_1_n_0               |                9 |             17 |         1.89 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[4][15][15]_i_2_n_0              | u_tensor/matrix_engine/a_lane[4][15][15]_i_1_n_0              |                5 |             17 |         3.40 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[3][3][15]_i_2_n_0               | u_tensor/matrix_engine/a_lane[3][3][15]_i_1_n_0               |                6 |             17 |         2.83 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[3][7][15]_i_2_n_0               | u_tensor/matrix_engine/a_lane[3][7][15]_i_1_n_0               |                5 |             17 |         3.40 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[3][6][15]_i_2_n_0               | u_tensor/matrix_engine/a_lane[3][6][15]_i_1_n_0               |                7 |             17 |         2.43 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[4][5][15]_i_2_n_0               | u_tensor/matrix_engine/a_lane[4][5][15]_i_1_n_0               |                7 |             17 |         2.43 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[4][13][15]_i_2_n_0              | u_tensor/matrix_engine/a_lane[4][13][15]_i_1_n_0              |                3 |             17 |         5.67 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[4][11][15]_i_2_n_0              | u_tensor/matrix_engine/a_lane[4][11][15]_i_1_n_0              |                5 |             17 |         3.40 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[4][14][15]_i_2_n_0              | u_tensor/matrix_engine/a_lane[4][14][15]_i_1_n_0              |                5 |             17 |         3.40 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[4][6][15]_i_2_n_0               | u_tensor/matrix_engine/a_lane[4][6][15]_i_1_n_0               |                5 |             17 |         3.40 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[3][5][15]_i_2_n_0               | u_tensor/matrix_engine/a_lane[3][5][15]_i_1_n_0               |                8 |             17 |         2.12 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[4][9][15]_i_2_n_0               | u_tensor/matrix_engine/a_lane[4][9][15]_i_1_n_0               |               12 |             17 |         1.42 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[5][11][15]_i_2_n_0              | u_tensor/matrix_engine/a_lane[5][11][15]_i_1_n_0              |                8 |             17 |         2.12 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[6][11][15]_i_2_n_0              | u_tensor/matrix_engine/a_lane[6][11][15]_i_1_n_0              |                7 |             17 |         2.43 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[4][4][15]_i_2_n_0               | u_tensor/matrix_engine/a_lane[4][4][15]_i_1_n_0               |                5 |             17 |         3.40 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[5][2][15]_i_2_n_0               | u_tensor/matrix_engine/a_lane[5][2][15]_i_1_n_0               |               11 |             17 |         1.55 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[6][4][15]_i_2_n_0               | u_tensor/matrix_engine/a_lane[6][4][15]_i_1_n_0               |                6 |             17 |         2.83 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[6][1][15]_i_2_n_0               | u_tensor/matrix_engine/a_lane[6][1][15]_i_1_n_0               |                7 |             17 |         2.43 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[0][5][15]_i_2_n_0               | u_tensor/matrix_engine/a_lane[0][5][15]_i_1_n_0               |                6 |             17 |         2.83 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[6][12][15]_i_2_n_0              | u_tensor/matrix_engine/a_lane[6][12][15]_i_1_n_0              |                7 |             17 |         2.43 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[1][7][15]_i_2_n_0               | u_tensor/matrix_engine/a_lane[1][7][15]_i_1_n_0               |                9 |             17 |         1.89 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[5][15][15]_i_2_n_0              | u_tensor/matrix_engine/a_lane[5][15][15]_i_1_n_0              |                9 |             17 |         1.89 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[0][7][15]_i_2_n_0               | u_tensor/matrix_engine/a_lane[0][7][15]_i_1_n_0               |                6 |             17 |         2.83 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[5][7][15]_i_2_n_0               | u_tensor/matrix_engine/a_lane[5][7][15]_i_1_n_0               |               12 |             17 |         1.42 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[0][6][15]_i_2_n_0               | u_tensor/matrix_engine/a_lane[0][6][15]_i_1_n_0               |                4 |             17 |         4.25 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[6][3][15]_i_2_n_0               | u_tensor/matrix_engine/a_lane[6][3][15]_i_1_n_0               |                6 |             17 |         2.83 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[1][8][15]_i_2_n_0               | u_tensor/matrix_engine/a_lane[1][8][15]_i_1_n_0               |                6 |             17 |         2.83 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[6][5][15]_i_2_n_0               | u_tensor/matrix_engine/a_lane[6][5][15]_i_1_n_0               |                3 |             17 |         5.67 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[1][14][15]_i_2_n_0              | u_tensor/matrix_engine/a_lane[1][14][15]_i_1_n_0              |                4 |             17 |         4.25 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[5][1][15]_i_2_n_0               | u_tensor/matrix_engine/a_lane[5][1][15]_i_1_n_0               |               11 |             17 |         1.55 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[1][9][15]_i_2_n_0               | u_tensor/matrix_engine/a_lane[1][9][15]_i_1_n_0               |               10 |             17 |         1.70 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[5][14][15]_i_2_n_0              | u_tensor/matrix_engine/a_lane[5][14][15]_i_1_n_0              |                6 |             17 |         2.83 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[1][4][15]_i_2_n_0               | u_tensor/matrix_engine/a_lane[1][4][15]_i_1_n_0               |                9 |             17 |         1.89 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[5][13][15]_i_2_n_0              | u_tensor/matrix_engine/a_lane[5][13][15]_i_1_n_0              |                7 |             17 |         2.43 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[1][3][15]_i_2_n_0               | u_tensor/matrix_engine/a_lane[1][3][15]_i_1_n_0               |                7 |             17 |         2.43 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[5][9][15]_i_2_n_0               | u_tensor/matrix_engine/a_lane[5][9][15]_i_1_n_0               |               12 |             17 |         1.42 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[1][5][15]_i_2_n_0               | u_tensor/matrix_engine/a_lane[1][5][15]_i_1_n_0               |                8 |             17 |         2.12 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[5][10][15]_i_2_n_0              | u_tensor/matrix_engine/a_lane[5][10][15]_i_1_n_0              |                7 |             17 |         2.43 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[0][4][15]_i_2_n_0               | u_tensor/matrix_engine/a_lane[0][4][15]_i_1_n_0               |               10 |             17 |         1.70 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[6][13][15]_i_2_n_0              | u_tensor/matrix_engine/a_lane[6][13][15]_i_1_n_0              |                8 |             17 |         2.12 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[0][9][15]_i_2_n_0               | u_tensor/matrix_engine/a_lane[0][9][15]_i_1_n_0               |               12 |             17 |         1.42 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[5][12][15]_i_2_n_0              | u_tensor/matrix_engine/a_lane[5][12][15]_i_1_n_0              |                7 |             17 |         2.43 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[1][12][15]_i_2_n_0              | u_tensor/matrix_engine/a_lane[1][12][15]_i_1_n_0              |                8 |             17 |         2.12 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[5][5][15]_i_2_n_0               | u_tensor/matrix_engine/a_lane[5][5][15]_i_1_n_0               |                7 |             17 |         2.43 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[1][13][15]_i_2_n_0              | u_tensor/matrix_engine/a_lane[1][13][15]_i_1_n_0              |                5 |             17 |         3.40 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[6][14][15]_i_2_n_0              | u_tensor/matrix_engine/a_lane[6][14][15]_i_1_n_0              |                8 |             17 |         2.12 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[1][15][15]_i_2_n_0              | u_tensor/matrix_engine/a_lane[1][15][15]_i_1_n_0              |                5 |             17 |         3.40 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[6][15][15]_i_2_n_0              | u_tensor/matrix_engine/a_lane[6][15][15]_i_1_n_0              |                6 |             17 |         2.83 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[1][1][15]_i_2_n_0               | u_tensor/matrix_engine/a_lane[1][1][15]_i_1_n_0               |                6 |             17 |         2.83 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[5][6][15]_i_2_n_0               | u_tensor/matrix_engine/a_lane[5][6][15]_i_1_n_0               |               10 |             17 |         1.70 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[1][2][15]_i_2_n_0               | u_tensor/matrix_engine/a_lane[1][2][15]_i_1_n_0               |                7 |             17 |         2.43 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[6][2][15]_i_2_n_0               | u_tensor/matrix_engine/a_lane[6][2][15]_i_1_n_0               |               12 |             17 |         1.42 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[1][6][15]_i_2_n_0               | u_tensor/matrix_engine/a_lane[1][6][15]_i_1_n_0               |                8 |             17 |         2.12 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[5][8][15]_i_2_n_0               | u_tensor/matrix_engine/a_lane[5][8][15]_i_1_n_0               |                8 |             17 |         2.12 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[1][11][15]_i_2_n_0              | u_tensor/matrix_engine/a_lane[1][11][15]_i_1_n_0              |                9 |             17 |         1.89 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[1][10][15]_i_2_n_0              | u_tensor/matrix_engine/a_lane[1][10][15]_i_1_n_0              |                5 |             17 |         3.40 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[0][8][15]_i_2_n_0               | u_tensor/matrix_engine/a_lane[0][8][15]_i_1_n_0               |               10 |             17 |         1.70 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[5][4][15]_i_2_n_0               | u_tensor/matrix_engine/a_lane[5][4][15]_i_1_n_0               |               11 |             17 |         1.55 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[0][10][15]_i_2_n_0              | u_tensor/matrix_engine/a_lane[0][10][15]_i_1_n_0              |                6 |             17 |         2.83 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[5][3][15]_i_2_n_0               | u_tensor/matrix_engine/a_lane[5][3][15]_i_1_n_0               |                6 |             17 |         2.83 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[0][15][15]_i_2_n_0              | u_tensor/matrix_engine/a_lane[0][15][15]_i_1_n_0              |                6 |             17 |         2.83 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[6][10][15]_i_2_n_0              | u_tensor/matrix_engine/a_lane[6][10][15]_i_1_n_0              |                7 |             17 |         2.43 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[0][14][15]_i_2_n_0              | u_tensor/matrix_engine/a_lane[0][14][15]_i_1_n_0              |                8 |             17 |         2.12 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[6][7][15]_i_2_n_0               | u_tensor/matrix_engine/a_lane[6][7][15]_i_1_n_0               |                9 |             17 |         1.89 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[0][1][15]_i_2_n_0               | u_tensor/matrix_engine/a_lane[0][1][15]_i_1_n_0               |                5 |             17 |         3.40 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[7][13][15]_i_2_n_0              | u_tensor/matrix_engine/a_lane[7][13][15]_i_1_n_0              |               11 |             17 |         1.55 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[0][11][15]_i_2_n_0              | u_tensor/matrix_engine/a_lane[0][11][15]_i_1_n_0              |                4 |             17 |         4.25 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[6][8][15]_i_2_n_0               | u_tensor/matrix_engine/a_lane[6][8][15]_i_1_n_0               |                9 |             17 |         1.89 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[0][13][15]_i_2_n_0              | u_tensor/matrix_engine/a_lane[0][13][15]_i_1_n_0              |                7 |             17 |         2.43 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[7][6][15]_i_2_n_0               | u_tensor/matrix_engine/a_lane[7][6][15]_i_1_n_0               |               12 |             17 |         1.42 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[0][2][15]_i_2_n_0               | u_tensor/matrix_engine/a_lane[0][2][15]_i_1_n_0               |                8 |             17 |         2.12 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[7][4][15]_i_2_n_0               | u_tensor/matrix_engine/a_lane[7][4][15]_i_1_n_0               |               10 |             17 |         1.70 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[0][3][15]_i_2_n_0               | u_tensor/matrix_engine/a_lane[0][3][15]_i_1_n_0               |                6 |             17 |         2.83 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[6][6][15]_i_2_n_0               | u_tensor/matrix_engine/a_lane[6][6][15]_i_1_n_0               |                8 |             17 |         2.12 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[3][12][15]_i_2_n_0              | u_tensor/matrix_engine/a_lane[3][12][15]_i_1_n_0              |                6 |             17 |         2.83 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[7][2][15]_i_2_n_0               | u_tensor/matrix_engine/a_lane[7][2][15]_i_1_n_0               |               11 |             17 |         1.55 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[3][14][15]_i_2_n_0              | u_tensor/matrix_engine/a_lane[3][14][15]_i_1_n_0              |                4 |             17 |         4.25 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[6][9][15]_i_2_n_0               | u_tensor/matrix_engine/a_lane[6][9][15]_i_1_n_0               |                6 |             17 |         2.83 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[3][15][15]_i_2_n_0              | u_tensor/matrix_engine/a_lane[3][15][15]_i_1_n_0              |                5 |             17 |         3.40 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[7][14][15]_i_2_n_0              | u_tensor/matrix_engine/a_lane[7][14][15]_i_1_n_0              |                8 |             17 |         2.12 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[2][11][15]_i_2_n_0              | u_tensor/matrix_engine/a_lane[2][11][15]_i_1_n_0              |                8 |             17 |         2.12 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[7][7][15]_i_2_n_0               | u_tensor/matrix_engine/a_lane[7][7][15]_i_1_n_0               |                8 |             17 |         2.12 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[3][1][15]_i_2_n_0               | u_tensor/matrix_engine/a_lane[3][1][15]_i_1_n_0               |                3 |             17 |         5.67 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[7][10][15]_i_2_n_0              | u_tensor/matrix_engine/a_lane[7][10][15]_i_1_n_0              |               10 |             17 |         1.70 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[2][10][15]_i_2_n_0              | u_tensor/matrix_engine/a_lane[2][10][15]_i_1_n_0              |               10 |             17 |         1.70 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[7][11][15]_i_2_n_0              | u_tensor/matrix_engine/a_lane[7][11][15]_i_1_n_0              |                9 |             17 |         1.89 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[2][13][15]_i_2_n_0              | u_tensor/matrix_engine/a_lane[2][13][15]_i_1_n_0              |                6 |             17 |         2.83 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[7][1][15]_i_2_n_0               | u_tensor/matrix_engine/a_lane[7][1][15]_i_1_n_0               |                6 |             17 |         2.83 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[3][10][15]_i_2_n_0              | u_tensor/matrix_engine/a_lane[3][10][15]_i_1_n_0              |                5 |             17 |         3.40 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[7][8][15]_i_2_n_0               | u_tensor/matrix_engine/a_lane[7][8][15]_i_1_n_0               |               13 |             17 |         1.31 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[2][12][15]_i_2_n_0              | u_tensor/matrix_engine/a_lane[2][12][15]_i_1_n_0              |                7 |             17 |         2.43 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[7][9][15]_i_2_n_0               | u_tensor/matrix_engine/a_lane[7][9][15]_i_1_n_0               |                9 |             17 |         1.89 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[2][7][15]_i_2_n_0               | u_tensor/matrix_engine/a_lane[2][7][15]_i_1_n_0               |               10 |             17 |         1.70 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[2][8][15]_i_2_n_0               | u_tensor/matrix_engine/a_lane[2][8][15]_i_1_n_0               |                5 |             17 |         3.40 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[2][5][15]_i_2_n_0               | u_tensor/matrix_engine/a_lane[2][5][15]_i_1_n_0               |               10 |             17 |         1.70 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[7][3][15]_i_2_n_0               | u_tensor/matrix_engine/a_lane[7][3][15]_i_1_n_0               |                7 |             17 |         2.43 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[2][14][15]_i_2_n_0              | u_tensor/matrix_engine/a_lane[2][14][15]_i_1_n_0              |                7 |             17 |         2.43 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[7][15][15]_i_2_n_0              | u_tensor/matrix_engine/a_lane[7][15][15]_i_1_n_0              |                7 |             17 |         2.43 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[2][6][15]_i_2_n_0               | u_tensor/matrix_engine/a_lane[2][6][15]_i_1_n_0               |                9 |             17 |         1.89 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[7][5][15]_i_2_n_0               | u_tensor/matrix_engine/a_lane[7][5][15]_i_1_n_0               |                6 |             17 |         2.83 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[3][11][15]_i_2_n_0              | u_tensor/matrix_engine/a_lane[3][11][15]_i_1_n_0              |                5 |             17 |         3.40 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[7][12][15]_i_2_n_0              | u_tensor/matrix_engine/a_lane[7][12][15]_i_1_n_0              |               10 |             17 |         1.70 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[3][13][15]_i_2_n_0              | u_tensor/matrix_engine/a_lane[3][13][15]_i_1_n_0              |                8 |             17 |         2.12 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[2][15][15]_i_2_n_0              | u_tensor/matrix_engine/a_lane[2][15][15]_i_1_n_0              |                8 |             17 |         2.12 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[2][1][15]_i_2_n_0               | u_tensor/matrix_engine/a_lane[2][1][15]_i_1_n_0               |               10 |             17 |         1.70 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[2][2][15]_i_2_n_0               | u_tensor/matrix_engine/a_lane[2][2][15]_i_1_n_0               |                6 |             17 |         2.83 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[2][4][15]_i_2_n_0               | u_tensor/matrix_engine/a_lane[2][4][15]_i_1_n_0               |               13 |             17 |         1.31 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[2][3][15]_i_2_n_0               | u_tensor/matrix_engine/a_lane[2][3][15]_i_1_n_0               |                4 |             17 |         4.25 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[2][9][15]_i_2_n_0               | u_tensor/matrix_engine/a_lane[2][9][15]_i_1_n_0               |                8 |             17 |         2.12 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[3][9][15]_i_2_n_0               | u_tensor/matrix_engine/a_lane[3][9][15]_i_1_n_0               |               10 |             17 |         1.70 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[3][2][15]_i_2_n_0               | u_tensor/matrix_engine/a_lane[3][2][15]_i_1_n_0               |                5 |             17 |         3.40 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[3][4][15]_i_2_n_0               | u_tensor/matrix_engine/a_lane[3][4][15]_i_1_n_0               |               10 |             17 |         1.70 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[4][1][15]_i_2_n_0               | u_tensor/matrix_engine/a_lane[4][1][15]_i_1_n_0               |                9 |             17 |         1.89 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[4][3][15]_i_2_n_0               | u_tensor/matrix_engine/a_lane[4][3][15]_i_1_n_0               |                8 |             17 |         2.12 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[0][12][15]_i_2_n_0              | u_tensor/matrix_engine/a_lane[0][12][15]_i_1_n_0              |                3 |             17 |         5.67 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[4][12][15]_i_2_n_0              | u_tensor/matrix_engine/a_lane[4][12][15]_i_1_n_0              |                8 |             17 |         2.12 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[4][7][15]_i_2_n_0               | u_tensor/matrix_engine/a_lane[4][7][15]_i_1_n_0               |                6 |             17 |         2.83 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[4][2][15]_i_2_n_0               | u_tensor/matrix_engine/a_lane[4][2][15]_i_1_n_0               |                7 |             17 |         2.43 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[4][8][15]_i_2_n_0               | u_tensor/matrix_engine/a_lane[4][8][15]_i_1_n_0               |                7 |             17 |         2.43 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/a_lane[4][10][15]_i_2_n_0              | u_tensor/matrix_engine/a_lane[4][10][15]_i_1_n_0              |                8 |             17 |         2.12 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/addr_a_out[9]_i_1_n_0                  | u_tensor/matrix_engine/accel/fsm/rst_l                        |                6 |             20 |         3.33 |
+|  clk_IBUF_BUFG |                                                               |                                                               |               16 |             25 |         1.56 |
+|  clk_IBUF_BUFG | addr_b_ext                                                    | u_tensor/matrix_engine/accel/fsm/rst_l                        |                5 |             26 |         5.20 |
+|  clk_IBUF_BUFG | addr_a_ext                                                    | u_tensor/matrix_engine/accel/fsm/rst_l                        |               11 |             26 |         2.36 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/j                                      | u_tensor/matrix_engine/accel/fsm/rst_l                        |                6 |             30 |         5.00 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/CEA2                                   | u_tensor/matrix_engine/accel/fsm/rst_l                        |                8 |             31 |         3.88 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/CEC                                    | u_tensor/matrix_engine/accel/fsm/rst_l                        |               11 |             32 |         2.91 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/clear_addr[31]_i_1_n_0                 | u_tensor/matrix_engine/accel/fsm/rst_l                        |                7 |             32 |         4.57 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/k_base[31]_i_1_n_0                     | u_tensor/matrix_engine/accel/fsm/rst_l                        |                7 |             32 |         4.57 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/load_k[0]_i_1_n_0                      | u_tensor/matrix_engine/accel/fsm/rst_l                        |                8 |             32 |         4.00 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/load_lane[0]_i_1_n_0                   | u_tensor/matrix_engine/accel/fsm/rst_l                        |                8 |             32 |         4.00 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/accel/fsm/state_reg[3][0]              | u_tensor/matrix_engine/accel/fsm/rst_l                        |                6 |             32 |         5.33 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/accel/fsm/id01_out_4                   | u_tensor/matrix_engine/accel/fsm/SR[0]                        |               11 |             36 |         3.27 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/accel/fsm/FSM_onehot_state_reg[1]_1[0] | u_tensor/matrix_engine/accel/fsm/SR[0]                        |                8 |             36 |         4.50 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/accel/fsm/FSM_onehot_state_reg[1]_6[0] | u_tensor/matrix_engine/accel/fsm/SR[0]                        |               11 |             36 |         3.27 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/bram_c_din[35]_i_1_n_0                 | u_tensor/matrix_engine/accel/fsm/rst_l                        |                7 |             36 |         5.14 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/accel/fsm/id01_out_6                   | u_tensor/matrix_engine/accel/fsm/SR[0]                        |               10 |             36 |         3.60 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/accel/fsm/FSM_onehot_state_reg[1]_5[0] | u_tensor/matrix_engine/accel/fsm/SR[0]                        |                6 |             36 |         6.00 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/accel/fsm/id01_out_1                   | u_tensor/matrix_engine/accel/fsm/SR[0]                        |               10 |             36 |         3.60 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/accel/fsm/FSM_onehot_state_reg[1]_4[0] | u_tensor/matrix_engine/accel/fsm/SR[0]                        |                7 |             36 |         5.14 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/accel/fsm/id01_out_3                   | u_tensor/matrix_engine/accel/fsm/SR[0]                        |               12 |             36 |         3.00 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/accel/fsm/FSM_onehot_state_reg[1]_3[0] | u_tensor/matrix_engine/accel/fsm/SR[0]                        |                7 |             36 |         5.14 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/accel/fsm/id01_out_5                   | u_tensor/matrix_engine/accel/fsm/SR[0]                        |               12 |             36 |         3.00 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/accel/fsm/FSM_onehot_state_reg[1]_0[0] | u_tensor/matrix_engine/accel/fsm/SR[0]                        |               13 |             36 |         2.77 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/accel/fsm/id01_out_0                   | u_tensor/matrix_engine/accel/fsm/SR[0]                        |               10 |             36 |         3.60 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/accel/fsm/FSM_onehot_state_reg[1]_7[0] | u_tensor/matrix_engine/accel/fsm/SR[0]                        |               11 |             36 |         3.27 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/accel/fsm/id01_out_2                   | u_tensor/matrix_engine/accel/fsm/SR[0]                        |                9 |             36 |         4.00 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/accel/fsm/id01_out                     | u_tensor/matrix_engine/accel/fsm/SR[0]                        |               10 |             36 |         3.60 |
+|  clk_IBUF_BUFG | c_packed                                                      | u_tensor/matrix_engine/accel/fsm/rst_l                        |               12 |             36 |         3.00 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/accel/fsm/FSM_onehot_state_reg[1]_2[0] | u_tensor/matrix_engine/accel/fsm/SR[0]                        |                7 |             36 |         5.14 |
+|  clk_IBUF_BUFG |                                                               | u_tensor/matrix_engine/accel/fsm/rst_l                        |               33 |             51 |         1.55 |
+|  clk_IBUF_BUFG | u_tensor/matrix_engine/accum_col_r                            | u_tensor/matrix_engine/accel/fsm/rst_l                        |               18 |             64 |         3.56 |
++----------------+---------------------------------------------------------------+---------------------------------------------------------------+------------------+----------------+--------------+
+
+

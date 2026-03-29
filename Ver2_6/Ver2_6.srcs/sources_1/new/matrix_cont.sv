@@ -22,31 +22,40 @@
 
 `timescale 1ns / 1ps
 //////////////////////////////////////////////////////////////////////////////////
-// Module Name: matrix_cont
+// Module Name: matrix_cont  (synthesis-clean revision)
 //
-// Depth extension: added D_len port and d_base outer loop.
+// Key change vs previous revision:
+//   All `int` local variables inside named begin/end blocks have been removed.
+//   Vivado was optimising them away (Synth 8-6014) because it treated them as
+//   combinational temporaries with no sequential fanout.
 //
-//   The BRAM address formula changes from:
-//     row * MAX_DIM + col
-//   to:
-//     d * MAX_DIM * MAX_DIM + row * MAX_DIM + col
+//   Replaced with module-level `integer` registers:
+//     r_off, c_off    - temporaries for lane-to-tile mapping (inlined, no function)
+//     row_idx, col_idx - tile position for LOAD phase
+//     accum_row_r, accum_col_r - REGISTERED row/col captured in ACCUM_ADDR,
+//                                stable through ACCUM_WAIT into ACCUM_WRITE
 //
-//   A new outermost loop over d (0 .. D_len-1) wraps the existing
-//   tile-row / tile-col / k loops.  After FINISH the FSM now checks
-//   whether more depth slices remain (NEXT_DEPTH) before asserting done.
+//   lane_to_rc automatic function removed - inlined directly with module-level
+//   integers, which synthesis handles reliably.
 //
-//   For 2D operation pass D_len = 1; the d_base offset is then always 0
-//   and behaviour is identical to the original design.
+//   Everything else (FSM structure, CLEAR_C, BRAM interface) is unchanged.
+//////////////////////////////////////////////////////////////////////////////////
+
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Module Name: matrix_cont  (synthesis-clean, fully-inlined revision)
 //
-//   New FSM state added: NEXT_DEPTH (between FINISH and the existing done path).
-//   State encoding grows from 4 bits (11 states) to 4 bits (12 states) - fits.
+// r_off, c_off, row_idx, col_idx have been eliminated entirely.
+// Every address/index expression is written inline so Vivado has no
+// intermediate variable to mistakenly infer as a sequential element.
 //
-//   The C accumulator array is indexed as C[d][row][col] and is
-//   MAX_DEPTH * MAX_DIM * MAX_DIM deep.  The outer dimension is the depth
-//   slice currently being computed; partial results are held in C until
-//   the entire tensor is processed, then tensor_top's STORE loop drains it.
+// Notation used throughout:
+//   row for lane L  = i + (L / TILE_C)
+//   col for lane L  = j + (L % TILE_C)
 //
-//   All existing 2D behaviour is unchanged when D_len = 1.
+// accum_row_r / accum_col_r are still registered (non-blocking <=)
+// because they must survive two clock cycles (ACCUM_ADDR → ACCUM_WAIT
+// → ACCUM_WRITE).  These are genuine registers and will not be removed.
 //////////////////////////////////////////////////////////////////////////////////
 
 module matrix_cont #(
@@ -60,393 +69,355 @@ module matrix_cont #(
     parameter ACC       = 2*WIDTH + $clog2(MAX_DIM),
     parameter ADDR_W    = $clog2(MAX_DEPTH * MAX_DIM * MAX_DIM)
 )(
-    input clk,
-    input rst,
-    input start,
+    input  clk,
+    input  rst,
+    input  start,
 
-    input [2:0] op,
+    input  [2:0] op,
 
-    input [$clog2(MAX_DIM+1)-1:0]   M_len,
-    input [$clog2(MAX_DIM+1)-1:0]   K_len,
-    input [$clog2(MAX_DIM+1)-1:0]   N_len,
-    input [$clog2(MAX_DEPTH+1)-1:0] D_len,
+    input  [$clog2(MAX_DIM+1)-1:0]   M_len,
+    input  [$clog2(MAX_DIM+1)-1:0]   K_len,
+    input  [$clog2(MAX_DIM+1)-1:0]   N_len,
+    input  [$clog2(MAX_DEPTH+1)-1:0] D_len,
 
-    // bram_A port-B read interface
     output reg [ADDR_W-1:0]       addr_a_out,
     input  signed [WIDTH-1:0]     dout_a_in,
 
-    // bram_B port-B read interface
     output reg [ADDR_W-1:0]       addr_b_out,
     input  signed [WIDTH-1:0]     dout_b_in,
 
-    output reg signed [ACC-1:0] C [0:MAX_DEPTH-1][0:MAX_DIM-1][0:MAX_DIM-1],
+    output reg [ADDR_W-1:0]       bram_c_addr,
+    output reg signed [ACC-1:0]   bram_c_din,
+    output reg                    bram_c_we,
+    input  signed [ACC-1:0]       bram_c_dout,
+
     output reg done
 );
 
-    // --------------------------------
-    // Internal Signals
-    // --------------------------------
+    // ----------------------------------------------------------------
+    // Accelerator
+    // ----------------------------------------------------------------
     reg accel_start;
     wire accel_done;
 
     reg signed [WIDTH-1:0] a_lane [0:LANES-1][0:N_MAX-1];
     reg signed [WIDTH-1:0] b_lane [0:LANES-1][0:N_MAX-1];
-
-    wire signed [ACC-1:0] res [0:LANES-1];
+    wire signed [ACC-1:0]  res    [0:LANES-1];
 
     reg [$clog2(N_MAX+1)-1:0] vec_len;
 
-    integer i, j, k, lane;
-    integer k_base;
-    integer tile_len;
-    integer row_idx, col_idx;
-
-    integer load_k;
-    integer load_lane;
-
-    // depth loop counter
-    integer d;          // current depth slice being computed
-    integer d_base;     // flat BRAM offset for current slice = d * MAX_DIM * MAX_DIM
-
-    // --------------------------------
-    // Accelerator
-    // --------------------------------
     accel_top #(
-        .WIDTH(WIDTH),
-        .ACC(ACC),
-        .N_MAX(N_MAX),
-        .LANES(LANES)
+        .WIDTH(WIDTH), .ACC(ACC), .N_MAX(N_MAX), .LANES(LANES)
     ) accel (
-        .clk(clk),
-        .rst(rst),
-        .start(accel_start),
-        .op(op),
-        .vec_len(vec_len),
-        .a(a_lane),
-        .b(b_lane),
-        .res(res),
-        .busy(),
-        .done(accel_done)
+        .clk(clk), .rst(rst), .start(accel_start), .op(op),
+        .vec_len(vec_len), .a(a_lane), .b(b_lane),
+        .res(res), .busy(), .done(accel_done)
     );
 
-    // --------------------------------
+    // ----------------------------------------------------------------
+    // State variables - all true registers, all non-blocking
+    // ----------------------------------------------------------------
+    integer i, j, k_base, tile_len;
+    integer load_k, load_lane;
+    integer d, d_base;
+    integer accum_lane;
+    integer accum_row_r, accum_col_r;   // registered across ACCUM pipeline
+    integer clear_addr;
+
+    localparam integer TOTAL_DEPTH = MAX_DEPTH * MAX_DIM * MAX_DIM;
+
+    // ----------------------------------------------------------------
     // FSM
-    // --------------------------------
+    // ----------------------------------------------------------------
     typedef enum logic [3:0] {
-        IDLE,
-        LOAD_ADDR,
-        LOAD_WAIT,
-        LOAD_STORE,
-        START,
-        PAUSE,
-        ACCUM,
-        NEXT_K,
-        NEXT_COL,
-        NEXT_ROW,
-        FINISH,
-        NEXT_DEPTH   // new: advance to next depth slice or assert done
+        IDLE, CLEAR_C,
+        LOAD_ADDR, LOAD_WAIT, LOAD_STORE,
+        START, PAUSE,
+        ACCUM_ADDR, ACCUM_WAIT, ACCUM_WRITE,
+        NEXT_K, NEXT_COL, NEXT_ROW, FINISH, NEXT_DEPTH
     } state_t;
 
     state_t state;
 
-    // lane → tile position
-    function automatic void lane_to_rc(
-        input int lane_idx,
-        output int r_off,
-        output int c_off
-    );
-        begin
-            r_off = lane_idx / TILE_C;
-            c_off = lane_idx % TILE_C;
-        end
-    endfunction
-
-    // --------------------------------
-    // FSM Logic
-    // --------------------------------
     always @(posedge clk) begin
         if (rst) begin
             state       <= IDLE;
             done        <= 0;
             accel_start <= 0;
-            i           <= 0;
-            j           <= 0;
-            k_base      <= 0;
-            d           <= 0;
-            d_base      <= 0;
-            load_k      <= 0;
-            load_lane   <= 0;
+            bram_c_we   <= 0;
+            bram_c_addr <= '0;
+            bram_c_din  <= '0;
             addr_a_out  <= '0;
             addr_b_out  <= '0;
+            i           <= 0; j       <= 0;
+            k_base      <= 0; tile_len <= 1; vec_len <= 1;
+            d           <= 0; d_base  <= 0;
+            load_k      <= 0; load_lane <= 0;
+            accum_lane  <= 0;
+            accum_row_r <= 0; accum_col_r <= 0;
+            clear_addr  <= 0;
         end
         else begin
+            bram_c_we <= 0;
+
             case (state)
 
-            //--------------------------------
-            IDLE:
-            //--------------------------------
-            begin
+            // --------------------------------------------------------
+            IDLE: begin
                 done        <= 0;
                 accel_start <= 0;
-
                 if (start) begin
-                    i      <= 0;
-                    j      <= 0;
-                    k_base <= 0;
-                    d      <= 0;
-                    d_base <= 0;
-
-                    // clear entire C tensor
-                    for (int dd = 0; dd < MAX_DEPTH; dd++)
-                        for (int r = 0; r < MAX_DIM; r++)
-                            for (int c = 0; c < MAX_DIM; c++)
-                                C[dd][r][c] <= 0;
-
-                    state <= LOAD_ADDR;
+                    i <= 0; j <= 0; k_base <= 0;
+                    d <= 0; d_base <= 0;
+                    clear_addr <= 0;
+                    state <= CLEAR_C;
                 end
             end
 
-            //----------------------------------------------------------------
-            // LOAD_ADDR / LOAD_WAIT / LOAD_STORE
-            // Same as before but address formula includes d_base offset.
-            //----------------------------------------------------------------
+            // --------------------------------------------------------
+            CLEAR_C: begin
+                bram_c_addr <= ADDR_W'(clear_addr);
+                bram_c_din  <= '0;
+                bram_c_we   <= 1;
+                if (clear_addr + 1 >= TOTAL_DEPTH) begin
+                    clear_addr <= 0;
+                    state      <= LOAD_ADDR;
+                end else
+                    clear_addr <= clear_addr + 1;
+            end
 
-            LOAD_ADDR:
-            begin
+            // --------------------------------------------------------
+            // LOAD_ADDR - all row/col expressions fully inlined
+            // row for load_lane = i + (load_lane / TILE_C)
+            // col for load_lane = j + (load_lane % TILE_C)
+            // --------------------------------------------------------
+            LOAD_ADDR: begin
                 if (load_k == 0 && load_lane == 0) begin
                     if (op == 3'b000 || op == 3'b100) begin
-                        tile_len = (K_len - k_base > N_MAX) ? N_MAX : (K_len - k_base);
-                        vec_len  <= tile_len;
-                    end
-                    else if (op == 3'b101) begin
-                        tile_len = (M_len - k_base > N_MAX) ? N_MAX : (M_len - k_base);
-                        vec_len  <= tile_len;
-                    end
-                    else begin
-                        tile_len = 1;
+                        tile_len <= (K_len - k_base > N_MAX) ? N_MAX : (K_len - k_base);
+                        vec_len  <= (K_len - k_base > N_MAX) ? N_MAX : (K_len - k_base);
+                    end else if (op == 3'b101) begin
+                        tile_len <= (M_len - k_base > N_MAX) ? N_MAX : (M_len - k_base);
+                        vec_len  <= (M_len - k_base > N_MAX) ? N_MAX : (M_len - k_base);
+                    end else begin
+                        tile_len <= 1;
                         vec_len  <= 1;
                     end
                 end
 
-                begin : addr_issue
-                    int r_off, c_off;
-                    lane_to_rc(load_lane, r_off, c_off);
-                    row_idx = i + r_off;
-                    col_idx = j + c_off;
-
-                    if (op == 3'b000) begin
-                        // MATMUL: A[d][row][k], B[d][k][col]
-                        addr_a_out <= d_base + row_idx * MAX_DIM + (k_base + load_k);
-                        addr_b_out <= d_base + (k_base + load_k) * MAX_DIM + col_idx;
-                    end
-                    else if (op == 3'b100) begin
-                        // ROW_ACCUM: A[d][row][k]
-                        addr_a_out <= d_base + row_idx * MAX_DIM + (k_base + load_k);
-                        addr_b_out <= '0;
-                    end
-                    else if (op == 3'b101) begin
-                        // COL_ACCUM: A[d][k][col]
-                        addr_a_out <= d_base + (k_base + load_k) * MAX_DIM + col_idx;
-                        addr_b_out <= '0;
-                    end
-                    else begin
-                        // ADD/SUB/HADAMARD: A[d][row][col], B[d][row][col]
-                        addr_a_out <= d_base + row_idx * MAX_DIM + col_idx;
-                        addr_b_out <= d_base + row_idx * MAX_DIM + col_idx;
-                    end
+                if (op == 3'b000) begin
+                    addr_a_out <= ADDR_W'(d_base
+                                  + (i + load_lane/TILE_C) * MAX_DIM
+                                  + (k_base + load_k));
+                    addr_b_out <= ADDR_W'(d_base
+                                  + (k_base + load_k) * MAX_DIM
+                                  + (j + load_lane%TILE_C));
+                end
+                else if (op == 3'b100) begin
+                    addr_a_out <= ADDR_W'(d_base
+                                  + (i + load_lane/TILE_C) * MAX_DIM
+                                  + (k_base + load_k));
+                    addr_b_out <= '0;
+                end
+                else if (op == 3'b101) begin
+                    addr_a_out <= ADDR_W'(d_base
+                                  + (k_base + load_k) * MAX_DIM
+                                  + (j + load_lane%TILE_C));
+                    addr_b_out <= '0;
+                end
+                else begin
+                    addr_a_out <= ADDR_W'(d_base
+                                  + (i + load_lane/TILE_C) * MAX_DIM
+                                  + (j + load_lane%TILE_C));
+                    addr_b_out <= ADDR_W'(d_base
+                                  + (i + load_lane/TILE_C) * MAX_DIM
+                                  + (j + load_lane%TILE_C));
                 end
 
                 state <= LOAD_WAIT;
             end
 
-            LOAD_WAIT:
-            begin
-                state <= LOAD_STORE;
-            end
+            // --------------------------------------------------------
+            LOAD_WAIT: state <= LOAD_STORE;
 
-            LOAD_STORE:
-            begin
-                begin : store_sample
-                    int r_off, c_off;
-                    lane_to_rc(load_lane, r_off, c_off);
-                    row_idx = i + r_off;
-                    col_idx = j + c_off;
-
-                    if (op == 3'b000) begin
-                        if (load_k < tile_len && row_idx < M_len && col_idx < N_len) begin
-                            a_lane[load_lane][load_k] <= dout_a_in;
-                            b_lane[load_lane][load_k] <= dout_b_in;
-                        end else begin
-                            a_lane[load_lane][load_k] <= 0;
-                            b_lane[load_lane][load_k] <= 0;
-                        end
+            // --------------------------------------------------------
+            // LOAD_STORE - row/col inlined
+            // --------------------------------------------------------
+            LOAD_STORE: begin
+                if (op == 3'b000) begin
+                    if (load_k < tile_len
+                        && (i + load_lane/TILE_C) < M_len
+                        && (j + load_lane%TILE_C) < N_len) begin
+                        a_lane[load_lane][load_k] <= dout_a_in;
+                        b_lane[load_lane][load_k] <= dout_b_in;
+                    end else begin
+                        a_lane[load_lane][load_k] <= 0;
+                        b_lane[load_lane][load_k] <= 0;
                     end
-                    else if (op == 3'b100) begin
-                        if (load_k < tile_len && row_idx < M_len && col_idx < N_len) begin
-                            a_lane[load_lane][load_k] <= dout_a_in;
-                            b_lane[load_lane][load_k] <= 1;
-                        end else begin
-                            a_lane[load_lane][load_k] <= 0;
-                            b_lane[load_lane][load_k] <= 0;
-                        end
+                end
+                else if (op == 3'b100) begin
+                    if (load_k < tile_len
+                        && (i + load_lane/TILE_C) < M_len
+                        && (j + load_lane%TILE_C) < N_len) begin
+                        a_lane[load_lane][load_k] <= dout_a_in;
+                        b_lane[load_lane][load_k] <= 1;
+                    end else begin
+                        a_lane[load_lane][load_k] <= 0;
+                        b_lane[load_lane][load_k] <= 0;
                     end
-                    else if (op == 3'b101) begin
-                        if (load_k < tile_len && col_idx < N_len) begin
-                            a_lane[load_lane][load_k] <= dout_a_in;
-                            b_lane[load_lane][load_k] <= 1;
-                        end else begin
-                            a_lane[load_lane][load_k] <= 0;
-                            b_lane[load_lane][load_k] <= 0;
-                        end
+                end
+                else if (op == 3'b101) begin
+                    if (load_k < tile_len
+                        && (j + load_lane%TILE_C) < N_len) begin
+                        a_lane[load_lane][load_k] <= dout_a_in;
+                        b_lane[load_lane][load_k] <= 1;
+                    end else begin
+                        a_lane[load_lane][load_k] <= 0;
+                        b_lane[load_lane][load_k] <= 0;
                     end
-                    else begin
-                        if (row_idx < M_len && col_idx < N_len) begin
-                            a_lane[load_lane][0] <= dout_a_in;
-                            b_lane[load_lane][0] <= dout_b_in;
-                        end else begin
-                            a_lane[load_lane][0] <= 0;
-                            b_lane[load_lane][0] <= 0;
-                        end
+                end
+                else begin
+                    if ((i + load_lane/TILE_C) < M_len
+                        && (j + load_lane%TILE_C) < N_len) begin
+                        a_lane[load_lane][0] <= dout_a_in;
+                        b_lane[load_lane][0] <= dout_b_in;
+                    end else begin
+                        a_lane[load_lane][0] <= 0;
+                        b_lane[load_lane][0] <= 0;
                     end
                 end
 
                 if (load_lane + 1 < LANES) begin
                     load_lane <= load_lane + 1;
                     state     <= LOAD_ADDR;
-                end
-                else begin
+                end else begin
                     load_lane <= 0;
-                    if ((op == 3'b000 || op == 3'b100 || op == 3'b101) &&
-                        (load_k + 1 < tile_len)) begin
+                    if ((op == 3'b000 || op == 3'b100 || op == 3'b101)
+                        && (load_k + 1 < tile_len)) begin
                         load_k <= load_k + 1;
                         state  <= LOAD_ADDR;
-                    end
-                    else begin
+                    end else begin
                         load_k <= 0;
                         state  <= START;
                     end
                 end
             end
 
-            //--------------------------------
-            START:
-            //--------------------------------
-            begin
+            // --------------------------------------------------------
+            START: begin
                 accel_start <= 1;
                 state       <= PAUSE;
             end
 
-            //--------------------------------
-            PAUSE:
-            //--------------------------------
-            begin
+            // --------------------------------------------------------
+            PAUSE: begin
                 accel_start <= 0;
-                if (accel_done)
-                    state <= ACCUM;
+                if (accel_done) begin
+                    accum_lane <= 0;
+                    state      <= ACCUM_ADDR;
+                end
             end
 
-            //--------------------------------
-            ACCUM:
-            //--------------------------------
-            begin
-                for (lane = 0; lane < LANES; lane++) begin
-                    int r_off, c_off;
-                    lane_to_rc(lane, r_off, c_off);
+            // --------------------------------------------------------
+            // ACCUM_ADDR: issue read address; register row/col for
+            // use two cycles later in ACCUM_WRITE
+            // --------------------------------------------------------
+            ACCUM_ADDR: begin
+                accum_row_r <= i + accum_lane/TILE_C;
+                accum_col_r <= j + accum_lane%TILE_C;
+                bram_c_addr <= ADDR_W'(d_base
+                               + (i + accum_lane/TILE_C) * MAX_DIM
+                               + (j + accum_lane%TILE_C));
+                bram_c_we   <= 0;
+                state       <= ACCUM_WAIT;
+            end
 
-                    row_idx = i + r_off;
-                    col_idx = j + c_off;
+            // --------------------------------------------------------
+            ACCUM_WAIT: state <= ACCUM_WRITE;
 
-                    if (row_idx < M_len && col_idx < N_len) begin
-                        if (op == 3'b000 || op == 3'b100 || op == 3'b101)
-                            // accumulate into the current depth slice d
-                            C[d][row_idx][col_idx] <= C[d][row_idx][col_idx] + res[lane];
-                        else
-                            C[d][row_idx][col_idx] <= res[lane];
-                    end
+            // --------------------------------------------------------
+            // ACCUM_WRITE: use registered accum_row_r / accum_col_r
+            // bram_c_dout is stable from ACCUM_ADDR read
+            // --------------------------------------------------------
+            ACCUM_WRITE: begin
+                if (accum_row_r < M_len && accum_col_r < N_len) begin
+                    bram_c_addr <= ADDR_W'(d_base
+                                   + accum_row_r * MAX_DIM + accum_col_r);
+                    bram_c_we   <= 1;
+                    if (op == 3'b000 || op == 3'b100 || op == 3'b101)
+                        bram_c_din <= bram_c_dout + res[accum_lane];
+                    else
+                        bram_c_din <= res[accum_lane];
                 end
 
-                state <= NEXT_K;
+                if (accum_lane + 1 < LANES) begin
+                    accum_lane <= accum_lane + 1;
+                    state      <= ACCUM_ADDR;
+                end else begin
+                    accum_lane <= 0;
+                    state      <= NEXT_K;
+                end
             end
 
-            //--------------------------------
-            NEXT_K:
-            //--------------------------------
-            begin
+            // --------------------------------------------------------
+            NEXT_K: begin
                 if ((op == 3'b000 || op == 3'b100) && (k_base + vec_len < K_len)) begin
                     k_base <= k_base + vec_len;
                     state  <= LOAD_ADDR;
-                end
-                else if ((op == 3'b101) && (k_base + vec_len < M_len)) begin
+                end else if ((op == 3'b101) && (k_base + vec_len < M_len)) begin
                     k_base <= k_base + vec_len;
                     state  <= LOAD_ADDR;
-                end
-                else begin
+                end else begin
                     k_base <= 0;
                     state  <= NEXT_COL;
                 end
             end
 
-            //--------------------------------
-            NEXT_COL:
-            //--------------------------------
-            begin
+            // --------------------------------------------------------
+            NEXT_COL: begin
                 if (j + TILE_C < N_len) begin
                     j     <= j + TILE_C;
                     state <= LOAD_ADDR;
-                end
-                else begin
+                end else begin
+                    j     <= 0;
                     state <= NEXT_ROW;
                 end
             end
 
-            //--------------------------------
-            NEXT_ROW:
-            //--------------------------------
-            begin
+            // --------------------------------------------------------
+            NEXT_ROW: begin
                 if (i + TILE_R < M_len) begin
                     i     <= i + TILE_R;
                     j     <= 0;
                     state <= LOAD_ADDR;
-                end
-                else begin
+                end else begin
+                    i     <= 0;
                     state <= FINISH;
                 end
             end
 
-            //--------------------------------
-            FINISH:
-            //--------------------------------
-            begin
-                // Current depth slice d is done. Check if more slices remain.
-                state <= NEXT_DEPTH;
-            end
+            // --------------------------------------------------------
+            FINISH: state <= NEXT_DEPTH;
 
-            //--------------------------------
-            NEXT_DEPTH:
-            //--------------------------------
-            begin
+            // --------------------------------------------------------
+            NEXT_DEPTH: begin
                 if (d + 1 < D_len) begin
-                    // Advance to next depth slice, reset tile/k loops
                     d      <= d + 1;
                     d_base <= (d + 1) * MAX_DIM * MAX_DIM;
-                    i      <= 0;
-                    j      <= 0;
-                    k_base <= 0;
+                    i      <= 0; j <= 0; k_base <= 0;
                     state  <= LOAD_ADDR;
-                end
-                else begin
-                    // All depth slices processed
+                end else begin
                     done  <= 1;
                     state <= IDLE;
                 end
             end
 
+            default: state <= IDLE;
             endcase
         end
     end
 
 endmodule
-
 
 /*
     Balanced:       WIDTH   = 16

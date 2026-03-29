@@ -1,0 +1,48 @@
+#-----------------------------------------------------------
+# Vivado v2025.1 (64-bit)
+# SW Build 6140274 on Thu May 22 00:12:29 MDT 2025
+# IP Build 6138677 on Thu May 22 03:10:11 MDT 2025
+# SharedData Build 6139179 on Tue May 20 17:58:58 MDT 2025
+# Start of session at: Sat Mar 28 22:05:01 2026
+# Process ID         : 33012
+# Current directory  : C:/Users/kpcha/Desktop/College/DSD/Ver2_6
+# Command line       : vivado.exe -gui_launcher_event rodinguilauncherevent12744 C:\Users\kpcha\Desktop\College\DSD\Ver2_6\Ver2_6.xpr
+# Log file           : C:/Users/kpcha/Desktop/College/DSD/Ver2_6/vivado.log
+# Journal file       : C:/Users/kpcha/Desktop/College/DSD/Ver2_6\vivado.jou
+# Running On         : CherryVamsi
+# Platform           : Windows Server 2016 or Windows 10
+# Operating System   : 26200
+# Processor Detail   : 13th Gen Intel(R) Core(TM) i5-1334U
+# CPU Frequency      : 2496 MHz
+# CPU Physical cores : 10
+# CPU Logical cores  : 12
+# Host memory        : 16849 MB
+# Swap memory        : 8724 MB
+# Total Virtual      : 25573 MB
+# Available Virtual  : 6521 MB
+#-----------------------------------------------------------
+start_gui
+open_project C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.xpr
+launch_simulation
+source tb_uart_tensor_bridge.tcl
+run 10 ms
+close_sim
+synth_design -top uart_tensor_bridge -part xc7a100tcsg324-1 -lint 
+synth_design -top uart_tensor_bridge -part xc7a100tcsg324-1 -lint 
+synth_design -top uart_tensor_bridge -part xc7a100tcsg324-1 -lint 
+synth_design -top uart_tensor_bridge -part xc7a100tcsg324-1 -lint 
+synth_design -top uart_tensor_bridge -part xc7a100tcsg324-1 -lint 
+launch_simulation
+source tb_uart_tensor_bridge.tcl
+run 10 ms
+close_sim
+launch_simulation
+source tb_uart_tensor_bridge.tcl
+close_sim
+reset_simulation -simset sim_1 -mode behavioral
+launch_simulation
+source tb_uart_tensor_bridge.tcl
+run 10 ms
+relaunch_sim
+run 10 ms
+close_sim

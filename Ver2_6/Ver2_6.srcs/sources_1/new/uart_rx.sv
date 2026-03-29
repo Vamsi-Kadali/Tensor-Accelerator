@@ -50,10 +50,12 @@ module uart_rx
  
   always @(posedge i_Clock)
   begin
-    if (i_Rst)
-    begin
-      r_SM_Main <= IDLE;
-      o_RX_DV   <= 1'b0;
+    if (i_Rst) begin
+      r_SM_Main      <= IDLE;
+      o_RX_DV        <= 1'b0;
+      r_Clock_Count  <= 0;
+      r_Bit_Index    <= 0;
+      o_RX_Byte      <= 0;
     end
     else
     begin

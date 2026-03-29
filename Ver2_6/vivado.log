@@ -1,0 +1,2437 @@
+#-----------------------------------------------------------
+# Vivado v2025.1 (64-bit)
+# SW Build 6140274 on Thu May 22 00:12:29 MDT 2025
+# IP Build 6138677 on Thu May 22 03:10:11 MDT 2025
+# SharedData Build 6139179 on Tue May 20 17:58:58 MDT 2025
+# Start of session at: Sat Mar 28 22:05:01 2026
+# Process ID         : 33012
+# Current directory  : C:/Users/kpcha/Desktop/College/DSD/Ver2_6
+# Command line       : vivado.exe -gui_launcher_event rodinguilauncherevent12744 C:\Users\kpcha\Desktop\College\DSD\Ver2_6\Ver2_6.xpr
+# Log file           : C:/Users/kpcha/Desktop/College/DSD/Ver2_6/vivado.log
+# Journal file       : C:/Users/kpcha/Desktop/College/DSD/Ver2_6\vivado.jou
+# Running On         : CherryVamsi
+# Platform           : Windows Server 2016 or Windows 10
+# Operating System   : 26200
+# Processor Detail   : 13th Gen Intel(R) Core(TM) i5-1334U
+# CPU Frequency      : 2496 MHz
+# CPU Physical cores : 10
+# CPU Logical cores  : 12
+# Host memory        : 16849 MB
+# Swap memory        : 8724 MB
+# Total Virtual      : 25573 MB
+# Available Virtual  : 6521 MB
+#-----------------------------------------------------------
+start_gui
+open_project C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.xpr
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:emb-plus-vpr-4616:part0:1.0 available at C:/Xilinx/2025.1/data/xhub/boards\XilinxBoardStore\boards\Xilinx\emb-plus-vpr-4616\1.0\board.xml as part xcve2302-sfva784-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:emb-plus-vpr-4616:part0:1.1 available at C:/Xilinx/2025.1/data/xhub/boards\XilinxBoardStore\boards\Xilinx\emb-plus-vpr-4616\1.1\board.xml as part xcve2302-sfva784-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:k24c:part0:1.0 available at C:/Xilinx/2025.1/data/xhub/boards\XilinxBoardStore\boards\Xilinx\k24c\1.0\board.xml as part xck24-ubva530-2lv-c specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:k24c:part0:1.1 available at C:/Xilinx/2025.1/data/xhub/boards\XilinxBoardStore\boards\Xilinx\k24c\1.1\board.xml as part xck24-ubva530-2lv-c specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:k24i:part0:1.0 available at C:/Xilinx/2025.1/data/xhub/boards\XilinxBoardStore\boards\Xilinx\k24i\1.0\board.xml as part xck24-ubva530-2lvi-i specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:k26c:part0:1.2 available at C:/Xilinx/2025.1/data/xhub/boards\XilinxBoardStore\boards\Xilinx\k26c\1.2\board.xml as part xck26-sfvc784-2lv-c specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:k26c:part0:1.3 available at C:/Xilinx/2025.1/data/xhub/boards\XilinxBoardStore\boards\Xilinx\k26c\1.3\board.xml as part xck26-sfvc784-2lv-c specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:k26c:part0:1.4 available at C:/Xilinx/2025.1/data/xhub/boards\XilinxBoardStore\boards\Xilinx\k26c\1.4\board.xml as part xck26-sfvc784-2lv-c specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:k26i:part0:1.2 available at C:/Xilinx/2025.1/data/xhub/boards\XilinxBoardStore\boards\Xilinx\k26i\1.2\board.xml as part xck26-sfvc784-2lvi-i specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:k26i:part0:1.3 available at C:/Xilinx/2025.1/data/xhub/boards\XilinxBoardStore\boards\Xilinx\k26i\1.3\board.xml as part xck26-sfvc784-2lvi-i specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:k26i:part0:1.4 available at C:/Xilinx/2025.1/data/xhub/boards\XilinxBoardStore\boards\Xilinx\k26i\1.4\board.xml as part xck26-sfvc784-2lvi-i specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:kcu105:part0:1.6 available at C:/Xilinx/2025.1/data/xhub/boards\XilinxBoardStore\boards\Xilinx\kcu105\1.6\board.xml as part xcku040-ffva1156-2-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:kcu105:part0:1.7 available at C:/Xilinx/2025.1/data/xhub/boards\XilinxBoardStore\boards\Xilinx\kcu105\1.7\board.xml as part xcku040-ffva1156-2-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:kcu116:part0:1.4 available at C:/Xilinx/2025.1/data/xhub/boards\XilinxBoardStore\boards\Xilinx\kcu116\1.4\board.xml as part xcku5p-ffvb676-2-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:kcu116:part0:1.5 available at C:/Xilinx/2025.1/data/xhub/boards\XilinxBoardStore\boards\Xilinx\kcu116\1.5\board.xml as part xcku5p-ffvb676-2-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:kcu1500:part0:1.2 available at C:/Xilinx/2025.1/data/xhub/boards\XilinxBoardStore\boards\Xilinx\kcu1500\1.2\board.xml as part xcku115-flvb2104-2-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:kd240_som:part0:1.0 available at C:/Xilinx/2025.1/data/xhub/boards\XilinxBoardStore\boards\Xilinx\kd240_som\1.0\board.xml as part xck24-ubva530-2lv-c specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:kd240_som:part0:1.1 available at C:/Xilinx/2025.1/data/xhub/boards\XilinxBoardStore\boards\Xilinx\kd240_som\1.1\board.xml as part xck24-ubva530-2lv-c specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:kr260_som:part0:1.0 available at C:/Xilinx/2025.1/data/xhub/boards\XilinxBoardStore\boards\Xilinx\kr260_som\1.0\board.xml as part xck26-sfvc784-2lv-c specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:kr260_som:part0:1.1 available at C:/Xilinx/2025.1/data/xhub/boards\XilinxBoardStore\boards\Xilinx\kr260_som\1.1\board.xml as part xck26-sfvc784-2lv-c specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:kv260_som:part0:1.2 available at C:/Xilinx/2025.1/data/xhub/boards\XilinxBoardStore\boards\Xilinx\kv260_som\1.2\board.xml as part xck26-sfvc784-2lv-c specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:kv260_som:part0:1.3 available at C:/Xilinx/2025.1/data/xhub/boards\XilinxBoardStore\boards\Xilinx\kv260_som\1.3\board.xml as part xck26-sfvc784-2lv-c specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:kv260_som:part0:1.4 available at C:/Xilinx/2025.1/data/xhub/boards\XilinxBoardStore\boards\Xilinx\kv260_som\1.4\board.xml as part xck26-sfvc784-2lv-c specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:scu35:part0:1.0 available at C:/Xilinx/2025.1/data/xhub/boards\XilinxBoardStore\boards\Xilinx\scu35\1.0\board.xml as part xcsu35p-sbvb625-2-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:v80:part0:1.0 available at C:/Xilinx/2025.1/data/xhub/boards\XilinxBoardStore\boards\Xilinx\v80\1.0\board.xml as part xcv80-lsva4737-2mhp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vck190:part0:2.2 available at C:/Xilinx/2025.1/data/xhub/boards\XilinxBoardStore\boards\Xilinx\vck190\production\2.2\board.xml as part xcvc1902-vsva2197-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vck190:part0:3.0 available at C:/Xilinx/2025.1/data/xhub/boards\XilinxBoardStore\boards\Xilinx\vck190\production\3.0\board.xml as part xcvc1902-vsva2197-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vck190:part0:3.1 available at C:/Xilinx/2025.1/data/xhub/boards\XilinxBoardStore\boards\Xilinx\vck190\production\3.1\board.xml as part xcvc1902-vsva2197-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vck190:part0:3.2 available at C:/Xilinx/2025.1/data/xhub/boards\XilinxBoardStore\boards\Xilinx\vck190\production\3.2\board.xml as part xcvc1902-vsva2197-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vck190:part0:3.3 available at C:/Xilinx/2025.1/data/xhub/boards\XilinxBoardStore\boards\Xilinx\vck190\production\3.3\board.xml as part xcvc1902-vsva2197-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vck190:part0:3.4 available at C:/Xilinx/2025.1/data/xhub/boards\XilinxBoardStore\boards\Xilinx\vck190\production\3.4\board.xml as part xcvc1902-vsva2197-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vck190_newl:part0:1.0 available at C:/Xilinx/2025.1/data/xhub/boards\XilinxBoardStore\boards\Xilinx\vck190_newl\production\1.0\board.xml as part xcvc1902-vsva2197-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vck190_newl:part0:1.1 available at C:/Xilinx/2025.1/data/xhub/boards\XilinxBoardStore\boards\Xilinx\vck190_newl\production\1.1\board.xml as part xcvc1902-vsva2197-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vck190_newl:part0:1.2 available at C:/Xilinx/2025.1/data/xhub/boards\XilinxBoardStore\boards\Xilinx\vck190_newl\production\1.2\board.xml as part xcvc1902-vsva2197-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vck190_newl:part0:1.3 available at C:/Xilinx/2025.1/data/xhub/boards\XilinxBoardStore\boards\Xilinx\vck190_newl\production\1.3\board.xml as part xcvc1902-vsva2197-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vcu108:part0:1.6 available at C:/Xilinx/2025.1/data/xhub/boards\XilinxBoardStore\boards\Xilinx\vcu108\1.6\board.xml as part xcvu095-ffva2104-2-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vcu108:part0:1.7 available at C:/Xilinx/2025.1/data/xhub/boards\XilinxBoardStore\boards\Xilinx\vcu108\1.7\board.xml as part xcvu095-ffva2104-2-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vcu110:part0:1.4 available at C:/Xilinx/2025.1/data/xhub/boards\XilinxBoardStore\boards\Xilinx\vcu110\1.4\board.xml as part xcvu190-flgc2104-2-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vcu118:part0:2.0 available at C:/Xilinx/2025.1/data/xhub/boards\XilinxBoardStore\boards\Xilinx\vcu118\2.0\board.xml as part xcvu9p-flga2104-2l-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vcu118:part0:2.3 available at C:/Xilinx/2025.1/data/xhub/boards\XilinxBoardStore\boards\Xilinx\vcu118\2.3\board.xml as part xcvu9p-flga2104-2l-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vcu118:part0:2.4 available at C:/Xilinx/2025.1/data/xhub/boards\XilinxBoardStore\boards\Xilinx\vcu118\2.4\board.xml as part xcvu9p-flga2104-2l-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vcu128:part0:1.0 available at C:/Xilinx/2025.1/data/xhub/boards\XilinxBoardStore\boards\Xilinx\vcu128\production\1.0\board.xml as part xcvu37p-fsvh2892-2l-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vcu129:part0:1.0 available at C:/Xilinx/2025.1/data/xhub/boards\XilinxBoardStore\boards\Xilinx\vcu129\production\1.0\board.xml as part xcvu29p-fsga2577-2l-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vcu1525:part0:1.3 available at C:/Xilinx/2025.1/data/xhub/boards\XilinxBoardStore\boards\Xilinx\vcu1525\1.3\board.xml as part xcvu9p-fsgd2104-2l-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vek280:part0:1.0 available at C:/Xilinx/2025.1/data/xhub/boards\XilinxBoardStore\boards\Xilinx\vek280\production\1.0\board.xml as part xcve2802-vsvh1760-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vek280:part0:1.1 available at C:/Xilinx/2025.1/data/xhub/boards\XilinxBoardStore\boards\Xilinx\vek280\production\1.1\board.xml as part xcve2802-vsvh1760-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vek280:part0:1.2 available at C:/Xilinx/2025.1/data/xhub/boards\XilinxBoardStore\boards\Xilinx\vek280\production\1.2\board.xml as part xcve2802-vsvh1760-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vek385:part0:1.0 available at C:/Xilinx/2025.1/data/xhub/boards\XilinxBoardStore\boards\Xilinx\vek385\1.0\board.xml as part xc2ve3858-ssva2112-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vermeo_t1_mpsoc:part0:1.0 available at C:/Xilinx/2025.1/data/xhub/boards\XilinxBoardStore\boards\Xilinx\vermeo_t1_mpsoc\1.0\board.xml as part xczu19eg-ffvd1760-2l-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vermeo_t1_rfsoc:part0:1.0 available at C:/Xilinx/2025.1/data/xhub/boards\XilinxBoardStore\boards\Xilinx\vermeo_t1_rfsoc\1.0\board.xml as part xczu21dr-ffvd1156-2l-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vhk158:part0:1.0 available at C:/Xilinx/2025.1/data/xhub/boards\XilinxBoardStore\boards\Xilinx\vhk158\production\1.0\board.xml as part xcvh1582-vsva3697-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vhk158:part0:1.1 available at C:/Xilinx/2025.1/data/xhub/boards\XilinxBoardStore\boards\Xilinx\vhk158\production\1.1\board.xml as part xcvh1582-vsva3697-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vhk158:part0:1.2 available at C:/Xilinx/2025.1/data/xhub/boards\XilinxBoardStore\boards\Xilinx\vhk158\production\1.2\board.xml as part xcvh1582-vsva3697-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vmk180:part0:2.2 available at C:/Xilinx/2025.1/data/xhub/boards\XilinxBoardStore\boards\Xilinx\vmk180\production\2.2\board.xml as part xcvm1802-vsva2197-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vmk180:part0:3.0 available at C:/Xilinx/2025.1/data/xhub/boards\XilinxBoardStore\boards\Xilinx\vmk180\production\3.0\board.xml as part xcvm1802-vsva2197-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vmk180:part0:3.1 available at C:/Xilinx/2025.1/data/xhub/boards\XilinxBoardStore\boards\Xilinx\vmk180\production\3.1\board.xml as part xcvm1802-vsva2197-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vmk180:part0:3.2 available at C:/Xilinx/2025.1/data/xhub/boards\XilinxBoardStore\boards\Xilinx\vmk180\production\3.2\board.xml as part xcvm1802-vsva2197-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vmk180:part0:3.3 available at C:/Xilinx/2025.1/data/xhub/boards\XilinxBoardStore\boards\Xilinx\vmk180\production\3.3\board.xml as part xcvm1802-vsva2197-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vmk180_newl:part0:1.0 available at C:/Xilinx/2025.1/data/xhub/boards\XilinxBoardStore\boards\Xilinx\vmk180_newl\production\1.0\board.xml as part xcvm1802-vsva2197-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vmk180_newl:part0:1.1 available at C:/Xilinx/2025.1/data/xhub/boards\XilinxBoardStore\boards\Xilinx\vmk180_newl\production\1.1\board.xml as part xcvm1802-vsva2197-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vpk120:part0:1.0 available at C:/Xilinx/2025.1/data/xhub/boards\XilinxBoardStore\boards\Xilinx\vpk120\production\1.0\board.xml as part xcvp1202-vsva2785-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vpk120:part0:1.1 available at C:/Xilinx/2025.1/data/xhub/boards\XilinxBoardStore\boards\Xilinx\vpk120\production\1.1\board.xml as part xcvp1202-vsva2785-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vpk120:part0:1.2 available at C:/Xilinx/2025.1/data/xhub/boards\XilinxBoardStore\boards\Xilinx\vpk120\production\1.2\board.xml as part xcvp1202-vsva2785-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vpk180:part0:1.0 available at C:/Xilinx/2025.1/data/xhub/boards\XilinxBoardStore\boards\Xilinx\vpk180\production\1.0\board.xml as part xcvp1802-lsvc4072-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vpk180:part0:1.1 available at C:/Xilinx/2025.1/data/xhub/boards\XilinxBoardStore\boards\Xilinx\vpk180\production\1.1\board.xml as part xcvp1802-lsvc4072-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vpk180:part0:1.2 available at C:/Xilinx/2025.1/data/xhub/boards\XilinxBoardStore\boards\Xilinx\vpk180\production\1.2\board.xml as part xcvp1802-lsvc4072-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zc702:part0:1.4 available at C:/Xilinx/2025.1/data/xhub/boards\XilinxBoardStore\boards\Xilinx\zc702\1.4\board.xml as part xc7z020clg484-1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zc706:part0:1.4 available at C:/Xilinx/2025.1/data/xhub/boards\XilinxBoardStore\boards\Xilinx\zc706\1.4\board.xml as part xc7z045ffg900-2 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu102:part0:3.3 available at C:/Xilinx/2025.1/data/xhub/boards\XilinxBoardStore\boards\Xilinx\zcu102\3.3\board.xml as part xczu9eg-ffvb1156-2-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu102:part0:3.4 available at C:/Xilinx/2025.1/data/xhub/boards\XilinxBoardStore\boards\Xilinx\zcu102\3.4\board.xml as part xczu9eg-ffvb1156-2-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu104:part0:1.1 available at C:/Xilinx/2025.1/data/xhub/boards\XilinxBoardStore\boards\Xilinx\zcu104\1.1\board.xml as part xczu7ev-ffvc1156-2-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu106:part0:2.4 available at C:/Xilinx/2025.1/data/xhub/boards\XilinxBoardStore\boards\Xilinx\zcu106\2.4\board.xml as part xczu7ev-ffvc1156-2-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu106:part0:2.5 available at C:/Xilinx/2025.1/data/xhub/boards\XilinxBoardStore\boards\Xilinx\zcu106\2.5\board.xml as part xczu7ev-ffvc1156-2-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu106:part0:2.6 available at C:/Xilinx/2025.1/data/xhub/boards\XilinxBoardStore\boards\Xilinx\zcu106\2.6\board.xml as part xczu7ev-ffvc1156-2-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu111:part0:1.2 available at C:/Xilinx/2025.1/data/xhub/boards\XilinxBoardStore\boards\Xilinx\zcu111\1.2\board.xml as part xczu28dr-ffvg1517-2-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu111:part0:1.3 available at C:/Xilinx/2025.1/data/xhub/boards\XilinxBoardStore\boards\Xilinx\zcu111\1.3\board.xml as part xczu28dr-ffvg1517-2-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu111:part0:1.4 available at C:/Xilinx/2025.1/data/xhub/boards\XilinxBoardStore\boards\Xilinx\zcu111\1.4\board.xml as part xczu28dr-ffvg1517-2-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu1275:part0:1.0 available at C:/Xilinx/2025.1/data/xhub/boards\XilinxBoardStore\boards\Xilinx\zcu1275\1.0\board.xml as part xczu29dr-ffvf1760-2-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu1285:part0:1.0 available at C:/Xilinx/2025.1/data/xhub/boards\XilinxBoardStore\boards\Xilinx\zcu1285\1.0\board.xml as part xczu39dr-ffvf1760-2-i specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu208:part0:2.0 available at C:/Xilinx/2025.1/data/xhub/boards\XilinxBoardStore\boards\Xilinx\zcu208\production\2.0\board.xml as part xczu48dr-fsvg1517-2-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu208ld:part0:2.0 available at C:/Xilinx/2025.1/data/xhub/boards\XilinxBoardStore\boards\Xilinx\zcu208ld\production\2.0\board.xml as part xczu58dr-fsvg1517-2-i specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu216:part0:2.0 available at C:/Xilinx/2025.1/data/xhub/boards\XilinxBoardStore\boards\Xilinx\zcu216\production\2.0\board.xml as part xczu49dr-ffvf1760-2-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu216ld:part0:2.0 available at C:/Xilinx/2025.1/data/xhub/boards\XilinxBoardStore\boards\Xilinx\zcu216ld\production\2.0\board.xml as part xczu59dr-ffvf1760-2-i specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu670:part0:2.0 available at C:/Xilinx/2025.1/data/xhub/boards\XilinxBoardStore\boards\Xilinx\zcu670\2.0\board.xml as part xczu67dr-fsve1156-2-i specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu670ld:part0:1.0 available at C:/Xilinx/2025.1/data/xhub/boards\XilinxBoardStore\boards\Xilinx\zcu670ld\1.0\board.xml as part xczu57dr-fsve1156-2-i specified in board_part file is either invalid or not available
+Scanning sources...
+Finished scanning sources
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:emb-plus-vpr-4616:part0:1.0 available at C:/Xilinx/2025.1/data/xhub/boards\XilinxBoardStore\boards\Xilinx\emb-plus-vpr-4616\1.0\board.xml as part xcve2302-sfva784-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:emb-plus-vpr-4616:part0:1.1 available at C:/Xilinx/2025.1/data/xhub/boards\XilinxBoardStore\boards\Xilinx\emb-plus-vpr-4616\1.1\board.xml as part xcve2302-sfva784-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:k24c:part0:1.0 available at C:/Xilinx/2025.1/data/xhub/boards\XilinxBoardStore\boards\Xilinx\k24c\1.0\board.xml as part xck24-ubva530-2lv-c specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:k24c:part0:1.1 available at C:/Xilinx/2025.1/data/xhub/boards\XilinxBoardStore\boards\Xilinx\k24c\1.1\board.xml as part xck24-ubva530-2lv-c specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:k24i:part0:1.0 available at C:/Xilinx/2025.1/data/xhub/boards\XilinxBoardStore\boards\Xilinx\k24i\1.0\board.xml as part xck24-ubva530-2lvi-i specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:k26c:part0:1.2 available at C:/Xilinx/2025.1/data/xhub/boards\XilinxBoardStore\boards\Xilinx\k26c\1.2\board.xml as part xck26-sfvc784-2lv-c specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:k26c:part0:1.3 available at C:/Xilinx/2025.1/data/xhub/boards\XilinxBoardStore\boards\Xilinx\k26c\1.3\board.xml as part xck26-sfvc784-2lv-c specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:k26c:part0:1.4 available at C:/Xilinx/2025.1/data/xhub/boards\XilinxBoardStore\boards\Xilinx\k26c\1.4\board.xml as part xck26-sfvc784-2lv-c specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:k26i:part0:1.2 available at C:/Xilinx/2025.1/data/xhub/boards\XilinxBoardStore\boards\Xilinx\k26i\1.2\board.xml as part xck26-sfvc784-2lvi-i specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:k26i:part0:1.3 available at C:/Xilinx/2025.1/data/xhub/boards\XilinxBoardStore\boards\Xilinx\k26i\1.3\board.xml as part xck26-sfvc784-2lvi-i specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:k26i:part0:1.4 available at C:/Xilinx/2025.1/data/xhub/boards\XilinxBoardStore\boards\Xilinx\k26i\1.4\board.xml as part xck26-sfvc784-2lvi-i specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:kcu105:part0:1.6 available at C:/Xilinx/2025.1/data/xhub/boards\XilinxBoardStore\boards\Xilinx\kcu105\1.6\board.xml as part xcku040-ffva1156-2-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:kcu105:part0:1.7 available at C:/Xilinx/2025.1/data/xhub/boards\XilinxBoardStore\boards\Xilinx\kcu105\1.7\board.xml as part xcku040-ffva1156-2-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:kcu116:part0:1.4 available at C:/Xilinx/2025.1/data/xhub/boards\XilinxBoardStore\boards\Xilinx\kcu116\1.4\board.xml as part xcku5p-ffvb676-2-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:kcu116:part0:1.5 available at C:/Xilinx/2025.1/data/xhub/boards\XilinxBoardStore\boards\Xilinx\kcu116\1.5\board.xml as part xcku5p-ffvb676-2-e specified in board_part file is either invalid or not available
+INFO: [Common 17-14] Message 'Board 49-26' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+WARNING: [Project 1-5713] Board part '' set for the project  is not found. BoardPart property will be unset. Please select board from latest repo build 
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/2025.1/Vivado/data/ip'.
+open_project: Time (s): cpu = 00:00:19 ; elapsed = 00:00:08 . Memory (MB): peak = 1602.199 ; gain = 147.012
+launch_simulation
+Command: launch_simulation 
+INFO: [Vivado 12-12493] Simulation top is 'tb_uart_tensor_bridge'
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-72] Using boost library from 'C:/Xilinx/2025.1/Vivado/tps/boost_1_72_0'
+INFO: [SIM-utils-54] Inspecting design source files for 'tb_uart_tensor_bridge' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-100] Fetching design files from 'sources_1'...(this may take a while)...
+INFO: [USF-XSim-101] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -L uvm -prj tb_uart_tensor_bridge_vlog.prj"
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/tensor_bram.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module tensor_bram
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/accel_fsm.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module accel_fsm
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/accel_top.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module accel_top
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/mac.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module mac
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/matrix_cont.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module matrix_cont
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/simd_array.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module simd_array
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/vector_lane.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module vector_lane
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/tensor_top.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module tensor_top
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/uart_rx.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module uart_rx
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/uart_tensor_bridge.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module uart_tensor_bridge
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/uart_tx.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module uart_tx
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sim_1/new/tb.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module tb_tensor_top_random
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sim_1/new/tb_BRAM.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module tb_tensor_top_bram_random
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sim_1/new/tb_uart.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module tb_uart_tensor_bridge
+INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.sim/sim_1/behav/xsim'
+"xelab --incr --debug typical --relax --mt 2 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip --snapshot tb_uart_tensor_bridge_behav xil_defaultlib.tb_uart_tensor_bridge xil_defaultlib.glbl -log elaborate.log"
+Vivado Simulator v2025.1.0
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: C:/Xilinx/2025.1/Vivado/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip --snapshot tb_uart_tensor_bridge_behav xil_defaultlib.tb_uart_tensor_bridge xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.uart_rx(CLKS_PER_BIT=10)
+Compiling module xil_defaultlib.uart_tx(CLKS_PER_BIT=10)
+Compiling module xil_defaultlib.tensor_bram(DEPTH=1024)
+Compiling module xil_defaultlib.tensor_bram(WIDTH=36,DEPTH=1024)
+Compiling module xil_defaultlib.accel_fsm
+Compiling module xil_defaultlib.mac(ACC=36)
+Compiling module xil_defaultlib.vector_lane(ACC=36,N_MAX=16)
+Compiling module xil_defaultlib.simd_array(ACC=36,N_MAX=16,LANES...
+Compiling module xil_defaultlib.accel_top(ACC=36,N_MAX=16,LANES=...
+Compiling module xil_defaultlib.matrix_cont(N_MAX=16,LANES=8,TIL...
+Compiling module xil_defaultlib.tensor_top(ACC=36,DEPTH=1024)
+Compiling module xil_defaultlib.uart_tensor_bridge(CLKS_PER_BIT=...
+Compiling module xil_defaultlib.tb_uart_tensor_bridge
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot tb_uart_tensor_bridge_behav
+run_program: Time (s): cpu = 00:00:02 ; elapsed = 00:00:06 . Memory (MB): peak = 1619.273 ; gain = 0.000
+INFO: [USF-XSim-69] 'elaborate' step finished in '6' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "tb_uart_tensor_bridge_behav -key {Behavioral:sim_1:Functional:tb_uart_tensor_bridge} -tclbatch {tb_uart_tensor_bridge.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Time resolution is 1 ps
+source tb_uart_tensor_bridge.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 12us
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'tb_uart_tensor_bridge_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 12us
+launch_simulation: Time (s): cpu = 00:00:08 ; elapsed = 00:00:14 . Memory (MB): peak = 1632.742 ; gain = 30.316
+run 10 ms
+Test 0 ok  op=000 M=2 K=2 N=2 D=1
+Test 1 ok  op=001 M=1 K=1 N=1 D=1
+Test 2 ok  op=010 M=2 K=2 N=2 D=1
+Test 3 ok  op=011 M=2 K=2 N=2 D=1
+Test 4 ok  op=100 M=2 K=3 N=3 D=1
+Test 5 ok  op=101 M=2 K=2 N=2 D=1
+Test 6 ok  op=000 M=2 K=2 N=2 D=1
+Test 7 ok  op=010 M=4 K=4 N=1 D=1
+Test 8 ok  op=100 M=4 K=2 N=1 D=1
+Test 9 ok  op=001 M=1 K=3 N=1 D=1
+Test 10 ok  op=100 M=3 K=4 N=3 D=1
+Test 11 ok  op=010 M=2 K=1 N=3 D=1
+Test 12 ok  op=011 M=2 K=3 N=4 D=1
+Test 13 ok  op=100 M=2 K=3 N=1 D=1
+Test 14 ok  op=001 M=1 K=3 N=1 D=1
+Test 15 ok  op=000 M=3 K=2 N=1 D=1
+Test 16 ok  op=010 M=4 K=1 N=4 D=1
+Test 17 ok  op=011 M=4 K=3 N=1 D=1
+Test 18 ok  op=010 M=1 K=4 N=1 D=1
+Test 19 ok  op=001 M=2 K=1 N=1 D=1
+Test 20 ok  op=100 M=1 K=3 N=3 D=1
+Test 21 ok  op=100 M=3 K=1 N=4 D=1
+Test 22 ok  op=001 M=2 K=2 N=2 D=1
+Test 23 ok  op=000 M=4 K=1 N=4 D=1
+Test 24 ok  op=100 M=1 K=4 N=4 D=1
+Test 25 ok  op=010 M=3 K=3 N=1 D=1
+Test 26 ok  op=010 M=1 K=4 N=2 D=1
+Test 27 ok  op=101 M=1 K=3 N=3 D=1
+Test 28 ok  op=100 M=4 K=1 N=1 D=1
+Test 29 ok  op=100 M=4 K=3 N=4 D=1
+Test 30 ok  op=100 M=4 K=1 N=1 D=1
+Test 31 ok  op=100 M=4 K=1 N=1 D=1
+Test 32 ok  op=100 M=2 K=4 N=4 D=1
+Test 33 ok  op=101 M=3 K=3 N=3 D=1
+Test 34 ok  op=000 M=3 K=3 N=1 D=1
+Test 35 ok  op=001 M=4 K=2 N=4 D=1
+Test 36 ok  op=100 M=1 K=2 N=3 D=1
+Test 37 ok  op=101 M=2 K=1 N=3 D=1
+Test 38 ok  op=100 M=1 K=1 N=2 D=1
+Test 39 ok  op=100 M=3 K=3 N=1 D=1
+Test 40 ok  op=100 M=2 K=3 N=4 D=1
+Test 41 ok  op=101 M=3 K=4 N=2 D=1
+Test 42 ok  op=001 M=1 K=2 N=2 D=1
+Test 43 ok  op=010 M=4 K=2 N=1 D=1
+Test 44 ok  op=010 M=1 K=4 N=1 D=1
+Test 45 ok  op=011 M=4 K=1 N=3 D=1
+Test 46 ok  op=001 M=3 K=3 N=1 D=1
+Test 47 ok  op=100 M=2 K=1 N=3 D=1
+Test 48 ok  op=100 M=2 K=2 N=1 D=1
+Test 49 ok  op=000 M=4 K=3 N=1 D=1
+Test 50 ok  op=100 M=1 K=2 N=1 D=1
+Test 51 ok  op=101 M=1 K=3 N=1 D=1
+Test 52 ok  op=100 M=3 K=3 N=2 D=1
+Test 53 ok  op=001 M=1 K=1 N=3 D=1
+Test 54 ok  op=000 M=3 K=3 N=1 D=1
+Test 55 ok  op=100 M=3 K=3 N=1 D=1
+Test 56 ok  op=000 M=2 K=1 N=4 D=1
+Test 57 ok  op=100 M=2 K=1 N=1 D=1
+Test 58 ok  op=000 M=3 K=1 N=3 D=1
+Test 59 ok  op=010 M=1 K=4 N=3 D=1
+Test 60 ok  op=010 M=2 K=3 N=3 D=1
+Test 61 ok  op=011 M=3 K=4 N=1 D=1
+Test 62 ok  op=100 M=1 K=1 N=4 D=1
+Test 63 ok  op=000 M=3 K=4 N=4 D=1
+Test 64 ok  op=100 M=1 K=2 N=2 D=1
+Test 65 ok  op=100 M=3 K=3 N=4 D=1
+Test 66 ok  op=001 M=2 K=3 N=1 D=1
+Test 67 ok  op=101 M=1 K=3 N=4 D=1
+Test 68 ok  op=010 M=1 K=3 N=4 D=1
+Test 69 ok  op=001 M=4 K=2 N=4 D=1
+Test 70 ok  op=100 M=4 K=4 N=2 D=1
+Test 71 ok  op=000 M=2 K=4 N=1 D=1
+Test 72 ok  op=101 M=3 K=2 N=2 D=1
+Test 73 ok  op=010 M=2 K=3 N=3 D=1
+Test 74 ok  op=101 M=1 K=3 N=3 D=1
+Test 75 ok  op=101 M=1 K=1 N=3 D=1
+Test 76 ok  op=011 M=1 K=2 N=3 D=1
+Test 77 ok  op=011 M=1 K=4 N=2 D=1
+Test 78 ok  op=000 M=4 K=2 N=2 D=1
+Test 79 ok  op=101 M=3 K=3 N=2 D=1
+Test 80 ok  op=001 M=3 K=3 N=4 D=1
+Test 81 ok  op=100 M=1 K=4 N=2 D=1
+Test 82 ok  op=100 M=2 K=4 N=1 D=1
+Test 83 ok  op=001 M=2 K=3 N=4 D=1
+Test 84 ok  op=101 M=1 K=2 N=3 D=1
+Test 85 ok  op=010 M=3 K=1 N=3 D=1
+Test 86 ok  op=101 M=2 K=4 N=3 D=1
+Test 87 ok  op=010 M=3 K=2 N=1 D=1
+Test 88 ok  op=000 M=4 K=3 N=4 D=1
+Test 89 ok  op=001 M=1 K=3 N=1 D=1
+Test 90 ok  op=100 M=3 K=3 N=1 D=1
+Test 91 ok  op=010 M=2 K=1 N=4 D=1
+Test 92 ok  op=000 M=1 K=2 N=3 D=1
+Test 93 ok  op=101 M=1 K=4 N=3 D=1
+Test 94 ok  op=011 M=3 K=1 N=1 D=1
+Test 95 ok  op=101 M=1 K=2 N=4 D=1
+Test 96 ok  op=010 M=4 K=3 N=3 D=1
+Test 97 ok  op=101 M=1 K=3 N=1 D=1
+Test 98 ok  op=000 M=2 K=3 N=3 D=1
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+synth_design -top uart_tensor_bridge -part xc7a100tcsg324-1 -lint 
+Command: synth_design -top uart_tensor_bridge -part xc7a100tcsg324-1 -lint
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7a100t'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a100t'
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
+INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
+INFO: [Synth 8-7075] Helper process launched with PID 8960
+---------------------------------------------------------------------------------
+Starting Synthesize : Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 2115.953 ; gain = 377.145
+---------------------------------------------------------------------------------
+Clean up Linter database...
+INFO: [Synth 8-6157] synthesizing module 'uart_tensor_bridge' [C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/uart_tensor_bridge.sv:48]
+INFO: [Synth 8-6157] synthesizing module 'uart_rx' [C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/uart_rx.sv:23]
+	Parameter CLKS_PER_BIT bound to: 868 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'uart_rx' (1#1) [C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/uart_rx.sv:23]
+INFO: [Synth 8-6157] synthesizing module 'uart_tx' [C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/uart_tx.sv:23]
+	Parameter CLKS_PER_BIT bound to: 868 - type: integer 
+INFO: [Synth 8-155] case statement is not full and has no default [C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/uart_tx.sv:62]
+INFO: [Synth 8-6155] done synthesizing module 'uart_tx' (2#1) [C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/uart_tx.sv:23]
+INFO: [Synth 8-6157] synthesizing module 'tensor_top' [C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/tensor_top.v:42]
+	Parameter WIDTH bound to: 16 - type: integer 
+	Parameter MAX_DIM bound to: 16 - type: integer 
+	Parameter MAX_DEPTH bound to: 4 - type: integer 
+	Parameter N_MAX bound to: 16 - type: integer 
+	Parameter LANES bound to: 8 - type: integer 
+	Parameter TILE_R bound to: 2 - type: integer 
+	Parameter TILE_C bound to: 4 - type: integer 
+	Parameter ACC bound to: 36 - type: integer 
+	Parameter DEPTH bound to: 1024 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'tensor_bram' [C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/tensor_bram.v:23]
+	Parameter WIDTH bound to: 16 - type: integer 
+	Parameter DEPTH bound to: 1024 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'tensor_bram' (3#1) [C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/tensor_bram.v:23]
+INFO: [Synth 8-6157] synthesizing module 'tensor_bram__parameterized0' [C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/tensor_bram.v:23]
+	Parameter WIDTH bound to: 36 - type: integer 
+	Parameter DEPTH bound to: 1024 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'tensor_bram__parameterized0' (3#1) [C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/tensor_bram.v:23]
+INFO: [Synth 8-6157] synthesizing module 'matrix_cont' [C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/matrix_cont.sv:52]
+	Parameter WIDTH bound to: 16 - type: integer 
+	Parameter N_MAX bound to: 16 - type: integer 
+	Parameter LANES bound to: 8 - type: integer 
+	Parameter TILE_R bound to: 2 - type: integer 
+	Parameter TILE_C bound to: 4 - type: integer 
+	Parameter MAX_DIM bound to: 16 - type: integer 
+	Parameter MAX_DEPTH bound to: 4 - type: integer 
+	Parameter ACC bound to: 36 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'accel_top' [C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/accel_top.v:23]
+	Parameter WIDTH bound to: 16 - type: integer 
+	Parameter ACC bound to: 36 - type: integer 
+	Parameter N_MAX bound to: 16 - type: integer 
+	Parameter LANES bound to: 8 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'accel_fsm' [C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/accel_fsm.v:41]
+INFO: [Synth 8-6155] done synthesizing module 'accel_fsm' (4#1) [C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/accel_fsm.v:41]
+INFO: [Synth 8-6157] synthesizing module 'simd_array' [C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/simd_array.v:23]
+	Parameter WIDTH bound to: 16 - type: integer 
+	Parameter ACC bound to: 36 - type: integer 
+	Parameter N_MAX bound to: 16 - type: integer 
+	Parameter LANES bound to: 8 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'vector_lane' [C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/vector_lane.v:37]
+	Parameter WIDTH bound to: 16 - type: integer 
+	Parameter ACC bound to: 36 - type: integer 
+	Parameter N_MAX bound to: 16 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'mac' [C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/mac.v:23]
+	Parameter WIDTH bound to: 16 - type: integer 
+	Parameter ACC bound to: 36 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'mac' (5#1) [C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/mac.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'vector_lane' (6#1) [C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/vector_lane.v:37]
+INFO: [Synth 8-6155] done synthesizing module 'simd_array' (7#1) [C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/simd_array.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'accel_top' (8#1) [C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/accel_top.v:23]
+INFO: [Synth 8-155] case statement is not full and has no default [C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/matrix_cont.sv:183]
+WARNING: [Synth 8-6014] Unused sequential element addr_issue.r_off_reg was removed.  [C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/matrix_cont.sv:233]
+WARNING: [Synth 8-6014] Unused sequential element addr_issue.c_off_reg was removed.  [C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/matrix_cont.sv:233]
+WARNING: [Synth 8-6014] Unused sequential element row_idx_reg was removed.  [C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/matrix_cont.sv:234]
+WARNING: [Synth 8-6014] Unused sequential element col_idx_reg was removed.  [C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/matrix_cont.sv:235]
+WARNING: [Synth 8-6014] Unused sequential element store_sample.r_off_reg was removed.  [C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/matrix_cont.sv:271]
+WARNING: [Synth 8-6014] Unused sequential element store_sample.c_off_reg was removed.  [C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/matrix_cont.sv:271]
+INFO: [Synth 8-6155] done synthesizing module 'matrix_cont' (9#1) [C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/matrix_cont.sv:52]
+INFO: [Synth 8-155] case statement is not full and has no default [C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/tensor_top.v:203]
+INFO: [Synth 8-6155] done synthesizing module 'tensor_top' (10#1) [C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/tensor_top.v:42]
+WARNING: [Synth 8-6014] Unused sequential element r_c_data_reg was removed.  [C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/uart_tensor_bridge.sv:228]
+INFO: [Synth 8-6155] done synthesizing module 'uart_tensor_bridge' (11#1) [C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/uart_tensor_bridge.sv:48]
+---------------------------------------------------------------------------------
+Finished Synthesize : Time (s): cpu = 00:01:01 ; elapsed = 00:01:01 . Memory (MB): peak = 6665.074 ; gain = 4926.266
+---------------------------------------------------------------------------------
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2025.1 (win64) Build 6140274 Thu May 22 00:12:29 MDT 2025
+| Date         : Sat Mar 28 22:07:10 2026
+| Host         : CherryVamsi running 64-bit major release  (build 9200)
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+RTL Linter Report
+
+Table of Contents
+-----------------
+1. Summary
+
+1. Summary
+----------
+
++----------+------------------+--------------+----------+
+| Rule ID  | Severity         | # Violations | # Waived |
++----------+------------------+--------------+----------+
+| ASSIGN-1 | WARNING          | 5            | 0        |
+| ASSIGN-2 | CRITICAL WARNING | 4            | 0        |
+| ASSIGN-5 | WARNING          | 1            | 0        |
+| RESET-3  | CRITICAL WARNING | 8            | 0        |
++----------+------------------+--------------+----------+
+
+
+WARNING: [Synth 37-78] [ASSIGN-1]Input operands(of sizes 32 32) of add/sub cluster ending with expression '(i + r_off)' could yield maximum size of 33, but only width of 10 is being used.
+Hierarchy 'matrix_cont', File 'C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/matrix_cont.sv', Line 234.
+WARNING: [Synth 37-78] [ASSIGN-1]Input operands(of sizes 32 10 32 32) of add/sub cluster ending with expression '((d_base + (row_idx * MAX_DIM)) + (k_base + load_k))' could yield maximum size of 34, but only width of 10 is being used.
+Hierarchy 'matrix_cont', File 'C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/matrix_cont.sv', Line 239.
+WARNING: [Synth 37-77] [ASSIGN-1]Input operands(of sizes 32 32 10 32) of add/sub cluster ending with expression '((d_base + ((k_base + load_k) * MAX_DIM)) + col_idx)' could yield maximum size of 34, but only width of 10 is being used.
+Hierarchy 'matrix_cont', File 'C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/matrix_cont.sv', Line 240, Additional lines 235.
+WARNING: [Synth 37-77] [ASSIGN-1]Input operands(of sizes 32 32 10 32) of add/sub cluster ending with expression '((d_base + (row_idx * MAX_DIM)) + col_idx)' could yield maximum size of 34, but only width of 10 is being used.
+Hierarchy 'matrix_cont', File 'C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/matrix_cont.sv', Line 254, Additional lines 235 239.
+CRITICAL WARNING: [Synth 37-81] [ASSIGN-2]Operator '+' in expression '(((op == 3'b000) || (op == 3'b100)) && ((k_base + vec_len) < K_len))' has mixed signed and unsigned types on its operands, the result will be unsigned.
+Hierarchy 'matrix_cont', File C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/matrix_cont.sv, Line 375
+CRITICAL WARNING: [Synth 37-81] [ASSIGN-2]Operator '+' in expression '(k_base + vec_len)' has mixed signed and unsigned types on its operands, the result will be unsigned.
+Hierarchy 'matrix_cont', File C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/matrix_cont.sv, Line 376
+CRITICAL WARNING: [Synth 37-81] [ASSIGN-2]Operator '+' in expression '((op == 3'b101) && ((k_base + vec_len) < M_len))' has mixed signed and unsigned types on its operands, the result will be unsigned.
+Hierarchy 'matrix_cont', File C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/matrix_cont.sv, Line 379
+CRITICAL WARNING: [Synth 37-81] [ASSIGN-2]Operator '+' in expression '(k_base + vec_len)' has mixed signed and unsigned types on its operands, the result will be unsigned.
+Hierarchy 'matrix_cont', File C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/matrix_cont.sv, Line 380
+WARNING: [Synth 37-124] [ASSIGN-5]Some bits in 'k' are not set. First unset bit index is 0. 
+RTL Name 'k', Hierarchy 'matrix_cont', File 'matrix_cont.sv', Line 99.
+CRITICAL WARNING: [Synth 37-111] [RESET-3]Synchronous reset not found on register tile_len_reg and its enable logic contains synchronous reset in same always/process block.
+RTL Name 'tile_len_reg', Hierarchy 'matrix_cont', File 'C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/matrix_cont.sv', Line 167.
+CRITICAL WARNING: [Synth 37-111] [RESET-3]Synchronous reset not found on register vec_len_reg and its enable logic contains synchronous reset in same always/process block.
+RTL Name 'vec_len_reg', Hierarchy 'matrix_cont', File 'C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/matrix_cont.sv', Line 167.
+WARNING: [Synth 37-78] [ASSIGN-1]Input operands(of sizes 10 10 32) of add/sub cluster ending with expression '((((d_store * MAX_DIM) * MAX_DIM) + (i * MAX_DIM)) + j)' could yield maximum size of 33, but only width of 10 is being used.
+Hierarchy 'tensor_top', File 'C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/tensor_top.v', Line 233.
+CRITICAL WARNING: [Synth 37-111] [RESET-3]Synchronous reset not found on register addr_c_int_reg and its enable logic contains synchronous reset in same always/process block.
+RTL Name 'addr_c_int_reg', Hierarchy 'tensor_top', File 'C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/tensor_top.v', Line 191.
+CRITICAL WARNING: [Synth 37-111] [RESET-3]Synchronous reset not found on register din_c_int_reg and its enable logic contains synchronous reset in same always/process block.
+RTL Name 'din_c_int_reg', Hierarchy 'tensor_top', File 'C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/tensor_top.v', Line 191.
+CRITICAL WARNING: [Synth 37-111] [RESET-3]Synchronous reset not found on register o_RX_Byte_reg and its enable logic contains synchronous reset in same always/process block.
+RTL Name 'o_RX_Byte_reg', Hierarchy 'uart_rx', File 'C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/uart_rx.sv', Line 51.
+CRITICAL WARNING: [Synth 37-111] [RESET-3]Synchronous reset not found on register r_Bit_Index_reg and its enable logic contains synchronous reset in same always/process block.
+RTL Name 'r_Bit_Index_reg', Hierarchy 'uart_rx', File 'C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/uart_rx.sv', Line 51.
+CRITICAL WARNING: [Synth 37-111] [RESET-3]Synchronous reset not found on register r_Clock_Count_reg and its enable logic contains synchronous reset in same always/process block.
+RTL Name 'r_Clock_Count_reg', Hierarchy 'uart_rx', File 'C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/uart_rx.sv', Line 51.
+CRITICAL WARNING: [Synth 37-111] [RESET-3]Synchronous reset not found on register c_packed_reg and its enable logic contains synchronous reset in same always/process block.
+RTL Name 'c_packed_reg', Hierarchy 'uart_tensor_bridge', File 'C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/uart_tensor_bridge.sv', Line 207.
+INFO: [Synth 37-85] Total of 18 linter message(s) generated.
+INFO: [Synth 37-45] Linter Run Finished!
+Synthesis Optimization Runtime : Time (s): cpu = 00:01:01 ; elapsed = 00:01:01 . Memory (MB): peak = 6665.074 ; gain = 4926.266
+INFO: [Common 17-83] Releasing license: Synthesis
+34 Infos, 13 Warnings, 12 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:01:01 ; elapsed = 00:01:02 . Memory (MB): peak = 6665.074 ; gain = 4926.266
+synth_design -top uart_tensor_bridge -part xc7a100tcsg324-1 -lint 
+Command: synth_design -top uart_tensor_bridge -part xc7a100tcsg324-1 -lint
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7a100t'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a100t'
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
+---------------------------------------------------------------------------------
+Starting Synthesize : Time (s): cpu = 00:00:17 ; elapsed = 00:00:17 . Memory (MB): peak = 6665.074 ; gain = 0.000
+---------------------------------------------------------------------------------
+Clean up Linter database...
+INFO: [Synth 8-6157] synthesizing module 'uart_tensor_bridge' [C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/uart_tensor_bridge.sv:48]
+INFO: [Synth 8-6157] synthesizing module 'uart_rx' [C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/uart_rx.sv:23]
+	Parameter CLKS_PER_BIT bound to: 868 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'uart_rx' (1#1) [C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/uart_rx.sv:23]
+INFO: [Synth 8-6157] synthesizing module 'uart_tx' [C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/uart_tx.sv:23]
+	Parameter CLKS_PER_BIT bound to: 868 - type: integer 
+INFO: [Synth 8-155] case statement is not full and has no default [C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/uart_tx.sv:62]
+INFO: [Synth 8-6155] done synthesizing module 'uart_tx' (2#1) [C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/uart_tx.sv:23]
+INFO: [Synth 8-6157] synthesizing module 'tensor_top' [C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/tensor_top.v:42]
+	Parameter WIDTH bound to: 16 - type: integer 
+	Parameter MAX_DIM bound to: 16 - type: integer 
+	Parameter MAX_DEPTH bound to: 4 - type: integer 
+	Parameter N_MAX bound to: 16 - type: integer 
+	Parameter LANES bound to: 8 - type: integer 
+	Parameter TILE_R bound to: 2 - type: integer 
+	Parameter TILE_C bound to: 4 - type: integer 
+	Parameter ACC bound to: 36 - type: integer 
+	Parameter DEPTH bound to: 1024 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'tensor_bram' [C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/tensor_bram.v:23]
+	Parameter WIDTH bound to: 16 - type: integer 
+	Parameter DEPTH bound to: 1024 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'tensor_bram' (3#1) [C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/tensor_bram.v:23]
+INFO: [Synth 8-6157] synthesizing module 'tensor_bram__parameterized0' [C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/tensor_bram.v:23]
+	Parameter WIDTH bound to: 36 - type: integer 
+	Parameter DEPTH bound to: 1024 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'tensor_bram__parameterized0' (3#1) [C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/tensor_bram.v:23]
+INFO: [Synth 8-6157] synthesizing module 'matrix_cont' [C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/matrix_cont.sv:52]
+	Parameter WIDTH bound to: 16 - type: integer 
+	Parameter N_MAX bound to: 16 - type: integer 
+	Parameter LANES bound to: 8 - type: integer 
+	Parameter TILE_R bound to: 2 - type: integer 
+	Parameter TILE_C bound to: 4 - type: integer 
+	Parameter MAX_DIM bound to: 16 - type: integer 
+	Parameter MAX_DEPTH bound to: 4 - type: integer 
+	Parameter ACC bound to: 36 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'accel_top' [C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/accel_top.v:23]
+	Parameter WIDTH bound to: 16 - type: integer 
+	Parameter ACC bound to: 36 - type: integer 
+	Parameter N_MAX bound to: 16 - type: integer 
+	Parameter LANES bound to: 8 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'accel_fsm' [C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/accel_fsm.v:41]
+INFO: [Synth 8-6155] done synthesizing module 'accel_fsm' (4#1) [C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/accel_fsm.v:41]
+INFO: [Synth 8-6157] synthesizing module 'simd_array' [C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/simd_array.v:23]
+	Parameter WIDTH bound to: 16 - type: integer 
+	Parameter ACC bound to: 36 - type: integer 
+	Parameter N_MAX bound to: 16 - type: integer 
+	Parameter LANES bound to: 8 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'vector_lane' [C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/vector_lane.v:37]
+	Parameter WIDTH bound to: 16 - type: integer 
+	Parameter ACC bound to: 36 - type: integer 
+	Parameter N_MAX bound to: 16 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'mac' [C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/mac.v:23]
+	Parameter WIDTH bound to: 16 - type: integer 
+	Parameter ACC bound to: 36 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'mac' (5#1) [C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/mac.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'vector_lane' (6#1) [C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/vector_lane.v:37]
+INFO: [Synth 8-6155] done synthesizing module 'simd_array' (7#1) [C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/simd_array.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'accel_top' (8#1) [C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/accel_top.v:23]
+INFO: [Synth 8-155] case statement is not full and has no default [C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/matrix_cont.sv:183]
+WARNING: [Synth 8-6014] Unused sequential element addr_issue.r_off_reg was removed.  [C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/matrix_cont.sv:233]
+WARNING: [Synth 8-6014] Unused sequential element addr_issue.c_off_reg was removed.  [C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/matrix_cont.sv:233]
+WARNING: [Synth 8-6014] Unused sequential element row_idx_reg was removed.  [C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/matrix_cont.sv:234]
+WARNING: [Synth 8-6014] Unused sequential element col_idx_reg was removed.  [C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/matrix_cont.sv:235]
+WARNING: [Synth 8-6014] Unused sequential element store_sample.r_off_reg was removed.  [C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/matrix_cont.sv:271]
+WARNING: [Synth 8-6014] Unused sequential element store_sample.c_off_reg was removed.  [C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/matrix_cont.sv:271]
+INFO: [Synth 8-6155] done synthesizing module 'matrix_cont' (9#1) [C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/matrix_cont.sv:52]
+INFO: [Synth 8-155] case statement is not full and has no default [C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/tensor_top.v:203]
+INFO: [Synth 8-6155] done synthesizing module 'tensor_top' (10#1) [C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/tensor_top.v:42]
+WARNING: [Synth 8-6014] Unused sequential element r_c_data_reg was removed.  [C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/uart_tensor_bridge.sv:228]
+INFO: [Synth 8-6155] done synthesizing module 'uart_tensor_bridge' (11#1) [C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/uart_tensor_bridge.sv:48]
+---------------------------------------------------------------------------------
+Finished Synthesize : Time (s): cpu = 00:01:51 ; elapsed = 00:01:57 . Memory (MB): peak = 6748.875 ; gain = 83.801
+---------------------------------------------------------------------------------
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2025.1 (win64) Build 6140274 Thu May 22 00:12:29 MDT 2025
+| Date         : Sat Mar 28 22:10:43 2026
+| Host         : CherryVamsi running 64-bit major release  (build 9200)
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+RTL Linter Report
+
+Table of Contents
+-----------------
+1. Summary
+
+1. Summary
+----------
+
++----------+------------------+--------------+----------+
+| Rule ID  | Severity         | # Violations | # Waived |
++----------+------------------+--------------+----------+
+| ASSIGN-1 | WARNING          | 5            | 0        |
+| ASSIGN-2 | CRITICAL WARNING | 12           | 0        |
+| ASSIGN-5 | WARNING          | 1            | 0        |
+| RESET-3  | CRITICAL WARNING | 8            | 0        |
++----------+------------------+--------------+----------+
+
+
+WARNING: [Synth 37-78] [ASSIGN-1]Input operands(of sizes 32 32) of add/sub cluster ending with expression '(i + r_off)' could yield maximum size of 33, but only width of 10 is being used.
+Hierarchy 'matrix_cont', File 'C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/matrix_cont.sv', Line 234.
+WARNING: [Synth 37-78] [ASSIGN-1]Input operands(of sizes 32 10 32 32) of add/sub cluster ending with expression '((d_base + (row_idx * MAX_DIM)) + (k_base + load_k))' could yield maximum size of 34, but only width of 10 is being used.
+Hierarchy 'matrix_cont', File 'C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/matrix_cont.sv', Line 239.
+WARNING: [Synth 37-77] [ASSIGN-1]Input operands(of sizes 32 10 32 10) of add/sub cluster ending with expression '((d_base + ((k_base + load_k) * MAX_DIM)) + col_idx)' could yield maximum size of 34, but only width of 10 is being used.
+Hierarchy 'matrix_cont', File 'C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/matrix_cont.sv', Line 240, Additional lines 235.
+WARNING: [Synth 37-77] [ASSIGN-1]Input operands(of sizes 32 10 32 10) of add/sub cluster ending with expression '((d_base + (row_idx * MAX_DIM)) + col_idx)' could yield maximum size of 34, but only width of 10 is being used.
+Hierarchy 'matrix_cont', File 'C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/matrix_cont.sv', Line 254, Additional lines 235 239.
+CRITICAL WARNING: [Synth 37-81] [ASSIGN-2]Operator '+' in expression '(i + r_off)' has mixed signed and unsigned types on its operands, the result will be unsigned.
+Hierarchy 'matrix_cont', File C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/matrix_cont.sv, Line 234
+CRITICAL WARNING: [Synth 37-81] [ASSIGN-2]Operator '+' in expression '(j + c_off)' has mixed signed and unsigned types on its operands, the result will be unsigned.
+Hierarchy 'matrix_cont', File C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/matrix_cont.sv, Line 235
+CRITICAL WARNING: [Synth 37-81] [ASSIGN-2]Operator '+' in expression '((d_base + (row_idx * MAX_DIM)) + (k_base + load_k))' has mixed signed and unsigned types on its operands, the result will be unsigned.
+Hierarchy 'matrix_cont', File C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/matrix_cont.sv, Line 239
+CRITICAL WARNING: [Synth 37-81] [ASSIGN-2]Operator '+' in expression '((d_base + ((k_base + load_k) * MAX_DIM)) + col_idx)' has mixed signed and unsigned types on its operands, the result will be unsigned.
+Hierarchy 'matrix_cont', File C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/matrix_cont.sv, Line 240
+CRITICAL WARNING: [Synth 37-81] [ASSIGN-2]Operator '+' in expression '((d_base + (row_idx * MAX_DIM)) + (k_base + load_k))' has mixed signed and unsigned types on its operands, the result will be unsigned.
+Hierarchy 'matrix_cont', File C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/matrix_cont.sv, Line 244
+CRITICAL WARNING: [Synth 37-81] [ASSIGN-2]Operator '+' in expression '((d_base + ((k_base + load_k) * MAX_DIM)) + col_idx)' has mixed signed and unsigned types on its operands, the result will be unsigned.
+Hierarchy 'matrix_cont', File C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/matrix_cont.sv, Line 249
+CRITICAL WARNING: [Synth 37-81] [ASSIGN-2]Operator '+' in expression '((d_base + (row_idx * MAX_DIM)) + col_idx)' has mixed signed and unsigned types on its operands, the result will be unsigned.
+Hierarchy 'matrix_cont', File C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/matrix_cont.sv, Line 254
+CRITICAL WARNING: [Synth 37-81] [ASSIGN-2]Operator '+' in expression '((d_base + (row_idx * MAX_DIM)) + col_idx)' has mixed signed and unsigned types on its operands, the result will be unsigned.
+Hierarchy 'matrix_cont', File C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/matrix_cont.sv, Line 255
+CRITICAL WARNING: [Synth 37-81] [ASSIGN-2]Operator '+' in expression '(i + r_off)' has mixed signed and unsigned types on its operands, the result will be unsigned.
+Hierarchy 'matrix_cont', File C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/matrix_cont.sv, Line 272
+CRITICAL WARNING: [Synth 37-81] [ASSIGN-2]Operator '+' in expression '(j + c_off)' has mixed signed and unsigned types on its operands, the result will be unsigned.
+Hierarchy 'matrix_cont', File C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/matrix_cont.sv, Line 273
+CRITICAL WARNING: [Synth 37-81] [ASSIGN-2]Operator '+' in expression '(i + r_off)' has mixed signed and unsigned types on its operands, the result will be unsigned.
+Hierarchy 'matrix_cont', File C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/matrix_cont.sv, Line 356
+CRITICAL WARNING: [Synth 37-81] [ASSIGN-2]Operator '+' in expression '(j + c_off)' has mixed signed and unsigned types on its operands, the result will be unsigned.
+Hierarchy 'matrix_cont', File C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/matrix_cont.sv, Line 357
+WARNING: [Synth 37-124] [ASSIGN-5]Some bits in 'k' are not set. First unset bit index is 0. 
+RTL Name 'k', Hierarchy 'matrix_cont', File 'matrix_cont.sv', Line 99.
+CRITICAL WARNING: [Synth 37-111] [RESET-3]Synchronous reset not found on register tile_len_reg and its enable logic contains synchronous reset in same always/process block.
+RTL Name 'tile_len_reg', Hierarchy 'matrix_cont', File 'C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/matrix_cont.sv', Line 167.
+CRITICAL WARNING: [Synth 37-111] [RESET-3]Synchronous reset not found on register vec_len_reg and its enable logic contains synchronous reset in same always/process block.
+RTL Name 'vec_len_reg', Hierarchy 'matrix_cont', File 'C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/matrix_cont.sv', Line 167.
+WARNING: [Synth 37-78] [ASSIGN-1]Input operands(of sizes 10 10 32) of add/sub cluster ending with expression '((((d_store * MAX_DIM) * MAX_DIM) + (i * MAX_DIM)) + j)' could yield maximum size of 33, but only width of 10 is being used.
+Hierarchy 'tensor_top', File 'C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/tensor_top.v', Line 233.
+CRITICAL WARNING: [Synth 37-111] [RESET-3]Synchronous reset not found on register addr_c_int_reg and its enable logic contains synchronous reset in same always/process block.
+RTL Name 'addr_c_int_reg', Hierarchy 'tensor_top', File 'C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/tensor_top.v', Line 191.
+CRITICAL WARNING: [Synth 37-111] [RESET-3]Synchronous reset not found on register din_c_int_reg and its enable logic contains synchronous reset in same always/process block.
+RTL Name 'din_c_int_reg', Hierarchy 'tensor_top', File 'C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/tensor_top.v', Line 191.
+CRITICAL WARNING: [Synth 37-111] [RESET-3]Synchronous reset not found on register o_RX_Byte_reg and its enable logic contains synchronous reset in same always/process block.
+RTL Name 'o_RX_Byte_reg', Hierarchy 'uart_rx', File 'C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/uart_rx.sv', Line 51.
+CRITICAL WARNING: [Synth 37-111] [RESET-3]Synchronous reset not found on register r_Bit_Index_reg and its enable logic contains synchronous reset in same always/process block.
+RTL Name 'r_Bit_Index_reg', Hierarchy 'uart_rx', File 'C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/uart_rx.sv', Line 51.
+CRITICAL WARNING: [Synth 37-111] [RESET-3]Synchronous reset not found on register r_Clock_Count_reg and its enable logic contains synchronous reset in same always/process block.
+RTL Name 'r_Clock_Count_reg', Hierarchy 'uart_rx', File 'C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/uart_rx.sv', Line 51.
+CRITICAL WARNING: [Synth 37-111] [RESET-3]Synchronous reset not found on register c_packed_reg and its enable logic contains synchronous reset in same always/process block.
+RTL Name 'c_packed_reg', Hierarchy 'uart_tensor_bridge', File 'C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/uart_tensor_bridge.sv', Line 207.
+INFO: [Synth 37-85] Total of 26 linter message(s) generated.
+INFO: [Synth 37-45] Linter Run Finished!
+Synthesis Optimization Runtime : Time (s): cpu = 00:01:51 ; elapsed = 00:01:57 . Memory (MB): peak = 6749.402 ; gain = 84.328
+INFO: [Common 17-83] Releasing license: Synthesis
+32 Infos, 13 Warnings, 20 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:01:52 ; elapsed = 00:01:58 . Memory (MB): peak = 6749.402 ; gain = 84.328
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver2_6\Ver2_6.srcs\sources_1\new\uart_rx.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver2_6\Ver2_6.srcs\sources_1\new\matrix_cont.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver2_6\Ver2_6.srcs\sources_1\new\tensor_top.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver2_6\Ver2_6.srcs\sources_1\new\tensor_top.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver2_6\Ver2_6.srcs\sources_1\new\tensor_top.v:]
+ERROR: [Common 17-180] Spawn failed: The operation completed successfully.
+
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver2_6\Ver2_6.srcs\sources_1\new\uart_rx.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver2_6\Ver2_6.srcs\sources_1\new\matrix_cont.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver2_6\Ver2_6.srcs\sources_1\new\tensor_top.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver2_6\Ver2_6.srcs\sources_1\new\uart_rx.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver2_6\Ver2_6.srcs\sources_1\new\uart_rx.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver2_6\Ver2_6.srcs\sources_1\new\uart_rx.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver2_6\Ver2_6.srcs\sources_1\new\matrix_cont.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver2_6\Ver2_6.srcs\sources_1\new\tensor_top.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver2_6\Ver2_6.srcs\sources_1\new\uart_rx.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver2_6\Ver2_6.srcs\sources_1\new\uart_rx.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver2_6\Ver2_6.srcs\sources_1\new\uart_rx.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver2_6\Ver2_6.srcs\sources_1\new\matrix_cont.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver2_6\Ver2_6.srcs\sources_1\new\tensor_top.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver2_6\Ver2_6.srcs\sources_1\new\tensor_top.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver2_6\Ver2_6.srcs\sources_1\new\tensor_top.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver2_6\Ver2_6.srcs\sources_1\new\matrix_cont.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver2_6\Ver2_6.srcs\sources_1\new\tensor_top.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver2_6\Ver2_6.srcs\sources_1\new\tensor_top.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver2_6\Ver2_6.srcs\sources_1\new\tensor_top.v:]
+synth_design -top uart_tensor_bridge -part xc7a100tcsg324-1 -lint 
+Command: synth_design -top uart_tensor_bridge -part xc7a100tcsg324-1 -lint
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7a100t'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a100t'
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
+---------------------------------------------------------------------------------
+Starting Synthesize : Time (s): cpu = 00:00:25 ; elapsed = 00:00:25 . Memory (MB): peak = 6760.426 ; gain = 0.000
+---------------------------------------------------------------------------------
+Clean up Linter database...
+INFO: [Synth 8-6157] synthesizing module 'uart_tensor_bridge' [C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/uart_tensor_bridge.sv:48]
+INFO: [Synth 8-6157] synthesizing module 'uart_rx' [C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/uart_rx.sv:23]
+	Parameter CLKS_PER_BIT bound to: 868 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'uart_rx' (1#1) [C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/uart_rx.sv:23]
+INFO: [Synth 8-6157] synthesizing module 'uart_tx' [C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/uart_tx.sv:23]
+	Parameter CLKS_PER_BIT bound to: 868 - type: integer 
+INFO: [Synth 8-155] case statement is not full and has no default [C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/uart_tx.sv:62]
+INFO: [Synth 8-6155] done synthesizing module 'uart_tx' (2#1) [C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/uart_tx.sv:23]
+INFO: [Synth 8-6157] synthesizing module 'tensor_top' [C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/tensor_top.v:42]
+	Parameter WIDTH bound to: 16 - type: integer 
+	Parameter MAX_DIM bound to: 16 - type: integer 
+	Parameter MAX_DEPTH bound to: 4 - type: integer 
+	Parameter N_MAX bound to: 16 - type: integer 
+	Parameter LANES bound to: 8 - type: integer 
+	Parameter TILE_R bound to: 2 - type: integer 
+	Parameter TILE_C bound to: 4 - type: integer 
+	Parameter ACC bound to: 36 - type: integer 
+	Parameter DEPTH bound to: 1024 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'tensor_bram' [C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/tensor_bram.v:23]
+	Parameter WIDTH bound to: 16 - type: integer 
+	Parameter DEPTH bound to: 1024 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'tensor_bram' (3#1) [C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/tensor_bram.v:23]
+INFO: [Synth 8-6157] synthesizing module 'tensor_bram__parameterized0' [C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/tensor_bram.v:23]
+	Parameter WIDTH bound to: 36 - type: integer 
+	Parameter DEPTH bound to: 1024 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'tensor_bram__parameterized0' (3#1) [C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/tensor_bram.v:23]
+INFO: [Synth 8-6157] synthesizing module 'matrix_cont' [C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/matrix_cont.sv:52]
+	Parameter WIDTH bound to: 16 - type: integer 
+	Parameter N_MAX bound to: 16 - type: integer 
+	Parameter LANES bound to: 8 - type: integer 
+	Parameter TILE_R bound to: 2 - type: integer 
+	Parameter TILE_C bound to: 4 - type: integer 
+	Parameter MAX_DIM bound to: 16 - type: integer 
+	Parameter MAX_DEPTH bound to: 4 - type: integer 
+	Parameter ACC bound to: 36 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'accel_top' [C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/accel_top.v:23]
+	Parameter WIDTH bound to: 16 - type: integer 
+	Parameter ACC bound to: 36 - type: integer 
+	Parameter N_MAX bound to: 16 - type: integer 
+	Parameter LANES bound to: 8 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'accel_fsm' [C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/accel_fsm.v:41]
+INFO: [Synth 8-6155] done synthesizing module 'accel_fsm' (4#1) [C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/accel_fsm.v:41]
+INFO: [Synth 8-6157] synthesizing module 'simd_array' [C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/simd_array.v:23]
+	Parameter WIDTH bound to: 16 - type: integer 
+	Parameter ACC bound to: 36 - type: integer 
+	Parameter N_MAX bound to: 16 - type: integer 
+	Parameter LANES bound to: 8 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'vector_lane' [C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/vector_lane.v:37]
+	Parameter WIDTH bound to: 16 - type: integer 
+	Parameter ACC bound to: 36 - type: integer 
+	Parameter N_MAX bound to: 16 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'mac' [C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/mac.v:23]
+	Parameter WIDTH bound to: 16 - type: integer 
+	Parameter ACC bound to: 36 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'mac' (5#1) [C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/mac.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'vector_lane' (6#1) [C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/vector_lane.v:37]
+INFO: [Synth 8-6155] done synthesizing module 'simd_array' (7#1) [C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/simd_array.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'accel_top' (8#1) [C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/accel_top.v:23]
+INFO: [Synth 8-155] case statement is not full and has no default [C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/matrix_cont.sv:183]
+WARNING: [Synth 8-6014] Unused sequential element addr_issue.r_off_reg was removed.  [C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/matrix_cont.sv:233]
+WARNING: [Synth 8-6014] Unused sequential element addr_issue.c_off_reg was removed.  [C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/matrix_cont.sv:233]
+WARNING: [Synth 8-6014] Unused sequential element row_idx_reg was removed.  [C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/matrix_cont.sv:234]
+WARNING: [Synth 8-6014] Unused sequential element col_idx_reg was removed.  [C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/matrix_cont.sv:235]
+WARNING: [Synth 8-6014] Unused sequential element store_sample.r_off_reg was removed.  [C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/matrix_cont.sv:271]
+WARNING: [Synth 8-6014] Unused sequential element store_sample.c_off_reg was removed.  [C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/matrix_cont.sv:271]
+INFO: [Synth 8-6155] done synthesizing module 'matrix_cont' (9#1) [C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/matrix_cont.sv:52]
+INFO: [Synth 8-155] case statement is not full and has no default [C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/tensor_top.v:205]
+INFO: [Synth 8-6155] done synthesizing module 'tensor_top' (10#1) [C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/tensor_top.v:42]
+WARNING: [Synth 8-6014] Unused sequential element r_c_data_reg was removed.  [C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/uart_tensor_bridge.sv:228]
+INFO: [Synth 8-6155] done synthesizing module 'uart_tensor_bridge' (11#1) [C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/uart_tensor_bridge.sv:48]
+---------------------------------------------------------------------------------
+Finished Synthesize : Time (s): cpu = 00:01:59 ; elapsed = 00:02:04 . Memory (MB): peak = 6824.738 ; gain = 64.312
+---------------------------------------------------------------------------------
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2025.1 (win64) Build 6140274 Thu May 22 00:12:29 MDT 2025
+| Date         : Sat Mar 28 22:17:52 2026
+| Host         : CherryVamsi running 64-bit major release  (build 9200)
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+RTL Linter Report
+
+Table of Contents
+-----------------
+1. Summary
+
+1. Summary
+----------
+
++----------+------------------+--------------+----------+
+| Rule ID  | Severity         | # Violations | # Waived |
++----------+------------------+--------------+----------+
+| ASSIGN-1 | WARNING          | 5            | 0        |
+| ASSIGN-2 | CRITICAL WARNING | 6            | 0        |
+| ASSIGN-5 | WARNING          | 1            | 0        |
+| RESET-3  | CRITICAL WARNING | 3            | 0        |
++----------+------------------+--------------+----------+
+
+
+WARNING: [Synth 37-78] [ASSIGN-1]Input operands(of sizes 32 32) of add/sub cluster ending with expression '(i + r_off)' could yield maximum size of 33, but only width of 10 is being used.
+Hierarchy 'matrix_cont', File 'C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/matrix_cont.sv', Line 234.
+WARNING: [Synth 37-78] [ASSIGN-1]Input operands(of sizes 32 32 10 32) of add/sub cluster ending with expression '((d_base + (row_idx * MAX_DIM)) + (k_base + load_k))' could yield maximum size of 34, but only width of 10 is being used.
+Hierarchy 'matrix_cont', File 'C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/matrix_cont.sv', Line 239.
+WARNING: [Synth 37-77] [ASSIGN-1]Input operands(of sizes 32 10 32 10) of add/sub cluster ending with expression '((d_base + ((k_base + load_k) * MAX_DIM)) + col_idx)' could yield maximum size of 34, but only width of 10 is being used.
+Hierarchy 'matrix_cont', File 'C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/matrix_cont.sv', Line 240, Additional lines 235.
+WARNING: [Synth 37-77] [ASSIGN-1]Input operands(of sizes 32 10 10 32) of add/sub cluster ending with expression '((d_base + (row_idx * MAX_DIM)) + col_idx)' could yield maximum size of 34, but only width of 10 is being used.
+Hierarchy 'matrix_cont', File 'C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/matrix_cont.sv', Line 254, Additional lines 235 239.
+CRITICAL WARNING: [Synth 37-81] [ASSIGN-2]Operator '+' in expression '(i + r_off)' has mixed signed and unsigned types on its operands, the result will be unsigned.
+Hierarchy 'matrix_cont', File C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/matrix_cont.sv, Line 234
+CRITICAL WARNING: [Synth 37-81] [ASSIGN-2]Operator '+' in expression '(j + c_off)' has mixed signed and unsigned types on its operands, the result will be unsigned.
+Hierarchy 'matrix_cont', File C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/matrix_cont.sv, Line 235
+CRITICAL WARNING: [Synth 37-81] [ASSIGN-2]Operator '+' in expression '(i + r_off)' has mixed signed and unsigned types on its operands, the result will be unsigned.
+Hierarchy 'matrix_cont', File C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/matrix_cont.sv, Line 272
+CRITICAL WARNING: [Synth 37-81] [ASSIGN-2]Operator '+' in expression '(j + c_off)' has mixed signed and unsigned types on its operands, the result will be unsigned.
+Hierarchy 'matrix_cont', File C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/matrix_cont.sv, Line 273
+CRITICAL WARNING: [Synth 37-81] [ASSIGN-2]Operator '+' in expression '(i + r_off)' has mixed signed and unsigned types on its operands, the result will be unsigned.
+Hierarchy 'matrix_cont', File C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/matrix_cont.sv, Line 356
+CRITICAL WARNING: [Synth 37-81] [ASSIGN-2]Operator '+' in expression '(j + c_off)' has mixed signed and unsigned types on its operands, the result will be unsigned.
+Hierarchy 'matrix_cont', File C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/matrix_cont.sv, Line 357
+WARNING: [Synth 37-124] [ASSIGN-5]Some bits in 'k' are not set. First unset bit index is 0. 
+RTL Name 'k', Hierarchy 'matrix_cont', File 'matrix_cont.sv', Line 99.
+CRITICAL WARNING: [Synth 37-111] [RESET-3]Synchronous reset not found on register tile_len_reg and its enable logic contains synchronous reset in same always/process block.
+RTL Name 'tile_len_reg', Hierarchy 'matrix_cont', File 'C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/matrix_cont.sv', Line 167.
+CRITICAL WARNING: [Synth 37-111] [RESET-3]Synchronous reset not found on register vec_len_reg and its enable logic contains synchronous reset in same always/process block.
+RTL Name 'vec_len_reg', Hierarchy 'matrix_cont', File 'C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/matrix_cont.sv', Line 167.
+WARNING: [Synth 37-78] [ASSIGN-1]Input operands(of sizes 10 10 32) of add/sub cluster ending with expression '((((d_store * MAX_DIM) * MAX_DIM) + (i * MAX_DIM)) + j)' could yield maximum size of 33, but only width of 10 is being used.
+Hierarchy 'tensor_top', File 'C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/tensor_top.v', Line 235.
+CRITICAL WARNING: [Synth 37-111] [RESET-3]Synchronous reset not found on register c_packed_reg and its enable logic contains synchronous reset in same always/process block.
+RTL Name 'c_packed_reg', Hierarchy 'uart_tensor_bridge', File 'C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/uart_tensor_bridge.sv', Line 207.
+INFO: [Synth 37-85] Total of 15 linter message(s) generated.
+INFO: [Synth 37-45] Linter Run Finished!
+Synthesis Optimization Runtime : Time (s): cpu = 00:01:59 ; elapsed = 00:02:04 . Memory (MB): peak = 6832.582 ; gain = 72.156
+INFO: [Common 17-83] Releasing license: Synthesis
+32 Infos, 13 Warnings, 9 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:01:59 ; elapsed = 00:02:04 . Memory (MB): peak = 6832.582 ; gain = 72.156
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver2_6\Ver2_6.srcs\sources_1\new\uart_tensor_bridge.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver2_6\Ver2_6.srcs\sources_1\new\matrix_cont.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver2_6\Ver2_6.srcs\sources_1\new\matrix_cont.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver2_6\Ver2_6.srcs\sources_1\new\matrix_cont.sv:]
+synth_design -top uart_tensor_bridge -part xc7a100tcsg324-1 -lint 
+Command: synth_design -top uart_tensor_bridge -part xc7a100tcsg324-1 -lint
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7a100t'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a100t'
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
+---------------------------------------------------------------------------------
+Starting Synthesize : Time (s): cpu = 00:00:25 ; elapsed = 00:00:28 . Memory (MB): peak = 6832.582 ; gain = 0.000
+---------------------------------------------------------------------------------
+Clean up Linter database...
+INFO: [Synth 8-6157] synthesizing module 'uart_tensor_bridge' [C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/uart_tensor_bridge.sv:48]
+INFO: [Synth 8-6157] synthesizing module 'uart_rx' [C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/uart_rx.sv:23]
+	Parameter CLKS_PER_BIT bound to: 868 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'uart_rx' (1#1) [C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/uart_rx.sv:23]
+INFO: [Synth 8-6157] synthesizing module 'uart_tx' [C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/uart_tx.sv:23]
+	Parameter CLKS_PER_BIT bound to: 868 - type: integer 
+INFO: [Synth 8-155] case statement is not full and has no default [C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/uart_tx.sv:62]
+INFO: [Synth 8-6155] done synthesizing module 'uart_tx' (2#1) [C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/uart_tx.sv:23]
+INFO: [Synth 8-6157] synthesizing module 'tensor_top' [C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/tensor_top.v:42]
+	Parameter WIDTH bound to: 16 - type: integer 
+	Parameter MAX_DIM bound to: 16 - type: integer 
+	Parameter MAX_DEPTH bound to: 4 - type: integer 
+	Parameter N_MAX bound to: 16 - type: integer 
+	Parameter LANES bound to: 8 - type: integer 
+	Parameter TILE_R bound to: 2 - type: integer 
+	Parameter TILE_C bound to: 4 - type: integer 
+	Parameter ACC bound to: 36 - type: integer 
+	Parameter DEPTH bound to: 1024 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'tensor_bram' [C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/tensor_bram.v:23]
+	Parameter WIDTH bound to: 16 - type: integer 
+	Parameter DEPTH bound to: 1024 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'tensor_bram' (3#1) [C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/tensor_bram.v:23]
+INFO: [Synth 8-6157] synthesizing module 'tensor_bram__parameterized0' [C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/tensor_bram.v:23]
+	Parameter WIDTH bound to: 36 - type: integer 
+	Parameter DEPTH bound to: 1024 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'tensor_bram__parameterized0' (3#1) [C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/tensor_bram.v:23]
+INFO: [Synth 8-6157] synthesizing module 'matrix_cont' [C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/matrix_cont.sv:52]
+	Parameter WIDTH bound to: 16 - type: integer 
+	Parameter N_MAX bound to: 16 - type: integer 
+	Parameter LANES bound to: 8 - type: integer 
+	Parameter TILE_R bound to: 2 - type: integer 
+	Parameter TILE_C bound to: 4 - type: integer 
+	Parameter MAX_DIM bound to: 16 - type: integer 
+	Parameter MAX_DEPTH bound to: 4 - type: integer 
+	Parameter ACC bound to: 36 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'accel_top' [C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/accel_top.v:23]
+	Parameter WIDTH bound to: 16 - type: integer 
+	Parameter ACC bound to: 36 - type: integer 
+	Parameter N_MAX bound to: 16 - type: integer 
+	Parameter LANES bound to: 8 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'accel_fsm' [C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/accel_fsm.v:41]
+INFO: [Synth 8-6155] done synthesizing module 'accel_fsm' (4#1) [C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/accel_fsm.v:41]
+INFO: [Synth 8-6157] synthesizing module 'simd_array' [C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/simd_array.v:23]
+	Parameter WIDTH bound to: 16 - type: integer 
+	Parameter ACC bound to: 36 - type: integer 
+	Parameter N_MAX bound to: 16 - type: integer 
+	Parameter LANES bound to: 8 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'vector_lane' [C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/vector_lane.v:37]
+	Parameter WIDTH bound to: 16 - type: integer 
+	Parameter ACC bound to: 36 - type: integer 
+	Parameter N_MAX bound to: 16 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'mac' [C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/mac.v:23]
+	Parameter WIDTH bound to: 16 - type: integer 
+	Parameter ACC bound to: 36 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'mac' (5#1) [C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/mac.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'vector_lane' (6#1) [C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/vector_lane.v:37]
+INFO: [Synth 8-6155] done synthesizing module 'simd_array' (7#1) [C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/simd_array.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'accel_top' (8#1) [C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/accel_top.v:23]
+INFO: [Synth 8-155] case statement is not full and has no default [C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/matrix_cont.sv:183]
+WARNING: [Synth 8-6014] Unused sequential element addr_issue.r_off_reg was removed.  [C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/matrix_cont.sv:233]
+WARNING: [Synth 8-6014] Unused sequential element addr_issue.c_off_reg was removed.  [C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/matrix_cont.sv:233]
+WARNING: [Synth 8-6014] Unused sequential element row_idx_reg was removed.  [C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/matrix_cont.sv:234]
+WARNING: [Synth 8-6014] Unused sequential element col_idx_reg was removed.  [C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/matrix_cont.sv:235]
+WARNING: [Synth 8-6014] Unused sequential element store_sample.r_off_reg was removed.  [C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/matrix_cont.sv:271]
+WARNING: [Synth 8-6014] Unused sequential element store_sample.c_off_reg was removed.  [C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/matrix_cont.sv:271]
+INFO: [Synth 8-6155] done synthesizing module 'matrix_cont' (9#1) [C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/matrix_cont.sv:52]
+INFO: [Synth 8-155] case statement is not full and has no default [C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/tensor_top.v:205]
+INFO: [Synth 8-6155] done synthesizing module 'tensor_top' (10#1) [C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/tensor_top.v:42]
+WARNING: [Synth 8-6014] Unused sequential element r_c_data_reg was removed.  [C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/uart_tensor_bridge.sv:228]
+INFO: [Synth 8-6155] done synthesizing module 'uart_tensor_bridge' (11#1) [C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/uart_tensor_bridge.sv:48]
+---------------------------------------------------------------------------------
+Finished Synthesize : Time (s): cpu = 00:01:22 ; elapsed = 00:01:31 . Memory (MB): peak = 6882.652 ; gain = 50.070
+---------------------------------------------------------------------------------
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2025.1 (win64) Build 6140274 Thu May 22 00:12:29 MDT 2025
+| Date         : Sat Mar 28 22:21:26 2026
+| Host         : CherryVamsi running 64-bit major release  (build 9200)
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+RTL Linter Report
+
+Table of Contents
+-----------------
+1. Summary
+
+1. Summary
+----------
+
++----------+------------------+--------------+----------+
+| Rule ID  | Severity         | # Violations | # Waived |
++----------+------------------+--------------+----------+
+| ASSIGN-1 | WARNING          | 5            | 0        |
+| ASSIGN-2 | CRITICAL WARNING | 6            | 0        |
+| ASSIGN-5 | WARNING          | 1            | 0        |
+| RESET-3  | CRITICAL WARNING | 2            | 0        |
++----------+------------------+--------------+----------+
+
+
+WARNING: [Synth 37-78] [ASSIGN-1]Input operands(of sizes 32 32) of add/sub cluster ending with expression '(i + r_off)' could yield maximum size of 33, but only width of 10 is being used.
+Hierarchy 'matrix_cont', File 'C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/matrix_cont.sv', Line 234.
+WARNING: [Synth 37-78] [ASSIGN-1]Input operands(of sizes 32 10 32 32) of add/sub cluster ending with expression '((d_base + (row_idx * MAX_DIM)) + (k_base + load_k))' could yield maximum size of 34, but only width of 10 is being used.
+Hierarchy 'matrix_cont', File 'C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/matrix_cont.sv', Line 239.
+WARNING: [Synth 37-77] [ASSIGN-1]Input operands(of sizes 10 32 10 32) of add/sub cluster ending with expression '((d_base + ((k_base + load_k) * MAX_DIM)) + col_idx)' could yield maximum size of 34, but only width of 10 is being used.
+Hierarchy 'matrix_cont', File 'C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/matrix_cont.sv', Line 240, Additional lines 235.
+WARNING: [Synth 37-77] [ASSIGN-1]Input operands(of sizes 32 10 10 32) of add/sub cluster ending with expression '((d_base + (row_idx * MAX_DIM)) + col_idx)' could yield maximum size of 34, but only width of 10 is being used.
+Hierarchy 'matrix_cont', File 'C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/matrix_cont.sv', Line 254, Additional lines 235 239.
+CRITICAL WARNING: [Synth 37-81] [ASSIGN-2]Operator '+' in expression '(i + r_off)' has mixed signed and unsigned types on its operands, the result will be unsigned.
+Hierarchy 'matrix_cont', File C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/matrix_cont.sv, Line 234
+CRITICAL WARNING: [Synth 37-81] [ASSIGN-2]Operator '+' in expression '(j + c_off)' has mixed signed and unsigned types on its operands, the result will be unsigned.
+Hierarchy 'matrix_cont', File C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/matrix_cont.sv, Line 235
+CRITICAL WARNING: [Synth 37-81] [ASSIGN-2]Operator '+' in expression '(i + r_off)' has mixed signed and unsigned types on its operands, the result will be unsigned.
+Hierarchy 'matrix_cont', File C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/matrix_cont.sv, Line 272
+CRITICAL WARNING: [Synth 37-81] [ASSIGN-2]Operator '+' in expression '(j + c_off)' has mixed signed and unsigned types on its operands, the result will be unsigned.
+Hierarchy 'matrix_cont', File C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/matrix_cont.sv, Line 273
+CRITICAL WARNING: [Synth 37-81] [ASSIGN-2]Operator '+' in expression '(i + r_off)' has mixed signed and unsigned types on its operands, the result will be unsigned.
+Hierarchy 'matrix_cont', File C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/matrix_cont.sv, Line 356
+CRITICAL WARNING: [Synth 37-81] [ASSIGN-2]Operator '+' in expression '(j + c_off)' has mixed signed and unsigned types on its operands, the result will be unsigned.
+Hierarchy 'matrix_cont', File C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/matrix_cont.sv, Line 357
+WARNING: [Synth 37-124] [ASSIGN-5]Some bits in 'k' are not set. First unset bit index is 0. 
+RTL Name 'k', Hierarchy 'matrix_cont', File 'matrix_cont.sv', Line 99.
+CRITICAL WARNING: [Synth 37-111] [RESET-3]Synchronous reset not found on register tile_len_reg and its enable logic contains synchronous reset in same always/process block.
+RTL Name 'tile_len_reg', Hierarchy 'matrix_cont', File 'C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/matrix_cont.sv', Line 167.
+CRITICAL WARNING: [Synth 37-111] [RESET-3]Synchronous reset not found on register vec_len_reg and its enable logic contains synchronous reset in same always/process block.
+RTL Name 'vec_len_reg', Hierarchy 'matrix_cont', File 'C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/matrix_cont.sv', Line 167.
+WARNING: [Synth 37-78] [ASSIGN-1]Input operands(of sizes 10 32 10) of add/sub cluster ending with expression '((((d_store * MAX_DIM) * MAX_DIM) + (i * MAX_DIM)) + j)' could yield maximum size of 33, but only width of 10 is being used.
+Hierarchy 'tensor_top', File 'C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/tensor_top.v', Line 235.
+INFO: [Synth 37-85] Total of 14 linter message(s) generated.
+INFO: [Synth 37-45] Linter Run Finished!
+Synthesis Optimization Runtime : Time (s): cpu = 00:01:22 ; elapsed = 00:01:31 . Memory (MB): peak = 6888.961 ; gain = 56.379
+INFO: [Common 17-83] Releasing license: Synthesis
+32 Infos, 13 Warnings, 8 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:01:22 ; elapsed = 00:01:31 . Memory (MB): peak = 6888.961 ; gain = 56.379
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver2_6\Ver2_6.srcs\sources_1\new\uart_tensor_bridge.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver2_6\Ver2_6.srcs\sources_1\new\matrix_cont.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver2_6\Ver2_6.srcs\sources_1\new\matrix_cont.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver2_6\Ver2_6.srcs\sources_1\new\matrix_cont.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver2_6\Ver2_6.srcs\sources_1\new\uart_tensor_bridge.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver2_6\Ver2_6.srcs\sources_1\new\matrix_cont.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver2_6\Ver2_6.srcs\sources_1\new\matrix_cont.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver2_6\Ver2_6.srcs\sources_1\new\matrix_cont.sv:]
+ERROR: [Common 17-180] Spawn failed: The operation completed successfully.
+
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver2_6\Ver2_6.srcs\sources_1\new\uart_tensor_bridge.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver2_6\Ver2_6.srcs\sources_1\new\matrix_cont.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver2_6\Ver2_6.srcs\sources_1\new\uart_tensor_bridge.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver2_6\Ver2_6.srcs\sources_1\new\uart_tensor_bridge.sv:]
+ERROR: [Common 17-180] Spawn failed: The operation completed successfully.
+
+synth_design -top uart_tensor_bridge -part xc7a100tcsg324-1 -lint 
+Command: synth_design -top uart_tensor_bridge -part xc7a100tcsg324-1 -lint
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7a100t'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a100t'
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
+---------------------------------------------------------------------------------
+Starting Synthesize : Time (s): cpu = 00:00:33 ; elapsed = 00:00:33 . Memory (MB): peak = 6888.961 ; gain = 0.000
+---------------------------------------------------------------------------------
+Clean up Linter database...
+INFO: [Synth 8-6157] synthesizing module 'uart_tensor_bridge' [C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/uart_tensor_bridge.sv:48]
+INFO: [Synth 8-6157] synthesizing module 'uart_rx' [C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/uart_rx.sv:23]
+	Parameter CLKS_PER_BIT bound to: 868 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'uart_rx' (1#1) [C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/uart_rx.sv:23]
+INFO: [Synth 8-6157] synthesizing module 'uart_tx' [C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/uart_tx.sv:23]
+	Parameter CLKS_PER_BIT bound to: 868 - type: integer 
+INFO: [Synth 8-155] case statement is not full and has no default [C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/uart_tx.sv:62]
+INFO: [Synth 8-6155] done synthesizing module 'uart_tx' (2#1) [C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/uart_tx.sv:23]
+INFO: [Synth 8-6157] synthesizing module 'tensor_top' [C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/tensor_top.v:42]
+	Parameter WIDTH bound to: 16 - type: integer 
+	Parameter MAX_DIM bound to: 16 - type: integer 
+	Parameter MAX_DEPTH bound to: 4 - type: integer 
+	Parameter N_MAX bound to: 16 - type: integer 
+	Parameter LANES bound to: 8 - type: integer 
+	Parameter TILE_R bound to: 2 - type: integer 
+	Parameter TILE_C bound to: 4 - type: integer 
+	Parameter ACC bound to: 36 - type: integer 
+	Parameter DEPTH bound to: 1024 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'tensor_bram' [C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/tensor_bram.v:23]
+	Parameter WIDTH bound to: 16 - type: integer 
+	Parameter DEPTH bound to: 1024 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'tensor_bram' (3#1) [C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/tensor_bram.v:23]
+INFO: [Synth 8-6157] synthesizing module 'tensor_bram__parameterized0' [C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/tensor_bram.v:23]
+	Parameter WIDTH bound to: 36 - type: integer 
+	Parameter DEPTH bound to: 1024 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'tensor_bram__parameterized0' (3#1) [C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/tensor_bram.v:23]
+INFO: [Synth 8-6157] synthesizing module 'matrix_cont' [C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/matrix_cont.sv:52]
+	Parameter WIDTH bound to: 16 - type: integer 
+	Parameter N_MAX bound to: 16 - type: integer 
+	Parameter LANES bound to: 8 - type: integer 
+	Parameter TILE_R bound to: 2 - type: integer 
+	Parameter TILE_C bound to: 4 - type: integer 
+	Parameter MAX_DIM bound to: 16 - type: integer 
+	Parameter MAX_DEPTH bound to: 4 - type: integer 
+	Parameter ACC bound to: 36 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'accel_top' [C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/accel_top.v:23]
+	Parameter WIDTH bound to: 16 - type: integer 
+	Parameter ACC bound to: 36 - type: integer 
+	Parameter N_MAX bound to: 16 - type: integer 
+	Parameter LANES bound to: 8 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'accel_fsm' [C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/accel_fsm.v:41]
+INFO: [Synth 8-6155] done synthesizing module 'accel_fsm' (4#1) [C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/accel_fsm.v:41]
+INFO: [Synth 8-6157] synthesizing module 'simd_array' [C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/simd_array.v:23]
+	Parameter WIDTH bound to: 16 - type: integer 
+	Parameter ACC bound to: 36 - type: integer 
+	Parameter N_MAX bound to: 16 - type: integer 
+	Parameter LANES bound to: 8 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'vector_lane' [C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/vector_lane.v:37]
+	Parameter WIDTH bound to: 16 - type: integer 
+	Parameter ACC bound to: 36 - type: integer 
+	Parameter N_MAX bound to: 16 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'mac' [C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/mac.v:23]
+	Parameter WIDTH bound to: 16 - type: integer 
+	Parameter ACC bound to: 36 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'mac' (5#1) [C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/mac.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'vector_lane' (6#1) [C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/vector_lane.v:37]
+INFO: [Synth 8-6155] done synthesizing module 'simd_array' (7#1) [C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/simd_array.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'accel_top' (8#1) [C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/accel_top.v:23]
+INFO: [Synth 8-155] case statement is not full and has no default [C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/matrix_cont.sv:184]
+WARNING: [Synth 8-6014] Unused sequential element k_reg was removed.  [C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/matrix_cont.sv:174]
+WARNING: [Synth 8-6014] Unused sequential element addr_issue.r_off_reg was removed.  [C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/matrix_cont.sv:234]
+WARNING: [Synth 8-6014] Unused sequential element addr_issue.c_off_reg was removed.  [C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/matrix_cont.sv:234]
+WARNING: [Synth 8-6014] Unused sequential element row_idx_reg was removed.  [C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/matrix_cont.sv:235]
+WARNING: [Synth 8-6014] Unused sequential element col_idx_reg was removed.  [C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/matrix_cont.sv:236]
+WARNING: [Synth 8-6014] Unused sequential element store_sample.r_off_reg was removed.  [C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/matrix_cont.sv:272]
+WARNING: [Synth 8-6014] Unused sequential element store_sample.c_off_reg was removed.  [C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/matrix_cont.sv:272]
+INFO: [Synth 8-6155] done synthesizing module 'matrix_cont' (9#1) [C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/matrix_cont.sv:52]
+INFO: [Synth 8-155] case statement is not full and has no default [C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/tensor_top.v:205]
+INFO: [Synth 8-6155] done synthesizing module 'tensor_top' (10#1) [C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/tensor_top.v:42]
+WARNING: [Synth 8-6014] Unused sequential element r_c_data_reg was removed.  [C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/uart_tensor_bridge.sv:228]
+INFO: [Synth 8-6155] done synthesizing module 'uart_tensor_bridge' (11#1) [C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/uart_tensor_bridge.sv:48]
+---------------------------------------------------------------------------------
+Finished Synthesize : Time (s): cpu = 00:02:20 ; elapsed = 00:02:22 . Memory (MB): peak = 6889.750 ; gain = 0.789
+---------------------------------------------------------------------------------
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2025.1 (win64) Build 6140274 Thu May 22 00:12:29 MDT 2025
+| Date         : Sat Mar 28 22:25:35 2026
+| Host         : CherryVamsi running 64-bit major release  (build 9200)
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+RTL Linter Report
+
+Table of Contents
+-----------------
+1. Summary
+
+1. Summary
+----------
+
++----------+------------------+--------------+----------+
+| Rule ID  | Severity         | # Violations | # Waived |
++----------+------------------+--------------+----------+
+| ASSIGN-1 | WARNING          | 5            | 0        |
+| RESET-3  | CRITICAL WARNING | 2            | 0        |
++----------+------------------+--------------+----------+
+
+
+WARNING: [Synth 37-78] [ASSIGN-1]Input operands(of sizes 32 32) of add/sub cluster ending with expression '(i + r_off)' could yield maximum size of 33, but only width of 10 is being used.
+Hierarchy 'matrix_cont', File 'C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/matrix_cont.sv', Line 235.
+WARNING: [Synth 37-78] [ASSIGN-1]Input operands(of sizes 10 32 32 32) of add/sub cluster ending with expression '((d_base + (row_idx * MAX_DIM)) + (k_base + load_k))' could yield maximum size of 34, but only width of 10 is being used.
+Hierarchy 'matrix_cont', File 'C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/matrix_cont.sv', Line 240.
+WARNING: [Synth 37-77] [ASSIGN-1]Input operands(of sizes 32 10 10 32) of add/sub cluster ending with expression '((d_base + ((k_base + load_k) * MAX_DIM)) + col_idx)' could yield maximum size of 34, but only width of 10 is being used.
+Hierarchy 'matrix_cont', File 'C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/matrix_cont.sv', Line 241, Additional lines 236.
+WARNING: [Synth 37-77] [ASSIGN-1]Input operands(of sizes 10 32 10 32) of add/sub cluster ending with expression '((d_base + (row_idx * MAX_DIM)) + col_idx)' could yield maximum size of 34, but only width of 10 is being used.
+Hierarchy 'matrix_cont', File 'C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/matrix_cont.sv', Line 255, Additional lines 236 240.
+CRITICAL WARNING: [Synth 37-111] [RESET-3]Synchronous reset not found on register tile_len_reg and its enable logic contains synchronous reset in same always/process block.
+RTL Name 'tile_len_reg', Hierarchy 'matrix_cont', File 'C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/matrix_cont.sv', Line 167.
+CRITICAL WARNING: [Synth 37-111] [RESET-3]Synchronous reset not found on register vec_len_reg and its enable logic contains synchronous reset in same always/process block.
+RTL Name 'vec_len_reg', Hierarchy 'matrix_cont', File 'C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/matrix_cont.sv', Line 167.
+WARNING: [Synth 37-78] [ASSIGN-1]Input operands(of sizes 10 10 32) of add/sub cluster ending with expression '((((d_store * MAX_DIM) * MAX_DIM) + (i * MAX_DIM)) + j)' could yield maximum size of 33, but only width of 10 is being used.
+Hierarchy 'tensor_top', File 'C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/tensor_top.v', Line 235.
+INFO: [Synth 37-85] Total of 7 linter message(s) generated.
+INFO: [Synth 37-45] Linter Run Finished!
+Synthesis Optimization Runtime : Time (s): cpu = 00:02:20 ; elapsed = 00:02:22 . Memory (MB): peak = 6896.047 ; gain = 7.086
+INFO: [Common 17-83] Releasing license: Synthesis
+32 Infos, 13 Warnings, 2 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:02:20 ; elapsed = 00:02:22 . Memory (MB): peak = 6896.047 ; gain = 7.086
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver2_6\Ver2_6.srcs\sources_1\new\uart_tensor_bridge.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver2_6\Ver2_6.srcs\sources_1\new\matrix_cont.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver2_6\Ver2_6.srcs\sources_1\new\matrix_cont.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver2_6\Ver2_6.srcs\sources_1\new\matrix_cont.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver2_6\Ver2_6.srcs\sources_1\new\uart_tensor_bridge.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver2_6\Ver2_6.srcs\sources_1\new\matrix_cont.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver2_6\Ver2_6.srcs\sources_1\new\uart_tensor_bridge.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver2_6\Ver2_6.srcs\sources_1\new\uart_tensor_bridge.sv:]
+ERROR: [Common 17-180] Spawn failed: The operation completed successfully.
+
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver2_6\Ver2_6.srcs\sources_1\new\uart_tensor_bridge.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver2_6\Ver2_6.srcs\sources_1\new\matrix_cont.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver2_6\Ver2_6.srcs\sources_1\new\uart_tensor_bridge.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver2_6\Ver2_6.srcs\sources_1\new\uart_tensor_bridge.sv:]
+launch_simulation
+Command: launch_simulation 
+INFO: [Vivado 12-12493] Simulation top is 'tb_uart_tensor_bridge'
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-72] Using boost library from 'C:/Xilinx/2025.1/Vivado/tps/boost_1_72_0'
+INFO: [SIM-utils-54] Inspecting design source files for 'tb_uart_tensor_bridge' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-100] Fetching design files from 'sources_1'...(this may take a while)...
+INFO: [USF-XSim-101] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -L uvm -prj tb_uart_tensor_bridge_vlog.prj"
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/accel_fsm.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module accel_fsm
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/accel_top.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module accel_top
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/mac.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module mac
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/matrix_cont.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module matrix_cont
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/simd_array.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module simd_array
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/vector_lane.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module vector_lane
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/tensor_top.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module tensor_top
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/uart_rx.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module uart_rx
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/uart_tensor_bridge.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module uart_tensor_bridge
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/uart_tx.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module uart_tx
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sim_1/new/tb.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module tb_tensor_top_random
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sim_1/new/tb_BRAM.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module tb_tensor_top_bram_random
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sim_1/new/tb_uart.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module tb_uart_tensor_bridge
+INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.sim/sim_1/behav/xsim'
+"xelab --incr --debug typical --relax --mt 2 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip --snapshot tb_uart_tensor_bridge_behav xil_defaultlib.tb_uart_tensor_bridge xil_defaultlib.glbl -log elaborate.log"
+Vivado Simulator v2025.1.0
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: C:/Xilinx/2025.1/Vivado/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip --snapshot tb_uart_tensor_bridge_behav xil_defaultlib.tb_uart_tensor_bridge xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.uart_rx(CLKS_PER_BIT=10)
+Compiling module xil_defaultlib.uart_tx(CLKS_PER_BIT=10)
+Compiling module xil_defaultlib.tensor_bram(DEPTH=1024)
+Compiling module xil_defaultlib.tensor_bram(WIDTH=36,DEPTH=1024)
+Compiling module xil_defaultlib.accel_fsm
+Compiling module xil_defaultlib.mac(ACC=36)
+Compiling module xil_defaultlib.vector_lane(ACC=36,N_MAX=16)
+Compiling module xil_defaultlib.simd_array(ACC=36,N_MAX=16,LANES...
+Compiling module xil_defaultlib.accel_top(ACC=36,N_MAX=16,LANES=...
+Compiling module xil_defaultlib.matrix_cont(N_MAX=16,LANES=8,TIL...
+Compiling module xil_defaultlib.tensor_top(ACC=36,DEPTH=1024)
+Compiling module xil_defaultlib.uart_tensor_bridge(CLKS_PER_BIT=...
+Compiling module xil_defaultlib.tb_uart_tensor_bridge
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot tb_uart_tensor_bridge_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '4' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "tb_uart_tensor_bridge_behav -key {Behavioral:sim_1:Functional:tb_uart_tensor_bridge} -tclbatch {tb_uart_tensor_bridge.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Time resolution is 1 ps
+source tb_uart_tensor_bridge.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 12us
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'tb_uart_tensor_bridge_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 12us
+launch_simulation: Time (s): cpu = 00:00:05 ; elapsed = 00:00:11 . Memory (MB): peak = 6896.047 ; gain = 0.000
+run 10 ms
+ERROR TEST=0 op=000 d=0 (0,0) DUT=x GOLD=19
+ERROR TEST=0 op=000 d=0 (0,1) DUT=x GOLD=22
+ERROR TEST=0 op=000 d=0 (1,0) DUT=x GOLD=43
+ERROR TEST=0 op=000 d=0 (1,1) DUT=x GOLD=50
+Test 0 ok  op=000 M=2 K=2 N=2 D=1
+Test 1 ok  op=001 M=1 K=1 N=1 D=1
+Test 2 ok  op=010 M=2 K=2 N=2 D=1
+Test 3 ok  op=011 M=2 K=2 N=2 D=1
+ERROR TEST=4 op=100 d=0 (0,0) DUT=x GOLD=6
+ERROR TEST=4 op=100 d=0 (0,1) DUT=x GOLD=6
+ERROR TEST=4 op=100 d=0 (0,2) DUT=x GOLD=6
+ERROR TEST=4 op=100 d=0 (1,0) DUT=x GOLD=15
+ERROR TEST=4 op=100 d=0 (1,1) DUT=x GOLD=15
+ERROR TEST=4 op=100 d=0 (1,2) DUT=x GOLD=15
+Test 4 ok  op=100 M=2 K=3 N=3 D=1
+ERROR TEST=5 op=101 d=0 (0,0) DUT=x GOLD=4
+ERROR TEST=5 op=101 d=0 (0,1) DUT=x GOLD=6
+ERROR TEST=5 op=101 d=0 (1,0) DUT=x GOLD=4
+ERROR TEST=5 op=101 d=0 (1,1) DUT=x GOLD=6
+Test 5 ok  op=101 M=2 K=2 N=2 D=1
+ERROR TEST=6 op=000 d=0 (0,0) DUT=x GOLD=-19
+ERROR TEST=6 op=000 d=0 (0,1) DUT=x GOLD=9
+ERROR TEST=6 op=000 d=0 (1,0) DUT=x GOLD=13
+ERROR TEST=6 op=000 d=0 (1,1) DUT=x GOLD=-13
+Test 6 ok  op=000 M=2 K=2 N=2 D=1
+Test 7 ok  op=010 M=4 K=4 N=1 D=1
+ERROR TEST=8 op=100 d=0 (0,0) DUT=x GOLD=-129
+ERROR TEST=8 op=100 d=0 (1,0) DUT=x GOLD=-1
+ERROR TEST=8 op=100 d=0 (2,0) DUT=x GOLD=-15
+ERROR TEST=8 op=100 d=0 (3,0) DUT=x GOLD=104
+Test 8 ok  op=100 M=4 K=2 N=1 D=1
+Test 9 ok  op=001 M=1 K=3 N=1 D=1
+ERROR TEST=10 op=100 d=0 (0,0) DUT=x GOLD=-134
+ERROR TEST=10 op=100 d=0 (0,1) DUT=x GOLD=-134
+ERROR TEST=10 op=100 d=0 (0,2) DUT=x GOLD=-134
+ERROR TEST=10 op=100 d=0 (1,0) DUT=x GOLD=-82
+ERROR TEST=10 op=100 d=0 (1,1) DUT=x GOLD=-82
+ERROR TEST=10 op=100 d=0 (1,2) DUT=x GOLD=-82
+ERROR TEST=10 op=100 d=0 (2,0) DUT=x GOLD=83
+ERROR TEST=10 op=100 d=0 (2,1) DUT=x GOLD=83
+ERROR TEST=10 op=100 d=0 (2,2) DUT=x GOLD=83
+Test 10 ok  op=100 M=3 K=4 N=3 D=1
+Test 11 ok  op=010 M=2 K=1 N=3 D=1
+Test 12 ok  op=011 M=2 K=3 N=4 D=1
+ERROR TEST=13 op=100 d=0 (0,0) DUT=x GOLD=8
+ERROR TEST=13 op=100 d=0 (1,0) DUT=x GOLD=-101
+Test 13 ok  op=100 M=2 K=3 N=1 D=1
+Test 14 ok  op=001 M=1 K=3 N=1 D=1
+ERROR TEST=15 op=000 d=0 (0,0) DUT=x GOLD=-6634
+ERROR TEST=15 op=000 d=0 (1,0) DUT=x GOLD=-3874
+ERROR TEST=15 op=000 d=0 (2,0) DUT=x GOLD=6623
+Test 15 ok  op=000 M=3 K=2 N=1 D=1
+Test 16 ok  op=010 M=4 K=1 N=4 D=1
+Test 17 ok  op=011 M=4 K=3 N=1 D=1
+Test 18 ok  op=010 M=1 K=4 N=1 D=1
+Test 19 ok  op=001 M=2 K=1 N=1 D=1
+ERROR TEST=20 op=100 d=0 (0,0) DUT=x GOLD=-165
+ERROR TEST=20 op=100 d=0 (0,1) DUT=x GOLD=-165
+ERROR TEST=20 op=100 d=0 (0,2) DUT=x GOLD=-165
+Test 20 ok  op=100 M=1 K=3 N=3 D=1
+ERROR TEST=21 op=100 d=0 (0,0) DUT=0 GOLD=-105
+ERROR TEST=21 op=100 d=0 (0,1) DUT=0 GOLD=-105
+ERROR TEST=21 op=100 d=0 (0,2) DUT=0 GOLD=-105
+ERROR TEST=21 op=100 d=0 (0,3) DUT=0 GOLD=-105
+ERROR TEST=21 op=100 d=0 (1,0) DUT=0 GOLD=5
+ERROR TEST=21 op=100 d=0 (1,1) DUT=0 GOLD=5
+ERROR TEST=21 op=100 d=0 (1,2) DUT=0 GOLD=5
+ERROR TEST=21 op=100 d=0 (1,3) DUT=0 GOLD=5
+ERROR TEST=21 op=100 d=0 (2,0) DUT=0 GOLD=57
+ERROR TEST=21 op=100 d=0 (2,1) DUT=0 GOLD=57
+ERROR TEST=21 op=100 d=0 (2,2) DUT=0 GOLD=57
+ERROR TEST=21 op=100 d=0 (2,3) DUT=0 GOLD=57
+Test 21 ok  op=100 M=3 K=1 N=4 D=1
+Test 22 ok  op=001 M=2 K=2 N=2 D=1
+ERROR TEST=23 op=000 d=0 (0,0) DUT=0 GOLD=9672
+ERROR TEST=23 op=000 d=0 (0,1) DUT=0 GOLD=3744
+ERROR TEST=23 op=000 d=0 (0,2) DUT=0 GOLD=9438
+ERROR TEST=23 op=000 d=0 (0,3) DUT=0 GOLD=-4212
+ERROR TEST=23 op=000 d=0 (1,0) DUT=0 GOLD=-13392
+ERROR TEST=23 op=000 d=0 (1,1) DUT=0 GOLD=-5184
+ERROR TEST=23 op=000 d=0 (1,2) DUT=0 GOLD=-13068
+ERROR TEST=23 op=000 d=0 (1,3) DUT=0 GOLD=5832
+ERROR TEST=23 op=000 d=0 (2,0) DUT=0 GOLD=2480
+ERROR TEST=23 op=000 d=0 (2,1) DUT=0 GOLD=960
+ERROR TEST=23 op=000 d=0 (2,2) DUT=0 GOLD=2420
+ERROR TEST=23 op=000 d=0 (2,3) DUT=0 GOLD=-1080
+ERROR TEST=23 op=000 d=0 (3,0) DUT=0 GOLD=9300
+ERROR TEST=23 op=000 d=0 (3,1) DUT=0 GOLD=3600
+ERROR TEST=23 op=000 d=0 (3,2) DUT=0 GOLD=9075
+ERROR TEST=23 op=000 d=0 (3,3) DUT=0 GOLD=-4050
+Test 23 ok  op=000 M=4 K=1 N=4 D=1
+ERROR TEST=24 op=100 d=0 (0,0) DUT=x GOLD=299
+ERROR TEST=24 op=100 d=0 (0,1) DUT=x GOLD=299
+ERROR TEST=24 op=100 d=0 (0,2) DUT=x GOLD=299
+ERROR TEST=24 op=100 d=0 (0,3) DUT=x GOLD=299
+Test 24 ok  op=100 M=1 K=4 N=4 D=1
+Test 25 ok  op=010 M=3 K=3 N=1 D=1
+Test 26 ok  op=010 M=1 K=4 N=2 D=1
+ERROR TEST=27 op=101 d=0 (0,0) DUT=0 GOLD=99
+ERROR TEST=27 op=101 d=0 (0,1) DUT=0 GOLD=-98
+ERROR TEST=27 op=101 d=0 (0,2) DUT=0 GOLD=102
+Test 27 ok  op=101 M=1 K=3 N=3 D=1
+ERROR TEST=28 op=100 d=0 (0,0) DUT=0 GOLD=-69
+ERROR TEST=28 op=100 d=0 (1,0) DUT=0 GOLD=51
+ERROR TEST=28 op=100 d=0 (2,0) DUT=0 GOLD=-98
+ERROR TEST=28 op=100 d=0 (3,0) DUT=0 GOLD=66
+Test 28 ok  op=100 M=4 K=1 N=1 D=1
+ERROR TEST=29 op=100 d=0 (0,0) DUT=x GOLD=-109
+ERROR TEST=29 op=100 d=0 (0,1) DUT=x GOLD=-109
+ERROR TEST=29 op=100 d=0 (0,2) DUT=x GOLD=-109
+ERROR TEST=29 op=100 d=0 (0,3) DUT=x GOLD=-109
+ERROR TEST=29 op=100 d=0 (1,0) DUT=x GOLD=136
+ERROR TEST=29 op=100 d=0 (1,1) DUT=x GOLD=136
+ERROR TEST=29 op=100 d=0 (1,2) DUT=x GOLD=136
+ERROR TEST=29 op=100 d=0 (1,3) DUT=x GOLD=136
+ERROR TEST=29 op=100 d=0 (2,0) DUT=x GOLD=-111
+ERROR TEST=29 op=100 d=0 (2,1) DUT=x GOLD=-111
+ERROR TEST=29 op=100 d=0 (2,2) DUT=x GOLD=-111
+ERROR TEST=29 op=100 d=0 (2,3) DUT=x GOLD=-111
+ERROR TEST=29 op=100 d=0 (3,0) DUT=x GOLD=-46
+ERROR TEST=29 op=100 d=0 (3,1) DUT=x GOLD=-46
+ERROR TEST=29 op=100 d=0 (3,2) DUT=x GOLD=-46
+ERROR TEST=29 op=100 d=0 (3,3) DUT=x GOLD=-46
+Test 29 ok  op=100 M=4 K=3 N=4 D=1
+ERROR TEST=30 op=100 d=0 (0,0) DUT=0 GOLD=-29
+ERROR TEST=30 op=100 d=0 (1,0) DUT=0 GOLD=-8
+ERROR TEST=30 op=100 d=0 (2,0) DUT=0 GOLD=31
+ERROR TEST=30 op=100 d=0 (3,0) DUT=0 GOLD=118
+Test 30 ok  op=100 M=4 K=1 N=1 D=1
+ERROR TEST=31 op=100 d=0 (0,0) DUT=0 GOLD=-112
+ERROR TEST=31 op=100 d=0 (1,0) DUT=0 GOLD=-17
+ERROR TEST=31 op=100 d=0 (2,0) DUT=0 GOLD=109
+ERROR TEST=31 op=100 d=0 (3,0) DUT=0 GOLD=111
+Test 31 ok  op=100 M=4 K=1 N=1 D=1
+ERROR TEST=32 op=100 d=0 (0,0) DUT=x GOLD=-31
+ERROR TEST=32 op=100 d=0 (0,1) DUT=x GOLD=-31
+ERROR TEST=32 op=100 d=0 (0,2) DUT=x GOLD=-31
+ERROR TEST=32 op=100 d=0 (0,3) DUT=x GOLD=-31
+ERROR TEST=32 op=100 d=0 (1,0) DUT=x GOLD=146
+ERROR TEST=32 op=100 d=0 (1,1) DUT=x GOLD=146
+ERROR TEST=32 op=100 d=0 (1,2) DUT=x GOLD=146
+ERROR TEST=32 op=100 d=0 (1,3) DUT=x GOLD=146
+Test 32 ok  op=100 M=2 K=4 N=4 D=1
+ERROR TEST=33 op=101 d=0 (0,0) DUT=x GOLD=154
+ERROR TEST=33 op=101 d=0 (0,1) DUT=x GOLD=-48
+ERROR TEST=33 op=101 d=0 (0,2) DUT=x GOLD=-88
+ERROR TEST=33 op=101 d=0 (1,0) DUT=x GOLD=154
+ERROR TEST=33 op=101 d=0 (1,1) DUT=x GOLD=-48
+ERROR TEST=33 op=101 d=0 (1,2) DUT=x GOLD=-88
+ERROR TEST=33 op=101 d=0 (2,0) DUT=x GOLD=154
+ERROR TEST=33 op=101 d=0 (2,1) DUT=x GOLD=-48
+ERROR TEST=33 op=101 d=0 (2,2) DUT=x GOLD=-88
+Test 33 ok  op=101 M=3 K=3 N=3 D=1
+ERROR TEST=34 op=000 d=0 (0,0) DUT=x GOLD=9359
+ERROR TEST=34 op=000 d=0 (1,0) DUT=x GOLD=-1415
+ERROR TEST=34 op=000 d=0 (2,0) DUT=x GOLD=-25654
+Test 34 ok  op=000 M=3 K=3 N=1 D=1
+Test 35 ok  op=001 M=4 K=2 N=4 D=1
+ERROR TEST=36 op=100 d=0 (0,0) DUT=x GOLD=73
+ERROR TEST=36 op=100 d=0 (0,1) DUT=x GOLD=73
+ERROR TEST=36 op=100 d=0 (0,2) DUT=x GOLD=73
+Test 36 ok  op=100 M=1 K=2 N=3 D=1
+ERROR TEST=37 op=101 d=0 (0,0) DUT=x GOLD=-47
+ERROR TEST=37 op=101 d=0 (0,1) DUT=x GOLD=-156
+ERROR TEST=37 op=101 d=0 (0,2) DUT=x GOLD=6
+ERROR TEST=37 op=101 d=0 (1,0) DUT=x GOLD=-47
+ERROR TEST=37 op=101 d=0 (1,1) DUT=x GOLD=-156
+ERROR TEST=37 op=101 d=0 (1,2) DUT=x GOLD=6
+Test 37 ok  op=101 M=2 K=1 N=3 D=1
+ERROR TEST=38 op=100 d=0 (0,0) DUT=0 GOLD=97
+ERROR TEST=38 op=100 d=0 (0,1) DUT=0 GOLD=97
+Test 38 ok  op=100 M=1 K=1 N=2 D=1
+ERROR TEST=39 op=100 d=0 (0,0) DUT=x GOLD=-21
+ERROR TEST=39 op=100 d=0 (1,0) DUT=x GOLD=-109
+ERROR TEST=39 op=100 d=0 (2,0) DUT=x GOLD=-190
+Test 39 ok  op=100 M=3 K=3 N=1 D=1
+ERROR TEST=40 op=100 d=0 (0,0) DUT=x GOLD=-46
+ERROR TEST=40 op=100 d=0 (0,1) DUT=x GOLD=-46
+ERROR TEST=40 op=100 d=0 (0,2) DUT=x GOLD=-46
+ERROR TEST=40 op=100 d=0 (0,3) DUT=x GOLD=-46
+ERROR TEST=40 op=100 d=0 (1,0) DUT=x GOLD=45
+ERROR TEST=40 op=100 d=0 (1,1) DUT=x GOLD=45
+ERROR TEST=40 op=100 d=0 (1,2) DUT=x GOLD=45
+ERROR TEST=40 op=100 d=0 (1,3) DUT=x GOLD=45
+Test 40 ok  op=100 M=2 K=3 N=4 D=1
+ERROR TEST=41 op=101 d=0 (0,0) DUT=x GOLD=104
+ERROR TEST=41 op=101 d=0 (0,1) DUT=x GOLD=-204
+ERROR TEST=41 op=101 d=0 (1,0) DUT=x GOLD=104
+ERROR TEST=41 op=101 d=0 (1,1) DUT=x GOLD=-204
+ERROR TEST=41 op=101 d=0 (2,0) DUT=x GOLD=104
+ERROR TEST=41 op=101 d=0 (2,1) DUT=x GOLD=-204
+Test 41 ok  op=101 M=3 K=4 N=2 D=1
+Test 42 ok  op=001 M=1 K=2 N=2 D=1
+Test 43 ok  op=010 M=4 K=2 N=1 D=1
+Test 44 ok  op=010 M=1 K=4 N=1 D=1
+Test 45 ok  op=011 M=4 K=1 N=3 D=1
+Test 46 ok  op=001 M=3 K=3 N=1 D=1
+ERROR TEST=47 op=100 d=0 (0,0) DUT=0 GOLD=112
+ERROR TEST=47 op=100 d=0 (0,1) DUT=0 GOLD=112
+ERROR TEST=47 op=100 d=0 (0,2) DUT=0 GOLD=112
+ERROR TEST=47 op=100 d=0 (1,0) DUT=0 GOLD=24
+ERROR TEST=47 op=100 d=0 (1,1) DUT=0 GOLD=24
+ERROR TEST=47 op=100 d=0 (1,2) DUT=0 GOLD=24
+Test 47 ok  op=100 M=2 K=1 N=3 D=1
+ERROR TEST=48 op=100 d=0 (0,0) DUT=x GOLD=-83
+ERROR TEST=48 op=100 d=0 (1,0) DUT=x GOLD=183
+Test 48 ok  op=100 M=2 K=2 N=1 D=1
+ERROR TEST=49 op=000 d=0 (0,0) DUT=x GOLD=-3507
+ERROR TEST=49 op=000 d=0 (1,0) DUT=x GOLD=3481
+ERROR TEST=49 op=000 d=0 (2,0) DUT=x GOLD=14554
+ERROR TEST=49 op=000 d=0 (3,0) DUT=x GOLD=-11044
+Test 49 ok  op=000 M=4 K=3 N=1 D=1
+ERROR TEST=50 op=100 d=0 (0,0) DUT=x GOLD=-116
+Test 50 ok  op=100 M=1 K=2 N=1 D=1
+ERROR TEST=51 op=101 d=0 (0,0) DUT=0 GOLD=77
+Test 51 ok  op=101 M=1 K=3 N=1 D=1
+ERROR TEST=52 op=100 d=0 (0,0) DUT=x GOLD=-6
+ERROR TEST=52 op=100 d=0 (0,1) DUT=x GOLD=-6
+ERROR TEST=52 op=100 d=0 (1,0) DUT=x GOLD=156
+ERROR TEST=52 op=100 d=0 (1,1) DUT=x GOLD=156
+ERROR TEST=52 op=100 d=0 (2,0) DUT=x GOLD=74
+ERROR TEST=52 op=100 d=0 (2,1) DUT=x GOLD=74
+Test 52 ok  op=100 M=3 K=3 N=2 D=1
+Test 53 ok  op=001 M=1 K=1 N=3 D=1
+ERROR TEST=54 op=000 d=0 (0,0) DUT=x GOLD=-311
+ERROR TEST=54 op=000 d=0 (1,0) DUT=x GOLD=-7701
+ERROR TEST=54 op=000 d=0 (2,0) DUT=x GOLD=5432
+Test 54 ok  op=000 M=3 K=3 N=1 D=1
+ERROR TEST=55 op=100 d=0 (0,0) DUT=x GOLD=-7
+ERROR TEST=55 op=100 d=0 (1,0) DUT=x GOLD=-210
+ERROR TEST=55 op=100 d=0 (2,0) DUT=x GOLD=13
+Test 55 ok  op=100 M=3 K=3 N=1 D=1
+ERROR TEST=56 op=000 d=0 (0,0) DUT=0 GOLD=8432
+ERROR TEST=56 op=000 d=0 (0,1) DUT=0 GOLD=9548
+ERROR TEST=56 op=000 d=0 (0,2) DUT=0 GOLD=-4464
+ERROR TEST=56 op=000 d=0 (0,3) DUT=0 GOLD=4464
+ERROR TEST=56 op=000 d=0 (1,0) DUT=0 GOLD=7616
+ERROR TEST=56 op=000 d=0 (1,1) DUT=0 GOLD=8624
+ERROR TEST=56 op=000 d=0 (1,2) DUT=0 GOLD=-4032
+ERROR TEST=56 op=000 d=0 (1,3) DUT=0 GOLD=4032
+Test 56 ok  op=000 M=2 K=1 N=4 D=1
+ERROR TEST=57 op=100 d=0 (0,0) DUT=0 GOLD=-91
+ERROR TEST=57 op=100 d=0 (1,0) DUT=0 GOLD=112
+Test 57 ok  op=100 M=2 K=1 N=1 D=1
+ERROR TEST=58 op=000 d=0 (0,0) DUT=0 GOLD=-11881
+ERROR TEST=58 op=000 d=0 (0,1) DUT=0 GOLD=-8066
+ERROR TEST=58 op=000 d=0 (0,2) DUT=0 GOLD=9156
+ERROR TEST=58 op=000 d=0 (1,0) DUT=0 GOLD=1962
+ERROR TEST=58 op=000 d=0 (1,1) DUT=0 GOLD=1332
+ERROR TEST=58 op=000 d=0 (1,2) DUT=0 GOLD=-1512
+ERROR TEST=58 op=000 d=0 (2,0) DUT=0 GOLD=4578
+ERROR TEST=58 op=000 d=0 (2,1) DUT=0 GOLD=3108
+ERROR TEST=58 op=000 d=0 (2,2) DUT=0 GOLD=-3528
+Test 58 ok  op=000 M=3 K=1 N=3 D=1
+Test 59 ok  op=010 M=1 K=4 N=3 D=1
+Test 60 ok  op=010 M=2 K=3 N=3 D=1
+Test 61 ok  op=011 M=3 K=4 N=1 D=1
+ERROR TEST=62 op=100 d=0 (0,0) DUT=0 GOLD=40
+ERROR TEST=62 op=100 d=0 (0,1) DUT=0 GOLD=40
+ERROR TEST=62 op=100 d=0 (0,2) DUT=0 GOLD=40
+ERROR TEST=62 op=100 d=0 (0,3) DUT=0 GOLD=40
+Test 62 ok  op=100 M=1 K=1 N=4 D=1
+ERROR TEST=63 op=000 d=0 (0,0) DUT=x GOLD=-3265
+ERROR TEST=63 op=000 d=0 (0,1) DUT=x GOLD=-1646
+ERROR TEST=63 op=000 d=0 (0,2) DUT=x GOLD=-7305
+ERROR TEST=63 op=000 d=0 (0,3) DUT=x GOLD=6128
+ERROR TEST=63 op=000 d=0 (1,0) DUT=x GOLD=23076
+ERROR TEST=63 op=000 d=0 (1,1) DUT=x GOLD=-1957
+ERROR TEST=63 op=000 d=0 (1,2) DUT=x GOLD=13498
+ERROR TEST=63 op=000 d=0 (1,3) DUT=x GOLD=-18313
+ERROR TEST=63 op=000 d=0 (2,0) DUT=x GOLD=23915
+ERROR TEST=63 op=000 d=0 (2,1) DUT=x GOLD=-11291
+ERROR TEST=63 op=000 d=0 (2,2) DUT=x GOLD=9261
+ERROR TEST=63 op=000 d=0 (2,3) DUT=x GOLD=-7028
+Test 63 ok  op=000 M=3 K=4 N=4 D=1
+ERROR TEST=64 op=100 d=0 (0,0) DUT=x GOLD=-251
+ERROR TEST=64 op=100 d=0 (0,1) DUT=x GOLD=-251
+Test 64 ok  op=100 M=1 K=2 N=2 D=1
+ERROR TEST=65 op=100 d=0 (0,0) DUT=x GOLD=-189
+ERROR TEST=65 op=100 d=0 (0,1) DUT=x GOLD=-189
+ERROR TEST=65 op=100 d=0 (0,2) DUT=x GOLD=-189
+ERROR TEST=65 op=100 d=0 (0,3) DUT=x GOLD=-189
+ERROR TEST=65 op=100 d=0 (1,0) DUT=x GOLD=227
+ERROR TEST=65 op=100 d=0 (1,1) DUT=x GOLD=227
+ERROR TEST=65 op=100 d=0 (1,2) DUT=x GOLD=227
+ERROR TEST=65 op=100 d=0 (1,3) DUT=x GOLD=227
+ERROR TEST=65 op=100 d=0 (2,0) DUT=x GOLD=-60
+ERROR TEST=65 op=100 d=0 (2,1) DUT=x GOLD=-60
+ERROR TEST=65 op=100 d=0 (2,2) DUT=x GOLD=-60
+ERROR TEST=65 op=100 d=0 (2,3) DUT=x GOLD=-60
+Test 65 ok  op=100 M=3 K=3 N=4 D=1
+Test 66 ok  op=001 M=2 K=3 N=1 D=1
+ERROR TEST=67 op=101 d=0 (0,0) DUT=0 GOLD=-24
+ERROR TEST=67 op=101 d=0 (0,1) DUT=0 GOLD=5
+ERROR TEST=67 op=101 d=0 (0,2) DUT=0 GOLD=-17
+ERROR TEST=67 op=101 d=0 (0,3) DUT=0 GOLD=116
+Test 67 ok  op=101 M=1 K=3 N=4 D=1
+Test 68 ok  op=010 M=1 K=3 N=4 D=1
+Test 69 ok  op=001 M=4 K=2 N=4 D=1
+ERROR TEST=70 op=100 d=0 (0,0) DUT=x GOLD=2
+ERROR TEST=70 op=100 d=0 (0,1) DUT=x GOLD=2
+ERROR TEST=70 op=100 d=0 (1,0) DUT=x GOLD=-1
+ERROR TEST=70 op=100 d=0 (1,1) DUT=x GOLD=-1
+ERROR TEST=70 op=100 d=0 (2,0) DUT=x GOLD=98
+ERROR TEST=70 op=100 d=0 (2,1) DUT=x GOLD=98
+ERROR TEST=70 op=100 d=0 (3,0) DUT=x GOLD=110
+ERROR TEST=70 op=100 d=0 (3,1) DUT=x GOLD=110
+Test 70 ok  op=100 M=4 K=4 N=2 D=1
+ERROR TEST=71 op=000 d=0 (0,0) DUT=x GOLD=-1018
+ERROR TEST=71 op=000 d=0 (1,0) DUT=x GOLD=-6802
+Test 71 ok  op=000 M=2 K=4 N=1 D=1
+ERROR TEST=72 op=101 d=0 (0,0) DUT=x GOLD=-286
+ERROR TEST=72 op=101 d=0 (0,1) DUT=x GOLD=-126
+ERROR TEST=72 op=101 d=0 (1,0) DUT=x GOLD=-286
+ERROR TEST=72 op=101 d=0 (1,1) DUT=x GOLD=-126
+ERROR TEST=72 op=101 d=0 (2,0) DUT=x GOLD=-286
+ERROR TEST=72 op=101 d=0 (2,1) DUT=x GOLD=-126
+Test 72 ok  op=101 M=3 K=2 N=2 D=1
+Test 73 ok  op=010 M=2 K=3 N=3 D=1
+ERROR TEST=74 op=101 d=0 (0,0) DUT=0 GOLD=56
+ERROR TEST=74 op=101 d=0 (0,1) DUT=0 GOLD=-70
+ERROR TEST=74 op=101 d=0 (0,2) DUT=0 GOLD=107
+Test 74 ok  op=101 M=1 K=3 N=3 D=1
+ERROR TEST=75 op=101 d=0 (0,0) DUT=0 GOLD=116
+ERROR TEST=75 op=101 d=0 (0,1) DUT=0 GOLD=-36
+ERROR TEST=75 op=101 d=0 (0,2) DUT=0 GOLD=-60
+Test 75 ok  op=101 M=1 K=1 N=3 D=1
+Test 76 ok  op=011 M=1 K=2 N=3 D=1
+Test 77 ok  op=011 M=1 K=4 N=2 D=1
+ERROR TEST=78 op=000 d=0 (0,0) DUT=x GOLD=-10074
+ERROR TEST=78 op=000 d=0 (0,1) DUT=x GOLD=-7581
+ERROR TEST=78 op=000 d=0 (1,0) DUT=x GOLD=7220
+ERROR TEST=78 op=000 d=0 (1,1) DUT=x GOLD=485
+ERROR TEST=78 op=000 d=0 (2,0) DUT=x GOLD=-386
+ERROR TEST=78 op=000 d=0 (2,1) DUT=x GOLD=-16232
+ERROR TEST=78 op=000 d=0 (3,0) DUT=x GOLD=3120
+ERROR TEST=78 op=000 d=0 (3,1) DUT=x GOLD=-9066
+Test 78 ok  op=000 M=4 K=2 N=2 D=1
+ERROR TEST=79 op=101 d=0 (0,0) DUT=x GOLD=-73
+ERROR TEST=79 op=101 d=0 (0,1) DUT=x GOLD=122
+ERROR TEST=79 op=101 d=0 (1,0) DUT=x GOLD=-73
+ERROR TEST=79 op=101 d=0 (1,1) DUT=x GOLD=122
+ERROR TEST=79 op=101 d=0 (2,0) DUT=x GOLD=-73
+ERROR TEST=79 op=101 d=0 (2,1) DUT=x GOLD=122
+Test 79 ok  op=101 M=3 K=3 N=2 D=1
+Test 80 ok  op=001 M=3 K=3 N=4 D=1
+ERROR TEST=81 op=100 d=0 (0,0) DUT=x GOLD=25
+ERROR TEST=81 op=100 d=0 (0,1) DUT=x GOLD=25
+Test 81 ok  op=100 M=1 K=4 N=2 D=1
+ERROR TEST=82 op=100 d=0 (0,0) DUT=x GOLD=-95
+ERROR TEST=82 op=100 d=0 (1,0) DUT=x GOLD=51
+Test 82 ok  op=100 M=2 K=4 N=1 D=1
+Test 83 ok  op=001 M=2 K=3 N=4 D=1
+ERROR TEST=84 op=101 d=0 (0,0) DUT=0 GOLD=62
+ERROR TEST=84 op=101 d=0 (0,1) DUT=0 GOLD=-85
+ERROR TEST=84 op=101 d=0 (0,2) DUT=0 GOLD=-125
+Test 84 ok  op=101 M=1 K=2 N=3 D=1
+Test 85 ok  op=010 M=3 K=1 N=3 D=1
+ERROR TEST=86 op=101 d=0 (0,0) DUT=x GOLD=17
+ERROR TEST=86 op=101 d=0 (0,1) DUT=x GOLD=-21
+ERROR TEST=86 op=101 d=0 (0,2) DUT=x GOLD=10
+ERROR TEST=86 op=101 d=0 (1,0) DUT=x GOLD=17
+ERROR TEST=86 op=101 d=0 (1,1) DUT=x GOLD=-21
+ERROR TEST=86 op=101 d=0 (1,2) DUT=x GOLD=10
+Test 86 ok  op=101 M=2 K=4 N=3 D=1
+Test 87 ok  op=010 M=3 K=2 N=1 D=1
+ERROR TEST=88 op=000 d=0 (0,0) DUT=x GOLD=7578
+ERROR TEST=88 op=000 d=0 (0,1) DUT=x GOLD=2203
+ERROR TEST=88 op=000 d=0 (0,2) DUT=x GOLD=-871
+ERROR TEST=88 op=000 d=0 (0,3) DUT=x GOLD=16465
+ERROR TEST=88 op=000 d=0 (1,0) DUT=x GOLD=746
+ERROR TEST=88 op=000 d=0 (1,1) DUT=x GOLD=7316
+ERROR TEST=88 op=000 d=0 (1,2) DUT=x GOLD=1460
+ERROR TEST=88 op=000 d=0 (1,3) DUT=x GOLD=652
+ERROR TEST=88 op=000 d=0 (2,0) DUT=x GOLD=11956
+ERROR TEST=88 op=000 d=0 (2,1) DUT=x GOLD=-4186
+ERROR TEST=88 op=000 d=0 (2,2) DUT=x GOLD=-3631
+ERROR TEST=88 op=000 d=0 (2,3) DUT=x GOLD=29143
+ERROR TEST=88 op=000 d=0 (3,0) DUT=x GOLD=7928
+ERROR TEST=88 op=000 d=0 (3,1) DUT=x GOLD=-7047
+ERROR TEST=88 op=000 d=0 (3,2) DUT=x GOLD=-4609
+ERROR TEST=88 op=000 d=0 (3,3) DUT=x GOLD=24487
+Test 88 ok  op=000 M=4 K=3 N=4 D=1
+Test 89 ok  op=001 M=1 K=3 N=1 D=1
+ERROR TEST=90 op=100 d=0 (0,0) DUT=x GOLD=81
+ERROR TEST=90 op=100 d=0 (1,0) DUT=x GOLD=-58
+ERROR TEST=90 op=100 d=0 (2,0) DUT=x GOLD=-95
+Test 90 ok  op=100 M=3 K=3 N=1 D=1
+Test 91 ok  op=010 M=2 K=1 N=4 D=1
+ERROR TEST=92 op=000 d=0 (0,0) DUT=x GOLD=-4384
+ERROR TEST=92 op=000 d=0 (0,1) DUT=x GOLD=-376
+ERROR TEST=92 op=000 d=0 (0,2) DUT=x GOLD=-12911
+Test 92 ok  op=000 M=1 K=2 N=3 D=1
+ERROR TEST=93 op=101 d=0 (0,0) DUT=0 GOLD=-11
+ERROR TEST=93 op=101 d=0 (0,1) DUT=0 GOLD=1
+ERROR TEST=93 op=101 d=0 (0,2) DUT=0 GOLD=-30
+Test 93 ok  op=101 M=1 K=4 N=3 D=1
+Test 94 ok  op=011 M=3 K=1 N=1 D=1
+ERROR TEST=95 op=101 d=0 (0,0) DUT=0 GOLD=56
+ERROR TEST=95 op=101 d=0 (0,1) DUT=0 GOLD=-126
+ERROR TEST=95 op=101 d=0 (0,2) DUT=0 GOLD=123
+ERROR TEST=95 op=101 d=0 (0,3) DUT=0 GOLD=32
+Test 95 ok  op=101 M=1 K=2 N=4 D=1
+Test 96 ok  op=010 M=4 K=3 N=3 D=1
+ERROR TEST=97 op=101 d=0 (0,0) DUT=0 GOLD=121
+Test 97 ok  op=101 M=1 K=3 N=1 D=1
+ERROR TEST=98 op=000 d=0 (0,0) DUT=x GOLD=-3268
+ERROR TEST=98 op=000 d=0 (0,1) DUT=x GOLD=1016
+ERROR TEST=98 op=000 d=0 (0,2) DUT=x GOLD=-4194
+ERROR TEST=98 op=000 d=0 (1,0) DUT=x GOLD=7409
+ERROR TEST=98 op=000 d=0 (1,1) DUT=x GOLD=-9040
+ERROR TEST=98 op=000 d=0 (1,2) DUT=x GOLD=13045
+Test 98 ok  op=000 M=2 K=3 N=3 D=1
+Test 99 ok  op=011 M=1 K=3 N=3 D=1
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver2_6\Ver2_6.srcs\sources_1\new\uart_tensor_bridge.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver2_6\Ver2_6.srcs\sources_1\new\matrix_cont.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver2_6\Ver2_6.srcs\sources_1\new\matrix_cont.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver2_6\Ver2_6.srcs\sources_1\new\matrix_cont.sv:]
+launch_simulation
+Command: launch_simulation 
+INFO: [Vivado 12-12493] Simulation top is 'tb_uart_tensor_bridge'
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-72] Using boost library from 'C:/Xilinx/2025.1/Vivado/tps/boost_1_72_0'
+INFO: [SIM-utils-54] Inspecting design source files for 'tb_uart_tensor_bridge' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-100] Fetching design files from 'sources_1'...(this may take a while)...
+INFO: [USF-XSim-101] Fetching design files from 'sim_1'...
+ERROR: [Common 17-180] Spawn failed: The operation completed successfully.
+
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -L uvm -prj tb_uart_tensor_bridge_vlog.prj"
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/accel_fsm.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module accel_fsm
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/accel_top.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module accel_top
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/mac.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module mac
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/matrix_cont.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module matrix_cont
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/simd_array.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module simd_array
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/vector_lane.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module vector_lane
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/tensor_top.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module tensor_top
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/uart_rx.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module uart_rx
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/uart_tensor_bridge.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module uart_tensor_bridge
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/uart_tx.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module uart_tx
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sim_1/new/tb.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module tb_tensor_top_random
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sim_1/new/tb_BRAM.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module tb_tensor_top_bram_random
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sim_1/new/tb_uart.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module tb_uart_tensor_bridge
+INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.sim/sim_1/behav/xsim'
+"xelab --incr --debug typical --relax --mt 2 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip --snapshot tb_uart_tensor_bridge_behav xil_defaultlib.tb_uart_tensor_bridge xil_defaultlib.glbl -log elaborate.log"
+Vivado Simulator v2025.1.0
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: C:/Xilinx/2025.1/Vivado/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip --snapshot tb_uart_tensor_bridge_behav xil_defaultlib.tb_uart_tensor_bridge xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.uart_rx(CLKS_PER_BIT=10)
+Compiling module xil_defaultlib.uart_tx(CLKS_PER_BIT=10)
+Compiling module xil_defaultlib.tensor_bram(DEPTH=1024)
+Compiling module xil_defaultlib.tensor_bram(WIDTH=36,DEPTH=1024)
+Compiling module xil_defaultlib.accel_fsm
+Compiling module xil_defaultlib.mac(ACC=36)
+Compiling module xil_defaultlib.vector_lane(ACC=36,N_MAX=16)
+Compiling module xil_defaultlib.simd_array(ACC=36,N_MAX=16,LANES...
+Compiling module xil_defaultlib.accel_top(ACC=36,N_MAX=16,LANES=...
+Compiling module xil_defaultlib.matrix_cont(N_MAX=16,LANES=8,TIL...
+Compiling module xil_defaultlib.tensor_top(ACC=36,DEPTH=1024)
+Compiling module xil_defaultlib.uart_tensor_bridge(CLKS_PER_BIT=...
+Compiling module xil_defaultlib.tb_uart_tensor_bridge
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot tb_uart_tensor_bridge_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '4' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "tb_uart_tensor_bridge_behav -key {Behavioral:sim_1:Functional:tb_uart_tensor_bridge} -tclbatch {tb_uart_tensor_bridge.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Time resolution is 1 ps
+source tb_uart_tensor_bridge.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 12us
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'tb_uart_tensor_bridge_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 12us
+launch_simulation: Time (s): cpu = 00:00:03 ; elapsed = 00:00:09 . Memory (MB): peak = 6896.047 ; gain = 0.000
+ERROR: [Common 17-39] 'launch_simulation' failed due to earlier errors.
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+reset_simulation -simset sim_1 -mode behavioral
+INFO: [Vivado 12-2266] Removing simulation data...
+INFO: [Vivado 12-2267] Reset complete
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver2_6\Ver2_6.srcs\sources_1\new\uart_tensor_bridge.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver2_6\Ver2_6.srcs\sources_1\new\matrix_cont.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver2_6\Ver2_6.srcs\sources_1\new\matrix_cont.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver2_6\Ver2_6.srcs\sources_1\new\matrix_cont.sv:]
+launch_simulation
+Command: launch_simulation 
+INFO: [Vivado 12-12493] Simulation top is 'tb_uart_tensor_bridge'
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-72] Using boost library from 'C:/Xilinx/2025.1/Vivado/tps/boost_1_72_0'
+INFO: [SIM-utils-54] Inspecting design source files for 'tb_uart_tensor_bridge' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-100] Fetching design files from 'sources_1'...(this may take a while)...
+INFO: [USF-XSim-101] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -L uvm -prj tb_uart_tensor_bridge_vlog.prj"
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/tensor_bram.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module tensor_bram
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/accel_fsm.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module accel_fsm
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/accel_top.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module accel_top
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/mac.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module mac
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/matrix_cont.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module matrix_cont
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/simd_array.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module simd_array
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/vector_lane.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module vector_lane
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/tensor_top.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module tensor_top
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/uart_rx.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module uart_rx
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/uart_tensor_bridge.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module uart_tensor_bridge
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/uart_tx.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module uart_tx
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sim_1/new/tb.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module tb_tensor_top_random
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sim_1/new/tb_BRAM.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module tb_tensor_top_bram_random
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sim_1/new/tb_uart.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module tb_uart_tensor_bridge
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.sim/sim_1/behav/xsim/glbl.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module glbl
+INFO: [USF-XSim-69] 'compile' step finished in '1' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.sim/sim_1/behav/xsim'
+"xelab --incr --debug typical --relax --mt 2 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip --snapshot tb_uart_tensor_bridge_behav xil_defaultlib.tb_uart_tensor_bridge xil_defaultlib.glbl -log elaborate.log"
+Vivado Simulator v2025.1.0
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: C:/Xilinx/2025.1/Vivado/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip --snapshot tb_uart_tensor_bridge_behav xil_defaultlib.tb_uart_tensor_bridge xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.uart_rx(CLKS_PER_BIT=10)
+Compiling module xil_defaultlib.uart_tx(CLKS_PER_BIT=10)
+Compiling module xil_defaultlib.tensor_bram(DEPTH=1024)
+Compiling module xil_defaultlib.tensor_bram(WIDTH=36,DEPTH=1024)
+Compiling module xil_defaultlib.accel_fsm
+Compiling module xil_defaultlib.mac(ACC=36)
+Compiling module xil_defaultlib.vector_lane(ACC=36,N_MAX=16)
+Compiling module xil_defaultlib.simd_array(ACC=36,N_MAX=16,LANES...
+Compiling module xil_defaultlib.accel_top(ACC=36,N_MAX=16,LANES=...
+Compiling module xil_defaultlib.matrix_cont(N_MAX=16,LANES=8,TIL...
+Compiling module xil_defaultlib.tensor_top(ACC=36,DEPTH=1024)
+Compiling module xil_defaultlib.uart_tensor_bridge(CLKS_PER_BIT=...
+Compiling module xil_defaultlib.tb_uart_tensor_bridge
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot tb_uart_tensor_bridge_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '4' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "tb_uart_tensor_bridge_behav -key {Behavioral:sim_1:Functional:tb_uart_tensor_bridge} -tclbatch {tb_uart_tensor_bridge.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Time resolution is 1 ps
+source tb_uart_tensor_bridge.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 12us
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'tb_uart_tensor_bridge_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 12us
+launch_simulation: Time (s): cpu = 00:00:06 ; elapsed = 00:00:10 . Memory (MB): peak = 6896.895 ; gain = 0.848
+run 10 ms
+ERROR TEST=0 op=000 d=0 (0,0) DUT=x GOLD=19
+ERROR TEST=0 op=000 d=0 (0,1) DUT=x GOLD=22
+ERROR TEST=0 op=000 d=0 (1,0) DUT=x GOLD=43
+ERROR TEST=0 op=000 d=0 (1,1) DUT=x GOLD=50
+Test 0 ok  op=000 M=2 K=2 N=2 D=1
+Test 1 ok  op=001 M=1 K=1 N=1 D=1
+Test 2 ok  op=010 M=2 K=2 N=2 D=1
+Test 3 ok  op=011 M=2 K=2 N=2 D=1
+ERROR TEST=4 op=100 d=0 (0,0) DUT=x GOLD=6
+ERROR TEST=4 op=100 d=0 (0,1) DUT=x GOLD=6
+ERROR TEST=4 op=100 d=0 (0,2) DUT=x GOLD=6
+ERROR TEST=4 op=100 d=0 (1,0) DUT=x GOLD=15
+ERROR TEST=4 op=100 d=0 (1,1) DUT=x GOLD=15
+ERROR TEST=4 op=100 d=0 (1,2) DUT=x GOLD=15
+Test 4 ok  op=100 M=2 K=3 N=3 D=1
+ERROR TEST=5 op=101 d=0 (0,0) DUT=x GOLD=4
+ERROR TEST=5 op=101 d=0 (0,1) DUT=x GOLD=6
+ERROR TEST=5 op=101 d=0 (1,0) DUT=x GOLD=4
+ERROR TEST=5 op=101 d=0 (1,1) DUT=x GOLD=6
+Test 5 ok  op=101 M=2 K=2 N=2 D=1
+ERROR TEST=6 op=000 d=0 (0,0) DUT=x GOLD=-19
+ERROR TEST=6 op=000 d=0 (0,1) DUT=x GOLD=9
+ERROR TEST=6 op=000 d=0 (1,0) DUT=x GOLD=13
+ERROR TEST=6 op=000 d=0 (1,1) DUT=x GOLD=-13
+Test 6 ok  op=000 M=2 K=2 N=2 D=1
+Test 7 ok  op=010 M=4 K=4 N=1 D=1
+ERROR TEST=8 op=100 d=0 (0,0) DUT=x GOLD=-129
+ERROR TEST=8 op=100 d=0 (1,0) DUT=x GOLD=-1
+ERROR TEST=8 op=100 d=0 (2,0) DUT=x GOLD=-15
+ERROR TEST=8 op=100 d=0 (3,0) DUT=x GOLD=104
+Test 8 ok  op=100 M=4 K=2 N=1 D=1
+Test 9 ok  op=001 M=1 K=3 N=1 D=1
+ERROR TEST=10 op=100 d=0 (0,0) DUT=x GOLD=-134
+ERROR TEST=10 op=100 d=0 (0,1) DUT=x GOLD=-134
+ERROR TEST=10 op=100 d=0 (0,2) DUT=x GOLD=-134
+ERROR TEST=10 op=100 d=0 (1,0) DUT=x GOLD=-82
+ERROR TEST=10 op=100 d=0 (1,1) DUT=x GOLD=-82
+ERROR TEST=10 op=100 d=0 (1,2) DUT=x GOLD=-82
+ERROR TEST=10 op=100 d=0 (2,0) DUT=x GOLD=83
+ERROR TEST=10 op=100 d=0 (2,1) DUT=x GOLD=83
+ERROR TEST=10 op=100 d=0 (2,2) DUT=x GOLD=83
+Test 10 ok  op=100 M=3 K=4 N=3 D=1
+Test 11 ok  op=010 M=2 K=1 N=3 D=1
+Test 12 ok  op=011 M=2 K=3 N=4 D=1
+ERROR TEST=13 op=100 d=0 (0,0) DUT=x GOLD=8
+ERROR TEST=13 op=100 d=0 (1,0) DUT=x GOLD=-101
+Test 13 ok  op=100 M=2 K=3 N=1 D=1
+Test 14 ok  op=001 M=1 K=3 N=1 D=1
+ERROR TEST=15 op=000 d=0 (0,0) DUT=x GOLD=-6634
+ERROR TEST=15 op=000 d=0 (1,0) DUT=x GOLD=-3874
+ERROR TEST=15 op=000 d=0 (2,0) DUT=x GOLD=6623
+Test 15 ok  op=000 M=3 K=2 N=1 D=1
+Test 16 ok  op=010 M=4 K=1 N=4 D=1
+Test 17 ok  op=011 M=4 K=3 N=1 D=1
+Test 18 ok  op=010 M=1 K=4 N=1 D=1
+Test 19 ok  op=001 M=2 K=1 N=1 D=1
+ERROR TEST=20 op=100 d=0 (0,0) DUT=x GOLD=-165
+ERROR TEST=20 op=100 d=0 (0,1) DUT=x GOLD=-165
+ERROR TEST=20 op=100 d=0 (0,2) DUT=x GOLD=-165
+Test 20 ok  op=100 M=1 K=3 N=3 D=1
+ERROR TEST=21 op=100 d=0 (0,0) DUT=0 GOLD=-105
+ERROR TEST=21 op=100 d=0 (0,1) DUT=0 GOLD=-105
+ERROR TEST=21 op=100 d=0 (0,2) DUT=0 GOLD=-105
+ERROR TEST=21 op=100 d=0 (0,3) DUT=0 GOLD=-105
+ERROR TEST=21 op=100 d=0 (1,0) DUT=0 GOLD=5
+ERROR TEST=21 op=100 d=0 (1,1) DUT=0 GOLD=5
+ERROR TEST=21 op=100 d=0 (1,2) DUT=0 GOLD=5
+ERROR TEST=21 op=100 d=0 (1,3) DUT=0 GOLD=5
+ERROR TEST=21 op=100 d=0 (2,0) DUT=0 GOLD=57
+ERROR TEST=21 op=100 d=0 (2,1) DUT=0 GOLD=57
+ERROR TEST=21 op=100 d=0 (2,2) DUT=0 GOLD=57
+ERROR TEST=21 op=100 d=0 (2,3) DUT=0 GOLD=57
+Test 21 ok  op=100 M=3 K=1 N=4 D=1
+Test 22 ok  op=001 M=2 K=2 N=2 D=1
+ERROR TEST=23 op=000 d=0 (0,0) DUT=0 GOLD=9672
+ERROR TEST=23 op=000 d=0 (0,1) DUT=0 GOLD=3744
+ERROR TEST=23 op=000 d=0 (0,2) DUT=0 GOLD=9438
+ERROR TEST=23 op=000 d=0 (0,3) DUT=0 GOLD=-4212
+ERROR TEST=23 op=000 d=0 (1,0) DUT=0 GOLD=-13392
+ERROR TEST=23 op=000 d=0 (1,1) DUT=0 GOLD=-5184
+ERROR TEST=23 op=000 d=0 (1,2) DUT=0 GOLD=-13068
+ERROR TEST=23 op=000 d=0 (1,3) DUT=0 GOLD=5832
+ERROR TEST=23 op=000 d=0 (2,0) DUT=0 GOLD=2480
+ERROR TEST=23 op=000 d=0 (2,1) DUT=0 GOLD=960
+ERROR TEST=23 op=000 d=0 (2,2) DUT=0 GOLD=2420
+ERROR TEST=23 op=000 d=0 (2,3) DUT=0 GOLD=-1080
+ERROR TEST=23 op=000 d=0 (3,0) DUT=0 GOLD=9300
+ERROR TEST=23 op=000 d=0 (3,1) DUT=0 GOLD=3600
+ERROR TEST=23 op=000 d=0 (3,2) DUT=0 GOLD=9075
+ERROR TEST=23 op=000 d=0 (3,3) DUT=0 GOLD=-4050
+Test 23 ok  op=000 M=4 K=1 N=4 D=1
+ERROR TEST=24 op=100 d=0 (0,0) DUT=x GOLD=299
+ERROR TEST=24 op=100 d=0 (0,1) DUT=x GOLD=299
+ERROR TEST=24 op=100 d=0 (0,2) DUT=x GOLD=299
+ERROR TEST=24 op=100 d=0 (0,3) DUT=x GOLD=299
+Test 24 ok  op=100 M=1 K=4 N=4 D=1
+Test 25 ok  op=010 M=3 K=3 N=1 D=1
+Test 26 ok  op=010 M=1 K=4 N=2 D=1
+ERROR TEST=27 op=101 d=0 (0,0) DUT=0 GOLD=99
+ERROR TEST=27 op=101 d=0 (0,1) DUT=0 GOLD=-98
+ERROR TEST=27 op=101 d=0 (0,2) DUT=0 GOLD=102
+Test 27 ok  op=101 M=1 K=3 N=3 D=1
+ERROR TEST=28 op=100 d=0 (0,0) DUT=0 GOLD=-69
+ERROR TEST=28 op=100 d=0 (1,0) DUT=0 GOLD=51
+ERROR TEST=28 op=100 d=0 (2,0) DUT=0 GOLD=-98
+ERROR TEST=28 op=100 d=0 (3,0) DUT=0 GOLD=66
+Test 28 ok  op=100 M=4 K=1 N=1 D=1
+ERROR TEST=29 op=100 d=0 (0,0) DUT=x GOLD=-109
+ERROR TEST=29 op=100 d=0 (0,1) DUT=x GOLD=-109
+ERROR TEST=29 op=100 d=0 (0,2) DUT=x GOLD=-109
+ERROR TEST=29 op=100 d=0 (0,3) DUT=x GOLD=-109
+ERROR TEST=29 op=100 d=0 (1,0) DUT=x GOLD=136
+ERROR TEST=29 op=100 d=0 (1,1) DUT=x GOLD=136
+ERROR TEST=29 op=100 d=0 (1,2) DUT=x GOLD=136
+ERROR TEST=29 op=100 d=0 (1,3) DUT=x GOLD=136
+ERROR TEST=29 op=100 d=0 (2,0) DUT=x GOLD=-111
+ERROR TEST=29 op=100 d=0 (2,1) DUT=x GOLD=-111
+ERROR TEST=29 op=100 d=0 (2,2) DUT=x GOLD=-111
+ERROR TEST=29 op=100 d=0 (2,3) DUT=x GOLD=-111
+ERROR TEST=29 op=100 d=0 (3,0) DUT=x GOLD=-46
+ERROR TEST=29 op=100 d=0 (3,1) DUT=x GOLD=-46
+ERROR TEST=29 op=100 d=0 (3,2) DUT=x GOLD=-46
+ERROR TEST=29 op=100 d=0 (3,3) DUT=x GOLD=-46
+Test 29 ok  op=100 M=4 K=3 N=4 D=1
+ERROR TEST=30 op=100 d=0 (0,0) DUT=0 GOLD=-29
+ERROR TEST=30 op=100 d=0 (1,0) DUT=0 GOLD=-8
+ERROR TEST=30 op=100 d=0 (2,0) DUT=0 GOLD=31
+ERROR TEST=30 op=100 d=0 (3,0) DUT=0 GOLD=118
+Test 30 ok  op=100 M=4 K=1 N=1 D=1
+ERROR TEST=31 op=100 d=0 (0,0) DUT=0 GOLD=-112
+ERROR TEST=31 op=100 d=0 (1,0) DUT=0 GOLD=-17
+ERROR TEST=31 op=100 d=0 (2,0) DUT=0 GOLD=109
+ERROR TEST=31 op=100 d=0 (3,0) DUT=0 GOLD=111
+Test 31 ok  op=100 M=4 K=1 N=1 D=1
+ERROR TEST=32 op=100 d=0 (0,0) DUT=x GOLD=-31
+ERROR TEST=32 op=100 d=0 (0,1) DUT=x GOLD=-31
+ERROR TEST=32 op=100 d=0 (0,2) DUT=x GOLD=-31
+ERROR TEST=32 op=100 d=0 (0,3) DUT=x GOLD=-31
+ERROR TEST=32 op=100 d=0 (1,0) DUT=x GOLD=146
+ERROR TEST=32 op=100 d=0 (1,1) DUT=x GOLD=146
+ERROR TEST=32 op=100 d=0 (1,2) DUT=x GOLD=146
+ERROR TEST=32 op=100 d=0 (1,3) DUT=x GOLD=146
+Test 32 ok  op=100 M=2 K=4 N=4 D=1
+ERROR TEST=33 op=101 d=0 (0,0) DUT=x GOLD=154
+ERROR TEST=33 op=101 d=0 (0,1) DUT=x GOLD=-48
+ERROR TEST=33 op=101 d=0 (0,2) DUT=x GOLD=-88
+ERROR TEST=33 op=101 d=0 (1,0) DUT=x GOLD=154
+ERROR TEST=33 op=101 d=0 (1,1) DUT=x GOLD=-48
+ERROR TEST=33 op=101 d=0 (1,2) DUT=x GOLD=-88
+ERROR TEST=33 op=101 d=0 (2,0) DUT=x GOLD=154
+ERROR TEST=33 op=101 d=0 (2,1) DUT=x GOLD=-48
+ERROR TEST=33 op=101 d=0 (2,2) DUT=x GOLD=-88
+Test 33 ok  op=101 M=3 K=3 N=3 D=1
+ERROR TEST=34 op=000 d=0 (0,0) DUT=x GOLD=9359
+ERROR TEST=34 op=000 d=0 (1,0) DUT=x GOLD=-1415
+ERROR TEST=34 op=000 d=0 (2,0) DUT=x GOLD=-25654
+Test 34 ok  op=000 M=3 K=3 N=1 D=1
+Test 35 ok  op=001 M=4 K=2 N=4 D=1
+ERROR TEST=36 op=100 d=0 (0,0) DUT=x GOLD=73
+ERROR TEST=36 op=100 d=0 (0,1) DUT=x GOLD=73
+ERROR TEST=36 op=100 d=0 (0,2) DUT=x GOLD=73
+Test 36 ok  op=100 M=1 K=2 N=3 D=1
+ERROR TEST=37 op=101 d=0 (0,0) DUT=x GOLD=-47
+ERROR TEST=37 op=101 d=0 (0,1) DUT=x GOLD=-156
+ERROR TEST=37 op=101 d=0 (0,2) DUT=x GOLD=6
+ERROR TEST=37 op=101 d=0 (1,0) DUT=x GOLD=-47
+ERROR TEST=37 op=101 d=0 (1,1) DUT=x GOLD=-156
+ERROR TEST=37 op=101 d=0 (1,2) DUT=x GOLD=6
+Test 37 ok  op=101 M=2 K=1 N=3 D=1
+ERROR TEST=38 op=100 d=0 (0,0) DUT=0 GOLD=97
+ERROR TEST=38 op=100 d=0 (0,1) DUT=0 GOLD=97
+Test 38 ok  op=100 M=1 K=1 N=2 D=1
+ERROR TEST=39 op=100 d=0 (0,0) DUT=x GOLD=-21
+ERROR TEST=39 op=100 d=0 (1,0) DUT=x GOLD=-109
+ERROR TEST=39 op=100 d=0 (2,0) DUT=x GOLD=-190
+Test 39 ok  op=100 M=3 K=3 N=1 D=1
+ERROR TEST=40 op=100 d=0 (0,0) DUT=x GOLD=-46
+ERROR TEST=40 op=100 d=0 (0,1) DUT=x GOLD=-46
+ERROR TEST=40 op=100 d=0 (0,2) DUT=x GOLD=-46
+ERROR TEST=40 op=100 d=0 (0,3) DUT=x GOLD=-46
+ERROR TEST=40 op=100 d=0 (1,0) DUT=x GOLD=45
+ERROR TEST=40 op=100 d=0 (1,1) DUT=x GOLD=45
+ERROR TEST=40 op=100 d=0 (1,2) DUT=x GOLD=45
+ERROR TEST=40 op=100 d=0 (1,3) DUT=x GOLD=45
+Test 40 ok  op=100 M=2 K=3 N=4 D=1
+ERROR TEST=41 op=101 d=0 (0,0) DUT=x GOLD=104
+ERROR TEST=41 op=101 d=0 (0,1) DUT=x GOLD=-204
+ERROR TEST=41 op=101 d=0 (1,0) DUT=x GOLD=104
+ERROR TEST=41 op=101 d=0 (1,1) DUT=x GOLD=-204
+ERROR TEST=41 op=101 d=0 (2,0) DUT=x GOLD=104
+ERROR TEST=41 op=101 d=0 (2,1) DUT=x GOLD=-204
+Test 41 ok  op=101 M=3 K=4 N=2 D=1
+Test 42 ok  op=001 M=1 K=2 N=2 D=1
+Test 43 ok  op=010 M=4 K=2 N=1 D=1
+Test 44 ok  op=010 M=1 K=4 N=1 D=1
+Test 45 ok  op=011 M=4 K=1 N=3 D=1
+Test 46 ok  op=001 M=3 K=3 N=1 D=1
+ERROR TEST=47 op=100 d=0 (0,0) DUT=0 GOLD=112
+ERROR TEST=47 op=100 d=0 (0,1) DUT=0 GOLD=112
+ERROR TEST=47 op=100 d=0 (0,2) DUT=0 GOLD=112
+ERROR TEST=47 op=100 d=0 (1,0) DUT=0 GOLD=24
+ERROR TEST=47 op=100 d=0 (1,1) DUT=0 GOLD=24
+ERROR TEST=47 op=100 d=0 (1,2) DUT=0 GOLD=24
+Test 47 ok  op=100 M=2 K=1 N=3 D=1
+ERROR TEST=48 op=100 d=0 (0,0) DUT=x GOLD=-83
+ERROR TEST=48 op=100 d=0 (1,0) DUT=x GOLD=183
+Test 48 ok  op=100 M=2 K=2 N=1 D=1
+ERROR TEST=49 op=000 d=0 (0,0) DUT=x GOLD=-3507
+ERROR TEST=49 op=000 d=0 (1,0) DUT=x GOLD=3481
+ERROR TEST=49 op=000 d=0 (2,0) DUT=x GOLD=14554
+ERROR TEST=49 op=000 d=0 (3,0) DUT=x GOLD=-11044
+Test 49 ok  op=000 M=4 K=3 N=1 D=1
+ERROR TEST=50 op=100 d=0 (0,0) DUT=x GOLD=-116
+Test 50 ok  op=100 M=1 K=2 N=1 D=1
+ERROR TEST=51 op=101 d=0 (0,0) DUT=0 GOLD=77
+Test 51 ok  op=101 M=1 K=3 N=1 D=1
+ERROR TEST=52 op=100 d=0 (0,0) DUT=x GOLD=-6
+ERROR TEST=52 op=100 d=0 (0,1) DUT=x GOLD=-6
+ERROR TEST=52 op=100 d=0 (1,0) DUT=x GOLD=156
+ERROR TEST=52 op=100 d=0 (1,1) DUT=x GOLD=156
+ERROR TEST=52 op=100 d=0 (2,0) DUT=x GOLD=74
+ERROR TEST=52 op=100 d=0 (2,1) DUT=x GOLD=74
+Test 52 ok  op=100 M=3 K=3 N=2 D=1
+Test 53 ok  op=001 M=1 K=1 N=3 D=1
+ERROR TEST=54 op=000 d=0 (0,0) DUT=x GOLD=-311
+ERROR TEST=54 op=000 d=0 (1,0) DUT=x GOLD=-7701
+ERROR TEST=54 op=000 d=0 (2,0) DUT=x GOLD=5432
+Test 54 ok  op=000 M=3 K=3 N=1 D=1
+ERROR TEST=55 op=100 d=0 (0,0) DUT=x GOLD=-7
+ERROR TEST=55 op=100 d=0 (1,0) DUT=x GOLD=-210
+ERROR TEST=55 op=100 d=0 (2,0) DUT=x GOLD=13
+Test 55 ok  op=100 M=3 K=3 N=1 D=1
+ERROR TEST=56 op=000 d=0 (0,0) DUT=0 GOLD=8432
+ERROR TEST=56 op=000 d=0 (0,1) DUT=0 GOLD=9548
+ERROR TEST=56 op=000 d=0 (0,2) DUT=0 GOLD=-4464
+ERROR TEST=56 op=000 d=0 (0,3) DUT=0 GOLD=4464
+ERROR TEST=56 op=000 d=0 (1,0) DUT=0 GOLD=7616
+ERROR TEST=56 op=000 d=0 (1,1) DUT=0 GOLD=8624
+ERROR TEST=56 op=000 d=0 (1,2) DUT=0 GOLD=-4032
+ERROR TEST=56 op=000 d=0 (1,3) DUT=0 GOLD=4032
+Test 56 ok  op=000 M=2 K=1 N=4 D=1
+ERROR TEST=57 op=100 d=0 (0,0) DUT=0 GOLD=-91
+ERROR TEST=57 op=100 d=0 (1,0) DUT=0 GOLD=112
+Test 57 ok  op=100 M=2 K=1 N=1 D=1
+ERROR TEST=58 op=000 d=0 (0,0) DUT=0 GOLD=-11881
+ERROR TEST=58 op=000 d=0 (0,1) DUT=0 GOLD=-8066
+ERROR TEST=58 op=000 d=0 (0,2) DUT=0 GOLD=9156
+ERROR TEST=58 op=000 d=0 (1,0) DUT=0 GOLD=1962
+ERROR TEST=58 op=000 d=0 (1,1) DUT=0 GOLD=1332
+ERROR TEST=58 op=000 d=0 (1,2) DUT=0 GOLD=-1512
+ERROR TEST=58 op=000 d=0 (2,0) DUT=0 GOLD=4578
+ERROR TEST=58 op=000 d=0 (2,1) DUT=0 GOLD=3108
+ERROR TEST=58 op=000 d=0 (2,2) DUT=0 GOLD=-3528
+Test 58 ok  op=000 M=3 K=1 N=3 D=1
+Test 59 ok  op=010 M=1 K=4 N=3 D=1
+Test 60 ok  op=010 M=2 K=3 N=3 D=1
+Test 61 ok  op=011 M=3 K=4 N=1 D=1
+ERROR TEST=62 op=100 d=0 (0,0) DUT=0 GOLD=40
+ERROR TEST=62 op=100 d=0 (0,1) DUT=0 GOLD=40
+ERROR TEST=62 op=100 d=0 (0,2) DUT=0 GOLD=40
+ERROR TEST=62 op=100 d=0 (0,3) DUT=0 GOLD=40
+Test 62 ok  op=100 M=1 K=1 N=4 D=1
+ERROR TEST=63 op=000 d=0 (0,0) DUT=x GOLD=-3265
+ERROR TEST=63 op=000 d=0 (0,1) DUT=x GOLD=-1646
+ERROR TEST=63 op=000 d=0 (0,2) DUT=x GOLD=-7305
+ERROR TEST=63 op=000 d=0 (0,3) DUT=x GOLD=6128
+ERROR TEST=63 op=000 d=0 (1,0) DUT=x GOLD=23076
+ERROR TEST=63 op=000 d=0 (1,1) DUT=x GOLD=-1957
+ERROR TEST=63 op=000 d=0 (1,2) DUT=x GOLD=13498
+ERROR TEST=63 op=000 d=0 (1,3) DUT=x GOLD=-18313
+ERROR TEST=63 op=000 d=0 (2,0) DUT=x GOLD=23915
+ERROR TEST=63 op=000 d=0 (2,1) DUT=x GOLD=-11291
+ERROR TEST=63 op=000 d=0 (2,2) DUT=x GOLD=9261
+ERROR TEST=63 op=000 d=0 (2,3) DUT=x GOLD=-7028
+Test 63 ok  op=000 M=3 K=4 N=4 D=1
+ERROR TEST=64 op=100 d=0 (0,0) DUT=x GOLD=-251
+ERROR TEST=64 op=100 d=0 (0,1) DUT=x GOLD=-251
+Test 64 ok  op=100 M=1 K=2 N=2 D=1
+ERROR TEST=65 op=100 d=0 (0,0) DUT=x GOLD=-189
+ERROR TEST=65 op=100 d=0 (0,1) DUT=x GOLD=-189
+ERROR TEST=65 op=100 d=0 (0,2) DUT=x GOLD=-189
+ERROR TEST=65 op=100 d=0 (0,3) DUT=x GOLD=-189
+ERROR TEST=65 op=100 d=0 (1,0) DUT=x GOLD=227
+ERROR TEST=65 op=100 d=0 (1,1) DUT=x GOLD=227
+ERROR TEST=65 op=100 d=0 (1,2) DUT=x GOLD=227
+ERROR TEST=65 op=100 d=0 (1,3) DUT=x GOLD=227
+ERROR TEST=65 op=100 d=0 (2,0) DUT=x GOLD=-60
+ERROR TEST=65 op=100 d=0 (2,1) DUT=x GOLD=-60
+ERROR TEST=65 op=100 d=0 (2,2) DUT=x GOLD=-60
+ERROR TEST=65 op=100 d=0 (2,3) DUT=x GOLD=-60
+Test 65 ok  op=100 M=3 K=3 N=4 D=1
+Test 66 ok  op=001 M=2 K=3 N=1 D=1
+ERROR TEST=67 op=101 d=0 (0,0) DUT=0 GOLD=-24
+ERROR TEST=67 op=101 d=0 (0,1) DUT=0 GOLD=5
+ERROR TEST=67 op=101 d=0 (0,2) DUT=0 GOLD=-17
+ERROR TEST=67 op=101 d=0 (0,3) DUT=0 GOLD=116
+Test 67 ok  op=101 M=1 K=3 N=4 D=1
+Test 68 ok  op=010 M=1 K=3 N=4 D=1
+Test 69 ok  op=001 M=4 K=2 N=4 D=1
+ERROR TEST=70 op=100 d=0 (0,0) DUT=x GOLD=2
+ERROR TEST=70 op=100 d=0 (0,1) DUT=x GOLD=2
+ERROR TEST=70 op=100 d=0 (1,0) DUT=x GOLD=-1
+ERROR TEST=70 op=100 d=0 (1,1) DUT=x GOLD=-1
+ERROR TEST=70 op=100 d=0 (2,0) DUT=x GOLD=98
+ERROR TEST=70 op=100 d=0 (2,1) DUT=x GOLD=98
+ERROR TEST=70 op=100 d=0 (3,0) DUT=x GOLD=110
+ERROR TEST=70 op=100 d=0 (3,1) DUT=x GOLD=110
+Test 70 ok  op=100 M=4 K=4 N=2 D=1
+ERROR TEST=71 op=000 d=0 (0,0) DUT=x GOLD=-1018
+ERROR TEST=71 op=000 d=0 (1,0) DUT=x GOLD=-6802
+Test 71 ok  op=000 M=2 K=4 N=1 D=1
+ERROR TEST=72 op=101 d=0 (0,0) DUT=x GOLD=-286
+ERROR TEST=72 op=101 d=0 (0,1) DUT=x GOLD=-126
+ERROR TEST=72 op=101 d=0 (1,0) DUT=x GOLD=-286
+ERROR TEST=72 op=101 d=0 (1,1) DUT=x GOLD=-126
+ERROR TEST=72 op=101 d=0 (2,0) DUT=x GOLD=-286
+ERROR TEST=72 op=101 d=0 (2,1) DUT=x GOLD=-126
+Test 72 ok  op=101 M=3 K=2 N=2 D=1
+Test 73 ok  op=010 M=2 K=3 N=3 D=1
+ERROR TEST=74 op=101 d=0 (0,0) DUT=0 GOLD=56
+ERROR TEST=74 op=101 d=0 (0,1) DUT=0 GOLD=-70
+ERROR TEST=74 op=101 d=0 (0,2) DUT=0 GOLD=107
+Test 74 ok  op=101 M=1 K=3 N=3 D=1
+ERROR TEST=75 op=101 d=0 (0,0) DUT=0 GOLD=116
+ERROR TEST=75 op=101 d=0 (0,1) DUT=0 GOLD=-36
+ERROR TEST=75 op=101 d=0 (0,2) DUT=0 GOLD=-60
+Test 75 ok  op=101 M=1 K=1 N=3 D=1
+Test 76 ok  op=011 M=1 K=2 N=3 D=1
+Test 77 ok  op=011 M=1 K=4 N=2 D=1
+ERROR TEST=78 op=000 d=0 (0,0) DUT=x GOLD=-10074
+ERROR TEST=78 op=000 d=0 (0,1) DUT=x GOLD=-7581
+ERROR TEST=78 op=000 d=0 (1,0) DUT=x GOLD=7220
+ERROR TEST=78 op=000 d=0 (1,1) DUT=x GOLD=485
+ERROR TEST=78 op=000 d=0 (2,0) DUT=x GOLD=-386
+ERROR TEST=78 op=000 d=0 (2,1) DUT=x GOLD=-16232
+ERROR TEST=78 op=000 d=0 (3,0) DUT=x GOLD=3120
+ERROR TEST=78 op=000 d=0 (3,1) DUT=x GOLD=-9066
+Test 78 ok  op=000 M=4 K=2 N=2 D=1
+ERROR TEST=79 op=101 d=0 (0,0) DUT=x GOLD=-73
+ERROR TEST=79 op=101 d=0 (0,1) DUT=x GOLD=122
+ERROR TEST=79 op=101 d=0 (1,0) DUT=x GOLD=-73
+ERROR TEST=79 op=101 d=0 (1,1) DUT=x GOLD=122
+ERROR TEST=79 op=101 d=0 (2,0) DUT=x GOLD=-73
+ERROR TEST=79 op=101 d=0 (2,1) DUT=x GOLD=122
+Test 79 ok  op=101 M=3 K=3 N=2 D=1
+Test 80 ok  op=001 M=3 K=3 N=4 D=1
+ERROR TEST=81 op=100 d=0 (0,0) DUT=x GOLD=25
+ERROR TEST=81 op=100 d=0 (0,1) DUT=x GOLD=25
+Test 81 ok  op=100 M=1 K=4 N=2 D=1
+ERROR TEST=82 op=100 d=0 (0,0) DUT=x GOLD=-95
+ERROR TEST=82 op=100 d=0 (1,0) DUT=x GOLD=51
+Test 82 ok  op=100 M=2 K=4 N=1 D=1
+Test 83 ok  op=001 M=2 K=3 N=4 D=1
+ERROR TEST=84 op=101 d=0 (0,0) DUT=0 GOLD=62
+ERROR TEST=84 op=101 d=0 (0,1) DUT=0 GOLD=-85
+ERROR TEST=84 op=101 d=0 (0,2) DUT=0 GOLD=-125
+Test 84 ok  op=101 M=1 K=2 N=3 D=1
+Test 85 ok  op=010 M=3 K=1 N=3 D=1
+ERROR TEST=86 op=101 d=0 (0,0) DUT=x GOLD=17
+ERROR TEST=86 op=101 d=0 (0,1) DUT=x GOLD=-21
+ERROR TEST=86 op=101 d=0 (0,2) DUT=x GOLD=10
+ERROR TEST=86 op=101 d=0 (1,0) DUT=x GOLD=17
+ERROR TEST=86 op=101 d=0 (1,1) DUT=x GOLD=-21
+ERROR TEST=86 op=101 d=0 (1,2) DUT=x GOLD=10
+Test 86 ok  op=101 M=2 K=4 N=3 D=1
+Test 87 ok  op=010 M=3 K=2 N=1 D=1
+ERROR TEST=88 op=000 d=0 (0,0) DUT=x GOLD=7578
+ERROR TEST=88 op=000 d=0 (0,1) DUT=x GOLD=2203
+ERROR TEST=88 op=000 d=0 (0,2) DUT=x GOLD=-871
+ERROR TEST=88 op=000 d=0 (0,3) DUT=x GOLD=16465
+ERROR TEST=88 op=000 d=0 (1,0) DUT=x GOLD=746
+ERROR TEST=88 op=000 d=0 (1,1) DUT=x GOLD=7316
+ERROR TEST=88 op=000 d=0 (1,2) DUT=x GOLD=1460
+ERROR TEST=88 op=000 d=0 (1,3) DUT=x GOLD=652
+ERROR TEST=88 op=000 d=0 (2,0) DUT=x GOLD=11956
+ERROR TEST=88 op=000 d=0 (2,1) DUT=x GOLD=-4186
+ERROR TEST=88 op=000 d=0 (2,2) DUT=x GOLD=-3631
+ERROR TEST=88 op=000 d=0 (2,3) DUT=x GOLD=29143
+ERROR TEST=88 op=000 d=0 (3,0) DUT=x GOLD=7928
+ERROR TEST=88 op=000 d=0 (3,1) DUT=x GOLD=-7047
+ERROR TEST=88 op=000 d=0 (3,2) DUT=x GOLD=-4609
+ERROR TEST=88 op=000 d=0 (3,3) DUT=x GOLD=24487
+Test 88 ok  op=000 M=4 K=3 N=4 D=1
+Test 89 ok  op=001 M=1 K=3 N=1 D=1
+ERROR TEST=90 op=100 d=0 (0,0) DUT=x GOLD=81
+ERROR TEST=90 op=100 d=0 (1,0) DUT=x GOLD=-58
+ERROR TEST=90 op=100 d=0 (2,0) DUT=x GOLD=-95
+Test 90 ok  op=100 M=3 K=3 N=1 D=1
+Test 91 ok  op=010 M=2 K=1 N=4 D=1
+ERROR TEST=92 op=000 d=0 (0,0) DUT=x GOLD=-4384
+ERROR TEST=92 op=000 d=0 (0,1) DUT=x GOLD=-376
+ERROR TEST=92 op=000 d=0 (0,2) DUT=x GOLD=-12911
+Test 92 ok  op=000 M=1 K=2 N=3 D=1
+ERROR TEST=93 op=101 d=0 (0,0) DUT=0 GOLD=-11
+ERROR TEST=93 op=101 d=0 (0,1) DUT=0 GOLD=1
+ERROR TEST=93 op=101 d=0 (0,2) DUT=0 GOLD=-30
+Test 93 ok  op=101 M=1 K=4 N=3 D=1
+Test 94 ok  op=011 M=3 K=1 N=1 D=1
+ERROR TEST=95 op=101 d=0 (0,0) DUT=0 GOLD=56
+ERROR TEST=95 op=101 d=0 (0,1) DUT=0 GOLD=-126
+ERROR TEST=95 op=101 d=0 (0,2) DUT=0 GOLD=123
+ERROR TEST=95 op=101 d=0 (0,3) DUT=0 GOLD=32
+Test 95 ok  op=101 M=1 K=2 N=4 D=1
+Test 96 ok  op=010 M=4 K=3 N=3 D=1
+ERROR TEST=97 op=101 d=0 (0,0) DUT=0 GOLD=121
+Test 97 ok  op=101 M=1 K=3 N=1 D=1
+ERROR TEST=98 op=000 d=0 (0,0) DUT=x GOLD=-3268
+ERROR TEST=98 op=000 d=0 (0,1) DUT=x GOLD=1016
+ERROR TEST=98 op=000 d=0 (0,2) DUT=x GOLD=-4194
+ERROR TEST=98 op=000 d=0 (1,0) DUT=x GOLD=7409
+ERROR TEST=98 op=000 d=0 (1,1) DUT=x GOLD=-9040
+ERROR TEST=98 op=000 d=0 (1,2) DUT=x GOLD=13045
+Test 98 ok  op=000 M=2 K=3 N=3 D=1
+Test 99 ok  op=011 M=1 K=3 N=3 D=1
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver2_6\Ver2_6.srcs\sources_1\new\uart_tensor_bridge.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver2_6\Ver2_6.srcs\sources_1\new\matrix_cont.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver2_6\Ver2_6.srcs\sources_1\new\matrix_cont.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\kpcha\Desktop\College\DSD\Ver2_6\Ver2_6.srcs\sources_1\new\matrix_cont.sv:]
+ERROR: [Common 17-180] Spawn failed: The operation completed successfully.
+
+relaunch_sim
+Command: launch_simulation -step compile -simset sim_1 -mode behavioral
+INFO: [Vivado 12-12493] Simulation top is 'tb_uart_tensor_bridge'
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-72] Using boost library from 'C:/Xilinx/2025.1/Vivado/tps/boost_1_72_0'
+INFO: [SIM-utils-54] Inspecting design source files for 'tb_uart_tensor_bridge' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-100] Fetching design files from 'sources_1'...(this may take a while)...
+INFO: [USF-XSim-101] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -L uvm -prj tb_uart_tensor_bridge_vlog.prj"
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/accel_fsm.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module accel_fsm
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/accel_top.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module accel_top
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/mac.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module mac
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/matrix_cont.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module matrix_cont
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/simd_array.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module simd_array
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/vector_lane.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module vector_lane
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/tensor_top.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module tensor_top
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/uart_rx.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module uart_rx
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/uart_tensor_bridge.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module uart_tensor_bridge
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sources_1/new/uart_tx.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module uart_tx
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sim_1/new/tb.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module tb_tensor_top_random
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sim_1/new/tb_BRAM.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module tb_tensor_top_bram_random
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.srcs/sim_1/new/tb_uart.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module tb_uart_tensor_bridge
+INFO: [USF-XSim-69] 'compile' step finished in '1' seconds
+Command: launch_simulation -step elaborate -simset sim_1 -mode behavioral
+INFO: [Vivado 12-12493] Simulation top is 'tb_uart_tensor_bridge'
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'C:/Users/kpcha/Desktop/College/DSD/Ver2_6/Ver2_6.sim/sim_1/behav/xsim'
+"xelab --incr --debug typical --relax --mt 2 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip --snapshot tb_uart_tensor_bridge_behav xil_defaultlib.tb_uart_tensor_bridge xil_defaultlib.glbl -log elaborate.log"
+Vivado Simulator v2025.1.0
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: C:/Xilinx/2025.1/Vivado/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip --snapshot tb_uart_tensor_bridge_behav xil_defaultlib.tb_uart_tensor_bridge xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.uart_rx(CLKS_PER_BIT=10)
+Compiling module xil_defaultlib.uart_tx(CLKS_PER_BIT=10)
+Compiling module xil_defaultlib.tensor_bram(DEPTH=1024)
+Compiling module xil_defaultlib.tensor_bram(WIDTH=36,DEPTH=1024)
+Compiling module xil_defaultlib.accel_fsm
+Compiling module xil_defaultlib.mac(ACC=36)
+Compiling module xil_defaultlib.vector_lane(ACC=36,N_MAX=16)
+Compiling module xil_defaultlib.simd_array(ACC=36,N_MAX=16,LANES...
+Compiling module xil_defaultlib.accel_top(ACC=36,N_MAX=16,LANES=...
+Compiling module xil_defaultlib.matrix_cont(N_MAX=16,LANES=8,TIL...
+Compiling module xil_defaultlib.tensor_top(ACC=36,DEPTH=1024)
+Compiling module xil_defaultlib.uart_tensor_bridge(CLKS_PER_BIT=...
+Compiling module xil_defaultlib.tb_uart_tensor_bridge
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot tb_uart_tensor_bridge_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '4' seconds
+Time resolution is 1 ps
+relaunch_sim: Time (s): cpu = 00:00:02 ; elapsed = 00:00:09 . Memory (MB): peak = 7056.645 ; gain = 3.207
+run 10 ms
+Test 0 ok  op=000 M=2 K=2 N=2 D=1
+Test 1 ok  op=001 M=1 K=1 N=1 D=1
+Test 2 ok  op=010 M=2 K=2 N=2 D=1
+Test 3 ok  op=011 M=2 K=2 N=2 D=1
+Test 4 ok  op=100 M=2 K=3 N=3 D=1
+Test 5 ok  op=101 M=2 K=2 N=2 D=1
+Test 6 ok  op=000 M=2 K=2 N=2 D=1
+Test 7 ok  op=010 M=4 K=4 N=1 D=1
+Test 8 ok  op=100 M=4 K=2 N=1 D=1
+Test 9 ok  op=001 M=1 K=3 N=1 D=1
+Test 10 ok  op=100 M=3 K=4 N=3 D=1
+Test 11 ok  op=010 M=2 K=1 N=3 D=1
+Test 12 ok  op=011 M=2 K=3 N=4 D=1
+Test 13 ok  op=100 M=2 K=3 N=1 D=1
+Test 14 ok  op=001 M=1 K=3 N=1 D=1
+Test 15 ok  op=000 M=3 K=2 N=1 D=1
+Test 16 ok  op=010 M=4 K=1 N=4 D=1
+Test 17 ok  op=011 M=4 K=3 N=1 D=1
+Test 18 ok  op=010 M=1 K=4 N=1 D=1
+Test 19 ok  op=001 M=2 K=1 N=1 D=1
+Test 20 ok  op=100 M=1 K=3 N=3 D=1
+Test 21 ok  op=100 M=3 K=1 N=4 D=1
+Test 22 ok  op=001 M=2 K=2 N=2 D=1
+Test 23 ok  op=000 M=4 K=1 N=4 D=1
+Test 24 ok  op=100 M=1 K=4 N=4 D=1
+Test 25 ok  op=010 M=3 K=3 N=1 D=1
+Test 26 ok  op=010 M=1 K=4 N=2 D=1
+Test 27 ok  op=101 M=1 K=3 N=3 D=1
+Test 28 ok  op=100 M=4 K=1 N=1 D=1
+Test 29 ok  op=100 M=4 K=3 N=4 D=1
+Test 30 ok  op=100 M=4 K=1 N=1 D=1
+Test 31 ok  op=100 M=4 K=1 N=1 D=1
+Test 32 ok  op=100 M=2 K=4 N=4 D=1
+Test 33 ok  op=101 M=3 K=3 N=3 D=1
+Test 34 ok  op=000 M=3 K=3 N=1 D=1
+Test 35 ok  op=001 M=4 K=2 N=4 D=1
+Test 36 ok  op=100 M=1 K=2 N=3 D=1
+Test 37 ok  op=101 M=2 K=1 N=3 D=1
+Test 38 ok  op=100 M=1 K=1 N=2 D=1
+Test 39 ok  op=100 M=3 K=3 N=1 D=1
+Test 40 ok  op=100 M=2 K=3 N=4 D=1
+Test 41 ok  op=101 M=3 K=4 N=2 D=1
+Test 42 ok  op=001 M=1 K=2 N=2 D=1
+Test 43 ok  op=010 M=4 K=2 N=1 D=1
+Test 44 ok  op=010 M=1 K=4 N=1 D=1
+Test 45 ok  op=011 M=4 K=1 N=3 D=1
+Test 46 ok  op=001 M=3 K=3 N=1 D=1
+Test 47 ok  op=100 M=2 K=1 N=3 D=1
+Test 48 ok  op=100 M=2 K=2 N=1 D=1
+Test 49 ok  op=000 M=4 K=3 N=1 D=1
+Test 50 ok  op=100 M=1 K=2 N=1 D=1
+Test 51 ok  op=101 M=1 K=3 N=1 D=1
+Test 52 ok  op=100 M=3 K=3 N=2 D=1
+Test 53 ok  op=001 M=1 K=1 N=3 D=1
+Test 54 ok  op=000 M=3 K=3 N=1 D=1
+Test 55 ok  op=100 M=3 K=3 N=1 D=1
+Test 56 ok  op=000 M=2 K=1 N=4 D=1
+Test 57 ok  op=100 M=2 K=1 N=1 D=1
+Test 58 ok  op=000 M=3 K=1 N=3 D=1
+Test 59 ok  op=010 M=1 K=4 N=3 D=1
+Test 60 ok  op=010 M=2 K=3 N=3 D=1
+Test 61 ok  op=011 M=3 K=4 N=1 D=1
+Test 62 ok  op=100 M=1 K=1 N=4 D=1
+Test 63 ok  op=000 M=3 K=4 N=4 D=1
+Test 64 ok  op=100 M=1 K=2 N=2 D=1
+Test 65 ok  op=100 M=3 K=3 N=4 D=1
+Test 66 ok  op=001 M=2 K=3 N=1 D=1
+Test 67 ok  op=101 M=1 K=3 N=4 D=1
+Test 68 ok  op=010 M=1 K=3 N=4 D=1
+Test 69 ok  op=001 M=4 K=2 N=4 D=1
+Test 70 ok  op=100 M=4 K=4 N=2 D=1
+Test 71 ok  op=000 M=2 K=4 N=1 D=1
+Test 72 ok  op=101 M=3 K=2 N=2 D=1
+Test 73 ok  op=010 M=2 K=3 N=3 D=1
+Test 74 ok  op=101 M=1 K=3 N=3 D=1
+Test 75 ok  op=101 M=1 K=1 N=3 D=1
+Test 76 ok  op=011 M=1 K=2 N=3 D=1
+Test 77 ok  op=011 M=1 K=4 N=2 D=1
+Test 78 ok  op=000 M=4 K=2 N=2 D=1
+Test 79 ok  op=101 M=3 K=3 N=2 D=1
+Test 80 ok  op=001 M=3 K=3 N=4 D=1
+Test 81 ok  op=100 M=1 K=4 N=2 D=1
+Test 82 ok  op=100 M=2 K=4 N=1 D=1
+Test 83 ok  op=001 M=2 K=3 N=4 D=1
+Test 84 ok  op=101 M=1 K=2 N=3 D=1
+Test 85 ok  op=010 M=3 K=1 N=3 D=1
+Test 86 ok  op=101 M=2 K=4 N=3 D=1
+Test 87 ok  op=010 M=3 K=2 N=1 D=1
+Test 88 ok  op=000 M=4 K=3 N=4 D=1
+Test 89 ok  op=001 M=1 K=3 N=1 D=1
+Test 90 ok  op=100 M=3 K=3 N=1 D=1
+Test 91 ok  op=010 M=2 K=1 N=4 D=1
+Test 92 ok  op=000 M=1 K=2 N=3 D=1
+Test 93 ok  op=101 M=1 K=4 N=3 D=1
+Test 94 ok  op=011 M=3 K=1 N=1 D=1
+Test 95 ok  op=101 M=1 K=2 N=4 D=1
+Test 96 ok  op=010 M=4 K=3 N=3 D=1
+Test 97 ok  op=101 M=1 K=3 N=1 D=1
+Test 98 ok  op=000 M=2 K=3 N=3 D=1
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+exit
+INFO: [Common 17-206] Exiting Vivado at Sat Mar 28 22:39:21 2026...

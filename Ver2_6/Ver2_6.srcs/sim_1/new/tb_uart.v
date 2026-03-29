@@ -23,19 +23,13 @@
 // =============================================================================
 //  tb_uart_tensor_bridge.sv  (depth-extended)
 //
-//  Tests uart_tensor_bridge with MAX_DEPTH=4.
+//  Simulation stubs for bram_A, bram_B, bram_C are defined at the bottom of
+//  this file.  They wrap tensor_bram with Xilinx TDP port names so the design
+//  simulates without needing the actual IP.  Remove the stubs (and keep only
+//  tensor_bram.v) when moving to synthesis - the real IPs take over there.
 //
-//  Protocol changes reflected here:
-//    - WRITE_A/B addresses are 2 bytes (addr_hi, addr_lo)
-//    - RUN packet includes D byte after N
-//    - READ_C address is 2 bytes
-//    - Flat address = d * MAX_DIM * MAX_DIM + row * MAX_DIM + col
-//
-//  Test structure:
-//    1. All original 2D directed tests (D=1) - verifies backward compatibility
-//    2. 2D randomised stress (D=1)
-//    3. 3D directed tests  (D=2,3,4) - new tensor tests
-//    4. 3D randomised stress
+//  Parameters used by the stubs must match uart_tensor_bridge defaults:
+//    WIDTH=16, ACC=36, DEPTH=1024, ADDR_W=10
 // =============================================================================
 
 module tb_uart_tensor_bridge;
@@ -47,12 +41,12 @@ module tb_uart_tensor_bridge;
     localparam WIDTH        = 16;
     localparam MAX_DIM      = 16;
     localparam MAX_DEPTH    = 4;
-    localparam ACC          = 2*WIDTH + $clog2(MAX_DIM);   // 36
+    localparam ACC          = 2*WIDTH + $clog2(MAX_DIM);     // 36
     localparam DEPTH        = MAX_DEPTH * MAX_DIM * MAX_DIM; // 1024
-    localparam ADDR_W       = $clog2(DEPTH);               // 10
-    localparam DIM_W        = $clog2(MAX_DIM + 1);         // 5
-    localparam DEP_W        = $clog2(MAX_DEPTH + 1);       // 3
-    localparam TX_BYTES     = (ACC + 7) / 8;               // 5
+    localparam ADDR_W       = $clog2(DEPTH);                 // 10
+    localparam DIM_W        = $clog2(MAX_DIM + 1);           // 5
+    localparam DEP_W        = $clog2(MAX_DEPTH + 1);         // 3
+    localparam TX_BYTES     = (ACC + 7) / 8;                 // 5
 
     // =========================================================================
     // Clock / Reset
@@ -86,7 +80,7 @@ module tb_uart_tensor_bridge;
     );
 
     // =========================================================================
-    // Reference storage - now depth-indexed
+    // Reference storage
     // =========================================================================
     reg signed [WIDTH-1:0] A_ref [0:MAX_DEPTH-1][0:MAX_DIM-1][0:MAX_DIM-1];
     reg signed [WIDTH-1:0] B_ref [0:MAX_DEPTH-1][0:MAX_DIM-1][0:MAX_DIM-1];
@@ -107,18 +101,13 @@ module tb_uart_tensor_bridge;
     task automatic send_byte (input [7:0] data);
         integer b;
         begin
-            // Start bit (drive away from sampling edge)
             @(negedge clk);
             uart_rxd = 1'b0;
             repeat (CLKS_PER_BIT) @(negedge clk);
-    
-            // Data bits
             for (b = 0; b < 8; b = b + 1) begin
                 uart_rxd = data[b];
                 repeat (CLKS_PER_BIT) @(negedge clk);
             end
-    
-            // Stop bit
             uart_rxd = 1'b1;
             repeat (CLKS_PER_BIT) @(negedge clk);
         end
@@ -128,17 +117,13 @@ module tb_uart_tensor_bridge;
         integer b;
         begin
             @(negedge uart_txd);
-    
-            // Move to middle of first data bit
             repeat (CLKS_PER_BIT + CLKS_PER_BIT/2) @(posedge clk);
-    
             for (b = 0; b < 8; b = b + 1) begin
                 data[b] = uart_txd;
                 if (b < 7)
                     repeat (CLKS_PER_BIT) @(posedge clk);
             end
-    
-            repeat (CLKS_PER_BIT) @(posedge clk); // stop bit
+            repeat (CLKS_PER_BIT) @(posedge clk);
         end
     endtask
 
@@ -154,25 +139,22 @@ module tb_uart_tensor_bridge;
     endtask
 
     // =========================================================================
-    // Protocol helpers - 2-byte address versions
+    // Protocol helpers
     // =========================================================================
-
-    // WRITE_A: [0x01][addr_hi][addr_lo][data_hi][data_lo] → ACK
     task automatic uart_write_a (
         input [ADDR_W-1:0]       addr,
         input signed [WIDTH-1:0] data
     );
         begin
             send_byte(8'h01);
-            send_byte(8'(addr[ADDR_W-1:8]));   // addr high byte
-            send_byte(8'(addr[7:0]));            // addr low  byte
+            send_byte(8'(addr[ADDR_W-1:8]));
+            send_byte(8'(addr[7:0]));
             send_byte(data[15:8]);
             send_byte(data[7:0]);
             recv_ack();
         end
     endtask
 
-    // WRITE_B: [0x02][addr_hi][addr_lo][data_hi][data_lo] → ACK
     task automatic uart_write_b (
         input [ADDR_W-1:0]       addr,
         input signed [WIDTH-1:0] data
@@ -187,7 +169,6 @@ module tb_uart_tensor_bridge;
         end
     endtask
 
-    // RUN: [0x03][op][M][K][N][D] → ACK
     task automatic uart_run (
         input [2:0]       op,
         input [DIM_W-1:0] M, K, N,
@@ -204,7 +185,6 @@ module tb_uart_tensor_bridge;
         end
     endtask
 
-    // READ_C: [0x04][addr_hi][addr_lo] → TX_BYTES MSB-first
     task automatic uart_read_c (
         input  [ADDR_W-1:0] addr,
         output [ACC-1:0]    c_val
@@ -225,8 +205,6 @@ module tb_uart_tensor_bridge;
 
     // =========================================================================
     // Flat address helper
-    //   2D (D=1): addr = row * MAX_DIM + col          (d=0 implied)
-    //   3D:       addr = d * MAX_DIM*MAX_DIM + row * MAX_DIM + col
     // =========================================================================
     function automatic [ADDR_W-1:0] flat_addr(
         input int d_idx, row, col
@@ -235,7 +213,7 @@ module tb_uart_tensor_bridge;
     endfunction
 
     // =========================================================================
-    // Randomise matrices  (per depth slice)
+    // Randomise matrices
     // =========================================================================
     task automatic randomize_matrices (
         input [2:0]       op,
@@ -307,7 +285,7 @@ module tb_uart_tensor_bridge;
     endtask
 
     // =========================================================================
-    // Load BRAMs (all depth slices)
+    // Load BRAMs
     // =========================================================================
     task automatic load_to_bram (
         input [2:0]       op,
@@ -342,7 +320,7 @@ module tb_uart_tensor_bridge;
     endtask
 
     // =========================================================================
-    // Golden model (per depth slice, independently)
+    // Golden model
     // =========================================================================
     task automatic compute_golden (
         input [2:0]       op,
@@ -378,7 +356,7 @@ module tb_uart_tensor_bridge;
     endtask
 
     // =========================================================================
-    // Compare results (read all depth slices from bram_C)
+    // Compare results
     // =========================================================================
     task automatic compare_result (
         input [2:0]       op,
@@ -435,10 +413,9 @@ module tb_uart_tensor_bridge;
         repeat (5)  @(posedge clk);
 
         // ==================================================================
-        // SECTION 1: original 2D directed tests (D=1) - backward compat
+        // SECTION 1: 2D directed tests (D=1)
         // ==================================================================
 
-        // Test 0: 2×2 MATMUL
         test = 0;
         A_ref[0][0][0]=1;  A_ref[0][0][1]=2;
         A_ref[0][1][0]=3;  A_ref[0][1][1]=4;
@@ -446,13 +423,11 @@ module tb_uart_tensor_bridge;
         B_ref[0][1][0]=7;  B_ref[0][1][1]=8;
         run_test(3'b000, 2, 2, 2, 1);
 
-        // Test 1: 1×1 ADD  (100 + -100 = 0)
         test = 1;
         A_ref[0][0][0] = 16'sh0064;
         B_ref[0][0][0] = 16'shFF9C;
         run_test(3'b001, 1, 1, 1, 1);
 
-        // Test 2: 2×2 SUB
         test = 2;
         A_ref[0][0][0]=10; A_ref[0][0][1]=20;
         A_ref[0][1][0]=30; A_ref[0][1][1]=40;
@@ -460,7 +435,6 @@ module tb_uart_tensor_bridge;
         B_ref[0][1][0]=3;  B_ref[0][1][1]=4;
         run_test(3'b010, 2, 2, 2, 1);
 
-        // Test 3: 2×2 HADAMARD
         test = 3;
         A_ref[0][0][0]=3; A_ref[0][0][1]=4;
         A_ref[0][1][0]=5; A_ref[0][1][1]=6;
@@ -468,19 +442,16 @@ module tb_uart_tensor_bridge;
         B_ref[0][1][0]=4; B_ref[0][1][1]=5;
         run_test(3'b011, 2, 2, 2, 1);
 
-        // Test 4: 2×3 ROW_ACCUM
         test = 4;
         A_ref[0][0][0]=1; A_ref[0][0][1]=2; A_ref[0][0][2]=3;
         A_ref[0][1][0]=4; A_ref[0][1][1]=5; A_ref[0][1][2]=6;
         run_test(3'b100, 2, 3, 3, 1);
 
-        // Test 5: 2×2 COL_ACCUM
         test = 5;
         A_ref[0][0][0]=1; A_ref[0][0][1]=2;
         A_ref[0][1][0]=3; A_ref[0][1][1]=4;
         run_test(3'b101, 2, 2, 2, 1);
 
-        // Test 6: 2×2 MATMUL signed
         test = 6;
         A_ref[0][0][0]=-3; A_ref[0][0][1]= 2;
         A_ref[0][1][0]= 1; A_ref[0][1][1]=-4;
@@ -511,9 +482,6 @@ module tb_uart_tensor_bridge;
         // SECTION 3: 3D directed tests
         // ==================================================================
 
-        // Test 207: D=2, 2×2 MATMUL
-        //   A[0]=[[1,2],[3,4]]  B[0]=[[5,6],[7,8]]  → C[0]=[[19,22],[43,50]]
-        //   A[1]=[[2,0],[0,3]]  B[1]=[[1,0],[0,1]]  → C[1]=[[2,0],[0,3]]
         test = 207;
         A_ref[0][0][0]=1; A_ref[0][0][1]=2;
         A_ref[0][1][0]=3; A_ref[0][1][1]=4;
@@ -525,8 +493,6 @@ module tb_uart_tensor_bridge;
         B_ref[1][1][0]=0; B_ref[1][1][1]=1;
         run_test(3'b000, 2, 2, 2, 2);
 
-        // Test 208: D=2, 2×2 ADD
-        //   Each slice: C[d] = A[d] + B[d]
         test = 208;
         A_ref[0][0][0]=10; A_ref[0][0][1]=20;
         A_ref[0][1][0]=30; A_ref[0][1][1]=40;
@@ -538,43 +504,37 @@ module tb_uart_tensor_bridge;
         B_ref[1][1][0]=-5; B_ref[1][1][1]=5;
         run_test(3'b001, 2, 2, 2, 2);
 
-        // Test 209: D=3, 1×1 MATMUL (scalar multiply per slice)
-        //   C[d][0][0] = A[d][0][0] * B[d][0][0]
         test = 209;
-        A_ref[0][0][0]=3;  B_ref[0][0][0]=4;   // 12
-        A_ref[1][0][0]=-2; B_ref[1][0][0]=5;   // -10
-        A_ref[2][0][0]=7;  B_ref[2][0][0]=-3;  // -21
+        A_ref[0][0][0]=3;  B_ref[0][0][0]=4;
+        A_ref[1][0][0]=-2; B_ref[1][0][0]=5;
+        A_ref[2][0][0]=7;  B_ref[2][0][0]=-3;
         run_test(3'b000, 1, 1, 1, 3);
 
-        // Test 210: D=4, 2×2 HADAMARD (element-wise multiply, all slices)
         test = 210;
         A_ref[0][0][0]=1; A_ref[0][0][1]=2; A_ref[0][1][0]=3; A_ref[0][1][1]=4;
         B_ref[0][0][0]=4; B_ref[0][0][1]=3; B_ref[0][1][0]=2; B_ref[0][1][1]=1;
         A_ref[1][0][0]=5; A_ref[1][0][1]=6; A_ref[1][1][0]=7; A_ref[1][1][1]=8;
         B_ref[1][0][0]=8; B_ref[1][0][1]=7; B_ref[1][1][0]=6; B_ref[1][1][1]=5;
-        A_ref[2][0][0]=-1; A_ref[2][0][1]=2; A_ref[2][1][0]=-3; A_ref[2][1][1]=4;
+        A_ref[2][0][0]=-1; A_ref[2][0][1]=2;  A_ref[2][1][0]=-3; A_ref[2][1][1]=4;
         B_ref[2][0][0]=2;  B_ref[2][0][1]=-3; B_ref[2][1][0]=4;  B_ref[2][1][1]=-5;
         A_ref[3][0][0]=10; A_ref[3][0][1]=20; A_ref[3][1][0]=30; A_ref[3][1][1]=40;
         B_ref[3][0][0]=1;  B_ref[3][0][1]=1;  B_ref[3][1][0]=1;  B_ref[3][1][1]=1;
         run_test(3'b011, 2, 2, 2, 4);
 
-        // Test 211: D=2, 2×3 ROW_ACCUM (batch)
         test = 211;
-        A_ref[0][0][0]=1; A_ref[0][0][1]=2; A_ref[0][0][2]=3;
-        A_ref[0][1][0]=4; A_ref[0][1][1]=5; A_ref[0][1][2]=6;
-        A_ref[1][0][0]=7; A_ref[1][0][1]=8; A_ref[1][0][2]=9;
+        A_ref[0][0][0]=1;  A_ref[0][0][1]=2;  A_ref[0][0][2]=3;
+        A_ref[0][1][0]=4;  A_ref[0][1][1]=5;  A_ref[0][1][2]=6;
+        A_ref[1][0][0]=7;  A_ref[1][0][1]=8;  A_ref[1][0][2]=9;
         A_ref[1][1][0]=10; A_ref[1][1][1]=11; A_ref[1][1][2]=12;
         run_test(3'b100, 2, 3, 3, 2);
 
-        // Test 212: D=2, 2×2 COL_ACCUM (batch)
         test = 212;
-        A_ref[0][0][0]=1; A_ref[0][0][1]=2;
-        A_ref[0][1][0]=3; A_ref[0][1][1]=4;
+        A_ref[0][0][0]=1;  A_ref[0][0][1]=2;
+        A_ref[0][1][0]=3;  A_ref[0][1][1]=4;
         A_ref[1][0][0]=10; A_ref[1][0][1]=20;
         A_ref[1][1][0]=30; A_ref[1][1][1]=40;
         run_test(3'b101, 2, 2, 2, 2);
 
-        // Test 213: D=3, 2×2 SUB (batch)
         test = 213;
         A_ref[0][0][0]=100; A_ref[0][0][1]=200;
         A_ref[0][1][0]=300; A_ref[0][1][1]=400;
@@ -597,7 +557,7 @@ module tb_uart_tensor_bridge;
             M = DIM_W'($urandom_range(1, 4));
             K = DIM_W'($urandom_range(1, 4));
             N = DIM_W'($urandom_range(1, 4));
-            D = DEP_W'($urandom_range(2, MAX_DEPTH));   // always multi-slice
+            D = DEP_W'($urandom_range(2, MAX_DEPTH));
             case ($urandom_range(0, 5))
                 0: op = 3'b000;
                 1: op = 3'b001;
@@ -628,4 +588,124 @@ module tb_uart_tensor_bridge;
         $finish;
     end
 
+endmodule
+
+
+// =============================================================================
+//  SIMULATION-ONLY BRAM STUBS
+//
+//  These wrap tensor_bram.v with Xilinx True Dual Port port names.
+//  They are used ONLY in simulation.  For synthesis, remove these and let
+//  the real Xilinx IPs (bram_A, bram_B, bram_C) take over.
+//
+//  Parameters:
+//    bram_A / bram_B : WIDTH=16, DEPTH=1024 (MAX_DEPTH*MAX_DIM*MAX_DIM)
+//    bram_C          : WIDTH=36 (ACC),  DEPTH=1024
+//
+//  Port mapping (Xilinx TDP → tensor_bram):
+//    clka / wea / addra / dina / douta  →  clk / we_a / addr_a / din_a / dout_a
+//    clkb / web / addrb / dinb / doutb  →  clk / we_b / addr_b / din_b / dout_b
+//
+//  NOTE: clkb is accepted but ignored - tensor_bram is single-clock.
+//        Both ports share clka internally, which matches the single-clock
+//        True Dual Port configuration used in the real IPs.
+// =============================================================================
+
+module bram_a #(
+    parameter WIDTH  = 16,
+    parameter DEPTH  = 1024,
+    parameter ADDR_W = $clog2(DEPTH)
+)(
+    input  wire               clka,
+    input  wire               ena,    // port enable - ignored in sim (always active)
+    input  wire               wea,
+    input  wire [ADDR_W-1:0]  addra,
+    input  wire [WIDTH-1:0]   dina,
+    output wire [WIDTH-1:0]   douta,
+
+    input  wire               clkb,
+    input  wire               enb,    // port enable - ignored in sim (always active)
+    input  wire               web,
+    input  wire [ADDR_W-1:0]  addrb,
+    input  wire [WIDTH-1:0]   dinb,
+    output wire [WIDTH-1:0]   doutb
+);
+    tensor_bram #(.WIDTH(WIDTH), .DEPTH(DEPTH)) u (
+        .clk    (clka),
+        .we_a   (wea),
+        .addr_a (addra),
+        .din_a  (dina),
+        .dout_a (douta),
+        .we_b   (web),
+        .addr_b (addrb),
+        .din_b  (dinb),
+        .dout_b (doutb)
+    );
+endmodule
+
+
+module bram_b #(
+    parameter WIDTH  = 16,
+    parameter DEPTH  = 1024,
+    parameter ADDR_W = $clog2(DEPTH)
+)(
+    input  wire               clka,
+    input  wire               ena,
+    input  wire               wea,
+    input  wire [ADDR_W-1:0]  addra,
+    input  wire [WIDTH-1:0]   dina,
+    output wire [WIDTH-1:0]   douta,
+
+    input  wire               clkb,
+    input  wire               enb,
+    input  wire               web,
+    input  wire [ADDR_W-1:0]  addrb,
+    input  wire [WIDTH-1:0]   dinb,
+    output wire [WIDTH-1:0]   doutb
+);
+    tensor_bram #(.WIDTH(WIDTH), .DEPTH(DEPTH)) u (
+        .clk    (clka),
+        .we_a   (wea),
+        .addr_a (addra),
+        .din_a  (dina),
+        .dout_a (douta),
+        .we_b   (web),
+        .addr_b (addrb),
+        .din_b  (dinb),
+        .dout_b (doutb)
+    );
+endmodule
+
+
+// bram_C: wider data port (ACC bits) for the output/accumulator BRAM
+module bram_c #(
+    parameter WIDTH  = 36,   // ACC = 2*16 + $clog2(16) = 36
+    parameter DEPTH  = 1024,
+    parameter ADDR_W = $clog2(DEPTH)
+)(
+    input  wire               clka,
+    input  wire               ena,
+    input  wire               wea,
+    input  wire [ADDR_W-1:0]  addra,
+    input  wire [WIDTH-1:0]   dina,
+    output wire [WIDTH-1:0]   douta,
+
+    input  wire               clkb,
+    input  wire               enb,
+    input  wire               web,
+    input  wire [ADDR_W-1:0]  addrb,
+    input  wire [WIDTH-1:0]   dinb,
+    output wire [WIDTH-1:0]   doutb
+);
+    tensor_bram #(.WIDTH(WIDTH), .DEPTH(DEPTH)) u (
+        .clk    (clka),
+        .we_a   (wea),
+        .addr_a (addra),
+        .din_a  (dina),
+        .dout_a (douta),
+        .we_b   (web),
+        .addr_b (addrb),
+        .din_b  (dinb),
+        .dout_b (doutb)
+    );
 endmodule
