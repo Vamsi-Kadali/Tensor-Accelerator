@@ -5,18 +5,18 @@ Algorithm                  :     Minimum_Area
 Memory Type                :     True_Dual_Port_RAM
 Port A Read Width          :     [38]
 Port A Write Width         :     [38]
-Memory Depth               :     [16384]
+Memory Depth               :     [65536]
 Port B Read Width          :     [38]
 Port B Write Width         :     [38]
 
 ----------------------------------------------------------------------------------
 
 Block RAM resource(s) (18K BRAMs)    : [0]
-Block RAM resource(s) (36K BRAMs)    : [17]
+Block RAM resource(s) (36K BRAMs)    : [68]
 ----------------------------------------------------------------------------------
 Clock A Frequency          :         [100]
 Port A Enable Rate         :         [100]
 Port A Write Rate          :         [50]
 ----------------------------------------------------------------------------------
-Estimated Power for IP     :     22.091902 mW
+Estimated Power for IP     :     25.941502 mW
 ----------------------------------------------------------------------------------

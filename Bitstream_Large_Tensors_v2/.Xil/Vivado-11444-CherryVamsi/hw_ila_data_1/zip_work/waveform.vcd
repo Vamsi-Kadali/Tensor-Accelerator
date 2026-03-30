@@ -1,0 +1,51 @@
+$date
+        2026-Mar-30 16:36:30
+$end
+$version
+        Vivado v2025.1 (64-bit)
+$end
+$timescale
+        1ps
+$end
+$scope module dut $end
+$var reg 5 " state [4:0] $end
+$var reg 8 ' rx_byte [7:0] $end
+$var reg 1 / rx_dv $end
+$var reg 8 0 tx_byte_r [7:0] $end
+$var reg 1 8 tx_dv $end
+$var reg 1 9 tx_done $end
+$var reg 8 : r_cmd [7:0] $end
+$var reg 1 B tt_start $end
+$var reg 1 C tt_done $end
+$var reg 1 D we_a_ext $end
+$var reg 1 E we_b_ext $end
+$var reg 3 F r_tx_idx [2:0] $end
+$var reg 1 I uart_rxd_IBUF $end
+$var reg 1 J uart_txd_OBUF $end
+$var reg 1 K _TRIGGER $end
+$var reg 1 L _WINDOW $end
+$var reg 1 M _GAP $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+b0 "
+b0 '
+0/
+b0 0
+08
+09
+b0 :
+0B
+0C
+0D
+0E
+b0 F
+1I
+1J
+0K
+1L
+0M
+$end
+#2048
+1K

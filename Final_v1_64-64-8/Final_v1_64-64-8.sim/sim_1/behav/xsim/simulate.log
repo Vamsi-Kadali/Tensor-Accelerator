@@ -1,0 +1,109 @@
+Time resolution is 1 ps
+Block Memory Generator module tb_uart_tensor_bridge.u_dut.u_tensor.u_bram_A.inst.native_mem_module.blk_mem_gen_v8_4_11_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
+Block Memory Generator module tb_uart_tensor_bridge.u_dut.u_tensor.u_bram_B.inst.native_mem_module.blk_mem_gen_v8_4_11_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
+Block Memory Generator module tb_uart_tensor_bridge.u_dut.u_tensor.u_bram_C.inst.native_mem_module.blk_mem_gen_v8_4_11_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
+blk_mem_gen_v8_4_11 collision detected at time: 5295000, Instance: tb_uart_tensor_bridge.u_dut.u_tensor.u_bram_A.inst.native_mem_module.blk_mem_gen_v8_4_11_inst, A write address: 0, B read address: 0
+blk_mem_gen_v8_4_11 collision detected at time: 29375000, Instance: tb_uart_tensor_bridge.u_dut.u_tensor.u_bram_B.inst.native_mem_module.blk_mem_gen_v8_4_11_inst, A write address: 0, B read address: 0
+blk_mem_gen_v8_4_11 collision detected at time: 54505000, Instance: tb_uart_tensor_bridge.u_dut.u_tensor.u_bram_C.inst.native_mem_module.blk_mem_gen_v8_4_11_inst, A write address: 0, B read address: 0
+blk_mem_gen_v8_4_11 collision detected at time: 219385000, Instance: tb_uart_tensor_bridge.u_dut.u_tensor.u_bram_C.inst.native_mem_module.blk_mem_gen_v8_4_11_inst, A write address: 0, B read address: 0
+Test 0 ok  op=000 M=2 K=2 N=2 D=1
+blk_mem_gen_v8_4_11 collision detected at time: 272225000, Instance: tb_uart_tensor_bridge.u_dut.u_tensor.u_bram_C.inst.native_mem_module.blk_mem_gen_v8_4_11_inst, A write address: 41, B read address: 41
+Test 1 ok  op=001 M=1 K=1 N=1 D=1
+blk_mem_gen_v8_4_11 collision detected at time: 499855000, Instance: tb_uart_tensor_bridge.u_dut.u_tensor.u_bram_C.inst.native_mem_module.blk_mem_gen_v8_4_11_inst, A write address: 0, B read address: 0
+blk_mem_gen_v8_4_11 collision detected at time: 664245000, Instance: tb_uart_tensor_bridge.u_dut.u_tensor.u_bram_C.inst.native_mem_module.blk_mem_gen_v8_4_11_inst, A write address: 0, B read address: 0
+Test 2 ok  op=010 M=2 K=2 N=2 D=1
+blk_mem_gen_v8_4_11 collision detected at time: 753205000, Instance: tb_uart_tensor_bridge.u_dut.u_tensor.u_bram_C.inst.native_mem_module.blk_mem_gen_v8_4_11_inst, A write address: 41, B read address: 41
+blk_mem_gen_v8_4_11 collision detected at time: 917095000, Instance: tb_uart_tensor_bridge.u_dut.u_tensor.u_bram_C.inst.native_mem_module.blk_mem_gen_v8_4_11_inst, A write address: 41, B read address: 41
+Test 3 ok  op=011 M=2 K=2 N=2 D=1
+blk_mem_gen_v8_4_11 collision detected at time: 993865000, Instance: tb_uart_tensor_bridge.u_dut.u_tensor.u_bram_C.inst.native_mem_module.blk_mem_gen_v8_4_11_inst, A write address: 41, B read address: 41
+blk_mem_gen_v8_4_11 collision detected at time: 1158735000, Instance: tb_uart_tensor_bridge.u_dut.u_tensor.u_bram_C.inst.native_mem_module.blk_mem_gen_v8_4_11_inst, A write address: 41, B read address: 41
+Test 4 ok  op=100 M=2 K=3 N=3 D=1
+blk_mem_gen_v8_4_11 collision detected at time: 1239755000, Instance: tb_uart_tensor_bridge.u_dut.u_tensor.u_bram_C.inst.native_mem_module.blk_mem_gen_v8_4_11_inst, A write address: 42, B read address: 42
+Test 5 ok  op=101 M=2 K=2 N=2 D=1
+blk_mem_gen_v8_4_11 collision detected at time: 1467155000, Instance: tb_uart_tensor_bridge.u_dut.u_tensor.u_bram_B.inst.native_mem_module.blk_mem_gen_v8_4_11_inst, A write address: 0, B read address: 0
+blk_mem_gen_v8_4_11 collision detected at time: 1492935000, Instance: tb_uart_tensor_bridge.u_dut.u_tensor.u_bram_C.inst.native_mem_module.blk_mem_gen_v8_4_11_inst, A write address: 41, B read address: 41
+blk_mem_gen_v8_4_11 collision detected at time: 1657315000, Instance: tb_uart_tensor_bridge.u_dut.u_tensor.u_bram_C.inst.native_mem_module.blk_mem_gen_v8_4_11_inst, A write address: 41, B read address: 41
+Test 6 ok  op=000 M=2 K=2 N=2 D=1
+blk_mem_gen_v8_4_11 collision detected at time: 1716025000, Instance: tb_uart_tensor_bridge.u_dut.u_tensor.u_bram_C.inst.native_mem_module.blk_mem_gen_v8_4_11_inst, A write address: 41, B read address: 41
+Test 7 ok  op=101 M=1 K=4 N=3 D=1
+blk_mem_gen_v8_4_11 collision detected at time: 1916745000, Instance: tb_uart_tensor_bridge.u_dut.u_tensor.u_bram_B.inst.native_mem_module.blk_mem_gen_v8_4_11_inst, A write address: 0, B read address: 0
+blk_mem_gen_v8_4_11 collision detected at time: 1947915000, Instance: tb_uart_tensor_bridge.u_dut.u_tensor.u_bram_C.inst.native_mem_module.blk_mem_gen_v8_4_11_inst, A write address: 2, B read address: 2
+blk_mem_gen_v8_4_11 collision detected at time: 2112345000, Instance: tb_uart_tensor_bridge.u_dut.u_tensor.u_bram_C.inst.native_mem_module.blk_mem_gen_v8_4_11_inst, A write address: 2, B read address: 2
+Test 8 ok  op=001 M=1 K=4 N=3 D=1
+blk_mem_gen_v8_4_11 collision detected at time: 2216555000, Instance: tb_uart_tensor_bridge.u_dut.u_tensor.u_bram_C.inst.native_mem_module.blk_mem_gen_v8_4_11_inst, A write address: 2, B read address: 2
+blk_mem_gen_v8_4_11 collision detected at time: 2380985000, Instance: tb_uart_tensor_bridge.u_dut.u_tensor.u_bram_C.inst.native_mem_module.blk_mem_gen_v8_4_11_inst, A write address: 2, B read address: 2
+Test 9 ok  op=011 M=2 K=2 N=3 D=1
+blk_mem_gen_v8_4_11 collision detected at time: 2510255000, Instance: tb_uart_tensor_bridge.u_dut.u_tensor.u_bram_C.inst.native_mem_module.blk_mem_gen_v8_4_11_inst, A write address: 42, B read address: 42
+blk_mem_gen_v8_4_11 collision detected at time: 2674655000, Instance: tb_uart_tensor_bridge.u_dut.u_tensor.u_bram_C.inst.native_mem_module.blk_mem_gen_v8_4_11_inst, A write address: 42, B read address: 42
+Test 10 ok  op=000 M=3 K=2 N=3 D=1
+blk_mem_gen_v8_4_11 collision detected at time: 2792745000, Instance: tb_uart_tensor_bridge.u_dut.u_tensor.u_bram_C.inst.native_mem_module.blk_mem_gen_v8_4_11_inst, A write address: 82, B read address: 82
+Test 11 ok  op=100 M=3 K=2 N=1 D=1
+blk_mem_gen_v8_4_11 collision detected at time: 2999325000, Instance: tb_uart_tensor_bridge.u_dut.u_tensor.u_bram_B.inst.native_mem_module.blk_mem_gen_v8_4_11_inst, A write address: 0, B read address: 0
+blk_mem_gen_v8_4_11 collision detected at time: 3013695000, Instance: tb_uart_tensor_bridge.u_dut.u_tensor.u_bram_C.inst.native_mem_module.blk_mem_gen_v8_4_11_inst, A write address: 80, B read address: 80
+Test 12 ok  op=000 M=2 K=1 N=2 D=1
+blk_mem_gen_v8_4_11 collision detected at time: 3241685000, Instance: tb_uart_tensor_bridge.u_dut.u_tensor.u_bram_C.inst.native_mem_module.blk_mem_gen_v8_4_11_inst, A write address: 41, B read address: 41
+Test 13 ok  op=011 M=2 K=3 N=1 D=1
+blk_mem_gen_v8_4_11 collision detected at time: 3502175000, Instance: tb_uart_tensor_bridge.u_dut.u_tensor.u_bram_C.inst.native_mem_module.blk_mem_gen_v8_4_11_inst, A write address: 40, B read address: 40
+blk_mem_gen_v8_4_11 collision detected at time: 3667025000, Instance: tb_uart_tensor_bridge.u_dut.u_tensor.u_bram_C.inst.native_mem_module.blk_mem_gen_v8_4_11_inst, A write address: 40, B read address: 40
+Test 14 ok  op=100 M=4 K=3 N=4 D=1
+blk_mem_gen_v8_4_11 collision detected at time: 3809705000, Instance: tb_uart_tensor_bridge.u_dut.u_tensor.u_bram_B.inst.native_mem_module.blk_mem_gen_v8_4_11_inst, A write address: 0, B read address: 0
+blk_mem_gen_v8_4_11 collision detected at time: 3878925000, Instance: tb_uart_tensor_bridge.u_dut.u_tensor.u_bram_C.inst.native_mem_module.blk_mem_gen_v8_4_11_inst, A write address: c3, B read address: c3
+Test 15 ok  op=001 M=3 K=4 N=2 D=1
+blk_mem_gen_v8_4_11 collision detected at time: 4135205000, Instance: tb_uart_tensor_bridge.u_dut.u_tensor.u_bram_C.inst.native_mem_module.blk_mem_gen_v8_4_11_inst, A write address: 81, B read address: 81
+Test 16 ok  op=101 M=2 K=1 N=3 D=1
+blk_mem_gen_v8_4_11 collision detected at time: 4360195000, Instance: tb_uart_tensor_bridge.u_dut.u_tensor.u_bram_B.inst.native_mem_module.blk_mem_gen_v8_4_11_inst, A write address: 0, B read address: 0
+blk_mem_gen_v8_4_11 collision detected at time: 4392005000, Instance: tb_uart_tensor_bridge.u_dut.u_tensor.u_bram_C.inst.native_mem_module.blk_mem_gen_v8_4_11_inst, A write address: 42, B read address: 42
+Test 17 ok  op=010 M=1 K=2 N=3 D=1
+blk_mem_gen_v8_4_11 collision detected at time: 4635925000, Instance: tb_uart_tensor_bridge.u_dut.u_tensor.u_bram_C.inst.native_mem_module.blk_mem_gen_v8_4_11_inst, A write address: 2, B read address: 2
+Test 18 ok  op=001 M=4 K=4 N=1 D=1
+blk_mem_gen_v8_4_11 collision detected at time: 4878485000, Instance: tb_uart_tensor_bridge.u_dut.u_tensor.u_bram_C.inst.native_mem_module.blk_mem_gen_v8_4_11_inst, A write address: c0, B read address: c0
+Test 19 ok  op=000 M=1 K=3 N=1 D=1
+blk_mem_gen_v8_4_11 collision detected at time: 5153985000, Instance: tb_uart_tensor_bridge.u_dut.u_tensor.u_bram_C.inst.native_mem_module.blk_mem_gen_v8_4_11_inst, A write address: 0, B read address: 0
+blk_mem_gen_v8_4_11 collision detected at time: 5318375000, Instance: tb_uart_tensor_bridge.u_dut.u_tensor.u_bram_C.inst.native_mem_module.blk_mem_gen_v8_4_11_inst, A write address: 0, B read address: 0
+Test 20 ok  op=001 M=2 K=3 N=4 D=1
+blk_mem_gen_v8_4_11 collision detected at time: 5409815000, Instance: tb_uart_tensor_bridge.u_dut.u_tensor.u_bram_C.inst.native_mem_module.blk_mem_gen_v8_4_11_inst, A write address: 43, B read address: 43
+Test 21 ok  op=101 M=1 K=3 N=3 D=1
+blk_mem_gen_v8_4_11 collision detected at time: 5653725000, Instance: tb_uart_tensor_bridge.u_dut.u_tensor.u_bram_C.inst.native_mem_module.blk_mem_gen_v8_4_11_inst, A write address: 2, B read address: 2
+Test 22 ok  op=101 M=4 K=2 N=2 D=1
+blk_mem_gen_v8_4_11 collision detected at time: 5897245000, Instance: tb_uart_tensor_bridge.u_dut.u_tensor.u_bram_B.inst.native_mem_module.blk_mem_gen_v8_4_11_inst, A write address: 0, B read address: 0
+blk_mem_gen_v8_4_11 collision detected at time: 5918285000, Instance: tb_uart_tensor_bridge.u_dut.u_tensor.u_bram_C.inst.native_mem_module.blk_mem_gen_v8_4_11_inst, A write address: c1, B read address: c1
+Test 23 ok  op=000 M=1 K=1 N=3 D=1
+blk_mem_gen_v8_4_11 collision detected at time: 6153845000, Instance: tb_uart_tensor_bridge.u_dut.u_tensor.u_bram_B.inst.native_mem_module.blk_mem_gen_v8_4_11_inst, A write address: 3, B read address: 3
+blk_mem_gen_v8_4_11 collision detected at time: 6256185000, Instance: tb_uart_tensor_bridge.u_dut.u_tensor.u_bram_A.inst.native_mem_module.blk_mem_gen_v8_4_11_inst, A write address: c0, B read address: c0
+blk_mem_gen_v8_4_11 collision detected at time: 6305415000, Instance: tb_uart_tensor_bridge.u_dut.u_tensor.u_bram_C.inst.native_mem_module.blk_mem_gen_v8_4_11_inst, A write address: 2, B read address: 2
+blk_mem_gen_v8_4_11 collision detected at time: 6469845000, Instance: tb_uart_tensor_bridge.u_dut.u_tensor.u_bram_C.inst.native_mem_module.blk_mem_gen_v8_4_11_inst, A write address: 2, B read address: 2
+Test 24 ok  op=010 M=4 K=3 N=4 D=1
+blk_mem_gen_v8_4_11 collision detected at time: 6627625000, Instance: tb_uart_tensor_bridge.u_dut.u_tensor.u_bram_C.inst.native_mem_module.blk_mem_gen_v8_4_11_inst, A write address: c3, B read address: c3
+Test 25 ok  op=100 M=1 K=3 N=1 D=1
+blk_mem_gen_v8_4_11 collision detected at time: 6817765000, Instance: tb_uart_tensor_bridge.u_dut.u_tensor.u_bram_B.inst.native_mem_module.blk_mem_gen_v8_4_11_inst, A write address: 0, B read address: 0
+blk_mem_gen_v8_4_11 collision detected at time: 6830855000, Instance: tb_uart_tensor_bridge.u_dut.u_tensor.u_bram_C.inst.native_mem_module.blk_mem_gen_v8_4_11_inst, A write address: 0, B read address: 0
+blk_mem_gen_v8_4_11 collision detected at time: 6995245000, Instance: tb_uart_tensor_bridge.u_dut.u_tensor.u_bram_C.inst.native_mem_module.blk_mem_gen_v8_4_11_inst, A write address: 0, B read address: 0
+Test 26 ok  op=000 M=2 K=1 N=2 D=1
+blk_mem_gen_v8_4_11 collision detected at time: 7072165000, Instance: tb_uart_tensor_bridge.u_dut.u_tensor.u_bram_C.inst.native_mem_module.blk_mem_gen_v8_4_11_inst, A write address: 41, B read address: 41
+Test 27 ok  op=011 M=1 K=2 N=3 D=1
+blk_mem_gen_v8_4_11 collision detected at time: 7340175000, Instance: tb_uart_tensor_bridge.u_dut.u_tensor.u_bram_C.inst.native_mem_module.blk_mem_gen_v8_4_11_inst, A write address: 2, B read address: 2
+Test 28 ok  op=010 M=3 K=2 N=2 D=1
+blk_mem_gen_v8_4_11 collision detected at time: 7598385000, Instance: tb_uart_tensor_bridge.u_dut.u_tensor.u_bram_C.inst.native_mem_module.blk_mem_gen_v8_4_11_inst, A write address: 81, B read address: 81
+Test 29 ok  op=011 M=3 K=1 N=1 D=1
+blk_mem_gen_v8_4_11 collision detected at time: 7830895000, Instance: tb_uart_tensor_bridge.u_dut.u_tensor.u_bram_C.inst.native_mem_module.blk_mem_gen_v8_4_11_inst, A write address: 80, B read address: 80
+blk_mem_gen_v8_4_11 collision detected at time: 7994245000, Instance: tb_uart_tensor_bridge.u_dut.u_tensor.u_bram_C.inst.native_mem_module.blk_mem_gen_v8_4_11_inst, A write address: 80, B read address: 80
+Test 30 ok  op=001 M=3 K=1 N=1 D=1
+blk_mem_gen_v8_4_11 collision detected at time: 8075455000, Instance: tb_uart_tensor_bridge.u_dut.u_tensor.u_bram_C.inst.native_mem_module.blk_mem_gen_v8_4_11_inst, A write address: 80, B read address: 80
+Test 31 ok  op=010 M=2 K=1 N=2 D=1
+blk_mem_gen_v8_4_11 collision detected at time: 8291405000, Instance: tb_uart_tensor_bridge.u_dut.u_tensor.u_bram_C.inst.native_mem_module.blk_mem_gen_v8_4_11_inst, A write address: 41, B read address: 41
+Test 32 ok  op=101 M=2 K=3 N=1 D=1
+blk_mem_gen_v8_4_11 collision detected at time: 8484475000, Instance: tb_uart_tensor_bridge.u_dut.u_tensor.u_bram_B.inst.native_mem_module.blk_mem_gen_v8_4_11_inst, A write address: 0, B read address: 0
+blk_mem_gen_v8_4_11 collision detected at time: 8576465000, Instance: tb_uart_tensor_bridge.u_dut.u_tensor.u_bram_C.inst.native_mem_module.blk_mem_gen_v8_4_11_inst, A write address: 40, B read address: 40
+blk_mem_gen_v8_4_11 collision detected at time: 8740335000, Instance: tb_uart_tensor_bridge.u_dut.u_tensor.u_bram_C.inst.native_mem_module.blk_mem_gen_v8_4_11_inst, A write address: 40, B read address: 40
+Test 33 ok  op=011 M=4 K=1 N=2 D=1
+blk_mem_gen_v8_4_11 collision detected at time: 8832915000, Instance: tb_uart_tensor_bridge.u_dut.u_tensor.u_bram_C.inst.native_mem_module.blk_mem_gen_v8_4_11_inst, A write address: c1, B read address: c1
+Test 34 ok  op=101 M=3 K=2 N=1 D=1
+blk_mem_gen_v8_4_11 collision detected at time: 9033335000, Instance: tb_uart_tensor_bridge.u_dut.u_tensor.u_bram_B.inst.native_mem_module.blk_mem_gen_v8_4_11_inst, A write address: 0, B read address: 0
+blk_mem_gen_v8_4_11 collision detected at time: 9065765000, Instance: tb_uart_tensor_bridge.u_dut.u_tensor.u_bram_C.inst.native_mem_module.blk_mem_gen_v8_4_11_inst, A write address: 80, B read address: 80
+Test 35 ok  op=011 M=1 K=1 N=3 D=1
+blk_mem_gen_v8_4_11 collision detected at time: 9440435000, Instance: tb_uart_tensor_bridge.u_dut.u_tensor.u_bram_A.inst.native_mem_module.blk_mem_gen_v8_4_11_inst, A write address: c3, B read address: c3
+blk_mem_gen_v8_4_11 collision detected at time: 9446455000, Instance: tb_uart_tensor_bridge.u_dut.u_tensor.u_bram_B.inst.native_mem_module.blk_mem_gen_v8_4_11_inst, A write address: c3, B read address: c3
+blk_mem_gen_v8_4_11 collision detected at time: 9453545000, Instance: tb_uart_tensor_bridge.u_dut.u_tensor.u_bram_C.inst.native_mem_module.blk_mem_gen_v8_4_11_inst, A write address: 2, B read address: 2
+blk_mem_gen_v8_4_11 collision detected at time: 9617975000, Instance: tb_uart_tensor_bridge.u_dut.u_tensor.u_bram_C.inst.native_mem_module.blk_mem_gen_v8_4_11_inst, A write address: 2, B read address: 2
+Test 36 ok  op=001 M=4 K=4 N=4 D=1
+blk_mem_gen_v8_4_11 collision detected at time: 9902175000, Instance: tb_uart_tensor_bridge.u_dut.u_tensor.u_bram_C.inst.native_mem_module.blk_mem_gen_v8_4_11_inst, A write address: c3, B read address: c3
