@@ -1,7 +1,0 @@
-Running: xsim.dir/tb_tensor_top_random_behav/xsimk.exe -simmode gui -wdb tb_tensor_top_random_behav.wdb -simrunnum 0 -socket 52940
-Design successfully loaded
-Design Loading Memory Usage: 12680 KB (Peak: 12680 KB)
-Design Loading CPU Usage: 15 ms
-Simulation completed
-Simulation Memory Usage: 23720 KB (Peak: 23720 KB)
-Simulation CPU Usage: 1234 ms
