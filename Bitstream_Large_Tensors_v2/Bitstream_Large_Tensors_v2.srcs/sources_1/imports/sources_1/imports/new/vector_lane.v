@@ -1,0 +1,114 @@
+`timescale 1ns / 1ps
+
+module vector_lane #( parameter WIDTH = 16, ACC = 40, N_MAX = 64 )(
+    input clk,
+    input rst,
+    input load,
+    input en,
+
+    input [2:0] op,
+
+    input [$clog2(N_MAX+1)-1:0] vec_len,
+
+    output [$clog2(N_MAX)-1:0] a_raddr,
+    output [$clog2(N_MAX)-1:0] b_raddr,
+
+    input signed [WIDTH-1:0] a_rdata,
+    input signed [WIDTH-1:0] b_rdata,
+
+    output reg signed [ACC-1:0] res,
+    output reg done
+);
+
+    localparam ID_W = (N_MAX <= 1) ? 1 : $clog2(N_MAX);
+
+    localparam
+        OP_MATMULT   = 3'b000,
+        OP_ADD       = 3'b001,
+        OP_SUB       = 3'b010,
+        OP_HADAMARD  = 3'b011,
+        OP_ROW_ACCUM = 3'b100,
+        OP_COL_ACCUM = 3'b101;
+
+    reg [ID_W-1:0]       id;
+    reg signed [ACC-1:0] acc_reg;
+    wire signed [ACC-1:0] acc_next;
+
+    assign a_raddr = id;
+    assign b_raddr = id;
+
+    wire signed [WIDTH-1:0] a_sel = a_rdata;
+    wire signed [WIDTH-1:0] b_sel = b_rdata;
+
+    reg signed [WIDTH-1:0] a_eff;
+    reg signed [WIDTH-1:0] b_eff;
+    reg signed [ACC-1:0]   acc_eff;
+
+    always @(*) begin
+        a_eff   = a_sel;
+        b_eff   = b_sel;
+        acc_eff = acc_reg;
+
+        case (op)
+            OP_MATMULT: begin
+            end
+
+            OP_HADAMARD: begin
+                acc_eff = 0;
+            end
+
+            OP_ADD: begin
+                b_eff   = 1;
+                acc_eff = b_sel;
+            end
+
+            OP_SUB: begin
+                b_eff   = 1;
+                acc_eff = -b_sel;
+            end
+
+            OP_ROW_ACCUM, OP_COL_ACCUM: begin
+                b_eff = 1;
+            end
+
+            default: begin
+                acc_eff = acc_reg;
+            end
+        endcase
+    end
+
+    mac #(WIDTH, ACC) mac_inst (
+        .a      (a_eff),
+        .b      (b_eff),
+        .acc_in (acc_eff),
+        .acc_out(acc_next)
+    );
+
+    always @(posedge clk) begin
+        if (rst) begin
+            id      <= '0;
+            acc_reg <= '0;
+            res     <= '0;
+            done    <= 1'b0;
+        end
+        else if (load) begin
+            id      <= '0;
+            acc_reg <= '0;
+            res     <= '0;
+            done    <= 1'b0;
+        end
+        else if (en && !done && vec_len != 0) begin
+            acc_reg <= acc_next;
+
+            if (id == vec_len - 1) begin
+                res  <= acc_next;
+                done <= 1'b1;
+                id   <= '0;
+            end
+            else begin
+                id <= id + 1;
+            end
+        end
+    end
+
+endmodule

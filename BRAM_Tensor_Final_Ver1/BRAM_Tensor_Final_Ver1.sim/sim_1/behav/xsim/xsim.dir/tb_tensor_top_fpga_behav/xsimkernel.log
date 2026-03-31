@@ -1,7 +1,0 @@
-Running: xsim.dir/tb_tensor_top_fpga_behav/xsimk.exe -simmode gui -wdb tb_tensor_top_fpga_behav.wdb -simrunnum 0 -socket 64544
-Design successfully loaded
-Design Loading Memory Usage: 10960 KB (Peak: 10960 KB)
-Design Loading CPU Usage: 15 ms
-Simulation completed
-Simulation Memory Usage: 12960 KB (Peak: 12960 KB)
-Simulation CPU Usage: 77 ms

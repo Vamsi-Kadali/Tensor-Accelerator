@@ -5,7 +5,7 @@ import time
 PORT      = 'COM6'
 BAUD      = 115_200
 MAX_DIM   = 64
-MAX_DEPTH = 16
+MAX_DEPTH = 8
 ACC_BITS  = 38
 TX_BYTES  = (ACC_BITS + 7) // 8   # 5 bytes per READ_C response
 
